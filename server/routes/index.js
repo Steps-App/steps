@@ -1,18 +1,16 @@
-'use strict'
-// require our database and init our router
-const db = require('../../db')
-const express = require('express')
-const router = express.router()
+// init our router
+const router = require('express').Router();
+
+// modular routers
+const pathOne = require('./pathOne')
+const pathTwo = require('./pathTwo')
 
 // routing here
 router
-  .use('/pathOne', require('./pathOne'))
-  .use('/pathTwo', require('./pathTwo'))
+  .use('/pathOne', pathOne)
+  .use('/pathTwo', pathTwo)
 
-// Send along any errors
-router.use((err, req, res, next) => {
-  res.status(500).send(err)
-})
-
-// No routes matched? 404.
+// No API routes matched? 404.
 router.use((req, res) => res.status(404).end())
+
+module.exports = router;
