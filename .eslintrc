@@ -1,0 +1,38 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "impliedStrict": true,
+    "modules": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": false,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "spread": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "jsx": true
+  },
+  "rules": {
+    "no-var": 2,                              // http://eslint.org/docs/rules/no-var
+    "strict": [2, "never"],                   // http://eslint.org/docs/2.0.0/rules/strict
+    "no-mixed-spaces-and-tabs": 2,            // http://eslint.org/docs/rules/no-mixed-spaces-and-tabs
+    "indent": ["error", 2, {"SwitchCase": 1}] // http://eslint.org/docs/rules/indent
+  }
+}

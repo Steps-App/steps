@@ -1,30 +1,97 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const merge = require('webpack-merge');
+const validate = require('webpack-validator');
+const tools = require('./libs/webpack.tools');
 
-module.exports = {
-  entry: './app/main.jsx',
+// Init common paths used by config
+const path = require('path');
+const PATHS = {
+  app: path.join(__dirname, 'app', 'main.jsx'),
+  build: path.join(__dirname, 'public'),
+  stylesheets: path.join(__dirname, 'src/stylesheets', 'style.css'),
+  html_template: path.join(__dirname, '/src/index.html')
+};
+
+// Vendor dependencies, isolated for chunking
+const vendorDependencies = [
+  'axios',
+  'react', 'react-dom', 'react-router',
+  'redux', 'react-redux', 'redux-logger', 'redux-thunk'
+]
+
+// index.html template
+let htmlTemplate = {
+  title: 'Therapy',
+  meta: {
+    description: 'Physical therapy for the way you live today',
+    keywords: 'physical therapy, occupational therapy'
+  },
+  template: PATHS.html_template
+}
+
+// Standard build artifacts for all envs
+const common = {
+  entry: {
+    app: PATHS.app,
+    style: PATHS.stylesheets
+  },
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+    path: PATHS.build,
+    sourceMapFilename: '[file].map',
+    filename: '[name].js'
   },
-  context: __dirname,
-  devtool: 'source-map',
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+    new HtmlWebpackPlugin(htmlTemplate)
+  ],
   module: {
     loaders: [
       {
         test: /jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
+        exclude: /node_modules/,
+        loader: 'babel'
       }
     ]
   }
-};
+}
+
+// Detect how npm is run and switch based on this
+let config;
+switch (process.env.npm_lifecycle_event) {
+  case 'build':
+    config = merge(
+      common,
+      {
+        devtool: 'source-map',
+        output: Object.assign(common.output, {
+          filename: '[name].[chunkhash].js',
+          chunkFilename: '[chunkhash].js'
+        })
+      },
+      tools.extractBundle({
+        name: 'vendor',
+        entries: vendorDependencies
+      }),
+      tools.clean(PATHS.build),
+      tools.extractCSS(PATHS.stylesheets),
+      tools.minify()
+    );
+    break;
+  case 'build-watch':
+    config = merge(
+      common,
+      { devtool: 'eval' },
+      tools.clean(PATHS.build),
+      tools.extractCSS(PATHS.stylesheets)
+    );
+    break;
+  default:
+    console.log('No Webpack config specified for npm event')
+    config = merge(common)
+}
+
+module.exports = validate(config, { quiet: true });
