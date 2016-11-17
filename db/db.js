@@ -11,7 +11,7 @@ console.log(chalk.yellow(`Opening database connection to ${URL}`))
 const db = new Sequelize(URL, {
   native: true,             // use pg-native
   define: {
-    freezeTableName: true,  // don't go changing our table names, Sequelize
+    freezeTableName: true   // don't go changing our table names, Sequelize
   }
 })
 

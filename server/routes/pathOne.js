@@ -1,5 +1,3 @@
-'use strict'
-
 // router
 const express = require('express')
 const router = express()

@@ -11,13 +11,13 @@ const ACTION = 'ACTION'    // <-- CHANGE
 
 export const doAction = (input) => {  // <-- CHANGE
   type: ACTION,
-  inpu
+  input
 }
 
 export const thunkDispatch = () => {  // <-- CHANGE
   const thunk = (dispatch) => {
     // SOMETHING ASYNC
-  return thunk
+    return thunk
   }
 }
 
@@ -25,7 +25,7 @@ export const thunkDispatch = () => {  // <-- CHANGE
 // -=-=-=-= REDUCER =-=-=-=-=-
 
 const reducerOne = (state = initialState, action) => {  // <--- CHANGE
-  switch(action.type) {
+  switch (action.type) {
     case ACTION:
       return Object.assign({}, state, { someProp: newThing })
     default: return state

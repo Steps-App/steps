@@ -1,7 +1,5 @@
-'use strict'
 // init our router
-const express = require('express')
-const router = express()
+const router = require('express').Router();
 
 // modular routers
 const pathOne = require('./pathOne')
@@ -12,10 +10,7 @@ router
   .use('/pathOne', pathOne)
   .use('/pathTwo', pathTwo)
 
-// Send along any errors
-router.use((err, req, res, next) => {
-  res.status(500).send(err)
-})
-
-// No routes matched? 404.
+// No API routes matched? 404.
 router.use((req, res) => res.status(404).end())
+
+module.exports = router;

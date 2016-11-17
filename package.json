@@ -1,19 +1,28 @@
 {
   "name": "therapy",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Physical Therapy for The Way You Live Today",
-  "main": "index.js",
+  "main": "server/app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jakepeyser/therapy.git"
   },
-  "author": "",
+  "contributors": [
+    "Jake Peyser <jakepeyser@gmail.com> (http://jakepeyser.com)",
+    "Emily Ho <emilyyho33@gmail.com> (https://www.linkedin.com/in/emily-ho-8a035235)",
+    "Hiten Patel <hpduke2@gmail.com>",
+    "Mike Williams"
+  ],
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakepeyser/therapy/issues"
+  },
   "scripts": {
-    "test": "",
+    "start": "node server/app.js",
+    "dev": "nodemon --watch server -e js server/app.js",
     "build": "webpack",
-    "build-watch": "webpack -w",
-    "start": "nodemon server/app.js"
+    "build-watch": "webpack -w --progress",
+    "test": "echo No tests specified"
   },
   "dependencies": {
     "axios": "^0.15.2",
@@ -21,6 +30,7 @@
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
@@ -42,7 +52,6 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "json-loader": "^0.5.4",
-    "morgan": "^1.7.0",
     "webpack": "^1.13.3"
   }
 }

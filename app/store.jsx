@@ -3,7 +3,14 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
+import { isBrowser } from './utils'
 
-const store = createStore(rootReducer, applyMiddleware(createLogger(), thunkMiddleware))
+// Setup Redux middleware based on env
+const middleware = [ thunkMiddleware ];
+if (isBrowser())
+  middleware.push(createLogger());
 
-export default store
+export default createStore(
+  rootReducer,
+  applyMiddleware( ...middleware )
+);
