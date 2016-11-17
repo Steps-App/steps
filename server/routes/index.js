@@ -1,13 +1,16 @@
 'use strict'
-// require our database and init our router
-const db = require('../../db')
+// init our router
 const express = require('express')
-const router = express.router()
+const router = express()
+
+// modular routers
+const pathOne = require('./pathOne')
+const pathTwo = require('./pathTwo')
 
 // routing here
 router
-  .use('/pathOne', require('./pathOne'))
-  .use('/pathTwo', require('./pathTwo'))
+  .use('/pathOne', pathOne)
+  .use('/pathTwo', pathTwo)
 
 // Send along any errors
 router.use((err, req, res, next) => {
