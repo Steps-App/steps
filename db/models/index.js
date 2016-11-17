@@ -10,4 +10,4 @@ const Workout = require('./workout');
 // http://docs.sequelizejs.com/en/latest/docs/associations/
 
 
-module.exports = { Therapist, Patient, Plan, Treatment, Exercise, Workout }
+module.exports = { Therapist, Patient, Plan, Treatment, Exercise, Workout };

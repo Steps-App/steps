@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const ModelName = db.define('tablename', {
+const ModelName = db.define('therapist', {
 
 })
 
