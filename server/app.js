@@ -8,7 +8,8 @@ const passport = require('passport')
 const app = express()  // invoke router as 'app'
 const PATHS = {
   indexHTML: path.join(__dirname, '../public/index.html'),
-  public: path.join(__dirname, '../public')
+  public: path.join(__dirname, '../public'),
+  bootstrap: path.resolve(__dirname, '..', 'node_modules/bootstrap/dist/css')
 }
 
 // routes
@@ -21,11 +22,12 @@ const PORT = process.env.PORT || 8080;
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-  .use(morgan('dev'))                 // logging in 'dev' mode
-  .use(express.static(PATHS.public))  // static file server
-  .use(passport.initialize())         // passport auth middleware
+  .use(morgan('dev'))                   // logging in 'dev' mode
+  .use(express.static(PATHS.public))    // static file server
+  .use(express.static(PATHS.bootstrap))
+  .use(passport.initialize())           // passport auth middleware
   .use(passport.session())
-  .use('/api', routes)                // database-served api routes
+  .use('/api', routes)                  // database-served api routes
 
 // default routing
 app.get('/*', (req, res) => res.sendFile(PATHS.indexHTML));

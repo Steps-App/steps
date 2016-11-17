@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= htmlWebpackPlugin.options.title%></title>
+    <base href="/">
+    <meta charset="utf-8">
+    <% for (key in htmlWebpackPlugin.options.meta) { %>
+    <meta content="<%= htmlWebpackPlugin.options.meta[key] %>" name="<%= key %>">
+    <% } %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/bootstrap.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
+<body>
+  
