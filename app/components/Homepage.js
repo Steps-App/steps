@@ -2,19 +2,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-
 // Material theme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import { TextField, SelectField, MenuItem, RaisedButton } from 'material-ui';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
 
 //External Components Modular
 import Signin from './Signin'
-
-
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
