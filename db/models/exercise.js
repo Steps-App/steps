@@ -16,14 +16,14 @@ const Exercise = db.define('exercise', {
       notEmpty:true
     }
   },
-  imgURL : {
+  img_url : {
     type: Sequelize.STRING,
     defaultValue:"http://google.com/image.jpg",
     validate:{
       isURL: true
     }
   },
-  vidURL : {
+  vid_url : {
     type: Sequelize.STRING,
     defaultValue:"http://google.com/image.jpg",
     validate :{
