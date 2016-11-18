@@ -4,7 +4,7 @@ process.env.NODE_ENV = 'testing';
 const tests = [
   'example',
   'exercise',
-  'treatment'
+  'treatment',
   'therapist',
   'patient'
 ];

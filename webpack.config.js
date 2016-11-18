@@ -78,6 +78,7 @@ switch (process.env.npm_lifecycle_event) {
       }),
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(),
       tools.minify()
     );
     break;
@@ -86,7 +87,8 @@ switch (process.env.npm_lifecycle_event) {
       common,
       { devtool: 'eval' },
       tools.clean(PATHS.build),
-      tools.extractCSS(PATHS.stylesheets)
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages()
     );
     break;
   default:

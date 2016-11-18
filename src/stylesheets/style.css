@@ -8,8 +8,7 @@ body,html {
   color: black;
 }
 
-/* delete after merge */
-#app, .homepage {
+.homepage {
 	width : 100%;
 }
 
@@ -24,6 +23,7 @@ body,html {
   display: flex;
   justify-content: center;
 }
+
 
 img {
     filter: saturate(150%);
@@ -73,8 +73,8 @@ a:active {
     border: none;
   }
   .navbar-right {
-  flex-direction: row; 
-}
+    flex-direction: row; 
+  }
 
 }
 
@@ -127,6 +127,7 @@ a:active {
     right: 55px;
     padding-top: 240px;
 }
+
 
 /* App Navbar  */
 
@@ -225,3 +226,4 @@ a:active {
 .profile-icon > img:hover {
   cursor: pointer;
 }
+
