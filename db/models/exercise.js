@@ -18,20 +18,18 @@ const Exercise = db.define('exercise', {
   },
   imgURL : {
     type: Sequelize.STRING,
-    defaultValue:"", // add photo from static folder
+    defaultValue:"http://google.com/image.jpg",
     validate:{
       isURL: true
     }
   },
   vidURL : {
     type: Sequelize.STRING,
-    defaultValue:"", // add photo from static folder
-    validate:{
+    defaultValue:"http://google.com/image.jpg",
+    validate :{
       isURL: true
     }
   }
-
 });
-
 
 module.exports = Exercise;
