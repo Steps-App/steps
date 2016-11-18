@@ -3,7 +3,9 @@ process.env.NODE_ENV = 'testing';
 // Run all tests
 const tests = [
   'example',
-  'exercise'
-]
+  'exercise',
+  'therapist',
+  'patient'
+];
 
-tests.forEach(test => require(`./${test}.test.js`))
+tests.forEach(test => require(`./${test}.test.js`));
