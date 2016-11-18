@@ -20,6 +20,7 @@ export default ({ children }) => (
       <div className="content">
         { children }
       </div>
+      <Navbar />
     </div>
   </MuiThemeProvider>
 );
