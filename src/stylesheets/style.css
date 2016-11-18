@@ -8,8 +8,21 @@ body,html {
   color: black;
 }
 
+/* delete after merge */
 #app, .homepage {
 	width : 100%;
+}
+
+#app, #main {
+  width: inherit;
+  height: inherit;
+}
+
+.content {
+  min-height: 100vh;
+  padding-top: 5em;
+  display: flex;
+  justify-content: center;
 }
 
 img {
@@ -113,4 +126,41 @@ a:active {
     position: absolute;
     right: 55px;
     padding-top: 240px;
+}
+
+/* App Navbar  */
+
+#navbar {
+  position: fixed;
+  z-index: 2;
+  width: inherit;
+}
+
+#navbar a {
+  text-decoration: none;
+}
+
+.navbar-item, .navbar-item > a {
+  display: flex;
+  align-items: center;
+}
+
+/* navbar icons */
+.navbar-item button > div > span:hover {
+  color: #005B96 !important;
+}
+
+/* navbar icons */
+.navbar-item > a > span {
+  padding: 0 16px;
+}
+
+.profile-icon > img {
+  background-size: 44px;
+  height: 44px;
+  width: 44px;
+}
+
+.profile-icon > img:hover {
+  cursor: pointer;
 }

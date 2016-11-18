@@ -6,3 +6,6 @@ export const isBrowser = () => {
     return false;
   }
 }
+
+// Return formatted full name of user
+export const fullName = user => `${user.first_name} ${user.last_name}`;
