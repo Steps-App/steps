@@ -7,3 +7,66 @@ body,html {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: black;
 }
+
+#app, .homepage {
+	width : 100%;
+}
+
+img {
+    filter: saturate(150%);
+}
+
+.homepage #nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  }
+
+.main {
+  background-image: url('https://static.pexels.com/photos/24746/pexels-photo-24746.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  text-align: left;
+  color: white;
+  position: absolute;
+  width : 100%;
+}
+.main .intro-text {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  padding-left: 65px;
+}
+.main .intro-text .intro-heading {
+  font-size: 37px;
+  line-height: 40px;
+  margin-bottom: 0px;
+}
+.main .intro-text .intro-content {
+  font-size: 15px;
+  line-height: 65px;
+  margin-bottom: 50px;
+}
+@media (min-width: 500px) {
+  .main .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+  .main .intro-text .intro-heading  {
+    font-size: 37px;
+  	line-height: 40px;
+    margin-bottom: 0px;
+  }
+  .main .intro-text .intro-content {
+    font-size: 15px;
+    line-height: 65px;
+    margin-bottom: 50px;
+  }
+}
+
+.signinform {
+    position: absolute;
+    right: 55px;
+    padding-top: 240px;
+}
