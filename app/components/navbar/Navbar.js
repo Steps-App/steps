@@ -11,7 +11,7 @@ import FontIcon from 'material-ui/FontIcon';
 
 const Navbar =  (props) => (
   <Toolbar id="navbar" style={{backgroundColor: toolbar}}>
-    <ToolbarGroup>
+    <ToolbarGroup className="navbar-logo">
       <Link to="/">
         <ToolbarTitle style={{fontSize: '30px', color: textLight, padding: 0}} text="Therapy" />
       </Link>

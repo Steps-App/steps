@@ -25,6 +25,12 @@ body,html {
   justify-content: center;
 }
 
+@media (max-width: 375px) {
+  .content {
+    padding-top: 1em;
+  }
+}
+
 img {
     filter: saturate(150%);
 }
@@ -130,6 +136,12 @@ a:active {
 
 /* App Navbar  */
 
+@media (max-width: 400px) {
+  #navbar {
+    display: none !important;
+  }
+}
+
 #navbar {
   position: fixed;
   z-index: 2;
@@ -138,6 +150,15 @@ a:active {
 
 #navbar a {
   text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  #navbar {
+    justify-content: flex-end !important;
+  }
+  .navbar-logo {
+    display: none !important;
+  }
 }
 
 .navbar-item-icon, .navbar-item > a > img {
