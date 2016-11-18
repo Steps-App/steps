@@ -2,6 +2,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+//Material UI
+import {Tabs, Tab} from 'material-ui/Tabs';
+import { TextField, SelectField, MenuItem, RaisedButton } from 'material-ui';
+
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 export class Signin extends Component {
@@ -25,20 +30,25 @@ export class Signin extends Component {
 		handleSubmit (evt) {
 			evt.preventDefault();
 
+			if(!this.state.licenceId) {
 			const credentials = {
 				email: this.state.email,
 				password: this.state.password
 				}
-
-			if(evt.target.childNodes[0].innerHTML === "Sign-In") {
-				this.props.login(credentials, (err) => {
-					this.setState({ login_error: err });
-				})
+			this.props.signin(credentials)	
 			} else {
-				credentials.firstname = this.state.firstname
-				credentials.lastname = this.state.lastname
-				this.props.signup(credentials)
+			const credentials = {
+				licenceId: this.state.licenceId,
+				practiceName: this.state.practiceName,
+				email: this.state.email,
+				password: this.state.password
+				}
+			this.props.register(credentials)
 			}
+
+			//need to work on login error  
+			//	this.props.login(credentials, (err) => {
+			//		this.setState({ login_error: err });}
 		}
 
 		render() {
@@ -134,15 +144,13 @@ export class Signin extends Component {
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
 const mapDispatchtoProps = dispatch => ({ 
-	signup: credentials => {
-		dispatch(signup(credentials));
+	signin: credentials => {
+		dispatch(signin(credentials));
 	},
-	login: (credentials, displayErr) => {
-		dispatch(login(credentials, displayErr));
+	register: (credentials, displayErr) => {
+		dispatch(register(credentials, displayErr));
 	}
 })
 
-export default connect(
-  null, mapDispatchToProps
-)(Signin);
+export default connect(null, mapDispatchtoProps)(Signin);
 

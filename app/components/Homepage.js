@@ -10,6 +10,11 @@ import { TextField, SelectField, MenuItem, RaisedButton } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+
+//External Components Modular
+import Signin from './Signin'
+
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 export class Homepage extends Component {
@@ -41,80 +46,7 @@ export class Homepage extends Component {
             </div>
             <div className="signinform col-md-4">
               <div className='tabbox'>
-                <Tabs inkBarStyle={{backgroundColor:"transparent"}}  tabItemContainerStyle={{backgroundColor:"transparent"}}>
-                        <Tab label="Sign-in" value="a" style={{color: '#FFFFFF', background: '#011f4b', borderTopLeftRadius: '9px' }} >
-                          <div>
-                            <form style={{ textAlign: 'center' }} >
-                              <TextField
-                                floatingLabelText="Email"
-                                type = 'email'
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <TextField
-                                floatingLabelText="Password"
-                                type = 'password'
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <div className="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
-                                <RaisedButton
-                                  label="Sign-In"
-                                  backgroundColor='#005b96'
-                                  type="submit"
-                                  fullWidth={true}
-                                  labelStyle={{color: '#FFFFFF'}}
-                                  style={{marginTop: '1em'}}
-                                />
-                              </div>
-                            </form>
-                          </div>
-                        </Tab>
-                        <Tab label="Register" value="b" style={{ color: '#000000', background: '#FFFFFF', borderTopRightRadius: '9px' }} >
-                          <div>
-                            <form style={{ textAlign: 'center' }} >
-                              <TextField
-                                floatingLabelText="Licence ID"
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <TextField
-                                floatingLabelText="Practice Name"
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <TextField
-                                floatingLabelText="Email"
-                                type = 'email'
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <TextField
-                                floatingLabelText="Password"
-                                type = 'password'
-                                fullWidth={true}
-                                underlineFocusStyle={{borderColor: '#005b96'}}
-                                floatingLabelFocusStyle={{color: '#005b96'}}
-                              />
-                              <div className="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
-                                <RaisedButton
-                                  label="Register"
-                                  backgroundColor='#005b96'
-                                  type="submit"
-                                  fullWidth={true}
-                                  labelStyle={{color: '#FFFFFF'}}
-                                  style={{marginTop: '1em'}}
-                                />
-                              </div>
-                            </form>
-                          </div>
-                        </Tab>
-                </Tabs>
+                <Signin />
               </div>
             </div>
           </div>
