@@ -25,12 +25,6 @@ body,html {
   justify-content: center;
 }
 
-@media (max-width: 375px) {
-  .content {
-    padding-top: 1em;
-  }
-}
-
 img {
     filter: saturate(150%);
 }
