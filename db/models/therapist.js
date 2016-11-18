@@ -17,7 +17,7 @@ const Therapist = db.define('therapist', {
     }
   },
   practice_name: Sequelize.STRING,
-  licenseId: Sequelize.STRING,
+  license_id: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     validate: {
@@ -33,7 +33,6 @@ const Therapist = db.define('therapist', {
     }
   }
 }, {
-  indexes: [{fields: ['email'], unique: true,}],  // email is also a unique index
   hooks: {
     beforeCreate: setEmailAndPassword, // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword
@@ -50,7 +49,7 @@ const Therapist = db.define('therapist', {
 })
 
 // utility function to set email to lower case and hash the password
-const setEmailAndPassword = (therapist) => {
+function setEmailAndPassword(therapist) {
   therapist.email = therapist.email && therapist.email.toLowerCase()
 
   return new Promise((resolve, reject) =>

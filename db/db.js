@@ -14,7 +14,8 @@ const db = new Sequelize(url, {
   native: true,             // use pg-native
   define: {
     freezeTableName: true   // don't go changing our table names, Sequelize
-  }
+  },
+  logging: false
 })
 
 module.exports = db

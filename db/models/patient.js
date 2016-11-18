@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const bcrypt = require('bcrypt')
 
 const Patient = db.define('patient', {
   first_name: {
@@ -42,7 +43,6 @@ const Patient = db.define('patient', {
     }
   }
 }, {
-  indexes: [{fields: ['email'], unique: true,}],  // email is also a unique index
   hooks: {
     beforeCreate: setEmailAndPassword,  // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword
@@ -59,16 +59,16 @@ const Patient = db.define('patient', {
 })
 
 // utility function to set email to lower case and hash the password
-const setEmailAndPassword = (patient) => {
+function setEmailAndPassword(patient) {
   patient.email = patient.email && patient.email.toLowerCase()
 
   return new Promise((resolve, reject) =>
-    bcrypt.hash(therapist.get('password'), 10, (err, hash) => {
+    bcrypt.hash(patient.get('password'), 10, (err, hash) => {
       if (err) reject(err)
-      therapist.set('password_digest', hash)
+      patient.set('password_digest', hash)
       resolve(patient)
     })
   )
 }
 
-module.exports = Patient;
+module.exports = Patient

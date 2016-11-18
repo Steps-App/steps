@@ -2,12 +2,12 @@
 const router = require('express').Router();
 
 // modular routers
-const pathOne = require('./pathOne')
+const therapistRoute = require('./therapistRoute')
 const pathTwo = require('./pathTwo')
 
 // routing here
 router
-  .use('/pathOne', pathOne)
+  .use('/therapist', therapistRoute)
   .use('/pathTwo', pathTwo)
 
 // No API routes matched? 404.
