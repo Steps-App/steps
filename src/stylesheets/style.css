@@ -8,8 +8,21 @@ body,html {
   color: black;
 }
 
+/* delete after merge */
 #app, .homepage {
 	width : 100%;
+}
+
+#app, #main {
+  width: inherit;
+  height: inherit;
+}
+
+.content {
+  min-height: 100vh;
+  padding-top: 5em;
+  display: flex;
+  justify-content: center;
 }
 
 img {
@@ -113,4 +126,102 @@ a:active {
     position: absolute;
     right: 55px;
     padding-top: 240px;
+}
+
+/* App Navbar  */
+
+#navbar {
+  position: fixed;
+  z-index: 2;
+  width: inherit;
+}
+
+#navbar a {
+  text-decoration: none;
+}
+
+.navbar-item-icon, .navbar-item > a > img {
+  display: none;
+}
+
+.navbar-item, .navbar-item > a {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+
+@media (max-width: 768px) {
+  .navbar-item button {
+    display: none !important;
+  }
+  .navbar-item-icon, .navbar-item > a > img {
+    display: flex;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 550px) {
+  #navbar {
+    justify-content: flex-end !important;
+  }
+  .navbar-logo {
+    display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #navbar {
+    justify-content: center !important;
+  }
+  .navbar-item > a {
+    padding: 0 5px;
+  }
+}
+
+/* navbar icons */
+.navbar-item button > div > span:hover {
+  color: #28A3E1 !important;
+}
+
+.patients {
+  background: url(../images/icons/patients_light.svg);
+  background-size: 46px 46px;
+}
+
+.patients:hover {
+  background: url(../images/icons/patients_active.svg);
+  background-size: 46px 46px;
+}
+
+.exercises {
+  background: url(../images/icons/exercises_light.svg);
+  background-size: 46px 46px;
+}
+
+.exercises:hover {
+  background: url(../images/icons/exercises_active.svg);
+  background-size: 46px 46px;
+}
+
+.messages {
+  background: url(../images/icons/messages_light.svg);
+  background-size: 46px 46px;
+}
+
+.messages:hover {
+  background: url(../images/icons/messages_active.svg);
+  background-size: 46px 46px;
+}
+
+/* navbar icons */
+.profile-icon > img {
+  background-size: 44px;
+  height: 44px;
+  width: 44px;
+}
+
+.profile-icon > img:hover {
+  cursor: pointer;
 }
