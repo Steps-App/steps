@@ -43,26 +43,29 @@ export default class NavbarMenu extends React.Component {
       <ToolbarGroup style={{float: 'right'}}>
         <div className="navbar-item">
           <Link to="/">
-            <FlatButton
+            <FlatButton className="navbar-item-button"
               label="Patients" labelStyle={buttonText}
               hoverColor={toolbar} rippleColor={toolbar}
             />
+            <div className="navbar-item-icon patients" />
           </Link>
         </div>
         <div className="navbar-item">
           <Link to="/">
-            <FlatButton
+            <FlatButton className="navbar-item-button"
               label="Exercises" labelStyle={buttonText}
               hoverColor={toolbar} rippleColor={toolbar}
             />
+            <div className="navbar-item-icon exercises" />
           </Link>
         </div>
         <div className="navbar-item">
           <Link to="/">
-            <FlatButton
+            <FlatButton className="navbar-item-button"
               label="Messages" labelStyle={buttonText}
               hoverColor={toolbar} rippleColor={toolbar}
             />
+            <div className="navbar-item-icon messages" />
           </Link>
         </div>
         <div className="navbar-item">
@@ -95,3 +98,9 @@ export default class NavbarMenu extends React.Component {
     )
   }
 }
+
+
+            // <img
+            //   className="navbar-item-icon"
+            //   src="images/patients.png"
+            //   alt="Patients" />

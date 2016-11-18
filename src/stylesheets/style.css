@@ -140,9 +140,25 @@ a:active {
   text-decoration: none;
 }
 
+.navbar-item-icon, .navbar-item > a > img {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-item button {
+    display: none !important;
+  }
+  .navbar-item-icon, .navbar-item > a > img {
+    display: flex;
+    width: 46px;
+    height: 46px;
+  }
+}
+
 .navbar-item, .navbar-item > a {
   display: flex;
   align-items: center;
+  padding: 0 14px;
 }
 
 /* navbar icons */
@@ -150,11 +166,37 @@ a:active {
   color: #005B96 !important;
 }
 
-/* navbar icons */
-.navbar-item > a > span {
-  padding: 0 16px;
+.patients {
+  background: url(../images/icons/patients_light.svg);
+  background-size: 46px 46px;
 }
 
+.patients:hover {
+  background: url(../images/icons/patients_active.svg);
+  background-size: 46px 46px;
+}
+
+.exercises {
+  background: url(../images/icons/exercises_light.svg);
+  background-size: 46px 46px;
+}
+
+.exercises:hover {
+  background: url(../images/icons/exercises_active.svg);
+  background-size: 46px 46px;
+}
+
+.messages {
+  background: url(../images/icons/messages_light.svg);
+  background-size: 46px 46px;
+}
+
+.messages:hover {
+  background: url(../images/icons/messages_active.svg);
+  background-size: 46px 46px;
+}
+
+/* navbar icons */
 .profile-icon > img {
   background-size: 44px;
   height: 44px;
