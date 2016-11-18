@@ -22,19 +22,12 @@ const Patient = db.define('patient', {
       notEmpty: true
     }
   },
-  DOB: {
-    type: Sequelize.STRING,
-    validate: {
-      isDate: true
-    }
-  },
+  DOB: Sequelize.DATEONLY,
   gender: {
-    type: Sequelize.STRING,
-    validate: {
-      isIn: [['M','F']]
-    }
+    type: Sequelize.ENUM,
+    values: ['M','F']
   },
-  imgURL: Sequelize.STRING,
+  img_URL: Sequelize.STRING,
   password_digest: Sequelize.STRING,
   password: {
     type: Sequelize.VIRTUAL,

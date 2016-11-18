@@ -18,6 +18,7 @@ const Therapist = db.define('therapist', {
   },
   practice_name: Sequelize.STRING,
   license_id: Sequelize.STRING,
+  img_URL: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     validate: {
