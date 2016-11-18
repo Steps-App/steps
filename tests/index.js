@@ -4,6 +4,8 @@ process.env.NODE_ENV = 'testing';
 const tests = [
   'example',
   'treatment'
+  'therapist',
+  'patient'
 ]
 
 tests.forEach(test => require(`./${test}.test.js`))

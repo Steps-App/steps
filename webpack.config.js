@@ -8,7 +8,7 @@ const tools = require('./libs/webpack.tools');
 // Init common paths used by config
 const path = require('path');
 const PATHS = {
-  app: path.join(__dirname, 'app', 'main.jsx'),
+  app: path.join(__dirname, 'app', 'main.js'),
   build: path.join(__dirname, 'public'),
   stylesheets: path.join(__dirname, 'src/stylesheets', 'style.css'),
   html_template: path.join(__dirname, '/src/index.html')
