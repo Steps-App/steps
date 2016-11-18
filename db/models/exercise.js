@@ -1,9 +1,35 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
-const ModelName = db.define('exercise', {
+const Exercise = db.define('exercise', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate : {
+      notEmpty: true
+    }
+  },
+  description : {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate:{
+      notEmpty:true
+    }
+  },
+  img_url : {
+    type: Sequelize.STRING,
+    defaultValue:"http://google.com/image.jpg",
+    validate:{
+      isURL: true
+    }
+  },
+  vid_url : {
+    type: Sequelize.STRING,
+    defaultValue:"http://google.com/image.jpg",
+    validate :{
+      isURL: true
+    }
+  }
+});
 
-})
-
-
-module.exports = ModelName;
+module.exports = Exercise;

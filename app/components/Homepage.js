@@ -15,10 +15,24 @@ injectTapEventPlugin();
 import Signin from './Signin'
 
 
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 export class Homepage extends Component {
 
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'a',
+    };
+  }
+
+  handleChange (value) {
+    this.setState({
+      value: value,
+    });
+  };
 
   render () {
 

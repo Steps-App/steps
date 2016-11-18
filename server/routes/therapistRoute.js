@@ -3,7 +3,7 @@ const express = require('express')
 const router = express()
 
 // db models, if any
-const { Therapist, Patient } = require('../../db/models') // <-- CHANGE
+const Therapist = require('../../db/models/therapist')
 
 // -=-=-= CREATE =-=-=-
 
