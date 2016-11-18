@@ -31,7 +31,7 @@ export class Homepage extends Component {
        <MuiThemeProvider>
         <div className="homepage">
 
-        <nav id="nav">
+        <nav id="navbar" className="navbar navbar-default navbar-fixed-top">
           <div className="navbar-header">
               <a href="#">Therap.ly</a>
           </div>
@@ -44,8 +44,7 @@ export class Homepage extends Component {
         </nav>
 
 
-
-          <div className="main">
+        <div className="main">
             <div className="intro-text col-md-5">
                 <div className="intro-heading" >Physical therapy for the way you live today</div>
                 <div className="intro-content">Plans starting as low as $500 per practice</div>
@@ -57,7 +56,7 @@ export class Homepage extends Component {
                       >
                         <Tab label="Sign-in" value="a" style={{ color: '#FFFFFF', background: '#011f4b' }} >
                           <div>
-                               <form style={{ textAlign: 'center' }} >
+                            <form style={{ textAlign: 'center' }} >
                               <TextField
                                 floatingLabelText="Email"
                                 type = 'email'
@@ -83,7 +82,36 @@ export class Homepage extends Component {
                         </Tab>
                         <Tab label="Register" value="b" style={{ color: '#000000', background: '#FFFFFF' }} >
                           <div>
-                            <h1>Register</h1>
+                            <form style={{ textAlign: 'center' }} >
+                              <TextField
+                                floatingLabelText="Licence ID"
+                                fullWidth={true}
+                              />
+                              <TextField
+                                floatingLabelText="Practice Name"
+                                fullWidth={true}
+                              />
+                              <TextField
+                                floatingLabelText="Email"
+                                type = 'email'
+                                fullWidth={true}
+                              />
+                              <TextField
+                                floatingLabelText="Password"
+                                type = 'password'
+                                fullWidth={true}
+                              />
+                              <div className="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                                <RaisedButton
+                                  label="Register"
+                                  backgroundColor='#005b96'
+                                  type="submit"
+                                  fullWidth={true}
+                                  labelStyle={{color: '#FFFFFF'}}
+                                  style={{marginTop: '1em'}}
+                                />
+                              </div>
+                            </form>
                           </div>
                         </Tab>
                 </Tabs>
