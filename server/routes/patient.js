@@ -14,45 +14,45 @@ const workoutModel  = db.model('therapist')
 
 // create patient
 patientRoutes.post('/', (req, res, next) => {
-	patientModel.create(req.body)
-		.then(patient => res.send(patient))
-		.catch(next);
+  patientModel.create(req.body)
+    .then(patient => res.send(patient))
+    .catch(next);
 })
 
 // -=-=-=-= READ =-=-=-=-
 
 // get all patients
 patientRoutes.get('/', (req, res, next) => {  
-	patientModel.findAll()
-		.then(patients => res.send(patients))
-		.catch(next);
+  patientModel.findAll()
+    .then(patients => res.send(patients))
+    .catch(next);
 })
 
 //get one patient with all data
 patientRoutes.get('/:id', function(req, res, next){
-	patientModel.findOne({
-		where: { id: req.params.id },
-		include: [
-			{ model: planModel, as: 'plan', required: false },
-			{ model: treatmentModel, as: 'treatment', required: false },
-			{ model: workoutModel, as: 'workout', required: false },
-		]
-	})
-	.then(patient => res.send(patient))
-	.catch(next);
+  patientModel.findOne({
+    where: { id: req.params.id },
+    include: [
+      { model: planModel, as: 'plan', required: false },
+      { model: treatmentModel, as: 'treatment', required: false },
+      { model: workoutModel, as: 'workout', required: false },
+    ]
+  })
+  .then(patient => res.send(patient))
+  .catch(next);
 });
 
 //get one patient with plan
 //NEED TO UPDATE BASED ON DATA FOR FrontEnd **THIS ROUTE IS AN EXAMPLE**
 patientRoutes.get('/:id/plan', function(req, res, next){
-	planModel.findAll({
-		where: { id: req.params.id },
-		include: [
-			{ model: treatmentModel, required: false }
-		]
-	})
-	.then(plan => res.send(plan))
-	.catch(next);
+  planModel.findAll({
+    where: { id: req.params.id },
+    include: [
+      { model: treatmentModel, required: false }
+    ]
+  })
+  .then(plan => res.send(plan))
+  .catch(next);
 });
 
 
@@ -60,20 +60,20 @@ patientRoutes.get('/:id/plan', function(req, res, next){
 
 // modify patient info
 patientRoutes.put('/:id', (req, res, next) => {  
-	patientModel.findById(req.params.id)
-		.then(patient => patient.update(req.body))
-		.then(updated => res.status(201).send(updated))
-		.catch(next);
+  patientModel.findById(req.params.id)
+    .then(patient => patient.update(req.body))
+    .then(updated => res.status(201).send(updated))
+    .catch(next);
 })
 
 // -=-=-=-=-= DELETE =-=-=-=-=-
 
 // delete patient
 patientRoutes.delete('/:id', (req, res, next) => {  
-	patientModel.findById(req.params.id)
-			.then(result => result.destroy())
-			.then(() => res.sendStatus(204))
-			.catch(next);
+  patientModel.findById(req.params.id)
+      .then(result => result.destroy())
+      .then(() => res.sendStatus(204))
+      .catch(next);
 })
 
 module.exports = patientRoutes

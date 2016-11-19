@@ -7,8 +7,7 @@ const tests = [
  'patient',
  'treatment',
  'therapist',
- 'workout',
- 'patientroute'
+ 'workout'
 ];
 
 tests.forEach(test => require(`./${test}.test.js`));
