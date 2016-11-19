@@ -14,10 +14,9 @@ export default ({ children }) => (
     <div id="main">
       <Helmet
         defaultTitle="Therapy"
-        titleTemplate="%s | Therapy"
-      />
+        titleTemplate="%s | Therapy" />
       <Navbar />
-      <div className="content">
+      <div className="container content">
         { children }
       </div>
       <Navbar />

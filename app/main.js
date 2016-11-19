@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 // React Compontents 
-import Homepage from './components/Homepage'
+import Home from './components/home/Home'
 import App from './components/App'
 import AddPatientContainer from './components/patients/AddPatientContainer'
 
@@ -24,7 +24,7 @@ const appEnter = (nextState, replace, callback) => {
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
-      <Route path="/" component={ Homepage } />
+      <Route path="/" component={ Home } />
       <Route path="/app" component={ App } onEnter={ appEnter }>
         <Route path="/patients/new" component={ AddPatientContainer } />
       </Route>
