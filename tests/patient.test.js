@@ -65,10 +65,14 @@ describe('Patient', function () {
     describe('hooks', function(){
 
       it('should set email to lowercase and return a password_digest', function() {
-        return Patient.create(validPatient)
-          .then(createdRow => {
-            expect(createdRow.password_digest).to.not.equal(null)
-            expect(createdRow.email).to.equal(validPatient.email.toLowerCase())
+        return Patient.findOne({
+            where: {
+              email: validPatient.email
+            }
+          })
+          .then(foundPatient => {
+            expect(foundPatient.password_digest).to.not.equal(null)
+            expect(foundPatient.email).to.equal(validPatient.email.toLowerCase())
           })
           .catch(err => console.log(err))
       })
@@ -77,9 +81,13 @@ describe('Patient', function () {
     describe('Instance methods', function(){
 
       it('authenticate should resolve correctly with a valid password', function() {
-        return Patient.create(validPatient)
-          .then(createdRow => {
-            let passAuth = bcrypt.compareSync('badpassword', createdRow.dataValues.password_digest, (err, result) => {
+        return Patient.findOne({
+            where: {
+              email: validPatient.email
+            }
+          })
+          .then(foundPatient => {
+            let passAuth = bcrypt.compareSync('badpassword', foundPatient.dataValues.password_digest, (err, result) => {
                 return result
             })
             expect(passAuth).to.equal(true)

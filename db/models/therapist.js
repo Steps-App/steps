@@ -21,10 +21,10 @@ const Therapist = db.define('therapist', {
   img_URL: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
+    unique: true,
     validate: {
       notEmpty: true,
-      isEmail: true,
-      unique: true
+      isEmail: true
     }
   },
   password_digest: Sequelize.STRING,
