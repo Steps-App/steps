@@ -17,10 +17,10 @@ const Patient = db.define('patient', {
   },
   email: {
     type: Sequelize.STRING,
+    unique: true,
     validate: {
       notEmpty: true,
-      isEmail: true,
-      unique: true
+      isEmail: true
     }
   },
   DOB: Sequelize.DATEONLY,
