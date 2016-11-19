@@ -3,10 +3,12 @@ process.env.NODE_ENV = 'testing';
 // Run all tests
 const tests = [
   'example',
-//  'exercise',
+  'exercise',
   'patient',
   'treatment',
   'therapist',
+  'patient',
+  'plan',
   'workout'
 ];
 
