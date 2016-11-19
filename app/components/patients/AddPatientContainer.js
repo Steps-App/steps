@@ -4,7 +4,7 @@ import AddPatient from './AddPatient';
 // import { createPatient } from '../../redux/user'
 
 const initialState = {
-  firstName: '', lastName: '', email: '', patientId: ''
+  firstName: '', lastName: '', email: '', patientId: '', errors: {}
 };
 
 const AddPatientDecorator = AddPatient => {
@@ -37,7 +37,7 @@ const AddPatientDecorator = AddPatient => {
       // If no errors, attempt to submit
       if (!Object.keys(errs).length) {
         const newPatient = this.state;
-        submitFunc(newPatient, (err) => {
+        this.props.addPatient(newPatient, (err) => {
           let newState = err ?
             { errors: {
               submit: `There was an error while adding your new patient, please try again later`
@@ -71,7 +71,7 @@ const AddPatientDecorator = AddPatient => {
 }
 
 const mapDispatchtoProps = dispatch => ({
-  signup: (patient, displayErr) => {
+  addPatient: (patient, displayErr) => {
     console.log('Adding patient:', patient);
   }
 })
