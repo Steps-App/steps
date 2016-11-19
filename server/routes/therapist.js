@@ -53,8 +53,7 @@ therapistRoutes.put('/:id', (req, res, next) => {
 
 // delete something
 therapistRoutes.delete('/:id', (req, res, next) => {  // 
-	therapistModel.findById(req.params.id)
-			.then(result => result.destroy())
+	therapistModel.destroy({where:{id: req.params.id}})
 			.then(() => res.sendStatus(204))
 			.catch(next);
 })
