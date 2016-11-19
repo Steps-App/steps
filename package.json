@@ -68,6 +68,7 @@
     "mocha": "^3.1.2",
     "nodemon": "^1.11.x",
     "style-loader": "^0.13.x",
+    "supertest": "^2.0.1",
     "webpack": "^1.13.3",
     "webpack-merge": "^0.15.x",
     "webpack-validator": "^2.2.x"
