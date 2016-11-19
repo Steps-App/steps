@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 // Material theme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Tabs, Tab } from 'material-ui/Tabs';
-import { TextField, SelectField, MenuItem, RaisedButton } from 'material-ui';
 
 //External Components Modular
 import Signin from './Signin'
