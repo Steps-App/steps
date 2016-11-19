@@ -34,8 +34,7 @@ describe('Patient Route', () => {
 					'last_name': 'PatientTestL1',
 					'email': 'patient1@test.com',
 					'DOB': '11/18/15',
-					'gender': 'F',
-					'style': 'Coastal'
+					'gender': 'F'
 			})
 			.expect(201)
 			.end(function (err, res) {
