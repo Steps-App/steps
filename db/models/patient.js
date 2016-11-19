@@ -36,6 +36,7 @@ const Patient = db.define('patient', {
     }
   }
 }, {
+  underscored: true,
   hooks: {
     beforeCreate: setEmailAndPassword,  // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword

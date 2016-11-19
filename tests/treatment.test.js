@@ -49,7 +49,7 @@ describe('Treatment Model', () => {
           expect(error).to.be.instanceOf(Error)
           expect(error.message).to.contain('invalid input')
         })
-        .catch(err => console.log(chalk.green('you got a validation error')))
+        .catch(err => console.log(chalk.green('You got a validation error')))
     })
 
   })

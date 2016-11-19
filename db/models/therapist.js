@@ -34,6 +34,7 @@ const Therapist = db.define('therapist', {
     }
   }
 }, {
+  underscored: true,
   hooks: {
     beforeCreate: setEmailAndPassword, // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword

@@ -27,6 +27,7 @@ const Treatment = db.define('treatment', {
   },
   inactive_date: Sequelize.DATEONLY
 }, {
+  underscored: true,
   instanceMethods: {
     deactivate: function(treatment) {
       let inactiveDate = new Date()

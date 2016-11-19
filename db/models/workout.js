@@ -1,9 +1,24 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const ModelName = db.define('workout', {
-
+const Workout = db.define('workout', {
+  time_per_exercise: {
+    type: Sequelize.INTEGER,
+    validate: {
+      notEmpty: true
+    }
+  },
+  pain: {
+    type: Sequelize.INTEGER,
+    validate: {
+      notEmpty: true,
+      max: 5,
+      min: 1
+    }
+  },
+  comments: Sequelize.TEXT
+}, {
+  underscored: true
 })
 
-
-module.exports = ModelName;
+module.exports = Workout;

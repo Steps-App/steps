@@ -30,6 +30,8 @@ const Exercise = db.define('exercise', {
       isURL: true
     }
   }
+}, {
+  underscored: true
 });
 
 module.exports = Exercise;

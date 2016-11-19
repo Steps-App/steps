@@ -58,7 +58,7 @@ describe('Patient', function () {
               expect(response).to.be.an.instanceOf(Error)
               expect(response.message).to.include('notEmpty failed')
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(chalk.green('You got a validation error')))
       })
     })
 
