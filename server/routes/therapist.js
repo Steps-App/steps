@@ -9,11 +9,20 @@ const therapistModel  = db.model('therapist')
 
 // -=-=-= CREATE =-=-=-
 
-// add something
+// create therapist
 therapistRoutes.post('/', (req, res, next) => {
-	therapistRoutes.create(req.body)
-		.then(therapist => res.send(therapist))
-		.catch(next);
+	therapistRoutes.create({
+	     first_name: req.body.first_name,
+	     last_name: req.body.last_name,
+	     practice_name: req.body.practice_name,
+	     license_id: req.body.license_id,
+	     img_URL: req.body.image_URL,
+	     email: req.body.email,
+	     gender: req.body.gender,
+	     password: req.body.password
+   	})
+	.then(therapist => res.send(therapist))
+	.catch(next);
 })
 
 // -=-=-=-= READ =-=-=-=-
