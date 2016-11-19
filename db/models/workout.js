@@ -3,7 +3,7 @@ const db = require('../db')
 
 const Workout = db.define('workout', {
   time_per_exercise: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.INTEGER, // seconds, with computation on front end
     validate: {
       notEmpty: true
     }

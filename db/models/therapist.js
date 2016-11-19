@@ -22,8 +22,9 @@ const Therapist = db.define('therapist', {
   email: {
     type: Sequelize.STRING,
     validate: {
+      notEmpty: true,
       isEmail: true,
-      notEmpty: true
+      unique: true
     }
   },
   password_digest: Sequelize.STRING,

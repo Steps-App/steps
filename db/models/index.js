@@ -13,6 +13,7 @@ Exercise.belongsTo(Therapist, { foreignKey: 'therapist_id' }) // exercise << the
 
 Patient.hasMany(Workout) // workout << patient_id // patient.getWorkouts/setWorkouts
 Plan.hasMany(Workout) // workout << plan_id // plan.getWorkouts/setWorkouts
+Plan.hasMany(Treatment) // treatment << plan_id // plan.getTreatments/setTreatments
 
 Patient.hasMany(Treatment) // treatment << patient_id // patient.getTreatments/setTreatments
 Patient.hasMany(Plan) // plan << patient_id // patient.getPlans/setPlans

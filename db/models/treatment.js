@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Treatment = db.define('treatment', {
-  time_per_exercise: Sequelize.INTEGER,
+  time_per_exercise: Sequelize.INTEGER,  // seconds, with computation on front-end
   reps: {
     type: Sequelize.INTEGER,
     validate: {
