@@ -53,10 +53,10 @@ describe('Therapist', function () {
 
         return invalid.validate()
           .then(err => {
-            expect(response).to.be.an.instanceOf(Error)
-            expect(response.message).to.include('notEmpty failed')
+            expect(err).to.be.an.instanceOf(Error)
+            expect(err.message).to.include('notEmpty failed')
           })
-          .catch(err => console.log(err.message))
+          .catch(err => console.log(chalk.green('You got a validation error')))
       })
     })
 

@@ -18,8 +18,9 @@ const Patient = db.define('patient', {
   email: {
     type: Sequelize.STRING,
     validate: {
+      notEmpty: true,
       isEmail: true,
-      notEmpty: true
+      unique: true
     }
   },
   DOB: Sequelize.DATEONLY,
@@ -36,6 +37,7 @@ const Patient = db.define('patient', {
     }
   }
 }, {
+  underscored: true,
   hooks: {
     beforeCreate: setEmailAndPassword,  // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword

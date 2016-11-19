@@ -9,7 +9,8 @@ const Plan = db.define('plan', {
   end_date : {
     type : Sequelize.DATE,
     allowNull: true
-    }
+  },
+  underscored : true
   },
   {
     instanceMethods : {
@@ -19,7 +20,6 @@ const Plan = db.define('plan', {
         let end = new Date( (today.getMilliseconds()+(instance.duration*millisecondsPerWeek)));
         plan.end_date = end;
       }
-
     },
     hooks : { // aftercreate instance to use "this"
       afterCreate: function(plan){
