@@ -21,15 +21,16 @@ const Plan = db.define('plan', {
         let end = new Date( (today.getMilliseconds()+(instance.duration*millisecondsPerWeek)));
         plan.end_date = end;
       },
-      countdown: function(plan) { let today = new Date() return plan.endDateCalc() - today }
-  
+      countdown: function(plan){
+        let today = new Date();
+         return plan.endDateCalc() - today;
+       }
     },
     hooks : { // aftercreate instance to use "this"
       afterCreate: function(plan){
           plan.endDateCalc();
       }
     }
-  }
-);
+  });
 
 module.exports = Plan;
