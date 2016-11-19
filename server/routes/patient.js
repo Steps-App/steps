@@ -78,8 +78,7 @@ patientRoutes.put('/:id', (req, res, next) => {
 
 // delete patient
 patientRoutes.delete('/:id', (req, res, next) => {  
-  patientModel.findById(req.params.id)
-      .then(result => result.destroy())
+  patientModel.destroy({where:{id: req.params.id}})
       .then(() => res.sendStatus(204))
       .catch(next);
 })
