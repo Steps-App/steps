@@ -9,8 +9,7 @@ const Plan = db.define('plan', {
   end_date : {
     type : Sequelize.DATE,
     allowNull: true
-  },
-  underscored : true
+    },
   },
   {
     instanceMethods : {
@@ -26,6 +25,9 @@ const Plan = db.define('plan', {
           plan.endDateCalc();
       }
     }
-});
+  },{
+      underscored : true
+  }
+);
 
 module.exports = Plan;
