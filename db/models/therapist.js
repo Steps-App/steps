@@ -22,8 +22,9 @@ const Therapist = db.define('therapist', {
   email: {
     type: Sequelize.STRING,
     validate: {
+      notEmpty: true,
       isEmail: true,
-      notEmpty: true
+      unique: true
     }
   },
   password_digest: Sequelize.STRING,
@@ -34,6 +35,7 @@ const Therapist = db.define('therapist', {
     }
   }
 }, {
+  underscored: true,
   hooks: {
     beforeCreate: setEmailAndPassword, // ensure email is lower-case & password is digested
     beforeUpdate: setEmailAndPassword

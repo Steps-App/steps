@@ -3,6 +3,8 @@ const db = require('../db')
 
 const ModelName = db.define('plan', {
 
+}, {
+  underscored: true
 })
 
 
