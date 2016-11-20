@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 import NavbarMenu from '../app/components/navbar/NavbarMenu';
 import NavbarTab from '../app/components/navbar/NavbarTab';
-import { TherapyFlatButton } from '../app/components/material-style';
+import { StepsFlatButton } from '../app/components/material-style';
 import Popover from 'material-ui/Popover/Popover';
 
 describe('NavbarMenu component', () => {
@@ -37,7 +37,7 @@ describe('NavbarTab component', () => {
   })
 
   it('passes its props to the children', () => {
-    const button = navbarTab.find(TherapyFlatButton).nodes[0];
+    const button = navbarTab.find(StepsFlatButton).nodes[0];
     expect(button.props.label).to.equal(label);
     expect(navbarTab.find(`.${img}`).nodes).to.not.be.empty;
   });

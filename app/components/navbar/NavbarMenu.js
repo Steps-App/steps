@@ -7,7 +7,7 @@ import { fullName } from '../../utils'
 // Material theme
 import { ToolbarGroup } from 'material-ui';
 import Popover from 'material-ui/Popover/Popover';
-import { TherapyMenu, TherapyPopoverMenuItem } from '../material-style'
+import { StepsMenu, StepsPopoverMenuItem } from '../material-style'
 
 export default class NavbarMenu extends React.Component {
   constructor(props) {
@@ -51,14 +51,14 @@ export default class NavbarMenu extends React.Component {
           anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
           targetOrigin={{vertical: 'top', horizontal: 'right'}}
           onRequestClose={this.handleAccountMenuClose}>
-          <TherapyMenu>
-            <TherapyPopoverMenuItem
+          <StepsMenu>
+            <StepsPopoverMenuItem
               primaryText="Account"
               containerElement={ <Link to="/" />} />
-            <TherapyPopoverMenuItem
+            <StepsPopoverMenuItem
               primaryText="Sign Out"
               onTouchTap={ logout } />
-          </TherapyMenu>
+          </StepsMenu>
         </Popover>
       </ToolbarGroup>
     )

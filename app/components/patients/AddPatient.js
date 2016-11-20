@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { TherapyTextField, TherapyRaisedButton } from '../material-style.js'
+import { StepsTextField, StepsRaisedButton } from '../material-style.js'
 
 export default ({ handleChange, handleSubmit, errors }) => (
   <div id="new-patient">
@@ -9,14 +9,14 @@ export default ({ handleChange, handleSubmit, errors }) => (
     <form className="new-patient-form" onSubmit={ handleSubmit }>
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
-          <TherapyTextField
+          <StepsTextField
             floatingLabelText="First Name"
             errorText={ errors.firstName }
             fullWidth={ true }
             onChange={(evt) => handleChange('firstName', evt.target.value) } />
         </div>
         <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
-          <TherapyTextField
+          <StepsTextField
             floatingLabelText="Last Name"
             errorText={ errors.lastName }
             fullWidth={ true }
@@ -25,7 +25,7 @@ export default ({ handleChange, handleSubmit, errors }) => (
       </div>
       <div className="row">
         <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-          <TherapyTextField
+          <StepsTextField
             floatingLabelText="Email"
             type="email"
             errorText={ errors.email }
@@ -35,7 +35,7 @@ export default ({ handleChange, handleSubmit, errors }) => (
       </div>
       <div className="row">
         <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-          <TherapyTextField
+          <StepsTextField
             floatingLabelText="Patient ID"
             errorText={ errors.patientId }
             fullWidth={ true }
@@ -43,7 +43,7 @@ export default ({ handleChange, handleSubmit, errors }) => (
         </div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <TherapyRaisedButton
+        <StepsRaisedButton
           label="Create"
           type="submit" />
       </div>

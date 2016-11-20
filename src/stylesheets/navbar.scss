@@ -1,0 +1,83 @@
+@import "colors";
+@import "screens";
+
+$icon-size: 46px;
+
+#navbar {
+  position: fixed;
+  z-index: 2;
+  width: inherit;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.navbar-item-icon {
+  display: none;
+}
+
+.navbar-item, .navbar-item > a {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+
+@media (max-width: $lg) {
+  .navbar-item button {
+    display: none !important;
+  }
+  .navbar-item-icon {
+    display: flex;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+
+@media (max-width: $md) {
+  #navbar {
+    justify-content: flex-end !important;
+  }
+  .navbar-logo {
+    display: none !important;
+  }
+}
+
+@media (max-width: $sm) {
+  #navbar {
+    justify-content: center !important;
+  }
+  .navbar-item > a {
+    padding: 0 5px;
+  }
+}
+
+/* navbar icons */
+.navbar-item button > span:hover {
+  color: $active !important;
+}
+
+$icons: ('patients', 'exercises', 'messages');
+@each $type in $icons {
+  .#{$type} {
+    background: url('../images/icons/#{$type}_light.svg');
+    background-size: $icon-size $icon-size;
+
+    &:hover {
+      background: url('../images/icons/#{$type}_active.svg');
+      background-size: $icon-size $icon-size;
+    }
+  }
+}
+
+/* navbar icons */
+.profile-icon > img {
+  background-size: 44px;
+  height: 44px;
+  width: 44px;
+}
+
+.profile-icon > img:hover {
+  cursor: pointer;
+}

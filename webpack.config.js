@@ -10,7 +10,7 @@ const path = require('path');
 const PATHS = {
   app: path.join(__dirname, 'app', 'main.js'),
   build: path.join(__dirname, 'public'),
-  stylesheets: path.join(__dirname, 'src/stylesheets', 'style.css'),
+  stylesheets: path.join(__dirname, 'src/stylesheets', 'style.scss'),
   html_template: path.join(__dirname, '/src/index.html')
 };
 
@@ -23,7 +23,7 @@ const vendorDependencies = [
 
 // index.html template
 let htmlTemplate = {
-  title: 'Therapy',
+  title: 'Steps',
   meta: {
     description: 'Physical therapy for the way you live today',
     keywords: 'physical therapy, occupational therapy'
@@ -85,10 +85,21 @@ switch (process.env.npm_lifecycle_event) {
   case 'build-watch':
     config = merge(
       common,
-      { devtool: 'eval' },
+      { devtool: 'eval-source-map' },
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages()
+    );
+    break;
+  case 'hmr':
+    config = merge(
+      common,
+      { devtool: 'eval-source-map' },
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(),
+      tools.devServer({
+        port: 3000
+      })
     );
     break;
   default:

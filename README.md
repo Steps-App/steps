@@ -1,4 +1,4 @@
-# Therapy 
+# Steps 
 
 _Physical therapy for the way you live today_
 
@@ -8,19 +8,37 @@ _Physical therapy for the way you live today_
 - Node (>6.7) and npm
 - PostgreSQL
 
-### Run It
+### Installing dependencies
 
 ```sh
 npm install
+```
+
+This will install all runtime dependencies, as well as Webpack build and Mocha/Chai testing tools.
+
+### Running the app
+
+There are two ways to run the app in development mode:
+
+#### Dev Server
+
+```sh
 npm run build-watch
 npm run dev
 ```
 
-The above script will go through the following steps:
+The first command will run Webpack in watch mode, rebuilding the client static files in '/public' every time a change is made to the source files. The second command will run the Node.js server in development mode. This setup simulates a production environment without the performance enhacements.
 
-1. Install npm dependencies
-1. Perform a build with Webpack and watch for changes
-1. Run the server and watch for file changes with nodemon
+#### Webpack HMR Server
+
+```sh
+npm run hmr
+```
+
+The command starts a little Node.js server that serves only the webpack bundle. This setup gives us two main advantages:
+
+- Changes to React components cause automatic page refreshes
+- Updates to static files like CSS are injected into the running app without requiring a full refresh
 
 ## Running in Prod
 
