@@ -20,7 +20,6 @@ patientRoutes.post('/', (req, res, next) => {
     email: req.body.email,
     DOB: req.body.DOB,
     gender: req.body.gender,
-    primary_issue: req.body.primary_issue,
     img_URL: req.body.img_URL,
     password: req.body.password
   })
