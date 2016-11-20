@@ -85,10 +85,21 @@ switch (process.env.npm_lifecycle_event) {
   case 'build-watch':
     config = merge(
       common,
-      { devtool: 'eval' },
+      { devtool: 'eval-source-map' },
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages()
+    );
+    break;
+  case 'hmr':
+    config = merge(
+      common,
+      { devtool: 'eval-source-map' },
+      tools.extractCSS(PATHS.stylesheets),
+      tools.extractImages(),
+      tools.devServer({
+        port: 3000
+      })
     );
     break;
   default:

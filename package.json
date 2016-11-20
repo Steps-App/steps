@@ -20,6 +20,7 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon --watch server db -e js server/app.js",
+    "hmr": "webpack-dev-server",
     "build": "webpack",
     "build-watch": "webpack -w --progress --colors",
     "test": "mocha --compilers js:babel-register tests/index.js",
@@ -72,6 +73,7 @@
     "style-loader": "^0.13.x",
     "supertest": "^2.0.1",
     "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.x",
     "webpack-validator": "^2.2.x"
   }
