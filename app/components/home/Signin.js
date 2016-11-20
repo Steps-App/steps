@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 //Material UI
-import { TherapyTextField, TherapyRaisedButton, TherapyTabs, TherapyTab } from '../material-style.js'
+import { StepsTextField, StepsRaisedButton, StepsTabs, StepsTab } from '../material-style.js'
 import { tabs } from '../colors'
 const buttonStyle = { marginTop: '1em', marginBottom: '1.5em' };
 
@@ -53,61 +53,61 @@ export class Signin extends Component {
 
   render() {
     return (
-      <TherapyTabs>
-        <TherapyTab label="Sign In" value="sign-in" tab='left' curTab={ this.state.tab } 
+      <StepsTabs>
+        <StepsTab label="Sign In" value="sign-in" tab='left' curTab={ this.state.tab } 
           onActive={(el) => this.handleChange('tab', el.props.value)} >
           <div style={{ padding: '0 15px', borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: tabs }}>
             <form style={{ textAlign: 'center' }} onSubmit={ this.handleSubmit } >
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Email"
                 type = 'email'
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("email", evt.target.value) } />
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Password"
                 type = 'password'
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("password", evt.target.value) } />
               <span className="error-message">{ this.login_error }</span>
-              <TherapyRaisedButton
+              <StepsRaisedButton
                 label="Sign In"
                 type="submit"
                 fullWidth={true}
                 style={buttonStyle} />
             </form>
           </div>
-        </TherapyTab>
-        <TherapyTab label="Register" value="register" tab='right' curTab={ this.state.tab } 
+        </StepsTab>
+        <StepsTab label="Register" value="register" tab='right' curTab={ this.state.tab } 
           onActive={(el) => this.handleChange('tab', el.props.value)} >
           <div style={{ padding: '0 15px', borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: tabs }}>
             <form style={{ textAlign: 'center' }} onSubmit={ this.handleSubmit }>
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Licence ID"
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("licenseId", evt.target.value) } />
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Practice Name"
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("practiceName", evt.target.value) } />
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Email"
                 type = 'email'
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("email", evt.target.value) } />
-              <TherapyTextField
+              <StepsTextField
                 floatingLabelText="Password"
                 type = 'password'
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("password", evt.target.value) } />
-              <TherapyRaisedButton
+              <StepsRaisedButton
                 label="Register"
                 type="submit"
                 fullWidth={true}
                 style={buttonStyle} />
             </form>
           </div>
-        </TherapyTab>
-      </TherapyTabs>
+        </StepsTab>
+      </StepsTabs>
     )
   }
 }

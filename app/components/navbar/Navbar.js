@@ -13,7 +13,7 @@ const Navbar = props => (
   <Toolbar id="navbar" style={{backgroundColor: toolbar}}>
     <ToolbarGroup className="navbar-logo">
       <Link to="/">
-        <ToolbarTitle style={{fontSize: '30px', color: textLight, padding: 0}} text="Therapy" />
+        <ToolbarTitle style={{fontSize: '30px', color: textLight, padding: 0}} text="Steps" />
       </Link>
     </ToolbarGroup>
     <NavbarMenu { ...props } />

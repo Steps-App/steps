@@ -18,7 +18,7 @@ const roundBorder = tab => {
 
 
 // Regular text input
-export const TherapyTextField = props => (
+export const StepsTextField = props => (
   <TextField
     floatingLabelStyle={{ color: placeholderText, fontWeight: '500' }}
     floatingLabelFocusStyle={{ color: activeInputLabels }}
@@ -30,7 +30,7 @@ export const TherapyTextField = props => (
 );
 
 // Primary button
-export const TherapyRaisedButton = props => (
+export const StepsRaisedButton = props => (
   <RaisedButton
     backgroundColor={primary}
     labelColor={textLight}
@@ -42,16 +42,17 @@ export const TherapyRaisedButton = props => (
 );
 
 // Flush buttons inside container elements
-export const TherapyFlatButton = props => (
+export const StepsFlatButton = props => (
   <FlatButton
     label={ props.label }
     labelStyle={{ color: props.textColor, padding: 0, transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms' }}
+    hoverColor={ props.backgroundColor }
     disableFocusRipple={ true }
     disableTouchRipple={ true }
   />
 );
 
-export const TherapyMenu = props => (
+export const StepsMenu = props => (
   <Menu
     style={{ backgroundColor: background }}
     listStyle={{ paddingTop: '0px', paddingBottom: '0px' }}
@@ -61,7 +62,7 @@ export const TherapyMenu = props => (
 )
 
 // Menu item for popovers
-export const TherapyPopoverMenuItem = props => (
+export const StepsPopoverMenuItem = props => (
   <MenuItem
     style={{ minHeight: '20px', lineHeight: '20px', padding: '10px 5px' }}
     disableFocusRipple={ true }
@@ -70,7 +71,7 @@ export const TherapyPopoverMenuItem = props => (
   />
 );
 
-export const TherapyTabs = props => (
+export const StepsTabs = props => (
   <Tabs
     style={{backgroundColor: background, borderRadius: tabsBorderRadius }}
     inkBarStyle={{backgroundColor:"transparent"}}
@@ -92,4 +93,4 @@ const TabWrapper = props => (
   </Tab>
 );
 TabWrapper.muiName = 'Tab'; // Needed for inheritance hack
-export const TherapyTab = TabWrapper;
+export const StepsTab = TabWrapper;

@@ -10,7 +10,7 @@ const path = require('path');
 const PATHS = {
   app: path.join(__dirname, 'app', 'main.js'),
   build: path.join(__dirname, 'public'),
-  stylesheets: path.join(__dirname, 'src/stylesheets', 'style.css'),
+  stylesheets: path.join(__dirname, 'src/stylesheets', 'style.scss'),
   html_template: path.join(__dirname, '/src/index.html')
 };
 
@@ -23,7 +23,7 @@ const vendorDependencies = [
 
 // index.html template
 let htmlTemplate = {
-  title: 'Therapy',
+  title: 'Steps',
   meta: {
     description: 'Physical therapy for the way you live today',
     keywords: 'physical therapy, occupational therapy'

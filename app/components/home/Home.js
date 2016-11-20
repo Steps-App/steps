@@ -15,7 +15,7 @@ export default () => (
     <div id="home">
       <nav className="home-nav">
         <div className="navbar-header">
-          <a href="#">Therap.ly</a>
+          <a href="#">Steps</a>
         </div>
         <ul className="navbar-links">
           <li><a href="#">About Us</a></li>

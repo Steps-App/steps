@@ -13,8 +13,8 @@ export default ({ children }) => (
   <MuiThemeProvider>
     <div id="main">
       <Helmet
-        defaultTitle="Therapy"
-        titleTemplate="%s | Therapy" />
+        defaultTitle="Steps"
+        titleTemplate="%s | Steps" />
       <Navbar />
       <div className="container content">
         { children }

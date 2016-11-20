@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const Sequelize = require('sequelize');
 
 // db server constant(s)
-const dbName = 'therapy' +
+const dbName = 'steps' +
   (process.env.NODE_ENV === 'testing' ? '_test' : '');
 const url = process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`;
 

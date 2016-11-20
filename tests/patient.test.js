@@ -102,7 +102,7 @@ describe('Patient', function () {
     })
   })
 
-  describe.only('Patient Route', () => {
+  describe('Patient Route', () => {
     
     describe('Patients', () => {
 
