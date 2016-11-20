@@ -30,17 +30,12 @@ const Patient = db.define('patient', {
   },
   img_URL: Sequelize.STRING,
   password_digest: Sequelize.STRING,
-  password: {
-    type: Sequelize.VIRTUAL,
-    validate: {
-      notEmpty: true
-    }
-  }
+  password: Sequelize.VIRTUAL
 }, {
   underscored: true,
   hooks: {
-    beforeCreate: setEmailAndPassword,  // ensure email is lower-case & password is digested
-    beforeUpdate: setEmailAndPassword
+    beforeCreate: setEmailAndPassword,  // ensure email is lower-case, create password, and digest
+    afterUpdate: setEmailAndPassword
   },
   instanceMethods: {
     authenticate(plaintext) {    // authenticate method for login
@@ -56,6 +51,7 @@ const Patient = db.define('patient', {
 // utility function to set email to lower case and hash the password
 function setEmailAndPassword(patient) {
   patient.email = patient.email && patient.email.toLowerCase()
+  if (!patient.password) patient.password = randAlpha(6)
 
   return new Promise((resolve, reject) =>
     bcrypt.hash(patient.get('password'), 10, (err, hash) => {
@@ -64,6 +60,15 @@ function setEmailAndPassword(patient) {
       resolve(patient)
     })
   )
+}
+
+function randAlpha(num) {
+  let rand = '', idx=0, chars = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789'
+
+  while (++idx < num) {
+    rand += chars.charAt(Math.floor(Math.random() * chars.length))
+  }
+  return rand
 }
 
 module.exports = Patient

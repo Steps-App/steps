@@ -4,11 +4,11 @@ const patientRoutes = express()
 
 // db models
 const db = require('../../db/')
-const patientModel  = db.model('patient') 
+const patientModel  = db.model('patient')
 const planModel = db.model('plan')
-const therapistModel  = db.model('therapist') 
-const treatmentModel  = db.model('patient') 
-const workoutModel  = db.model('therapist') 
+const therapistModel  = db.model('therapist')
+const treatmentModel  = db.model('patient')
+const workoutModel  = db.model('therapist')
 
 // -=-=-= CREATE =-=-=-
 
@@ -20,17 +20,17 @@ patientRoutes.post('/', (req, res, next) => {
     email: req.body.email,
     DOB: req.body.DOB,
     gender: req.body.gender,
-    img_URL: req.body.image_URL,
+    img_URL: req.body.img_URL,
     password: req.body.password
   })
-    .then(patient => res.send(patient))
-    .catch(next);
+  .then(patient => res.status(201).send(patient))
+  .catch(next);
 })
 
 // -=-=-=-= READ =-=-=-=-
 
 // get all patients
-patientRoutes.get('/', (req, res, next) => {  
+patientRoutes.get('/', (req, res, next) => {
   patientModel.findAll()
     .then(patients => res.send(patients))
     .catch(next);
@@ -67,7 +67,7 @@ patientRoutes.get('/:id/plan', function(req, res, next){
 // -=-=-=-= UPDATE =-=-=-=-
 
 // modify patient info
-patientRoutes.put('/:id', (req, res, next) => {  
+patientRoutes.put('/:id', (req, res, next) => {
   patientModel.findById(req.params.id)
     .then(patient => patient.update(req.body))
     .then(updated => res.status(201).send(updated))
@@ -77,7 +77,7 @@ patientRoutes.put('/:id', (req, res, next) => {
 // -=-=-=-=-= DELETE =-=-=-=-=-
 
 // delete patient
-patientRoutes.delete('/:id', (req, res, next) => {  
+patientRoutes.delete('/:id', (req, res, next) => {
   patientModel.destroy({where:{id: req.params.id}})
       .then(() => res.sendStatus(204))
       .catch(next);

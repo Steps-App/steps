@@ -9,11 +9,16 @@ const Plan = db.define('plan', {
   end_date : {
     type : Sequelize.DATE,
     allowNull: true
-    },
-  },{
-      underscored : true
   },
-  {
+  therapy_focus: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  notes: Sequelize.TEXT
+},{
+    underscored : true,
     instanceMethods : {
       endDateCalc: function(plan){
         let millisecondsPerWeek = 604800000;
@@ -29,8 +34,8 @@ const Plan = db.define('plan', {
     hooks : { // aftercreate instance to use "this"
       afterCreate: function(plan){
           plan.endDateCalc();
-      }
     }
-  });
+  }
+})
 
 module.exports = Plan;
