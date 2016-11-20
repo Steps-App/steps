@@ -9,7 +9,7 @@ import { toolbar, textLight } from '../colors'
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui';
 import FontIcon from 'material-ui/FontIcon';
 
-const Navbar =  (props) => (
+const Navbar = props => (
   <Toolbar id="navbar" style={{backgroundColor: toolbar}}>
     <ToolbarGroup className="navbar-logo">
       <Link to="/">

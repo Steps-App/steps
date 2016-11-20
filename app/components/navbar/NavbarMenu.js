@@ -1,21 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router'
+import NavbarTab from './NavbarTab'
 import { toolbar, textLight } from '../colors'
 import { fullName } from '../../utils'
 
 // Material theme
 import { ToolbarGroup } from 'material-ui';
-import FontIcon from 'material-ui/FontIcon';
-import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover/Popover';
-import { Menu, MenuItem } from 'material-ui/Menu';
-
-// Material CSS rules
-const buttonText = {
-  color: textLight,
-  padding: 0,
-  transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
-}
+import { TherapyMenu, TherapyPopoverMenuItem } from '../material-style'
 
 export default class NavbarMenu extends React.Component {
   constructor(props) {
@@ -40,34 +32,10 @@ export default class NavbarMenu extends React.Component {
   render() {
     const { user, logout } = this.props;
     return (
-      <ToolbarGroup style={{float: 'right'}}>
-        <div className="navbar-item">
-          <Link to="/">
-            <FlatButton
-              label="Patients" labelStyle={buttonText}
-              hoverColor={toolbar} rippleColor={toolbar}
-            />
-            <div className="navbar-item-icon patients" />
-          </Link>
-        </div>
-        <div className="navbar-item">
-          <Link to="/">
-            <FlatButton
-              label="Exercises" labelStyle={buttonText}
-              hoverColor={toolbar} rippleColor={toolbar}
-            />
-            <div className="navbar-item-icon exercises" />
-          </Link>
-        </div>
-        <div className="navbar-item">
-          <Link to="/">
-            <FlatButton
-              label="Messages" labelStyle={buttonText}
-              hoverColor={toolbar} rippleColor={toolbar}
-            />
-            <div className="navbar-item-icon messages" />
-          </Link>
-        </div>
+      <ToolbarGroup>
+        <NavbarTab label="Patients" imgClass="patients" />
+        <NavbarTab label="Exercises" imgClass="exercises" />
+        <NavbarTab label="Messages" imgClass="messages" />
         <div className="navbar-item">
           {/* Account Menu popover defined below */}
           <div className="profile-icon"
@@ -83,24 +51,16 @@ export default class NavbarMenu extends React.Component {
           anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
           targetOrigin={{vertical: 'top', horizontal: 'right'}}
           onRequestClose={this.handleAccountMenuClose}>
-          <Menu>
-            <MenuItem
+          <TherapyMenu>
+            <TherapyPopoverMenuItem
               primaryText="Account"
-              style={{ minHeight: '20px', lineHeight: '20px', padding: '5px' }}
-              containerElement={<Link to="/" />} />
-            <MenuItem
+              containerElement={ <Link to="/" />} />
+            <TherapyPopoverMenuItem
               primaryText="Sign Out"
-              style={{ minHeight: '20px', lineHeight: '20px', padding: '5px' }}
-              onClick={ logout } />
-          </Menu>
+              onTouchTap={ logout } />
+          </TherapyMenu>
         </Popover>
       </ToolbarGroup>
     )
   }
 }
-
-
-            // <img
-            //   className="navbar-item-icon"
-            //   src="images/patients.png"
-            //   alt="Patients" />
