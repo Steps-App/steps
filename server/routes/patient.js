@@ -15,13 +15,12 @@ const workoutModel  = db.model('therapist')
 // create patient
 patientRoutes.post('/', (req, res, next) => {
   patientModel.create({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
     email: req.body.email,
-    DOB: req.body.DOB,
+    DOB: req.body.dob,
     gender: req.body.gender,
-    img_URL: req.body.img_URL,
-    password: req.body.password
+    img_URL: req.body.imgUrl
   })
   .then(patient => res.status(201).send(patient))
   .catch(next);

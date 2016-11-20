@@ -63,9 +63,10 @@ function setEmailAndPassword(patient) {
 }
 
 function randAlpha(num) {
-  let rand = '', idx=0, chars = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789'
+  let rand = '', idx=0;
+  const chars = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789'
 
-  while (++idx < num) {
+  while (idx++ < num) {
     rand += chars.charAt(Math.floor(Math.random() * chars.length))
   }
   return rand
