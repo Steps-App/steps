@@ -6,24 +6,7 @@ const therapistRoutes = express()
 const db = require('../../db/')
 const therapistModel  = db.model('therapist')
 const patientModel  = db.model('patient')
-const exerciseModel  = db.model('exercise') 
-
-// -=-=-= CREATE =-=-=-
-
-// create therapist
-therapistRoutes.post('/', (req, res, next) => {
-  therapistModel.create({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    practice_name: req.body.practice_name,
-    license_id: req.body.license_id,
-    img_URL: req.body.image_URL,
-    email: req.body.email,
-    password: req.body.password
-  })
-  .then(therapist => res.send(therapist))
-  .catch(next);
-})
+const exerciseModel  = db.model('exercise')
 
 // -=-=-=-= READ =-=-=-=-
 

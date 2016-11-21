@@ -16,6 +16,14 @@ npm install
 
 This will install all runtime dependencies, as well as Webpack build and Mocha/Chai testing tools.
 
+### Environment variables
+
+We are using the `dotenv` package and `.env` file to emulate environment variables in development mode. Your `.env` file should have the following:
+
+```
+SESSION_SECRET=YOUR_SECRET
+```
+
 ### Running the app
 
 There are two ways to run the app in development mode:

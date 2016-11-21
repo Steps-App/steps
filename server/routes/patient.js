@@ -10,22 +10,6 @@ const therapistModel  = db.model('therapist')
 const treatmentModel  = db.model('patient')
 const workoutModel  = db.model('therapist')
 
-// -=-=-= CREATE =-=-=-
-
-// create patient
-patientRoutes.post('/', (req, res, next) => {
-  patientModel.create({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    email: req.body.email,
-    DOB: req.body.dob,
-    gender: req.body.gender,
-    img_URL: req.body.imgUrl
-  })
-  .then(patient => res.status(201).send(patient))
-  .catch(next);
-})
-
 // -=-=-=-= READ =-=-=-=-
 
 // get all patients

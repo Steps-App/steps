@@ -3,14 +3,18 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const chalk = require('chalk')
 const express = require('express')
+const session = require('express-session')
 const path = require('path')
-const passport = require('passport')
 const app = express()  // invoke router as 'app'
 const PATHS = {
   indexHTML: path.join(__dirname, '../public/index.html'),
   public: path.join(__dirname, '../public'),
   bootstrap: path.resolve(__dirname, '..', 'node_modules/bootstrap/dist/css')
 }
+
+// Local environment variables
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'testing')
+  require('dotenv').config();
 
 // routes
 const routes = require('./routes')
@@ -25,8 +29,11 @@ app
   .use(morgan('dev'))                   // logging in 'dev' mode
   .use(express.static(PATHS.public))    // static file server
   .use(express.static(PATHS.bootstrap))
-  .use(passport.initialize())           // passport auth middleware
-  .use(passport.session())
+  .use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false
+  }))
   .use('/api', routes)                  // database-served api routes
 
 // default routing
