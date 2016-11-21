@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production')
 const db = require('../../db/');
 const therapistModel  = db.model('therapist');
 const patientModel  = db.model('patient');
+const exerciseModel = db.model('exercise');
 const Promise = require('bluebird');
 const TherapistList = require('./therapistSeed');
 const PatientList = require('./patientSeed');
@@ -20,12 +21,12 @@ const data = {
 
 
 db.didSync
-  .then(() => db.sync({ force: true }))
+  .then(() => db.sync({force:true}))
   .then(() => Promise.map(TherapistList, (therapist) => db.model('therapist').create(therapist)))
   .then(() => Promise.map(PatientList, (patient) => db.model('patient')
     .create(Object.assign(patient, {therapist_id: Math.floor((Math.random() * TherapistList.length) + 1)}))))
-  .then(() => Promise.map(ExerciseList,(exercise) =>db.model("exercise")
-    .create(Object.assign(exercise, {therapist_id: Math.floor((Math.random() * TherapistList.length +  1))}))))
+  .then(() => Promise.map(ExerciseList,(exercise) => db.model("exercise")
+     .create(Object.assign(exercise,{therapist_id: Math.floor((Math.random() * TherapistList.length) + 1)}))))
   .then(function () {
     console.log("Finished Seeding Database");
   })

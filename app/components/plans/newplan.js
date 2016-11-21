@@ -41,11 +41,9 @@ class newPlan extends React.Component{
       exercise: "",
       exercises : []
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
-
 
   // persisting on local state
   handleChange(evt,index, value){
