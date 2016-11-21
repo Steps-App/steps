@@ -7,6 +7,9 @@ import { StepsTextField, StepsRaisedButton, StepsTabs, StepsTab } from '../mater
 import { tabs } from '../colors'
 const buttonStyle = { marginTop: '1em', marginBottom: '1.5em' };
 
+//Import Dispatachers
+import { login, signup } from '../../reducers/user';
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 export class Signin extends Component {
@@ -32,18 +35,20 @@ export class Signin extends Component {
 
     if(!this.state.licenseId) {
       const credentials = {
+        role: 'patient',
         email: this.state.email,
         password: this.state.password
       }
-      this.props.signin(credentials)	
+      this.props.login(credentials)	
     } else {
       const credentials = {
+        role: 'therapist',
         licenseId: this.state.licenseId,
         practiceName: this.state.practiceName,
         email: this.state.email,
         password: this.state.password
       }
-      this.props.register(credentials)
+      this.props.signup(credentials)
     }
 
     //need to work on login error  
@@ -77,7 +82,7 @@ export class Signin extends Component {
             </form>
           </div>
         </StepsTab>
-        <StepsTab label="Register" value="register" tab='right' curTab={ this.state.tab } 
+        <StepsTab label="Sign Up" value="signup" tab='right' curTab={ this.state.tab } 
           onActive={(el) => this.handleChange('tab', el.props.value)} >
           <div style={{ padding: '0 15px', borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: tabs }}>
             <form style={{ textAlign: 'center' }} onSubmit={ this.handleSubmit }>
@@ -100,7 +105,7 @@ export class Signin extends Component {
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("password", evt.target.value) } />
               <StepsRaisedButton
-                label="Register"
+                label="Sign Up"
                 type="submit"
                 fullWidth={true}
                 style={buttonStyle} />
@@ -115,11 +120,11 @@ export class Signin extends Component {
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
 const mapDispatchtoProps = dispatch => ({ 
-  signin: credentials => {
-    console.log('Sign in:', credentials)
+  signup: (credentials, displayErr) => {
+    dispatch(signup(credentials, displayErr)) 
   },
-  register: (credentials, displayErr) => {
-    console.log('Sign up:', credentials)
+  login: (credentials, displayErr) => {
+    dispatch(login(credentials,displayErr))
   }
 })
 

@@ -14,16 +14,17 @@ export const removeUser  = () => ({ type: REMOVE_USER })
 
 /* ------------       REDUCER     ------------------ */
 
-const initialUser = {
-  isTherapist: true,
-  img_url: 'https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline'
-};
-export default function reducer(currentUser = initialUser, action) {
+// const initialUser = {
+//   isTherapist: true,
+//   img_url: 'https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline'
+// };
+
+export default function reducer(currentUser = {}, action) {
   switch (action.type) {
     case SET_USER:
       return action.user;
     case REMOVE_USER:
-      return initialUser;
+      return {};
     default:
       return currentUser;
   }
