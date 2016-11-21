@@ -11,6 +11,7 @@ import store from './store'
 import Home from './components/home/Home'
 import App from './components/App'
 import AddPatientContainer from './components/patients/AddPatientContainer'
+import PatientDash from './components/patients/PatientDash'
 
 // React router hooks
 const appEnter = (nextState, replace, callback) => {
@@ -27,6 +28,7 @@ render (
       <Route path="/" component={ Home } />
       <Route path="/app" component={ App } onEnter={ appEnter }>
         <Route path="/patients/new" component={ AddPatientContainer } />
+        <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
   </Provider>,
