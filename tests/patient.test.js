@@ -120,11 +120,11 @@ describe('Patient', function () {
         .post('/api/patient')
         .set('Content-type', 'application/json')
         .send({
-          first_name: 'PatientTestF1',
-          last_name: 'PatientTestL1',
+          firstName: 'PatientTestF1',
+          lastName: 'PatientTestL1',
           email: 'patient1@test.com',
           DOB: '11/18/15',
-          gender: 'F',
+          gender: 'F'
         })
         .expect(201)
         .end(function (err, res) {
