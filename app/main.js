@@ -12,6 +12,7 @@ import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newplan';
+import PatientDash from './components/patients/PatientDash';
 
 
 // React router hooks
@@ -39,6 +40,8 @@ render (
       <Route path="/app" component={ App } onEnter={ appEnter }>
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+
+        <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
   </Provider>,
