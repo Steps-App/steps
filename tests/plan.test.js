@@ -37,7 +37,7 @@ const validPlan = {
 
 const invalidPlan = {
   duration: null,
-  therapy_focus: null
+  therapyFocus: null
 }
 
 /* ===========Plan Model Tests================ */
@@ -94,7 +94,7 @@ describe('Model', () => {
 const validPlan2 = {
   id: 1001,
   duration: 24,
-  therapy_focus: 'Post Tommy John\'s surgery',
+  therapyFocus: 'Post Tommy John\'s surgery',
   notes: 'Even famous MLB physical therapists use Steps'
 }
 
@@ -122,7 +122,7 @@ describe('Routes', () => {
 
   const validTreatment = {
       id: 1001,
-      time: 300,
+      time_per_exercise: 300,
       reps: 10,
       sets: 3,
       resistance: 'weighted',
@@ -130,9 +130,9 @@ describe('Routes', () => {
 
   describe('Creates: ', () => {
 
-    it('POST /:patientId >> Creates a Plan and Associated Treatments', (done) => {
+    it('POST /patient/:patientId/plan >> Creates a Plan and Associated Treatments', (done) => {
       agent
-        .post('/api/plan/1001')
+        .post('/api/patient/1001/plan')
         .set('Content-type', 'application/json')
         .send({
           plan: validPlan2,
@@ -141,7 +141,7 @@ describe('Routes', () => {
         .expect(201)
         .end((err, res) => {
           if (err) return done(err)
-          expect(res.body.plan).to.include(validPlan)
+          expect(res.body.plan).to.include({ therapy_focus: 'Post Tommy John\'s surgery' })
           expect(res.body.treatments[0]).to.include({ time_per_exercise: 300 })
           done()
         })
@@ -160,8 +160,8 @@ describe('Routes', () => {
 
   before('ensures a fake treatment associated to the fake plan exists', () => {
     return Treatment.create({
-      id: 1001,
-      time: 300,
+      id: 1002,
+      time_per_exercise: 300,
       reps: 10,
       sets: 3,
       resistance: 'weighted',
@@ -171,9 +171,9 @@ describe('Routes', () => {
 
   describe('Reads: ', () => {
 
-    it('GET /:patientId >> Gets all plans for a patient', (done) => {
+    it('GET /patient/:patientId/plan >> Gets all plans for a patient', (done) => {
       agent
-        .get('/api/plan/1001')
+        .get('/api/patient/1001/plan')
         .expect(200)
         .end((err, res) => {
           if (err) return done(err)
@@ -182,13 +182,13 @@ describe('Routes', () => {
         })
     })
 
-    it('GET /:patientId/:planId >> Gets a single plan with treatments for a patient', (done) => {
+    it('GET /patient/:patientId/plan/:planId >> Gets a single plan with treatments for a patient', (done) => {
       agent
-        .get('/api/plan/1001/1001')
+        .get('/api/patient/1001/plan/1001')
         .expect(200)
         .end((err, res) => {
           if (err) return done(err)
-          expect(res.body.plan).to.include(validPlan2)
+          expect(res.body.plan).to.include({ therapy_focus: 'Post Tommy John\'s surgery' })
           expect(res.body.treatments[0]).to.include({ reps: 10, sets: 3 })
           done()
         })
@@ -197,9 +197,9 @@ describe('Routes', () => {
 
   describe('Updates: ', () => {
 
-    it('PUT /:patientId/:planId >> Updates a plan for a patient', (done) => {
+    it('PUT /patient/:patientId/plan/:planId >> Updates a plan for a patient', (done) => {
       agent
-        .put('/api/plan/1001/1001')
+        .put('/api/patient/1001/plan/1001')
         .set('Content-type', 'application/json')
         .send({
           treatments: [{
@@ -211,7 +211,7 @@ describe('Routes', () => {
             plan_id: 1001,
             patient_id: 1001
           }],
-          deactive: [1001]
+          deactive: [1002]
         })
         .expect(201)
         .end((err, res) => {
@@ -225,10 +225,10 @@ describe('Routes', () => {
 
   describe('Deletes: ', () => {
 
-    xit('DELETE /:patientId/:planId >> Deletes a plan for a patient', (done) => {
-      agent
-        .del('/api/plan/1001/1001')
-        .expect(204, done)
+    it('DELETE /patient/:patientId/plan/:planId >> Deletes a plan for a patient', () => {
+      return agent
+        .del('/api/patient/1001/plan/1001')
+        .expect(204)
     })
   })
 })

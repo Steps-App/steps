@@ -11,7 +11,6 @@ const routetemplate = require('./routetemplate')
 router
   .use('/therapist', therapist)
   .use('/patient', patient)
-  .use('/plan', plan)
   .use('/routetemplate', routetemplate)
 
 // No API routes matched? 404.

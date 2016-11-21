@@ -25,20 +25,9 @@ const Treatment = require('../../db/models/treatment')
     plan.getTreatments/setTreatments
 */
 
-// PATH: <server-domain>/api/plan/+
+// PATH: <server-domain>/api/paitent/:patientId/plan/+
 
 // -=-=-= PARAM HANDLING =-=-=-
-
-// check to ensure patientId in route param is valid
-router.param('patientId', (req, res, next, id) => {
-  Patient.findById(id)
-    .then(patient => {
-      if (!patient) return res.status(404).send('Patient not found')
-      req.patient = patient  // if so, attach patient to request
-      next()
-    })
-    .catch(next)
-})
 
 // check to ensure planId in route param is valid
 router.param('planId', (req, res, next, id) => {
@@ -54,63 +43,44 @@ router.param('planId', (req, res, next, id) => {
 // -=-=-= CREATE =-=-=-
 
 // add new plan to database and any associated treatments
-router.post('/:patientId', (req, res, next) => {
+router.post('/', (req, res, next) => {
   Plan.create({
-      duration: req.body.plan.duration,
-      therapy_focus: req.body.plan.therapy_focus,
+      duration: req.body.plan.duration,  // weeks
+      therapy_focus: req.body.plan.therapyFocus,
       notes: req.body.plan.notes,
-      patient_id: req.patient.id  // param ^^^ attaches patient to req
+      patient_id: req.patientId,       // passed via router param handler on patient routes
+      treatments: req.body.treatments
+    }, {
+      include: [ Treatment ]  // IMPORTANT: treatment props must exactly equal table cols
     })
     .then(createdPlan => {
-      let promises = []  // we're going to create one or more treatments via Promise.all
-      if (req.body.treatments) {  // there should be at least one treatment, but just in case
-          req.body.treatments.forEach(treatment => {
-            let promise = Treatment.create({
-              time_per_exercise: treatment.time,  // may need modification to timePerExercise, etc.
-              reps: treatment.reps,
-              sets: treatment.sets,
-              resistance: treatment.resistance,
-              notes: treatment.notes || null,
-              plan_id: createdPlan.id  // here's why we created the plan first
-            })
-          promises.push(promise)
-        })
-      return Promise.all([createdPlan, ...promises])
-      }
-    })
-    .spread((createdPlan, ...treatments) => {
       let plan = {
-        plan: createdPlan,
-        treatments: treatments
+        plan: createdPlan,                  // pass back created plan
+        treatments: createdPlan.treatments  // and treatments
       }
       res.status(201).json(plan)
     })
-    .catch(err => console.error(err))
-
-})
+    .catch(next)
+  })
 
 // -=-=-=-= READ =-=-=-=-
 
 // get all plans for a patient (higher level plan view)
-router.get('/:patientId', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Plan.findAll({
       where: {
-        patient_id: req.patient.id  // param ^^^ attaches patient to req
+        patient_id: req.patientId  // passed via param handler on patient routes
       }
     })
     .then(plans => {
       res.json(plans)
     })
-    .catch(err => console.error(err))
+    .catch(next)
 })
 
 // get a specific plan for a patient with associated treatments
-router.get('/:patientId/:planId', (req, res, next) => {
-  Treatment.findAll({
-      where: {
-        plan_id: req.plan.id  // param ^^^ attaches plan to req
-      }
-    })
+router.get('/:planId', (req, res, next) => {
+  req.plan.getTreatments()
     .then(treatments => {
       let plan = {
         plan: req.plan,         // create new object to send both plan info
@@ -118,54 +88,50 @@ router.get('/:patientId/:planId', (req, res, next) => {
       }
       res.json(plan)
     })
-    .catch(err => console.error(err))
+    .catch(next)
 })
 
 // -=-=-=-= UPDATE =-=-=-=-
 
 // update a plan
 // NOTE: this assumes the front-end provides an array of deactivated treatment ids
-// as 'deactivate' => { req.body.deactivate = [67, 70, 71] }
-router.put('/:patientId/:planId', (req, res, next) => {
-  Treatment.findAll({
-      where: {
-        plan_id: req.plan.id
-      }
-    })
+// as 'deactive' => { req.body.deactive = [67, 70, 71] }
+router.put('/:planId', (req, res, next) => {
+  req.plan.getTreatments()
     .then(treatments => {
-      let deactivating = []
+      let deactivating = []  // array for our 'deactive' modify promises
       treatments.forEach(treatment => {
         if (req.body.deactive.includes(treatment.id)) {
-          deactivating.push(treatment.deactivate(treatment))
+          deactivating.push(treatment.deactivate(treatment))  // instance method
         }
       })
-      let creating = []
+      let creating = []  // array for our new treatment create promises
       req.body.treatments.forEach(treatment => {
-        if (treatment.id === undefined) {
+        if (treatment.id === undefined) {      // if new treatment
           creating.push(Treatment.create({
-            time_per_exercise: treatment.time,  // may need modification to timePerExercise, etc.
+            time_per_exercise: treatment.time,
             reps: treatment.reps,
             sets: treatment.sets,
             resistance: treatment.resistance,
-            notes: treatment.notes || null,
+            notes: treatment.notes || null,    // if undefined, set to null
             exercise_id: treatment.exerciseId
           }))
         }
       })
-      return Promise.all([...deactivating, ...creating])
+      return Promise.all([...deactivating, ...creating])  // two arrays
     })
-    .spread((...results) => {
-      res.status(201).json(results)
+    .then((results) => {
+      res.status(201).json(results)  // one array
     })
-    .catch(err => console.error(err))
+    .catch(next)
 })
 
 // -=-=-=-=-= DELETE =-=-=-=-=-
 
 // delete a plan
-router.delete('/:patientId/:planId', (req, res, next) => {
+router.delete('/:planId', (req, res, next) => {
   req.plan.destroy()
-    .then(ok => { res.status(204) })
+    .then(ok => { res.sendStatus(204) })
     .catch()
 })
 
