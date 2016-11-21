@@ -24,7 +24,8 @@
     "build": "webpack",
     "build-watch": "webpack -w --progress --colors",
     "test": "mocha --compilers js:babel-register tests/index.js",
-    "test-watch": "mocha --compilers js:babel-register --watch tests/index.js"
+    "test-watch": "mocha --compilers js:babel-register --watch tests/index.js",
+    "seed": "node db/Seed/seedbuilder.js"
   },
   "dependencies": {
     "axios": "^0.15.2",
