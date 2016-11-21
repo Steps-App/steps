@@ -30,7 +30,7 @@ describe('Patient', function () {
     last_name: 'Patient',
     email: 'joe@gmail.com',
     DOB: '10/14/1976',
-    gender: 'M',
+    gender: 'M'
   }
 
   let invalidPatient = {
@@ -38,7 +38,7 @@ describe('Patient', function () {
     last_name: '',
     email: 'joe@gmail.com',
     DOB: '10/14/1976',
-    gender: 'M',
+    gender: 'M'
   }
 
   describe('Patient Model: ', function() {

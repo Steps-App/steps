@@ -7,8 +7,8 @@ const db = require('../../db/')
 const patientModel  = db.model('patient')
 const planModel = db.model('plan')
 const therapistModel  = db.model('therapist')
-const treatmentModel  = db.model('patient')
-const workoutModel  = db.model('therapist')
+const treatmentModel  = db.model('treatment')
+const workoutModel  = db.model('workout')
 
 // -=-=-= CREATE =-=-=-
 
@@ -41,9 +41,15 @@ patientRoutes.get('/:id', function(req, res, next){
   patientModel.findOne({
     where: { id: req.params.id },
     include: [
-      { model: planModel, as: 'plan', required: false },
-      { model: treatmentModel, as: 'treatment', required: false },
-      { model: workoutModel, as: 'workout', required: false },
+      { model: planModel,
+        required: false
+      },
+      { model: treatmentModel,
+        required: false
+      },
+      { model: workoutModel,
+        required: false
+      }
     ]
   })
   .then(patient => res.send(patient))

@@ -1,10 +1,10 @@
 // Require our models.
-const Therapist = require('./therapist');
-const Patient = require('./patient');
-const Plan = require('./plan');
+const Therapist = require('./therapist')
+const Patient = require('./patient')
+const Plan = require('./plan')
 const Treatment = require('./treatment')
-const Exercise = require('./exercise');
-const Workout = require('./workout');
+const Exercise = require('./exercise')
+const Workout = require('./workout')
 
 // -=-=-=-=-=-= ASSOCIATIONS =-=-=-=-=-=-
 // http://docs.sequelizejs.com/en/latest/docs/associations/
