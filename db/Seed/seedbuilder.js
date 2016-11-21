@@ -12,15 +12,10 @@ const data = {
 };
 
 
-db.sync({force: true})
-.then(function () {
-  return Promise.map(Object.keys(data), function (name) {
-    return Promise.map(data[name], function (item) {
-      return db.model(name)
-      .create(item);
-    });
-  });
-})
+db.sync()
+.then(() => Promise.map(TherapistList, (therapist) => db.model('therapist').create(therapist)))
+.then(() => Promise.map(PatientList, (patient) => db.model('patient')
+  .create(Object.assign(patient, {therapist_id: Math.floor((Math.random() * TherapistList.length) + 1)}))))
 .then(function () {
   console.log("Finished Seeding Database");
 })
@@ -32,4 +27,6 @@ db.sync({force: true})
   console.log('Connection Closed'); 
   return null; // silences bluebird warning about using non-returned promises inside of handlers.
 });
+
+ 
 
