@@ -60,3 +60,8 @@ However, several considerations need to be made:
 ## Testing
 
 To run the test suite, execute the command `npm test`
+
+The easiest way to test is with [Postman](https://www.getpostman.com/). You can use our development testing
+collection to help you get started!
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b679dd0210a9500f7fef)
