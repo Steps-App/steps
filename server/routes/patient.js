@@ -1,14 +1,22 @@
 // patientRoutes
 const express = require('express')
 const patientRoutes = express()
+const planRoutes = require('./plan')
 
 // db models
 const db = require('../../db/')
 const patientModel  = db.model('patient')
 const planModel = db.model('plan')
 const therapistModel  = db.model('therapist')
-const treatmentModel  = db.model('patient')
-const workoutModel  = db.model('therapist')
+const treatmentModel  = db.model('treatment')
+const workoutModel  = db.model('workout')
+
+// -=-=-= PARAM HANDLER =-=-=-=-
+// to pass patientId onward for plan routing (see very bottom for that routing)
+patientRoutes.param('patientId', (req, res, next, id) => {
+  req.patientId = id
+  next()
+})
 
 // -=-=-=-= READ =-=-=-=-
 
@@ -20,38 +28,30 @@ patientRoutes.get('/', (req, res, next) => {
 })
 
 //get one patient with all data
-patientRoutes.get('/:id', function(req, res, next){
+patientRoutes.get('/:patientId', function(req, res, next){
   patientModel.findOne({
-    where: { id: req.params.id },
+    where: { id: req.patientId },
     include: [
-      { model: planModel, as: 'plan', required: false },
-      { model: treatmentModel, as: 'treatment', required: false },
-      { model: workoutModel, as: 'workout', required: false },
+      { model: planModel,
+        required: false
+      },
+      { model: treatmentModel,
+        required: false
+      },
+      { model: workoutModel,
+        required: false
+      }
     ]
   })
   .then(patient => res.send(patient))
   .catch(next);
 });
 
-//get one patient with plan
-//NEED TO UPDATE BASED ON DATA FOR FrontEnd **THIS ROUTE IS AN EXAMPLE**
-patientRoutes.get('/:id/plan', function(req, res, next){
-  planModel.findAll({
-    where: { id: req.params.id },
-    include: [
-      { model: treatmentModel, required: false }
-    ]
-  })
-  .then(plan => res.send(plan))
-  .catch(next);
-});
-
-
 // -=-=-=-= UPDATE =-=-=-=-
 
 // modify patient info
-patientRoutes.put('/:id', (req, res, next) => {
-  patientModel.findById(req.params.id)
+patientRoutes.put('/:patientId', (req, res, next) => {
+  patientModel.findById(req.patientId)
     .then(patient => patient.update(req.body))
     .then(updated => res.status(201).send(updated))
     .catch(next);
@@ -60,10 +60,14 @@ patientRoutes.put('/:id', (req, res, next) => {
 // -=-=-=-=-= DELETE =-=-=-=-=-
 
 // delete patient
-patientRoutes.delete('/:id', (req, res, next) => {
-  patientModel.destroy({where:{id: req.params.id}})
+patientRoutes.delete('/:patientId', (req, res, next) => {
+  patientModel.destroy({where:{id: req.patientId}})
       .then(() => res.sendStatus(204))
       .catch(next);
 })
+
+// -=-=-=-=-= PATIENT PLAN ROUTING =-=-=-=-=-=-
+
+patientRoutes.use('/:patientId/plan', planRoutes)
 
 module.exports = patientRoutes
