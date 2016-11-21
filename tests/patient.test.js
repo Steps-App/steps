@@ -19,8 +19,8 @@ describe('Patient', function () {
     db.didSync
       .then(() => {
         return Patient.create({
-          firstName: 'Jane',
-          lastName: 'Doe',
+          first_name: 'Jane',
+          last_name: 'Doe',
           email: 'jane.doe@test.com',
           DOB: '11/18/15',
           gender: 'F'

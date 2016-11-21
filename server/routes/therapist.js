@@ -64,4 +64,13 @@ therapistRoutes.get('/:id/exercises', (req, res, next) => {
     .catch(next);
 })
 
+/* PATIENTS */
+
+// get all patients for a therapist
+therapistRoutes.get('/:id/patients', (req, res, next) => {
+  patientModel.findAll({ where:{ therapist_id: req.params.id } })
+    .then(patients => res.send(patients))
+    .catch(next);
+})
+
 module.exports = therapistRoutes

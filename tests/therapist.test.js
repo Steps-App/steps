@@ -6,6 +6,7 @@ import chalk from 'chalk'
 import bcrypt from 'bcrypt'
 import db from '../db'
 import Therapist from '../db/models/therapist'
+import Patient from '../db/models/patient'
 
 import app from '../server/app'
 import Promise from 'bluebird'
@@ -20,8 +21,8 @@ describe('Therapist', function () {
     db.didSync
       .then(() => {
         return Therapist.create({
-          firstName: 'John',
-          lastName: 'Doe',
+          first_name: 'John',
+          last_name: 'Doe',
           email: 'john.doe@test.com',
           password: '123',
           practiceName: 'My PT Palace'
@@ -199,6 +200,21 @@ describe('Therapist', function () {
         .then(res => {
           expect(res.body.first_name).to.equal(testUser.first_name);
           expect(res.body.last_name).to.equal(testUser.last_name);
+          done()
+        })
+        .catch(done);
+    })
+
+    it('GET therapist/:id/patients - retrieve a therapist\'s patient list', function (done) {
+      Patient.bulkCreate([
+        { first_name: 'Jane', last_name: 'Doe', email: 'jane.doe@patients.com', therapist_id: testUser.id },
+        { first_name: 'Billy', last_name: 'Joe', email: 'billy.joe@patients.com', therapist_id: testUser.id }
+      ])
+        .then(patients => {
+          return agent.get(`/api/therapist/${testUser.id}/patients`)
+        })
+        .then(res => {
+          expect(res.body).to.have.lengthOf(2);
           done()
         })
         .catch(done);
