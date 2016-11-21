@@ -6,12 +6,30 @@ import chalk from 'chalk'
 import bcrypt from 'bcrypt'
 import db from '../db'
 import Therapist from '../db/models/therapist'
+import Patient from '../db/models/patient'
+
+import app from '../server/app'
+import Promise from 'bluebird'
+import supertest from 'supertest'
+
+const agent = supertest.agent(app)
 
 describe('Therapist', function () {
 
+  let testUser;
   before('wait for the db', function(done) {
     db.didSync
       .then(() => {
+        return Therapist.create({
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john.doe@test.com',
+          password: '123',
+          practiceName: 'My PT Palace'
+        })
+      })
+      .then(user => {
+        testUser = user;
         console.log(chalk.yellow('Sync success'))
         done();
       })
@@ -60,38 +78,146 @@ describe('Therapist', function () {
       })
     })
 
-  describe('hooks', function(){
+    describe('hooks', function(){
 
-    it('should set email to lowercase and return a password_digest', function() {
-      return Therapist.findOne({
+      it('should set email to lowercase and return a password_digest', function() {
+        return Therapist.findOne({
           where: {
             email: validTherapist.email
           }
         })
-        .then(foundTherapist => {
-          expect(foundTherapist.password_digest).to.not.equal(null)
-          expect(foundTherapist.email).to.equal(validTherapist.email.toLowerCase())
+          .then(foundTherapist => {
+            expect(foundTherapist.password_digest).to.not.equal(null)
+            expect(foundTherapist.email).to.equal(validTherapist.email.toLowerCase())
+          })
+          .catch(err => console.log(err.message))
+      })
+    })
+
+    describe('Instance methods', function(){
+
+      it('authenticate should resolve correctly with a valid password', function() {
+        return Therapist.findOne({
+          where: {
+            email: validTherapist.email
+          }
         })
-        .catch(err => console.log(err.message))
+          .then(foundTherapist => {
+            let passAuth = bcrypt.compareSync('badpassword', foundTherapist.dataValues.password_digest, (err, result) => {
+              return result
+            })
+            expect(passAuth).to.equal(true)
+          })
+          .catch(err => console.log(err.message))
+      })
     })
   })
 
-  describe('Instance methods', function(){
+  describe('Therapist Routes', () => {
 
-    it('authenticate should resolve correctly with a valid password', function() {
-      return Therapist.findOne({
-          where: {
-            email: validTherapist.email
-          }
-        })
-        .then(foundTherapist => {
-          let passAuth = bcrypt.compareSync('badpassword', foundTherapist.dataValues.password_digest, (err, result) => {
-              return result
-          })
-          expect(passAuth).to.equal(true)
-        })
-        .catch(err => console.log(err.message))
+    it('POST one Therapist', function (done) {
+      agent
+      .post('/api/auth/signup')
+      .set('Content-type', 'application/json')
+      .send({
+        role: 'therapist',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'john.doe@example.com',
+        password: '123',
+        practiceName: 'My PT Palace'
       })
+      .expect(201)
+      .end(function (err, res) {
+        if (err) return done(err)
+        expect(res.body.first_name).to.equal('John')
+        expect(res.body.id).to.exist
+        return Therapist.findById(res.body.id)
+          .then(function (b) {
+            expect(b).to.not.be.null
+            done()
+          })
+          .catch(done)
+      })
+    })
+
+    it('POST login therapist', function (done) {
+      agent
+        .post('/api/auth/login')
+        .set('Content-type', 'application/json')
+        .send({
+          email: testUser.email,
+          password: testUser.password,
+        })
+        .expect(200)
+        .end(function (err, res) {
+          if (err) return done(err);
+          expect(res.body.first_name).to.equal(testUser.first_name);
+          expect(res.body.last_name).to.equal(testUser.last_name);
+          done();
+        });
+    });
+
+    it('POST login fail - non-existent user', function () {
+      return agent
+        .post('/api/auth/login')
+        .set('Content-type', 'application/json')
+        .send({
+          email: 'bad.user@example.com',
+          password: testUser.password,
+        })
+        .expect(401);
+    })
+
+    it('POST login fail - invalid password', function () {
+      return agent
+        .post('/api/auth/login')
+        .set('Content-type', 'application/json')
+        .send({
+          email: testUser.email,
+          password: 'this_aint_right',
+        })
+        .expect(401);
+    })
+
+    it('DELETE logout', function () {
+      return agent
+        .del('/api/auth/logout')
+        .expect(204);
+    })
+
+    it('GET me - retrieve logged in therapist', function (done) {
+      agent
+        .post('/api/auth/login')
+        .set('Content-type', 'application/json')
+        .send({
+          email: testUser.email,
+          password: testUser.password,
+        })
+        .then(() => {
+          return agent.get('/api/auth/me')
+        })
+        .then(res => {
+          expect(res.body.first_name).to.equal(testUser.first_name);
+          expect(res.body.last_name).to.equal(testUser.last_name);
+          done()
+        })
+        .catch(done);
+    })
+
+    it('GET therapist/:id/patients - retrieve a therapist\'s patient list', function (done) {
+      Patient.bulkCreate([
+        { first_name: 'Jane', last_name: 'Doe', email: 'jane.doe@patients.com', therapist_id: testUser.id },
+        { first_name: 'Billy', last_name: 'Joe', email: 'billy.joe@patients.com', therapist_id: testUser.id }
+      ])
+        .then(patients => {
+          return agent.get(`/api/therapist/${testUser.id}/patients`)
+        })
+        .then(res => {
+          expect(res.body).to.have.lengthOf(2);
+          done()
+        })
+        .catch(done);
     })
   })
 })
