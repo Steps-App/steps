@@ -36,6 +36,6 @@ const Plan = db.define('plan', {
           plan.endDateCalc();
     }
   }
-})
+});
 
 module.exports = Plan;
