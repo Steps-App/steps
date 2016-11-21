@@ -2,7 +2,6 @@
 const express = require('express')
 const patientRoutes = express()
 const planRoutes = require('./plan')
-const workoutRoutes = require('./workout')
 
 // db models
 const db = require('../../db/')
@@ -86,6 +85,5 @@ patientRoutes.delete('/:patientId', (req, res, next) => {
 // -=-=-=-=-= PATIENT PLAN ROUTING =-=-=-=-=-=-
 
 patientRoutes.use('/:patientId/plan', planRoutes)
-patientRoutes.use('/:patientId/workout', workoutRoutes)
 
 module.exports = patientRoutes
