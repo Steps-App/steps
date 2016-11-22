@@ -1,6 +1,10 @@
+//React/Redux
 import React from 'react';
 import {connect} from 'react-redux';
-import {DropDownMenu, MenuItem, Divider, FloatingActionButton, GridList,GridTile, TextField, SelectField} from 'material-ui';
+
+//material-ui
+import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField} from 'material-ui';
+import {Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 
@@ -26,8 +30,11 @@ const fakeExerciseArray = [{
     "vid_url" : ""
   }
 ];
-//============================
-//=======  Component==========
+//========Treatment Array==========
+
+let treatmentTableRows = [];
+
+//=======  Component===============
 class newPlan extends React.Component{
   constructor(props){
     console.log(props);
@@ -38,50 +45,75 @@ class newPlan extends React.Component{
       duration : 1,
       injury : null,
       notes : null,
-      exercise: "",
-      exercises : []
+      exercise: null,
+      exercises : [],
+      treatments : []
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.addNewTreatment = this.addNewTreatment.bind(this);
+    this.removeTreatment = this.removeTreatment.bind(this);
+    }
+
+  // persisting on local state for plan form
+  handleChange(field, value){
+    console.log("field",field,"value",value);
+    this.setState({[field]:value});
   }
 
-  // persisting on local state
-  handleChange(evt,index, value){
-
-  }
-
-  //submiting local state
+  //setting all local state and submit entire plan
   submitHandler(evt){
 
   }
+//
+  addNewTreatment(){
+      treatmentTableRows.push(
+        <TableRow>
+          <TableRowColumn><Link to='treatment'><img src='../../../src/images/defaultexercise.jpeg'></img></Link></TableRowColumn>
+          <TableRowColumn>
+            <form>
+              <TextField hintText="Title"/><br/>
+              <TextField hintText="description" multiLine={true} /><br/>
+              <TextField hintText="Additional Notes" multiLine={true} /><br/>
+            </form>
+          </TableRowColumn>
+          <TableRowColumn>
+
+          </TableRowColumn>
+        </TableRow>
+    );
+  }
+
+  removeTreatment(){
+
+  }
+
 
   render(){
-
-// ========Exercise Drop Down ========
-      let exercises = [];
-      fakeExerciseArray.map((exercise) => {
-        exercises.push(<MenuItem key={exercise.id} value={exercise.id} primaryText={exercise.title}/>
-                      );
-      });
 // =======Temporary Styles ===========
-      const style = {
-          marginRight: 20,
-      };
+    const style = {
+      marginRight: 20,
+    };
 //====================================
 
-
-
+// ========Exercise Drop Down ============
+    let exercises = [];
+    fakeExerciseArray.map((exercise) => {
+      exercises.push(<MenuItem key={exercise.id} value={exercise.id} primaryText={exercise.title}/>
+                    );
+    });
+//=========== Component ==================
     return(
-
-      <div className='container' id='new'>
-        <div className='row'>
+      <div className="container">
+        <div className='row' id="newPlan">
 
           <div className='col-md-8'>
             <div className='row' id='plan-options'>
               <div className='form' >
-                  <DropDownMenu
+                  <DropDownMenu id="duration"
+                  maxHeight={200}
                   value={this.state.duration}
-                  onChange={this.handleChange}
+                  onChange={((evt,index,value)=> this.handleChange("duration",value))}
                   >
                     <MenuItem value={1} primaryText=" 1 Week"/>
                     <MenuItem value={2} primaryText=" 2 Week"/>
@@ -93,37 +125,47 @@ class newPlan extends React.Component{
                 </div>
 
                 <div>
-                  <SelectField>
-                    <MenuItem value={1} label='Injury' />
+                  <SelectField floatingLabelText="Injury" value={this.state.injury} onChange={(evt,index,value)=> this.handleChange("injury",value)}>
+                    <MenuItem value={1} primaryText='Knee' />
+                    <MenuItem value={2} primaryText='Shoulder' />
+                    <MenuItem value={3} primaryText='Lower Back' />
+                    <MenuItem value={4} primaryText='Upper Back'/>
+                    <MenuItem value={5} primaryText='Neck'/>
                   </SelectField>
-
                 </div>
-              </div>
+                <div>
+                  <TextField hintText="Notes"></TextField>
+                </div>
+            </div>
 
             <div>
               <div>
-                <DropDownMenu maxHeight={200} value={this.state.exercise} onChange={this.handleChange}>
-                  <MenuItem value={1} primaryText="Exercises"/>
-                  <Divider/>
+                <SelectField maxHeight={200} value={this.state.exercise} floatingLabelText="Exercise"onChange={this.handleChange}>
                   {exercises}
-                </DropDownMenu>
+                </SelectField>
               </div>
 
               <div>
-                <FloatingActionButton mini={true} style={style}>
+                <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
                   <ContentAdd className="add-exercise"/>
                 </FloatingActionButton>
               </div>
             </div>
+
+
+            <Table>
+              {treatmentTableRows}
+            </Table>
+
           </div>
 
 
           <div className='col-md-4'>
               <div> Patient Photo</div>
           </div>
-          
+
          </div>
-       </div>
+        </div>
     );
   }
 
