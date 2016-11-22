@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import NavbarMenu from './NavbarMenu'
 import { logout } from '../../reducers/user'
 import { toolbar, textLight } from '../colors'
+import { loginRedirect } from '../../utils'
 
 // Material theme
 import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui';
@@ -12,7 +13,7 @@ import FontIcon from 'material-ui/FontIcon';
 const Navbar = props => (
   <Toolbar id="navbar" style={{backgroundColor: toolbar}}>
     <ToolbarGroup className="navbar-logo">
-      <Link to="/">
+      <Link to={!Object.keys(props.user) ? '/' : loginRedirect(props.user.role)}>
         <ToolbarTitle style={{fontSize: '30px', color: textLight, padding: 0}} text="Steps" />
       </Link>
     </ToolbarGroup>
@@ -23,7 +24,7 @@ const Navbar = props => (
 const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => console.log('logging out')
+  logout: () => dispatch(logout())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

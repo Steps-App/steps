@@ -58,7 +58,7 @@ $icon-size: 46px;
   color: $active !important;
 }
 
-$icons: ('patients', 'exercises', 'messages');
+$icons: ('patients', 'exercises', 'dashboard', 'messages');
 @each $type in $icons {
   .#{$type} {
     background: url('../images/icons/#{$type}_light.svg');

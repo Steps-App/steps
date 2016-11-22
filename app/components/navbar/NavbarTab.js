@@ -6,12 +6,12 @@ import { toolbar, textLight } from '../colors'
 // Regular text input
 export default props => (
   <div className="navbar-item">
-    <Link to="/">
+    <Link to={`/${props.type}`}>
       <StepsFlatButton
-        label={ props.label }
+        label={ props.type.charAt(0).toUpperCase() + props.type.slice(1) }
         textColor={ textLight }
         backgroundColor={ toolbar } />
-      <div className={`navbar-item-icon ${props.imgClass}`} />
+      <div className={`navbar-item-icon ${props.type}`} />
     </Link>
   </div>
 )
