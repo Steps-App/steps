@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {DropDownMenu, MenuItem, Divider, FloatingActionButton} from 'material-ui';
+import {DropDownMenu, MenuItem, Divider, FloatingActionButton, GridList,GridTile, TextField, SelectField} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 
@@ -57,62 +57,73 @@ class newPlan extends React.Component{
 
   render(){
 
-
+// ========Exercise Drop Down ========
       let exercises = [];
       fakeExerciseArray.map((exercise) => {
         exercises.push(<MenuItem key={exercise.id} value={exercise.id} primaryText={exercise.title}/>
                       );
       });
-
+// =======Temporary Styles ===========
       const style = {
           marginRight: 20,
       };
+//====================================
+
+
 
     return(
-      <div className='row' id='container'>
 
-        <section className='col-xs-12 col-lg-8'>
-          <div className='row'>
-            <span className='col-xs-12 col-md-8'>
-              <DropDownMenu
-              value={this.state.duration}
-              onChange={this.handleChange}
-              >
-                <MenuItem value={1} primaryText=" 1 Week"/>
-                <MenuItem value={2} primaryText=" 2 Week"/>
-                <MenuItem value={3} primaryText=" 3 Week"/>
-                <MenuItem value={4} primaryText=" 4 Week"/>
-                <MenuItem value={5} primaryText=" 5 Week"/>
-                <MenuItem value={6} primaryText=" 6 Week"/>
-              </DropDownMenu>
+      <div className='container' id='new'>
+        <div className='row'>
 
-            </span>
-          </div>
-          <div>
-            <span>
-              <DropDownMenu maxHeight={200} value={this.state.exercise} onChange={this.handleChange}>
-                <MenuItem value={1} primaryText="Exercises"/>
+          <div className='col-md-8'>
+            <div className='row' id='plan-options'>
+              <div className='form' >
+                  <DropDownMenu
+                  value={this.state.duration}
+                  onChange={this.handleChange}
+                  >
+                    <MenuItem value={1} primaryText=" 1 Week"/>
+                    <MenuItem value={2} primaryText=" 2 Week"/>
+                    <MenuItem value={3} primaryText=" 3 Week"/>
+                    <MenuItem value={4} primaryText=" 4 Week"/>
+                    <MenuItem value={5} primaryText=" 5 Week"/>
+                    <MenuItem value={6} primaryText=" 6 Week"/>
+                  </DropDownMenu>
+                </div>
+
+                <div>
+                  <SelectField>
+                    <MenuItem value={1} label='Injury' />
+                  </SelectField>
+
+                </div>
+              </div>
+
+            <div>
+              <div>
+                <DropDownMenu maxHeight={200} value={this.state.exercise} onChange={this.handleChange}>
+                  <MenuItem value={1} primaryText="Exercises"/>
                   <Divider/>
                   {exercises}
-              </DropDownMenu>
-            </span>
+                </DropDownMenu>
+              </div>
 
-            <span>
+              <div>
                 <FloatingActionButton mini={true} style={style}>
-                  <ContentAdd />
+                  <ContentAdd className="add-exercise"/>
                 </FloatingActionButton>
-            </span>
-
+              </div>
+            </div>
           </div>
 
-        </section>
 
-
-        <section className='col-md-4'>
-
-
-        </section>
-      </div>
+          <div className='col-md-4'>
+              <div> Patient Photo</div>
+          </div>
+          
+         </div>
+       </div>
     );
   }
 
