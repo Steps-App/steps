@@ -1,6 +1,7 @@
 // router
 const express = require('express')
 const router = express()
+const workoutRoutes = require('./workout')
 
 // Plan Model
 const Plan = require('../../db/models/plan')
@@ -134,5 +135,7 @@ router.delete('/:planId', (req, res, next) => {
     .then(ok => { res.sendStatus(204) })
     .catch()
 })
+
+router.use('/:planId/workout', workoutRoutes)
 
 module.exports = router

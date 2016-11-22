@@ -156,6 +156,8 @@ describe('Routes', () => {
       notes: 'Even famous MLB physical therapists use Steps',
       patient_id: 1001
     })
+    .then(ok => console.log(chalk.green('fake plan created')))
+    .catch(err => console.error(err))
   })
 
   before('ensures a fake treatment associated to the fake plan exists', () => {
@@ -167,6 +169,8 @@ describe('Routes', () => {
       resistance: 'weighted',
       plan_id: 1001
     })
+    .then(ok => console.log(chalk.green('fake treatment created')))
+    .catch(err => console.error(err))
   })
 
   describe('Reads: ', () => {
