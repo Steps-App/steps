@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 // Redux Actions and Thunks
 import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
+import { loginRedirect } from './utils'
 
 // React Compontents 
 import Home from './components/home/Home'
@@ -16,18 +17,22 @@ import PatientDash from './components/patients/PatientDash'
 
 // React router hooks
 const appEnter = (nextState, replace, callback) => {
-  store.dispatch(retrieveLoggedInUser())
-  // If user is not logged in, redirect them to the home page
-  if (!Object.keys(store.getState().user).length)
-    replace('/');
-  callback();
+  store.dispatch(retrieveLoggedInUser((err, user) => {
+    // Home page and logged in -> default app view
+    if (!err && nextState.location.pathname === '/')
+      replace(loginRedirect(user.role));
+    // App page and not logged in -> home page
+    else if (err && nextState.location.pathname !== '/')
+      replace('/');
+    callback();
+  }));
 }
 
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
-      <Route path="/" component={ Home } />
-      <Route path="/app" component={ App } onEnter={ appEnter }>
+      <Route path="/" component={ Home } onEnter={ appEnter } />
+      <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>

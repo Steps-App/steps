@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 //Material UI
 import { StepsTextField, StepsRaisedButton, StepsTabs, StepsTab } from '../material-style.js'
-import { tabs } from '../colors'
+import { tabs, errorText } from '../colors'
 const buttonStyle = { marginTop: '1em', marginBottom: '1.5em' };
 
 //Import Dispatachers
@@ -18,7 +18,7 @@ export class Signin extends Component {
     super(props) 
     this.state = {
       licenseId: '', practiceName: '', email: '', 
-      password: '', tab:'sign-in', login_error: ''}
+      password: '', tab:'sign-in', login_error: '', signup_error: ''}
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,13 +33,13 @@ export class Signin extends Component {
   handleSubmit (evt) {
     evt.preventDefault();
 
-    if(!this.state.licenseId) {
+    if(this.state.tab === 'sign-in') {
       const credentials = {
         role: 'patient',
         email: this.state.email,
         password: this.state.password
       }
-      this.props.login(credentials)	
+      this.props.login(credentials, err => this.setState({ login_error: err }));
     } else {
       const credentials = {
         role: 'therapist',
@@ -48,12 +48,8 @@ export class Signin extends Component {
         email: this.state.email,
         password: this.state.password
       }
-      this.props.signup(credentials)
+      this.props.signup(credentials, err => this.setState({ signup_error: err }));
     }
-
-    //need to work on login error  
-    //	this.props.login(credentials, (err) => {
-    //		this.setState({ login_error: err });}
   }
 
   render() {
@@ -79,6 +75,10 @@ export class Signin extends Component {
                 type="submit"
                 fullWidth={true}
                 style={buttonStyle} />
+              {
+                this.state.login_error ?
+                  <p style={{ color: errorText }}>{ this.state.login_error }</p> : null
+              }
             </form>
           </div>
         </StepsTab>
@@ -109,6 +109,10 @@ export class Signin extends Component {
                 type="submit"
                 fullWidth={true}
                 style={buttonStyle} />
+              {
+                this.state.signup_error ?
+                  <p style={{ color: errorText }}>{ this.state.signup_error }</p> : null
+              }
             </form>
           </div>
         </StepsTab>
@@ -124,7 +128,7 @@ const mapDispatchtoProps = dispatch => ({
     dispatch(signup(credentials, displayErr)) 
   },
   login: (credentials, displayErr) => {
-    dispatch(login(credentials,displayErr))
+    dispatch(login(credentials, displayErr))
   }
 })
 

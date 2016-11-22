@@ -2,12 +2,20 @@ import React from 'react';
 import { Link } from 'react-router'
 import NavbarTab from './NavbarTab'
 import { toolbar, textLight } from '../colors'
+import { PATIENT, THERAPIST } from '../../constants'
 import { fullName } from '../../utils'
 
 // Material theme
 import { ToolbarGroup } from 'material-ui';
 import Popover from 'material-ui/Popover/Popover';
 import { StepsMenu, StepsPopoverMenuItem } from '../material-style'
+
+const navbarTabs = [
+  {type: 'patients', role: THERAPIST},
+  {type: 'exercises', role: THERAPIST},
+  {type: 'dashboard', role: PATIENT},
+  {type: 'messages'}
+]
 
 export default class NavbarMenu extends React.Component {
   constructor(props) {
@@ -33,9 +41,12 @@ export default class NavbarMenu extends React.Component {
     const { user, logout } = this.props;
     return (
       <ToolbarGroup>
-        <NavbarTab label="Patients" imgClass="patients" />
-        <NavbarTab label="Exercises" imgClass="exercises" />
-        <NavbarTab label="Messages" imgClass="messages" />
+        {
+          navbarTabs.map((tab, i) =>
+            !tab.role || tab.role === user.role ?
+              <NavbarTab type={tab.type} /> : null
+          )
+        }
         <div className="navbar-item">
           {/* Account Menu popover defined below */}
           <div className="profile-icon"
