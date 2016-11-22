@@ -1,0 +1,202 @@
+[
+  {
+    "time_per_exercise": 176,
+    "reps": 8,
+    "sets": 2,
+    "resistance": "none",
+    "notes": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+    "plan_id": 10,
+    "patient_id": 1,
+    "exercise_id": 49
+  },
+  {
+    "time_per_exercise": 370,
+    "reps": 9,
+    "sets": 3,
+    "resistance": "none",
+    "notes": null,
+    "plan_id": 4,
+    "patient_id": 3,
+    "exercise_id": 46
+  },
+  {
+    "time_per_exercise": 337,
+    "reps": 8,
+    "sets": 4,
+    "resistance": "weighted",
+    "notes": null,
+    "plan_id": 4,
+    "patient_id": 5,
+    "exercise_id": 9
+  },
+  {
+    "time_per_exercise": 236,
+    "reps": 11,
+    "sets": 3,
+    "resistance": "none",
+    "notes": null,
+    "plan_id": 2,
+    "patient_id": 1,
+    "exercise_id": 14
+  },
+  {
+    "time_per_exercise": 292,
+    "reps": 7,
+    "sets": 3,
+    "resistance": "weighted",
+    "notes": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
+    "plan_id": 3,
+    "patient_id": 2,
+    "exercise_id": 43
+  },
+  {
+    "time_per_exercise": 379,
+    "reps": 5,
+    "sets": 3,
+    "resistance": "weighted",
+    "notes": "Aenean fermentum. Donec ut mauris eget massa tempor convallis.",
+    "plan_id": 2,
+    "patient_id": 3,
+    "exercise_id": 38
+  },
+  {
+    "time_per_exercise": 340,
+    "reps": 12,
+    "sets": 1,
+    "resistance": "none",
+    "notes": null,
+    "plan_id": 7,
+    "patient_id": 3,
+    "exercise_id": 30
+  },
+  {
+    "time_per_exercise": 517,
+    "reps": 13,
+    "sets": 2,
+    "resistance": "none",
+    "notes": "Integer tincidunt ante vel ipsum.",
+    "plan_id": 10,
+    "patient_id": 2,
+    "exercise_id": 42
+  },
+  {
+    "time_per_exercise": 147,
+    "reps": 12,
+    "sets": 1,
+    "resistance": "none",
+    "notes": null,
+    "plan_id": 3,
+    "patient_id": 4,
+    "exercise_id": 24
+  },
+  {
+    "time_per_exercise": 196,
+    "reps": 12,
+    "sets": 3,
+    "resistance": "weighted",
+    "notes": null,
+    "plan_id": 6,
+    "patient_id": 1,
+    "exercise_id": 4
+  },
+  {
+    "time_per_exercise": 88,
+    "reps": 5,
+    "sets": 2,
+    "resistance": "weighted",
+    "notes": null,
+    "plan_id": 2,
+    "patient_id": 1,
+    "exercise_id": 18
+  },
+  {
+    "time_per_exercise": 323,
+    "reps": 5,
+    "sets": 4,
+    "resistance": "weighted",
+    "notes": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+    "plan_id": 1,
+    "patient_id": 3,
+    "exercise_id": 24
+  },
+  {
+    "time_per_exercise": 163,
+    "reps": 13,
+    "sets": 3,
+    "resistance": "weighted",
+    "notes": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+    "plan_id": 10,
+    "patient_id": 2,
+    "exercise_id": 31
+  },
+  {
+    "time_per_exercise": 576,
+    "reps": 12,
+    "sets": 2,
+    "resistance": "weighted",
+    "notes": null,
+    "plan_id": 7,
+    "patient_id": 3,
+    "exercise_id": 15
+  },
+  {
+    "time_per_exercise": 385,
+    "reps": 10,
+    "sets": 3,
+    "resistance": "none",
+    "notes": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+    "plan_id": 7,
+    "patient_id": 3,
+    "exercise_id": 27
+  },
+  {
+    "time_per_exercise": 232,
+    "reps": 15,
+    "sets": 4,
+    "resistance": "weighted",
+    "notes": null,
+    "plan_id": 2,
+    "patient_id": 1,
+    "exercise_id": 31
+  },
+  {
+    "time_per_exercise": 169,
+    "reps": 11,
+    "sets": 1,
+    "resistance": "none",
+    "notes": null,
+    "plan_id": 4,
+    "patient_id": 2,
+    "exercise_id": 17
+  },
+  {
+    "time_per_exercise": 140,
+    "reps": 7,
+    "sets": 4,
+    "resistance": "none",
+    "notes": "In quis justo. Maecenas rhoncus aliquam lacus.",
+    "plan_id": 6,
+    "patient_id": 4,
+    "exercise_id": 22
+  },
+  {
+    "time_per_exercise": 549,
+    "reps": 6,
+    "sets": 1,
+    "resistance": "none",
+    "notes": "Vivamus tortor. Duis mattis egestas metus.",
+    "plan_id": 7,
+    "patient_id": 1,
+    "exercise_id": 45
+  },
+  {
+    "time_per_exercise": 425,
+    "reps": 11,
+    "sets": 3,
+    "resistance": "weighted",
+    "notes": "Nunc nisl.",
+    "plan_id": 1,
+    "patient_id": 3,
+    "exercise_id": 47
+  }
+]
