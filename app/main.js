@@ -1,18 +1,22 @@
 // Libraries
-import React from 'react'
-import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
 // Redux Actions and Thunks
+
 import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
 
-// React Compontents 
-import Home from './components/home/Home'
-import App from './components/App'
-import AddPatientContainer from './components/patients/AddPatientContainer'
-import PatientDash from './components/patients/PatientDash'
+
+// React Compontents
+import Home from './components/home/Home';
+import App from './components/App';
+import AddPatientContainer from './components/patients/AddPatientContainer';
+import newPlansContainer from './components/plans/newplan';
+import PatientDash from './components/patients/PatientDash';
+
 
 // React router hooks
 const appEnter = (nextState, replace, callback) => {
@@ -21,7 +25,16 @@ const appEnter = (nextState, replace, callback) => {
   if (!Object.keys(store.getState().user).length)
     replace('/');
   callback();
-}
+};
+
+const newPlanEnter = (nextState) => {
+  // retrieves all exercises available
+
+
+};
+
+
+
 
 render (
   <Provider store={ store }>
@@ -29,9 +42,11 @@ render (
       <Route path="/" component={ Home } />
       <Route path="/app" component={ App } onEnter={ appEnter }>
         <Route path="/patients/new" component={ AddPatientContainer } />
+        <Route path="/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
   </Provider>,
   document.getElementById('app')
-)
+);

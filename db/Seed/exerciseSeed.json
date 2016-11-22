@@ -1,0 +1,20 @@
+[
+ {
+  "title" : "Horizontal Abduction",
+  "description" : " Start by lying on your stomach and your arm dangling",
+  "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/Shoulder-Prone-Horizontal-Abduction.jpg",
+  "vid_url" : "http://google.com/image.jpg"
+ },
+ {
+   "title" : "Wall or Table Push Up",
+   "description" : "To do this correctly, raise your arms up in front of you so your arms are even with the ground.",
+   "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/shoulder-wall-push-up-start.jpg",
+   "vid_url" : "http://google.com/image.jpg"
+  },
+  {
+    "title" : "Prone External Rotation",
+    "description" : "Start by lying on your stomach and your arm dangling",
+    "img_url" : "http://google.com/image.jpg",
+    "vid_url" : "http://google.com/image.jpg"
+  }
+]
