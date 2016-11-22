@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 
 import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
+import { fetchExercises } from './reducers/exercises'
 
 
 // React Compontents
@@ -28,12 +29,8 @@ const appEnter = (nextState, replace, callback) => {
 };
 
 const newPlanEnter = (nextState) => {
-  // retrieves all exercises available
-
-
+  store.dispatch(fetchExercises(store.getState().user.id))
 };
-
-
 
 
 render (
@@ -42,7 +39,7 @@ render (
       <Route path="/" component={ Home } />
       <Route path="/app" component={ App } onEnter={ appEnter }>
         <Route path="/patients/new" component={ AddPatientContainer } />
-        <Route path="/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/plans/therapistId/new" component={newPlansContainer} onEnter={newPlanEnter} />
 
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>

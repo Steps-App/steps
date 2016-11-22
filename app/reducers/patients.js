@@ -48,6 +48,6 @@ export const createPatient = (data, displayErr) => dispatch => {
     })
     .catch(err => {
       console.error('Unable to add patient', err)
-      displayErr('We experienced an unexpect error while trying to add your patient. Please try again later.')
+      displayErr('We experienced an unexpected error while trying to add your patient. Please try again later.')
     });
 }
