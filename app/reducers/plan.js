@@ -27,7 +27,7 @@ export default function reducer(currentPlan = initialPlan, action) {
 
 export const createdPlan = (data, displayErr) => dispatch => {
   axios.post(`/api/plan`, {
-    duration: data.duration,  
+    duration: data.duration,
     therapy_focus: data.therapyFocus,
     notes: data.notes,
     patient_id: data.patientId,       

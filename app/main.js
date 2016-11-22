@@ -5,11 +5,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 // Redux Actions and Thunks
-
 import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
 import { fetchExercises } from './reducers/exercises'
-
 
 // React Compontents
 import Home from './components/home/Home';
@@ -17,30 +15,35 @@ import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newplan';
 import PatientDash from './components/patients/PatientDash';
-
+import { loginRedirect } from './utils'
 
 // React router hooks
 const appEnter = (nextState, replace, callback) => {
-  store.dispatch(retrieveLoggedInUser())
-  // If user is not logged in, redirect them to the home page
-  if (!Object.keys(store.getState().user).length)
-    replace('/');
-  callback();
-};
+  store.dispatch(retrieveLoggedInUser((err, user) => {
+    // Home page and logged in -> default app view
+    if (!err && nextState.location.pathname === '/')
+      replace(loginRedirect(user.role));
+    // App page and not logged in -> home page
+    else if (err && nextState.location.pathname !== '/')
+      replace('/');
+    callback();
+  }));
+}
 
-const newPlanEnter = (nextState) => {
-  store.dispatch(fetchExercises(store.getState().user.id))
+const newPlanEnter = (nextState, replace) => {
+  // Check if patientId not in patients on state <- implement during /patients page
+  if (false) replace('/patients');
+  // otherwise, grab exercises for the therapist
+  else store.dispatch(fetchExercises(store.getState().user.id))
 };
-
 
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
-      <Route path="/" component={ Home } />
-      <Route path="/app" component={ App } onEnter={ appEnter }>
+      <Route path="/" component={ Home } onEnter={ appEnter } />
+      <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/patients/new" component={ AddPatientContainer } />
-        <Route path="/plans/therapistId/new" component={newPlansContainer} onEnter={newPlanEnter} />
-
+        <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
