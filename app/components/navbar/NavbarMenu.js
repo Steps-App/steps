@@ -12,8 +12,8 @@ import { StepsMenu, StepsPopoverMenuItem } from '../material-style'
 
 const navbarTabs = [
   {type: 'patients', role: THERAPIST},
+  {type: 'dashboard'},
   {type: 'exercises', role: THERAPIST},
-  {type: 'dashboard', role: PATIENT},
   {type: 'messages'}
 ]
 
@@ -44,7 +44,7 @@ export default class NavbarMenu extends React.Component {
         {
           navbarTabs.map((tab, i) =>
             !tab.role || tab.role === user.role ?
-              <NavbarTab type={tab.type} /> : null
+              <NavbarTab key={i} type={tab.type} /> : null
           )
         }
         <div className="navbar-item">

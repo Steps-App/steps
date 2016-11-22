@@ -14,7 +14,7 @@ export const fullName = user => `${user.first_name} ${user.last_name}`;
 
 // Redirect page for logged in user based on role
 export const loginRedirect = role => {
-  if (role === THERAPIST) return '/dashboard';
+  if (role === THERAPIST) return '/patients';
   else if (role === PATIENT) return '/plan';
   else return '/';
 }
