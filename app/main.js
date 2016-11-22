@@ -11,7 +11,7 @@ import store from './store';
 import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
-import newPlansContainer from './components/plans/newplan';
+import newPlansContainer from './components/plans/newPlan';
 import PatientDash from './components/patients/PatientDash';
 
 

@@ -3,9 +3,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 //Components
 import PlanOptions from './newPlanOptions';
+import PatientPanel from './PatientPanel';
 
 //material-ui
-import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link} from 'material-ui';
+import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
 import {Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
@@ -28,10 +29,21 @@ const fakeExerciseArray = [{
   { "id" : 3,
     "title" : "Prone External Rotation",
     "description" : "Start by lying on your stomach and your arm dangling",
-    "img_URL" : "",
+    "img_URL" : "../../../src/images/defaultProfile.png",
     "vid_url" : ""
   }
 ];
+
+
+const fakePatient = {
+  id : 1,
+  first_name : "John",
+  last_name : "doe",
+  img_url : "",
+  email : "johndoe@gmail.com",
+  DOB : 'DEC 10 1989',
+  gender : 'M'
+};
 //========Treatment Array==========
 
 let treatmentTableRows = [];
@@ -56,7 +68,7 @@ class newPlan extends React.Component{
     this.noteHandler = this.noteHandler.bind(this);
     this.addNewTreatment = this.addNewTreatment.bind(this);
     this.removeTreatment = this.removeTreatment.bind(this);
-    }
+  }
 
 // persisting on local state for plan for duration and injury
   handleChange(field, value){
@@ -66,7 +78,6 @@ class newPlan extends React.Component{
   noteHandler(evt){
     this.setState({notes : evt.target.value});
   }
-
 
 //setting all local state and submit entire plan
   submitHandler(evt){
@@ -114,19 +125,23 @@ class newPlan extends React.Component{
         <div className='row' id="newPlan">
           <div className='col-md-8'>
               <PlanOptions handleChange={this.handleChange}     noteHandler={this.noteHandler} note={this.state.notes} duration={this.state.duration} injury={this.state.injury}/>
-            <div>
-              <div>
-                <SelectField maxHeight={200} value={this.state.exercise} floatingLabelText="Exercise"onChange={this.handleChange}>
-                  {exercises}
-                </SelectField>
-              </div>
 
               <div>
-                <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
-                  <ContentAdd className="add-exercise"/>
-                </FloatingActionButton>
+                <div>
+                  <SelectField maxHeight={200} value={this.state.exercise} floatingLabelText="Exercise"onChange={this.handleChange}>
+                    {exercises}
+                    </SelectField>
+                    <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
+                      <ContentAdd className="add-exercise"/>
+                    </FloatingActionButton>
+                </div>
+
+                <div>
+                  <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
+                    <ContentAdd className="add-exercise"/>
+                  </FloatingActionButton>
+                </div>
               </div>
-            </div>
 
 
             <Table>
@@ -137,7 +152,7 @@ class newPlan extends React.Component{
 
 
           <div className='col-md-4'>
-              <div> Patient Photo</div>
+            <PatientPanel patient={fakePatient}/>
           </div>
 
          </div>
@@ -151,7 +166,7 @@ class newPlan extends React.Component{
 }
 
 
-//========Container =============== Temporary
+//========Container =============== Temporary :D =========
 
 const mapStateToProps = () => ({});
 
