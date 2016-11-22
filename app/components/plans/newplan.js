@@ -1,9 +1,11 @@
 //React/Redux
 import React from 'react';
 import {connect} from 'react-redux';
+//Components
+import PlanOptions from './newPlanOptions';
 
 //material-ui
-import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField} from 'material-ui';
+import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link} from 'material-ui';
 import {Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
@@ -44,24 +46,29 @@ class newPlan extends React.Component{
       patient : {},
       duration : 1,
       injury : null,
-      notes : null,
+      notes : "",
       exercise: null,
       exercises : [],
       treatments : []
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.noteHandler = this.noteHandler.bind(this);
     this.addNewTreatment = this.addNewTreatment.bind(this);
     this.removeTreatment = this.removeTreatment.bind(this);
     }
 
-  // persisting on local state for plan form
+// persisting on local state for plan for duration and injury
   handleChange(field, value){
-    console.log("field",field,"value",value);
     this.setState({[field]:value});
   }
+//onchange handler for PlanNotes
+  noteHandler(evt){
+    this.setState({notes : evt.target.value});
+  }
 
-  //setting all local state and submit entire plan
+
+//setting all local state and submit entire plan
   submitHandler(evt){
 
   }
@@ -78,7 +85,6 @@ class newPlan extends React.Component{
             </form>
           </TableRowColumn>
           <TableRowColumn>
-
           </TableRowColumn>
         </TableRow>
     );
@@ -104,40 +110,10 @@ class newPlan extends React.Component{
     });
 //=========== Component ==================
     return(
-      <div className="container">
+      <form className="container">
         <div className='row' id="newPlan">
-
           <div className='col-md-8'>
-            <div className='row' id='plan-options'>
-              <div className='form' >
-                  <DropDownMenu id="duration"
-                  maxHeight={200}
-                  value={this.state.duration}
-                  onChange={((evt,index,value)=> this.handleChange("duration",value))}
-                  >
-                    <MenuItem value={1} primaryText=" 1 Week"/>
-                    <MenuItem value={2} primaryText=" 2 Week"/>
-                    <MenuItem value={3} primaryText=" 3 Week"/>
-                    <MenuItem value={4} primaryText=" 4 Week"/>
-                    <MenuItem value={5} primaryText=" 5 Week"/>
-                    <MenuItem value={6} primaryText=" 6 Week"/>
-                  </DropDownMenu>
-                </div>
-
-                <div>
-                  <SelectField floatingLabelText="Injury" value={this.state.injury} onChange={(evt,index,value)=> this.handleChange("injury",value)}>
-                    <MenuItem value={1} primaryText='Knee' />
-                    <MenuItem value={2} primaryText='Shoulder' />
-                    <MenuItem value={3} primaryText='Lower Back' />
-                    <MenuItem value={4} primaryText='Upper Back'/>
-                    <MenuItem value={5} primaryText='Neck'/>
-                  </SelectField>
-                </div>
-                <div>
-                  <TextField hintText="Notes"></TextField>
-                </div>
-            </div>
-
+              <PlanOptions handleChange={this.handleChange}     noteHandler={this.noteHandler} note={this.state.notes} duration={this.state.duration} injury={this.state.injury}/>
             <div>
               <div>
                 <SelectField maxHeight={200} value={this.state.exercise} floatingLabelText="Exercise"onChange={this.handleChange}>
@@ -165,7 +141,7 @@ class newPlan extends React.Component{
           </div>
 
          </div>
-        </div>
+        </form>
     );
   }
 
