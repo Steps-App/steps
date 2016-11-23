@@ -1,7 +1,47 @@
 [
-  {"first_name":"Alexa","last_name":"Burke", "email":"alexa@gmail.com", "DOB":"10/31/1990","gender":"F", "img_URL": "https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline","password":"1234"},
-  {"first_name":"Mike","last_name":"Sanders", "email":"mike@gmail.com", "DOB":"6/17/1978","gender":"M", "img_URL": "http://helpgrowchange.com/wp-content/uploads/2014/03/tb_profile_201303_round.png","password":"1234"},
-  {"first_name":"Victoria","last_name":"Sparks", "email":"victoria@gmail.com", "DOB":"7/14/1980","gender":"F", "img_URL": "http://i1028.photobucket.com/albums/y341/tepandoro/Profile%20Picture%20Round%202_zpskjsfozw5.png", "password":"1234"},
-  {"first_name":"Chris","last_name":"Steele", "email":"chris@gmail.com", "DOB":"6/26/1986","gender":"M", "img_URL": "https://www.aptitudesoftware.com/wp-content/uploads/Round-profile-2.png", "password":"1234"},
-  {"first_name":"Megan","last_name":"House", "email":"megan@gmail.com", "DOB":"1/9/1976","gender":"F", "img_URL": "http://www.abbieterpening.com/wp-content/uploads/2013/10/profile-pic-round-200px.png", "password":"1234"}
+  {
+    "first_name": "Alexa",
+    "last_name": "Burke",
+    "email": "alexa@gmail.com",
+    "DOB": "10/31/1990",
+    "gender": "F",
+    "img_URL": "https://randomuser.me/api/portraits/women/68.jpg",
+    "password": "1234"
+  },
+  {
+    "first_name": "Mike",
+    "last_name": "Sanders",
+    "email": "mike@gmail.com",
+    "DOB": "6/17/1978",
+    "gender": "M",
+    "img_URL": "https://randomuser.me/api/portraits/men/44.jpg",
+    "password": "1234"
+  },
+  {
+    "first_name": "Victoria",
+    "last_name": "Sparks",
+    "email": "victoria@gmail.com",
+    "DOB": "7/14/1980",
+    "gender": "F",
+    "img_URL": "https://randomuser.me/api/portraits/women/76.jpg",
+    "password": "1234"
+  },
+  {
+    "first_name": "Chris",
+    "last_name": "Steele",
+    "email": "chris@gmail.com",
+    "DOB": "6/26/1986",
+    "gender": "M",
+    "img_URL": "https://randomuser.me/api/portraits/men/43.jpg",
+    "password": "1234"
+  },
+  {
+    "first_name": "Megan",
+    "last_name": "House",
+    "email": "megan@gmail.com",
+    "DOB": "1/9/1976",
+    "gender": "F",
+    "img_URL": "https://randomuser.me/api/portraits/women/59.jpg",
+    "password": "1234"
+  }
 ]

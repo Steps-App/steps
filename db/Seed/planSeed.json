@@ -1,0 +1,62 @@
+[
+  {
+    "duration": 14,
+    "therapy_focus": "stable",
+    "notes": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+    "patient_id": 1
+  },
+  {
+    "duration": 19,
+    "therapy_focus": "conglomeration",
+    "notes": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+    "patient_id": 2
+  },
+  {
+    "duration": 21,
+    "therapy_focus": "mobile",
+    "notes": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+    "patient_id": 2
+  },
+  {
+    "duration": 23,
+    "therapy_focus": "system engine",
+    "notes": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+    "patient_id": 4
+  },
+  {
+    "duration": 20,
+    "therapy_focus": "static",
+    "notes": "Integer ac neque. Duis bibendum.",
+    "patient_id": 2
+  },
+  {
+    "duration": 8,
+    "therapy_focus": "radical",
+    "notes": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+    "patient_id": 5
+  },
+  {
+    "duration": 17,
+    "therapy_focus": "Persistent",
+    "notes": "Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.",
+    "patient_id": 5
+  },
+  {
+    "duration": 16,
+    "therapy_focus": "collaboration",
+    "notes": null,
+    "patient_id": 1
+  },
+  {
+    "duration": 14,
+    "therapy_focus": "transitional",
+    "notes": null,
+    "patient_id": 5
+  },
+  {
+    "duration": 11,
+    "therapy_focus": "policy",
+    "notes": null,
+    "patient_id": 3
+  }
+]

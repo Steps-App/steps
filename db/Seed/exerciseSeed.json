@@ -1,20 +1,352 @@
 [
- {
-  "title" : "Horizontal Abduction",
-  "description" : " Start by lying on your stomach and your arm dangling",
-  "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/Shoulder-Prone-Horizontal-Abduction.jpg",
-  "vid_url" : "http://google.com/image.jpg"
- },
- {
-   "title" : "Wall or Table Push Up",
-   "description" : "To do this correctly, raise your arms up in front of you so your arms are even with the ground.",
-   "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/shoulder-wall-push-up-start.jpg",
-   "vid_url" : "http://google.com/image.jpg"
+  {
+    "title": "Customizable regional knowledge base",
+    "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+    "img_url": "http://dummyimage.com/217x220.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/227x222.png/cc0000/ffffff",
+    "therapist_id": 3
   },
   {
-    "title" : "Prone External Rotation",
-    "description" : "Start by lying on your stomach and your arm dangling",
-    "img_url" : "http://google.com/image.jpg",
-    "vid_url" : "http://google.com/image.jpg"
+    "title": "Intuitive even-keeled projection",
+    "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
+    "img_url": "http://dummyimage.com/111x227.png/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/217x175.png/5fa2dd/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Mandatory systemic core",
+    "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+    "img_url": "http://dummyimage.com/114x192.png/dddddd/000000",
+    "vid_url": "http://dummyimage.com/168x109.jpg/ff4444/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Reactive context-sensitive productivity",
+    "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+    "img_url": "http://dummyimage.com/135x166.jpg/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/225x246.bmp/5fa2dd/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "User-centric user-facing function",
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
+    "img_url": "http://dummyimage.com/138x209.jpg/dddddd/000000",
+    "vid_url": "http://dummyimage.com/240x219.jpg/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Upgradable empowering analyzer",
+    "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+    "img_url": "http://dummyimage.com/112x180.jpg/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/142x106.png/cc0000/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Virtual intermediate project",
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+    "img_url": "http://dummyimage.com/165x107.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/205x168.png/ff4444/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Inverse content-based complexity",
+    "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",
+    "img_url": "http://dummyimage.com/172x113.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/109x194.png/dddddd/000000",
+    "therapist_id": 1
+  },
+  {
+    "title": "Reactive logistical infrastructure",
+    "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    "img_url": "http://dummyimage.com/173x184.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/208x208.jpg/cc0000/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Inverse radical extranet",
+    "description": "Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+    "img_url": "http://dummyimage.com/171x229.bmp/dddddd/000000",
+    "vid_url": "http://dummyimage.com/116x114.png/5fa2dd/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Face to face scalable challenge",
+    "description": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
+    "img_url": "http://dummyimage.com/145x230.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/177x142.jpg/ff4444/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Decentralized grid-enabled focus group",
+    "description": "Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.",
+    "img_url": "http://dummyimage.com/151x150.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/235x170.png/ff4444/ffffff",
+    "therapist_id": 5
+  },
+  {
+    "title": "Streamlined incremental interface",
+    "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+    "img_url": "http://dummyimage.com/238x190.jpg/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/133x164.jpg/dddddd/000000",
+    "therapist_id": 4
+  },
+  {
+    "title": "Optional directional website",
+    "description": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+    "img_url": "http://dummyimage.com/108x191.bmp/dddddd/000000",
+    "vid_url": "http://dummyimage.com/206x204.bmp/dddddd/000000",
+    "therapist_id": 1
+  },
+  {
+    "title": "Compatible intangible time-frame",
+    "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+    "img_url": "http://dummyimage.com/184x228.png/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/226x120.bmp/5fa2dd/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Re-contextualized grid-enabled leverage",
+    "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
+    "img_url": "http://dummyimage.com/103x223.jpg/dddddd/000000",
+    "vid_url": "http://dummyimage.com/238x151.jpg/ff4444/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Self-enabling dynamic intranet",
+    "description": "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.",
+    "img_url": "http://dummyimage.com/229x120.jpg/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/143x145.bmp/ff4444/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Progressive attitude-oriented implementation",
+    "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
+    "img_url": "http://dummyimage.com/134x189.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/127x201.jpg/5fa2dd/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Configurable national task-force",
+    "description": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
+    "img_url": "http://dummyimage.com/132x100.jpg/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/222x161.png/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Stand-alone zero administration firmware",
+    "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.",
+    "img_url": "http://dummyimage.com/242x186.png/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/234x185.bmp/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Centralized discrete synergy",
+    "description": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+    "img_url": "http://dummyimage.com/166x235.jpg/dddddd/000000",
+    "vid_url": "http://dummyimage.com/206x168.jpg/dddddd/000000",
+    "therapist_id": 3
+  },
+  {
+    "title": "Programmable optimal extranet",
+    "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
+    "img_url": "http://dummyimage.com/150x115.png/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/201x214.jpg/dddddd/000000",
+    "therapist_id": 2
+  },
+  {
+    "title": "Mandatory bandwidth-monitored system engine",
+    "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+    "img_url": "http://dummyimage.com/112x201.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/236x171.png/5fa2dd/ffffff",
+    "therapist_id": 5
+  },
+  {
+    "title": "Managed mobile website",
+    "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
+    "img_url": "http://dummyimage.com/198x131.png/dddddd/000000",
+    "vid_url": "http://dummyimage.com/209x220.jpg/dddddd/000000",
+    "therapist_id": 2
+  },
+  {
+    "title": "Exclusive asymmetric success",
+    "description": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+    "img_url": "http://dummyimage.com/132x126.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/230x136.jpg/cc0000/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Customer-focused 24/7 model",
+    "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "img_url": "http://dummyimage.com/204x156.png/dddddd/000000",
+    "vid_url": "http://dummyimage.com/223x237.png/cc0000/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Intuitive system-worthy knowledge user",
+    "description": "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.",
+    "img_url": "http://dummyimage.com/140x206.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/170x208.png/ff4444/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Streamlined optimizing internet solution",
+    "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
+    "img_url": "http://dummyimage.com/169x159.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/118x175.png/5fa2dd/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Persistent tangible array",
+    "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+    "img_url": "http://dummyimage.com/118x215.png/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/124x125.bmp/ff4444/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Phased incremental structure",
+    "description": "Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+    "img_url": "http://dummyimage.com/145x209.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/140x160.png/5fa2dd/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Integrated dynamic parallelism",
+    "description": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",
+    "img_url": "http://dummyimage.com/224x177.jpg/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/137x155.png/ff4444/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Operative value-added migration",
+    "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+    "img_url": "http://dummyimage.com/160x243.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/214x174.jpg/5fa2dd/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Fundamental executive leverage",
+    "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+    "img_url": "http://dummyimage.com/212x194.bmp/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/128x154.jpg/cc0000/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Versatile systemic hierarchy",
+    "description": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+    "img_url": "http://dummyimage.com/224x152.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/196x136.png/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Exclusive methodical process improvement",
+    "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+    "img_url": "http://dummyimage.com/237x220.png/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/230x166.bmp/5fa2dd/ffffff",
+    "therapist_id": 5
+  },
+  {
+    "title": "Secured real-time service-desk",
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+    "img_url": "http://dummyimage.com/190x178.png/dddddd/000000",
+    "vid_url": "http://dummyimage.com/149x184.jpg/cc0000/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Secured neutral time-frame",
+    "description": "Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
+    "img_url": "http://dummyimage.com/228x139.png/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/127x100.bmp/ff4444/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Multi-channelled systemic conglomeration",
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.",
+    "img_url": "http://dummyimage.com/115x191.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/103x198.png/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Function-based full-range success",
+    "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+    "img_url": "http://dummyimage.com/134x100.bmp/dddddd/000000",
+    "vid_url": "http://dummyimage.com/239x141.jpg/ff4444/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Profound non-volatile Graphical User Interface",
+    "description": "Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+    "img_url": "http://dummyimage.com/154x188.bmp/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/157x183.png/5fa2dd/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Grass-roots tangible capability",
+    "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+    "img_url": "http://dummyimage.com/242x113.png/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/125x161.jpg/5fa2dd/ffffff",
+    "therapist_id": 4
+  },
+  {
+    "title": "Team-oriented explicit customer loyalty",
+    "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
+    "img_url": "http://dummyimage.com/200x112.jpg/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/147x166.jpg/cc0000/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Triple-buffered optimal function",
+    "description": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.",
+    "img_url": "http://dummyimage.com/161x116.jpg/dddddd/000000",
+    "vid_url": "http://dummyimage.com/192x240.jpg/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Switchable empowering open system",
+    "description": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+    "img_url": "http://dummyimage.com/147x111.png/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/248x250.png/5fa2dd/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Multi-channelled mission-critical help-desk",
+    "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+    "img_url": "http://dummyimage.com/230x234.jpg/ff4444/ffffff",
+    "vid_url": "http://dummyimage.com/120x141.bmp/5fa2dd/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Profound client-server software",
+    "description": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    "img_url": "http://dummyimage.com/236x150.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/232x100.jpg/dddddd/000000",
+    "therapist_id": 4
+  },
+  {
+    "title": "Enterprise-wide leading edge moderator",
+    "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+    "img_url": "http://dummyimage.com/231x176.bmp/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/207x113.png/ff4444/ffffff",
+    "therapist_id": 3
+  },
+  {
+    "title": "Reduced neutral internet solution",
+    "description": "Integer a nibh.",
+    "img_url": "http://dummyimage.com/161x204.jpg/5fa2dd/ffffff",
+    "vid_url": "http://dummyimage.com/108x186.bmp/ff4444/ffffff",
+    "therapist_id": 2
+  },
+  {
+    "title": "Multi-channelled composite moratorium",
+    "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+    "img_url": "http://dummyimage.com/227x119.jpg/dddddd/000000",
+    "vid_url": "http://dummyimage.com/205x165.png/5fa2dd/ffffff",
+    "therapist_id": 1
+  },
+  {
+    "title": "Face to face contextually-based customer loyalty",
+    "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.",
+    "img_url": "http://dummyimage.com/113x127.png/cc0000/ffffff",
+    "vid_url": "http://dummyimage.com/185x120.jpg/5fa2dd/ffffff",
+    "therapist_id": 2
   }
 ]
