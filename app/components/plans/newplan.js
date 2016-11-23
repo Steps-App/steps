@@ -52,6 +52,7 @@ class NewPlan extends React.Component{
       treatment: initialTreatment,
       treatments : []
     };
+
     this.durationOnChange = this.durationOnChange.bind(this);
     this.therapyHandler = this.therapyHandler.bind(this);
     this.noteHandler = this.noteHandler.bind(this);
@@ -171,6 +172,7 @@ class NewPlan extends React.Component{
             />
           </form>
           </div>
+
           <div className='col-md-2'>
             <div className="row">
               <PatientPanel patient={this.props.currentPatient} />
