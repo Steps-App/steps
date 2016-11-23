@@ -14,22 +14,8 @@ export class PatientList extends Component {
   constructor(props) {
     super(props) 
     this.state = {}
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-    
-  handleChange(field, value) {
-    let newState = {};
-    newState[field] = value
-    this.setState(newState);
-  }
-
-  handleSubmit (evt) {
-    evt.preventDefault();
-  }
-
-
+   
   render() {
 
     const { patients } = this.props;
