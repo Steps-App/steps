@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 //Components
 import PlanOptions from './newPlanOptions';
 import PatientPanel from './PatientPanel';
+import Treatment from './treatmentRows';
 
 //material-ui
 import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
@@ -46,7 +47,7 @@ const fakePatient = {
 };
 //========Treatment Array==========
 
-let treatmentTableRows = [];
+let treatmentArray = [];
 
 //=======  Component===============
 class newPlan extends React.Component{
@@ -55,11 +56,10 @@ class newPlan extends React.Component{
     super(props);
 
     this.state={
-      patient : {},
       duration : 1,
       injury : null,
-      notes : "",
       exercise: null,
+      notes : "",
       exercises : [],
       treatments : []
     };
@@ -86,25 +86,13 @@ class newPlan extends React.Component{
 //
   addNewTreatment(){
       treatmentTableRows.push(
-        <TableRow>
-          <TableRowColumn><Link to='treatment'><img src='../../../src/images/defaultexercise.jpeg'></img></Link></TableRowColumn>
-          <TableRowColumn>
-            <form>
-              <TextField hintText="Title"/><br/>
-              <TextField hintText="description" multiLine={true} /><br/>
-              <TextField hintText="Additional Notes" multiLine={true} /><br/>
-            </form>
-          </TableRowColumn>
-          <TableRowColumn>
-          </TableRowColumn>
-        </TableRow>
+
     );
   }
 
   removeTreatment(){
 
   }
-
 
   render(){
 // =======Temporary Styles ===========
@@ -123,7 +111,7 @@ class newPlan extends React.Component{
     return(
       <form className="container">
         <div className='row' id="newPlan">
-          <div className='col-md-8'>
+          <div className='col-md-10'>
               <PlanOptions handleChange={this.handleChange}     noteHandler={this.noteHandler} note={this.state.notes} duration={this.state.duration} injury={this.state.injury}/>
 
               <div>
@@ -145,13 +133,13 @@ class newPlan extends React.Component{
 
 
             <Table>
-              {treatmentTableRows}
+              {treatmentArray}
             </Table>
 
           </div>
 
 
-          <div className='col-md-4'>
+          <div className='col-md-2'>
             <PatientPanel patient={fakePatient}/>
           </div>
 

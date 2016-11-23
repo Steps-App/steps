@@ -16,7 +16,7 @@ export default function(props){
    "height" : '500px',
    'width' : '300px',
    'padding' : '1em',
-   'text-align' : 'center'
+   'textAlign' : 'center'
  };
 
   return(
