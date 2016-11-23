@@ -16,9 +16,11 @@ const Workout = db.define('workout', {
       min: 1
     }
   },
-  comments: Sequelize.TEXT
+  comments: Sequelize.TEXT,
+  created_at: Sequelize.DATE
 }, {
-  underscored: true
+  underscored: true,
+  timestamps: false
 })
 
 module.exports = Workout;
