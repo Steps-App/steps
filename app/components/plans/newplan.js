@@ -68,8 +68,8 @@ class newPlan extends React.Component{
           marginRight: 20,
       };
 //====================================
-
-
+  
+    const { currentpatient} = this.props;
 
     return(
 
@@ -120,6 +120,7 @@ class newPlan extends React.Component{
 
           <div className='col-md-4'>
               <div> Patient Photo</div>
+              <div><img src={currentpatient.img_URL}/></div>
           </div>
           
          </div>
@@ -135,7 +136,7 @@ class newPlan extends React.Component{
 
 //========Container =============== Temporary
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({ currentpatient, exercises }) => ({ currentpatient, exercises });
 
 const mapDispatchToProps = () => ({});
 

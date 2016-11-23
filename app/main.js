@@ -9,6 +9,8 @@ import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
 import { fetchExercises } from './reducers/exercises'
 import { fetchPatientPlan } from './reducers/plan'
+import { fetchPatients } from './reducers/patients'
+import { fetchCurrentPatient } from './reducers/currentpatient'
 
 // React Compontents
 import Home from './components/home/Home';
@@ -16,6 +18,7 @@ import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newplan';
 import Plan from './components/plan/PatientPlan';
+import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import { loginRedirect } from './utils'
 
@@ -34,17 +37,19 @@ const appEnter = (nextState, replace, callback) => {
 
 const newPlanEnter = (nextState, replace) => {
   // Check if patientId not in patients on state <- implement during /patients page
-  if (false) replace('/patients');
+  if (false) {replace('/patients');}
   // otherwise, grab exercises for the therapist
-  else store.dispatch(fetchExercises(store.getState().user.id))
+  else {store.dispatch(fetchExercises(store.getState().user.id))
+        store.dispatch(fetchCurrentPatient(nextState.params.patientId))
+      }
 };
-
 // If no plan on the state, fetch patient's plan
 const patientPlanEnter = () => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length)
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
+const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 render (
   <Provider store={ store }>
@@ -52,6 +57,7 @@ render (
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter }/>
+        <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
