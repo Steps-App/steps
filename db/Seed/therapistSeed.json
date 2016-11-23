@@ -1,10 +1,10 @@
 [
-{"first_name":"Emily","last_name":"Adams", "practice_name": "Steps", "license_id":"41813", "img_URL": "https://randomuser.me/api/portraits/women/68.jpg", "email":"emily@steps.com","password":"1234"},
-{"first_name":"Ben","last_name":"Parker", "practice_name": "Steps", "license_id":"94751", "img_URL": "https://randomuser.me/api/portraits/men/43.jpg", "email":"ben@steps.com","password":"1234"},
-{"first_name":"Sarah","last_name":"Ellis", "practice_name": "Steps", "license_id":"36039", "img_URL": "https://randomuser.me/api/portraits/women/65.jpg",  "email":"sarah@steps.com","password":"1234"},
-{"first_name":"Jake","last_name":"Wright", "practice_name": "Steps", "license_id":"82144", "img_URL": "https://randomuser.me/api/portraits/men/86.jpg",
- "email":"jake@steps.com","password":"1234"},
-{"first_name":"Rebecca","last_name":"Bates", "practice_name": "Steps", "license_id":"28997", "img_URL": "https://randomuser.me/api/portraits/women/90.jpg",  "email":"rebecca@steps.com","password":"1234"},
-{"first_name":"Sam","last_name":"Smith", "practice_name": "Steps", "license_id":"68440", "img_URL": "https://randomuser.me/api/portraits/men/62.jpg",
- "email":"sam@steps.com","password":"1234"}
+  {"first_name":"Emily","last_name":"Adams", "practice_name": "Steps", "license_id":"41813", "img_URL": "http://cyclesurfstudio.com/wp-content/uploads/2015/09/profile-pic-round.png", "email":"emily@steps.com","password":"1234"},
+  {"first_name":"Ben","last_name":"Parker", "practice_name": "Steps", "license_id":"94751", "img_URL": "https://lh6.googleusercontent.com/RPzAuHdIotBE0CqE7fdDFntiHH45k3wvLmdGWFSMlRyPXLOdiLQ04mSL7XgO72DyfDtzggcm9rTMiI_XzTmLYI7qIFVYX8Xdm0vFMSh7VIGy6W9Q-Rtw0dAuoWgzWHis0g", "email":"ben@steps.com","password":"1234"},
+  {"first_name":"Sarah","last_name":"Ellis", "practice_name": "Steps", "license_id":"36039", "img_URL": "http://sociallyaligned.com/wp-content/uploads/2014/06/Profile-pic-round.png",  "email":"sarah@steps.com","password":"1234"},
+  {"first_name":"Jake","last_name":"Wright", "practice_name": "Steps", "license_id":"82144", "img_URL": "http://acevasupportservices.com/wp-content/uploads/2014/11/profile-pic-round-300x295.jpg",
+  "email":"jake@steps.com","password":"1234"},
+  {"first_name":"Rebecca","last_name":"Bates", "practice_name": "Steps", "license_id":"28997", "img_URL": "http://techli.com/wp-content/uploads/Avesta_profile_round.png",  "email":"rebecca@steps.com","password":"1234"},
+  {"first_name":"Sam","last_name":"Smith", "practice_name": "Steps", "license_id":"68440", "img_URL": "http://192.185.89.43/~iaf/local/staticpage/pages/perfil1.png",
+  "email":"sam@steps.com","password":"1234"}
 ]

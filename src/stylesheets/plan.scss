@@ -1,0 +1,23 @@
+#plan {
+  width: 100%;
+  h1 {
+    /* {age header styling here */
+  }
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  > .plan-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.workout {
+  
+}

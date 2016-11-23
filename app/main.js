@@ -14,6 +14,7 @@ import Home from './components/home/Home'
 import App from './components/App'
 import AddPatientContainer from './components/patients/AddPatientContainer'
 import PatientDash from './components/patients/PatientDash'
+import Plan from './components/plan/PatientPlan'
 
 // React router hooks
 const appEnter = (nextState, replace, callback) => {
@@ -33,6 +34,7 @@ render (
     <Router history={ browserHistory }>
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
+        <Route path="/plan" component={ Plan } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
