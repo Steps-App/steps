@@ -6,9 +6,7 @@ import {SelectField, TextField , MenuItem} from "material-ui";
 import {StepsTextField} from '../material-style';
 
 export default function(props){
-  let {handleChange, noteHandler, duration, note, injury} = props;
-
-
+  let { durationOnChange, therapyHandler, noteHandler, duration, note, therapy_focus } = props;
 
 // style
  const styleRow = {
@@ -32,39 +30,41 @@ export default function(props){
     <div className='row' style={styleRow} id='plan-options'>
       <div className='col-md-4' >
           <SelectField id="duration"
-          floatingLabelText="Duration"
-          maxHeight={200}
-          value={duration}
-          onChange={(evt,index,value) => handleChange("duration",value)}
-          style={durationStyle}>
-            <MenuItem value={1} primaryText=" 1 Week"/>
-            <MenuItem value={2} primaryText=" 2 Week"/>
-            <MenuItem value={3} primaryText=" 3 Week"/>
-            <MenuItem value={4} primaryText=" 4 Week"/>
-            <MenuItem value={5} primaryText=" 5 Week"/>
-            <MenuItem value={6} primaryText=" 6 Week"/>
+            floatingLabelText="Duration"
+            maxHeight={200}
+            value={duration}
+            onChange={durationOnChange}
+            style={durationStyle}
+          >
+              <MenuItem value={4} primaryText="4 Weeks"/>
+              <MenuItem value={6} primaryText="6 Weeks"/>
+              <MenuItem value={8} primaryText="8 Weeks"/>
+              <MenuItem value={12} primaryText="12 Weeks"/>
+              <MenuItem value={18} primaryText="18 Weeks"/>
+              <MenuItem value={26} primaryText="26 Weeks"/>
           </SelectField>
         </div>
 
         <div className='col-md-4'>
-          <SelectField floatingLabelText="Injury" value={injury} onChange={(evt,index,value)=> handleChange("injury",value)} style={injuryStyle}>
-            <MenuItem value={1} primaryText='Knee' />
-            <MenuItem value={2} primaryText='Shoulder' />
-            <MenuItem value={3} primaryText='Lower Back' />
-            <MenuItem value={4} primaryText='Upper Back'/>
-            <MenuItem value={5} primaryText='Neck'/>
-          </SelectField>
+          <StepsTextField
+            hintText="Knee Injury"
+            multiLine={true}
+            onChange={therapyHandler}
+            value={therapy_focus}
+            floatingLabelText="Therapy Focus"
+          />
         </div>
 
         <div className='col-md-4'>
-          <StepsTextField hintText="Notes"
-              multiLine={true}
-              onChange={noteHandler}
-              value={note}
-              floatingLabelText="Additional Notes"
-              rows={1}
-              rowsMax={6}
-              />
+          <StepsTextField
+            hintText="Go Slow"
+            multiLine={true}
+            onChange={noteHandler}
+            value={note}
+            floatingLabelText="Notes"
+            rows={1}
+            rowsMax={6}
+          />
         </div>
     </div>
 
