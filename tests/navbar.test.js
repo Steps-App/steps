@@ -17,7 +17,7 @@ describe('NavbarMenu component', () => {
   });
 
   it('has 3 tabs and account popover', () => {
-    expect(navbarMenu.find(NavbarTab).length).to.be.equal(3);
+    expect(navbarMenu.find(NavbarTab)).to.have.length.within(2, 3);
     expect(navbarMenu.find(Popover).length).to.be.equal(1);
   });
 
@@ -29,16 +29,15 @@ describe('NavbarMenu component', () => {
 
 describe('NavbarTab component', () => {
 
-  let navbarTab, label, img;
+  let navbarTab, test;
   beforeEach('Create component', () => {
-    label = "Testing";
-    img = "test-img";
-    navbarTab = shallow(<NavbarTab label={label} imgClass={img} />)
+    test = "testing";
+    navbarTab = shallow(<NavbarTab type={test}/>)
   })
 
   it('passes its props to the children', () => {
     const button = navbarTab.find(StepsFlatButton).nodes[0];
-    expect(button.props.label).to.equal(label);
-    expect(navbarTab.find(`.${img}`).nodes).to.not.be.empty;
+    expect(button.props.label).to.equal("Testing");
+    expect(navbarTab.find(`.${test}`).nodes).to.not.be.empty;
   });
 });

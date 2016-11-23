@@ -5,6 +5,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 exports.devServer = function(options) {
   return {
     devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080',
+          secure: false
+        }
+      },
       historyApiFallback: true,
       hot: true,
       inline: true,

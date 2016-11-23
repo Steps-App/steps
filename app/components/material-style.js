@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, RaisedButton, FlatButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
-import { background, tabs, primary, placeholderText, activeInputLabels, textLight, textDark, errorText } from './colors'
+import { TextField, RaisedButton, FloatingActionButton, FlatButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText } from './colors'
 
 // Shared styles
 const tabsBorderRadius = '4px';
@@ -29,7 +29,7 @@ export const StepsTextField = props => (
   />
 );
 
-// Primary button
+// Primary button for submitting/confirming data
 export const StepsRaisedButton = props => (
   <RaisedButton
     backgroundColor={primary}
@@ -50,6 +50,18 @@ export const StepsFlatButton = props => (
     disableFocusRipple={ true }
     disableTouchRipple={ true }
   />
+);
+
+// Buttons for initiating actions on the page
+export const StepsActionButton = props => (
+  <FloatingActionButton
+    backgroundColor={ primary }
+    disabledColor={ secondary }
+    disableFocusRipple={ true }
+    disableTouchRipple={ true }
+    { ...props }>
+    { props.children }
+  </FloatingActionButton>
 );
 
 export const StepsMenu = props => (

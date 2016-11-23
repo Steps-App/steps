@@ -52,7 +52,7 @@ export default class NavbarMenu extends React.Component {
           <div className="profile-icon"
             onTouchTap={ this.handleAccountMenuOpen }>
             <img
-              src={ user.img_url }
+              src={ user.img_URL }
               alt={ fullName(user) } />
           </div>
         </div>

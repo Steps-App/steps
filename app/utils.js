@@ -18,3 +18,14 @@ export const loginRedirect = role => {
   else if (role === PATIENT) return '/plan';
   else return '/';
 }
+
+// Format an inout amount of seconds into X min XX sec
+export const formatTime = time => {
+  const minutes = Math.floor(time / 60);
+  const seconds = time - minutes * 60;
+
+  const padLeft = (string, pad, length) =>
+    (new Array(length+1).join(pad)+string).slice(-length);
+
+  return `${minutes} min ${padLeft(seconds,'0',2)} sec`;
+}
