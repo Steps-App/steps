@@ -17,7 +17,7 @@ import newPlansContainer from './components/plans/newplan';
 import PatientDash from './components/patients/PatientDash';
 import { loginRedirect } from './utils'
 
-// React router hooks
+// React router hooks  << TO TEST COUNTER ROUTE, COMMENT THIS SECTION OUT
 const appEnter = (nextState, replace, callback) => {
   store.dispatch(retrieveLoggedInUser((err, user) => {
     // Home page and logged in -> default app view
@@ -45,6 +45,7 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
+        {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>
     </Router>
   </Provider>,
