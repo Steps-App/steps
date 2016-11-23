@@ -34,14 +34,13 @@ const appEnter = (nextState, replace, callback) => {
     callback();
   }));
 }
-
 const newPlanEnter = (nextState, replace) => {
-  // Check if patientId not in patients on state <- implement during /patients page
-  if (false) {replace('/patients');}
-  // otherwise, grab exercises for the therapist
-  else {store.dispatch(fetchExercises(store.getState().user.id))
-        store.dispatch(fetchCurrentPatient(nextState.params.patientId))
-      }
+  // Check if patientId matches a patient on State, grab exercises for the therapist
+  // otherwise, redirect to /patients
+  if (store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
+    store.dispatch(fetchExercises(store.getState().user.id))
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId))
+  } else replace('/patients');
 };
 // If no plan on the state, fetch patient's plan
 const patientPlanEnter = () => {
