@@ -21,7 +21,6 @@ export const loginRedirect = role => {
 
 // Format an inout amount of seconds into X min XX sec
 export const formatTime = time => {
-  console.log(time)
   const minutes = Math.floor(time / 60);
   const seconds = time - minutes * 60;
 

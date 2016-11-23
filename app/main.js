@@ -8,12 +8,14 @@ import { Provider } from 'react-redux';
 import store from './store'
 import { retrieveLoggedInUser } from './reducers/user'
 import { fetchExercises } from './reducers/exercises'
+import { fetchPatientPlan } from './reducers/plan'
 
 // React Compontents
 import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newplan';
+import Plan from './components/plan/PatientPlan';
 import PatientDash from './components/patients/PatientDash';
 import { loginRedirect } from './utils'
 
@@ -37,12 +39,19 @@ const newPlanEnter = (nextState, replace) => {
   else store.dispatch(fetchExercises(store.getState().user.id))
 };
 
+// If no plan on the state, fetch patient's plan
+const patientPlanEnter = () => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length)
+    store.dispatch(fetchPatientPlan(store.getState().user.id));
+};
+
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
-        <Route path="/plan" component={ Plan } />
+        <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter }/>
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
