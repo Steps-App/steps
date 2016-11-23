@@ -23,20 +23,22 @@ const Plan = db.define('plan', {
     underscored: true,
     hooks: {
       beforeCreate: function(plan){
-        plan.end_date = plan.endDateCalc(plan)
+        plan.end_date = plan.endDateCalc(plan);
       }
     },
     instanceMethods: {
       endDateCalc: function(instance) {
         let millisecondsPerWeek = 604800000;
-        let today = new Date()
-        return new Date( (today.getMilliseconds() + (instance.duration * millisecondsPerWeek)) )
+        let today = new Date();
+        return new Date( (today.getMilliseconds() + (instance.duration * millisecondsPerWeek)) );
       },
       countdown: function(plan) {
-        let today = new Date()
-         return plan.end_date - today
+        let today = new Date();
+         return plan.end_date - today;
       }
     }
-})
+  }
+);
+
 
 module.exports = Plan;
