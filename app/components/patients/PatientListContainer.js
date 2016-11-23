@@ -1,6 +1,7 @@
 // import redux, react
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 
 //Material UI
@@ -22,7 +23,8 @@ export class PatientList extends Component {
 
     return (
       <div id="patient-list" className="col-xs-12">
-        <h1><b>Patient List</b></h1>
+        <Helmet title="Patients" />
+        <h1>Patient List</h1>
         <Link to="/patients/new">
           <RaisedButton
           label="Add Patient"

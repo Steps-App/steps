@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { StepsTextField, StepsRaisedButton } from '../material-style.js'
+import { StepsTextField, StepsRaisedButton } from '../material-style'
+import { errorText } from '../colors'
 
 export default ({ handleChange, handleSubmit, errors }) => (
   <div id="new-patient">
@@ -46,6 +47,10 @@ export default ({ handleChange, handleSubmit, errors }) => (
         <StepsRaisedButton
           label="Create"
           type="submit" />
+        {
+          errors.submit ?
+            <p style={{ color: errorText }}>{ errors.submit }</p> : null
+        }
       </div>
     </form>
   </div>
