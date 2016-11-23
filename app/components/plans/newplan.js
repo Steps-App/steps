@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 //Components
 import PlanOptions from './newPlanOptions';
 import PatientPanel from './PatientPanel';
-import Treatment from './treatmentRows';
+import TreatmentRows from './treatmentRows';
+import TreatmentForm from './createTxForm';
 
 //material-ui
 import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
@@ -56,6 +57,7 @@ class newPlan extends React.Component{
     super(props);
 
     this.state={
+      formOpen: false,
       duration : 1,
       injury : null,
       exercise: null,
@@ -83,11 +85,14 @@ class newPlan extends React.Component{
   submitHandler(evt){
 
   }
-//
-  addNewTreatment(){
-      treatmentTableRows.push(
+//Treatment Handlers
+  formToggler(){
+    if(this.formOpen) this.setState({formOpen:false});
+    else this.setState({formOpen:true});
+  }
 
-    );
+  addNewTreatment(){
+
   }
 
   removeTreatment(){
@@ -95,7 +100,7 @@ class newPlan extends React.Component{
   }
 
   render(){
-// =======Temporary Styles ===========
+//========Temporary Styles ===========
     const style = {
       marginRight: 20,
     };
@@ -109,42 +114,47 @@ class newPlan extends React.Component{
     });
 //=========== Component ==================
     return(
-      <form className="container">
+      <div className="container">
         <div className='row' id="newPlan">
           <div className='col-md-10'>
-              <PlanOptions handleChange={this.handleChange}     noteHandler={this.noteHandler} note={this.state.notes} duration={this.state.duration} injury={this.state.injury}/>
+              <PlanOptions handleChange={this.handleChange} noteHandler={this.noteHandler}
+               note={this.state.notes} duration={this.state.duration} injury={this.state.injury}/>
 
               <div>
-                <div>
+                <div className="row">
+                  <div className="col-md-6">
                   <SelectField maxHeight={200} value={this.state.exercise} floatingLabelText="Exercise"onChange={this.handleChange}>
                     {exercises}
                     </SelectField>
+                  </div>
+                  <div className="col-md-6">
                     <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
                       <ContentAdd className="add-exercise"/>
                     </FloatingActionButton>
-                </div>
-
-                <div>
-                  <FloatingActionButton mini={true} style={style} onClick={this.addNewTreatment}>
-                    <ContentAdd className="add-exercise"/>
-                  </FloatingActionButton>
+                  </div>
                 </div>
               </div>
 
+                <TreatmentForm/>
 
-            <Table>
-              {treatmentArray}
-            </Table>
 
+              <div className="row">
+                <div className="col-md-12">
+                  <Table>
+                    {treatmentArray}
+                  </Table>
+                </div>
+              </div>
           </div>
+
 
 
           <div className='col-md-2'>
             <PatientPanel patient={fakePatient}/>
           </div>
 
-         </div>
-        </form>
+        </div>
+      </div>
     );
   }
 
