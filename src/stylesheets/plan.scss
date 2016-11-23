@@ -27,8 +27,13 @@
   display: flex;
   flex-direction: row;
   height: 200px;
-  &.completed { // completed workout today
-    opacity: .6;
+  &.completed { // fade all workouts completed today
+    > .workout-index, .workout-pic {
+      opacity: .6;
+    }
+    h2, p {
+      color: $disabled;
+    }
   }
   .workout-index { // workout row number
     z-index: 1;

@@ -18,7 +18,9 @@ Plan.hasMany(Treatment) // treatment << plan_id // plan.getTreatments/setTreatme
 Patient.hasMany(Treatment) // treatment << patient_id // patient.getTreatments/setTreatments
 Patient.hasMany(Plan) // plan << patient_id // patient.getPlans/setPlans
 
-Treatment.hasOne(Workout, { foreignKey: 'treatment_id' }) // workout << treatment_id
+Treatment.hasMany(Workout, { foreignKey: 'treatment_id' }) // workout << treatment_id
 Exercise.hasOne(Treatment, { foreignKey: 'exercise_id' }) // treatment << exercise_id
+Treatment.belongsTo(Exercise);
+Workout.belongsTo(Treatment);
 
 module.exports = { Therapist, Patient, Plan, Treatment, Exercise, Workout };

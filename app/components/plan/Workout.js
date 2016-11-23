@@ -14,7 +14,7 @@ export default ({ treatment, num }) => {
   return (
     <div className={`row workout ${completedWorkout ? 'completed' : ''}`}>
       <div className="workout-index">#{num}</div>
-      <img className="col-xs-3" src={treatment.exercise.img_url} />
+      <img className="col-xs-3 workout-pic" src={treatment.exercise.img_url} />
       <div className="col-xs-3 workout-info">
         <h2>{treatment.exercise.title}</h2>
         <div className="workout-nums">

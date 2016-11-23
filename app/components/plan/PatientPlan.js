@@ -6,6 +6,7 @@ import Workout from './Workout'
 import { createdPlan } from '../../reducers/plan'
 
 const PatientPlan =  ({ plan }) => {
+  console.log(plan)
   if (!Object.keys(plan).length) return null;
   let treatmentCount = 0;
   return (
@@ -14,15 +15,17 @@ const PatientPlan =  ({ plan }) => {
       <h1>My Plan</h1>
       <div className="plan-info">
         <div className="plan-details">
-          <p><span>Start</span>{`: ${plan.created_at.format('MMM Do, YY')}`}</p>
+          <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YY')}`}</p>
           <p><span>End</span>{`: ${plan.end_date}`}</p>
           <p><span>Injury</span>{`: ${plan.therapy_focus}`}</p>
         </div>
-        <p><span>Notes</span>{`: ${plan.notes}`}</p>
+        {
+          plan.notes ? <p><span>Notes</span>{`: ${plan.notes}`}</p> : null
+        }
       </div>
       <div className="workouts">
       {
-        plan.treatments.map(treatment => {
+        plan.treatments && plan.treatments.map(treatment => {
           return treatment.status === 'active' ?
             <Workout key={treatment.id} num={++treatmentCount} treatment={treatment}/> : null
         })

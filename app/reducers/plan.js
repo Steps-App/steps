@@ -42,12 +42,9 @@ export const createdPlan = (data, displayErr) => dispatch => {
 }
 
 export const fetchPatientPlan = patientId => dispatch => {
-  console.log(patientId)
-  axios.get(`/api/patient/${patientId}/plan`)
+  axios.get(`/api/patient/${patientId}/plan/current`)
     .then(res => {
-      console.log(res.data);
       dispatch(receivePlan(res.data));
     })
     .catch(err => console.error('Unable to fetch plan', err));
 }
-
