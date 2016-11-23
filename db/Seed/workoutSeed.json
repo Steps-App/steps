@@ -1,802 +1,902 @@
 [
   {
-    "time_per_exercise": 12,
+    "time_per_exercise": 6,
     "pain": 3,
-    "comments": "sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar",
-    "plan_id": 1,
-    "patient_id": 1,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 16,
-    "pain": 2,
-    "comments": "cras pellentesque volutpat dui maecenas tristique est et tempus",
-    "plan_id": 8,
-    "patient_id": 4,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 39,
-    "pain": 5,
-    "comments": "imperdiet nullam orci pede venenatis non sodales sed tincidunt eu",
-    "plan_id": 8,
-    "patient_id": 4,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 20,
-    "pain": 1,
-    "comments": "vestibulum ante ipsum primis in faucibus orci luctus",
-    "plan_id": 10,
+    "comments": null,
     "patient_id": 2,
-    "treatment_id": 14
-  },
-  {
-    "time_per_exercise": 32,
-    "pain": 2,
-    "comments": "tellus nulla ut erat id",
-    "plan_id": 10,
-    "patient_id": 4,
-    "treatment_id": 11
-  },
-  {
-    "time_per_exercise": 56,
-    "pain": 3,
-    "comments": "enim sit amet nunc viverra",
     "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 17
-  },
-  {
-    "time_per_exercise": 27,
-    "pain": 3,
-    "comments": "curabitur gravida nisi at nibh in",
-    "plan_id": 5,
-    "patient_id": 1,
-    "treatment_id": 13
+    "treatment_id": 8,
+    "created_at": "2016-11-21 07:49:28"
   },
   {
     "time_per_exercise": 6,
-    "pain": 4,
-    "comments": "nisi vulputate nonummy maecenas tincidunt lacus at",
-    "plan_id": 7,
-    "patient_id": 5,
-    "treatment_id": 16
-  },
-  {
-    "time_per_exercise": 15,
-    "pain": 3,
-    "comments": "porta volutpat erat quisque erat eros viverra",
-    "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 2,
-    "pain": 5,
-    "comments": "duis faucibus accumsan odio curabitur",
+    "pain": 2,
+    "comments": null,
+    "patient_id": 2,
     "plan_id": 2,
-    "patient_id": 3,
-    "treatment_id": 12
+    "treatment_id": 1,
+    "created_at": "2016-09-27 17:01:14"
   },
   {
-    "time_per_exercise": 21,
-    "pain": 4,
-    "comments": "eleifend pede libero quis orci nullam molestie",
-    "plan_id": 8,
-    "patient_id": 4,
-    "treatment_id": 15
+    "time_per_exercise": 48,
+    "pain": 5,
+    "comments": "etiam justo etiam pretium iaculis",
+    "patient_id": 3,
+    "plan_id": 6,
+    "treatment_id": 9,
+    "created_at": "2016-10-22 05:38:42"
   },
   {
     "time_per_exercise": 8,
-    "pain": 5,
-    "comments": "vel ipsum praesent blandit lacinia erat vestibulum",
-    "plan_id": 2,
-    "patient_id": 3,
-    "treatment_id": 9
-  },
-  {
-    "time_per_exercise": 14,
-    "pain": 4,
-    "comments": "aenean sit amet justo morbi ut odio cras mi",
-    "plan_id": 2,
-    "patient_id": 2,
-    "treatment_id": 1
-  },
-  {
-    "time_per_exercise": 1,
     "pain": 2,
-    "comments": "pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus",
-    "plan_id": 6,
-    "patient_id": 1,
-    "treatment_id": 16
-  },
-  {
-    "time_per_exercise": 28,
-    "pain": 1,
-    "comments": "ac tellus semper interdum mauris",
-    "plan_id": 3,
+    "comments": "id nisl venenatis lacinia aenean sit amet",
     "patient_id": 2,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 24,
-    "pain": 1,
-    "comments": "nisl duis ac nibh fusce lacus purus aliquet at feugiat",
-    "plan_id": 6,
-    "patient_id": 5,
-    "treatment_id": 6
-  },
-  {
-    "time_per_exercise": 57,
-    "pain": 5,
-    "comments": "amet justo morbi ut odio",
     "plan_id": 7,
-    "patient_id": 5,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 36,
-    "pain": 4,
-    "comments": "ante vestibulum ante ipsum primis in faucibus orci luctus et",
-    "plan_id": 3,
-    "patient_id": 3,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 0,
-    "pain": 2,
-    "comments": "ligula suspendisse ornare consequat lectus in",
-    "plan_id": 3,
-    "patient_id": 4,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 3,
-    "pain": 5,
-    "comments": "etiam pretium iaculis justo in hac habitasse",
-    "plan_id": 10,
-    "patient_id": 5,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 20,
-    "pain": 3,
-    "comments": "duis ac nibh fusce lacus purus",
-    "plan_id": 1,
-    "patient_id": 4,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 42,
-    "pain": 2,
-    "comments": "ut odio cras mi pede malesuada in",
-    "plan_id": 10,
-    "patient_id": 3,
-    "treatment_id": 7
-  },
-  {
-    "time_per_exercise": 59,
-    "pain": 5,
-    "comments": "erat quisque erat eros viverra eget",
-    "plan_id": 1,
-    "patient_id": 1,
-    "treatment_id": 16
-  },
-  {
-    "time_per_exercise": 49,
-    "pain": 1,
-    "comments": "accumsan tortor quis turpis sed ante vivamus tortor",
-    "plan_id": 4,
-    "patient_id": 2,
-    "treatment_id": 6
-  },
-  {
-    "time_per_exercise": 53,
-    "pain": 4,
-    "comments": "mi pede malesuada in imperdiet et commodo vulputate",
-    "plan_id": 9,
-    "patient_id": 5,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 37,
-    "pain": 5,
-    "comments": "sit amet consectetuer adipiscing elit proin",
-    "plan_id": 3,
-    "patient_id": 5,
-    "treatment_id": 4
-  },
-  {
-    "time_per_exercise": 44,
-    "pain": 3,
-    "comments": "amet consectetuer adipiscing elit proin risus praesent lectus",
-    "plan_id": 4,
-    "patient_id": 5,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 26,
-    "pain": 3,
-    "comments": "aliquam sit amet diam in magna bibendum imperdiet",
-    "plan_id": 5,
-    "patient_id": 3,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 0,
-    "pain": 4,
-    "comments": "praesent lectus vestibulum quam sapien varius ut blandit",
-    "plan_id": 5,
-    "patient_id": 1,
-    "treatment_id": 11
-  },
-  {
-    "time_per_exercise": 1,
-    "pain": 1,
-    "comments": "eget eleifend luctus ultricies eu nibh quisque id justo sit",
-    "plan_id": 1,
-    "patient_id": 3,
-    "treatment_id": 14
-  },
-  {
-    "time_per_exercise": 39,
-    "pain": 4,
-    "comments": "volutpat eleifend donec ut dolor morbi",
-    "plan_id": 9,
-    "patient_id": 5,
-    "treatment_id": 20
-  },
-  {
-    "time_per_exercise": 27,
-    "pain": 4,
-    "comments": "sit amet turpis elementum ligula vehicula consequat morbi a",
-    "plan_id": 9,
-    "patient_id": 2,
-    "treatment_id": 15
-  },
-  {
-    "time_per_exercise": 2,
-    "pain": 1,
-    "comments": "scelerisque mauris sit amet eros",
-    "plan_id": 6,
-    "patient_id": 4,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 24,
-    "pain": 2,
-    "comments": "donec vitae nisi nam ultrices",
-    "plan_id": 4,
-    "patient_id": 3,
-    "treatment_id": 4
-  },
-  {
-    "time_per_exercise": 14,
-    "pain": 4,
-    "comments": "mauris laoreet ut rhoncus aliquet pulvinar sed",
-    "plan_id": 3,
-    "patient_id": 1,
-    "treatment_id": 17
-  },
-  {
-    "time_per_exercise": 50,
-    "pain": 2,
-    "comments": "ipsum primis in faucibus orci luctus et",
-    "plan_id": 10,
-    "patient_id": 2,
-    "treatment_id": 20
-  },
-  {
-    "time_per_exercise": 14,
-    "pain": 2,
-    "comments": "in sagittis dui vel nisl",
-    "plan_id": 6,
-    "patient_id": 5,
-    "treatment_id": 15
-  },
-  {
-    "time_per_exercise": 28,
-    "pain": 2,
-    "comments": "posuere nonummy integer non velit",
-    "plan_id": 9,
-    "patient_id": 3,
-    "treatment_id": 10
+    "treatment_id": 8,
+    "created_at": "2016-11-13 21:30:29"
   },
   {
     "time_per_exercise": 40,
-    "pain": 5,
-    "comments": "primis in faucibus orci luctus",
-    "plan_id": 5,
-    "patient_id": 2,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 9,
-    "pain": 5,
-    "comments": "donec ut mauris eget massa tempor",
-    "plan_id": 6,
-    "patient_id": 3,
-    "treatment_id": 9
-  },
-  {
-    "time_per_exercise": 28,
-    "pain": 2,
-    "comments": "dui maecenas tristique est et tempus semper est quam pharetra",
-    "plan_id": 9,
-    "patient_id": 4,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 8,
     "pain": 3,
-    "comments": "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam",
-    "plan_id": 6,
-    "patient_id": 1,
-    "treatment_id": 15
+    "comments": "vestibulum ante ipsum primis in faucibus orci",
+    "patient_id": 3,
+    "plan_id": 3,
+    "treatment_id": 18,
+    "created_at": "2016-11-09 09:17:58"
+  },
+  {
+    "time_per_exercise": 38,
+    "pain": 5,
+    "comments": "potenti nullam porttitor lacus at",
+    "patient_id": 3,
+    "plan_id": 4,
+    "treatment_id": 4,
+    "created_at": "2016-10-17 19:24:37"
+  },
+  {
+    "time_per_exercise": 51,
+    "pain": 3,
+    "comments": "consectetuer adipiscing elit proin interdum mauris non ligula",
+    "patient_id": 2,
+    "plan_id": 4,
+    "treatment_id": 15,
+    "created_at": "2016-09-11 16:01:47"
   },
   {
     "time_per_exercise": 24,
     "pain": 2,
-    "comments": "purus phasellus in felis donec semper sapien a",
-    "plan_id": 10,
+    "comments": null,
     "patient_id": 3,
-    "treatment_id": 18
+    "plan_id": 6,
+    "treatment_id": 12,
+    "created_at": "2016-09-28 21:32:00"
+  },
+  {
+    "time_per_exercise": 8,
+    "pain": 2,
+    "comments": "magna vulputate luctus cum sociis",
+    "patient_id": 3,
+    "plan_id": 5,
+    "treatment_id": 8,
+    "created_at": "2016-10-15 15:24:45"
+  },
+  {
+    "time_per_exercise": 40,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 3,
+    "treatment_id": 14,
+    "created_at": "2016-10-04 21:28:47"
+  },
+  {
+    "time_per_exercise": 16,
+    "pain": 5,
+    "comments": "congue diam id ornare imperdiet sapien urna pretium",
+    "patient_id": 2,
+    "plan_id": 10,
+    "treatment_id": 13,
+    "created_at": "2016-09-21 18:20:14"
+  },
+  {
+    "time_per_exercise": 27,
+    "pain": 2,
+    "comments": "congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl",
+    "patient_id": 5,
+    "plan_id": 7,
+    "treatment_id": 18,
+    "created_at": "2016-11-19 00:38:52"
+  },
+  {
+    "time_per_exercise": 47,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 8,
+    "treatment_id": 7,
+    "created_at": "2016-11-18 14:18:35"
+  },
+  {
+    "time_per_exercise": 9,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 5,
+    "treatment_id": 2,
+    "created_at": "2016-10-20 04:39:31"
+  },
+  {
+    "time_per_exercise": 23,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 4,
+    "treatment_id": 9,
+    "created_at": "2016-09-25 20:27:47"
+  },
+  {
+    "time_per_exercise": 4,
+    "pain": 5,
+    "comments": "amet eros suspendisse accumsan tortor quis turpis",
+    "patient_id": 2,
+    "plan_id": 9,
+    "treatment_id": 7,
+    "created_at": "2016-09-05 09:03:07"
+  },
+  {
+    "time_per_exercise": 7,
+    "pain": 2,
+    "comments": "vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis",
+    "patient_id": 5,
+    "plan_id": 10,
+    "treatment_id": 20,
+    "created_at": "2016-09-09 23:03:58"
+  },
+  {
+    "time_per_exercise": 38,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 7,
+    "treatment_id": 18,
+    "created_at": "2016-09-16 01:21:48"
+  },
+  {
+    "time_per_exercise": 23,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 8,
+    "treatment_id": 6,
+    "created_at": "2016-10-25 03:34:33"
+  },
+  {
+    "time_per_exercise": 27,
+    "pain": 2,
+    "comments": "mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus",
+    "patient_id": 5,
+    "plan_id": 9,
+    "treatment_id": 2,
+    "created_at": "2016-11-20 21:47:47"
+  },
+  {
+    "time_per_exercise": 12,
+    "pain": 5,
+    "comments": "mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis",
+    "patient_id": 4,
+    "plan_id": 5,
+    "treatment_id": 17,
+    "created_at": "2016-11-13 03:12:11"
+  },
+  {
+    "time_per_exercise": 49,
+    "pain": 4,
+    "comments": "est et tempus semper est quam pharetra magna",
+    "patient_id": 3,
+    "plan_id": 4,
+    "treatment_id": 14,
+    "created_at": "2016-11-04 07:14:34"
+  },
+  {
+    "time_per_exercise": 8,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 6,
+    "treatment_id": 19,
+    "created_at": "2016-11-19 15:13:07"
   },
   {
     "time_per_exercise": 11,
     "pain": 1,
-    "comments": "nec condimentum neque sapien placerat",
-    "plan_id": 4,
-    "patient_id": 1,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 59,
-    "pain": 4,
-    "comments": "nulla nisl nunc nisl duis bibendum felis sed interdum",
-    "plan_id": 7,
-    "patient_id": 4,
-    "treatment_id": 15
-  },
-  {
-    "time_per_exercise": 38,
-    "pain": 5,
-    "comments": "lorem id ligula suspendisse ornare consequat lectus in",
-    "plan_id": 9,
-    "patient_id": 1,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 28,
-    "pain": 3,
-    "comments": "at nunc commodo placerat praesent blandit nam",
+    "comments": null,
+    "patient_id": 3,
     "plan_id": 1,
-    "patient_id": 3,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 35,
-    "pain": 5,
-    "comments": "felis sed lacus morbi sem mauris",
-    "plan_id": 1,
-    "patient_id": 5,
-    "treatment_id": 4
-  },
-  {
-    "time_per_exercise": 28,
-    "pain": 4,
-    "comments": "primis in faucibus orci luctus et ultrices posuere cubilia",
-    "plan_id": 6,
-    "patient_id": 2,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 14,
-    "pain": 5,
-    "comments": "id mauris vulputate elementum nullam varius nulla",
-    "plan_id": 6,
-    "patient_id": 4,
-    "treatment_id": 4
-  },
-  {
-    "time_per_exercise": 38,
-    "pain": 2,
-    "comments": "posuere cubilia curae duis faucibus accumsan odio curabitur",
-    "plan_id": 10,
-    "patient_id": 5,
-    "treatment_id": 11
-  },
-  {
-    "time_per_exercise": 54,
-    "pain": 5,
-    "comments": "justo in blandit ultrices enim lorem ipsum",
-    "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 19
-  },
-  {
-    "time_per_exercise": 48,
-    "pain": 3,
-    "comments": "est et tempus semper est",
-    "plan_id": 7,
-    "patient_id": 3,
-    "treatment_id": 2
-  },
-  {
-    "time_per_exercise": 37,
-    "pain": 5,
-    "comments": "blandit mi in porttitor pede justo eu",
-    "plan_id": 8,
-    "patient_id": 3,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 52,
-    "pain": 2,
-    "comments": "in faucibus orci luctus et ultrices posuere cubilia curae mauris",
-    "plan_id": 2,
-    "patient_id": 3,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 58,
-    "pain": 3,
-    "comments": "ut massa quis augue luctus tincidunt nulla mollis molestie",
-    "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 9
-  },
-  {
-    "time_per_exercise": 33,
-    "pain": 2,
-    "comments": "malesuada in imperdiet et commodo vulputate",
-    "plan_id": 1,
-    "patient_id": 4,
-    "treatment_id": 6
-  },
-  {
-    "time_per_exercise": 25,
-    "pain": 4,
-    "comments": "in tempus sit amet sem fusce consequat",
-    "plan_id": 9,
-    "patient_id": 5,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 44,
-    "pain": 4,
-    "comments": "sapien a libero nam dui proin leo",
-    "plan_id": 10,
-    "patient_id": 4,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 53,
-    "pain": 4,
-    "comments": "posuere felis sed lacus morbi sem mauris laoreet ut",
-    "plan_id": 8,
-    "patient_id": 4,
-    "treatment_id": 11
-  },
-  {
-    "time_per_exercise": 24,
-    "pain": 4,
-    "comments": "risus semper porta volutpat quam pede lobortis ligula",
-    "plan_id": 1,
-    "patient_id": 4,
-    "treatment_id": 14
-  },
-  {
-    "time_per_exercise": 19,
-    "pain": 1,
-    "comments": "justo etiam pretium iaculis justo in hac habitasse platea dictumst",
-    "plan_id": 2,
-    "patient_id": 4,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 7,
-    "pain": 1,
-    "comments": "aliquam lacus morbi quis tortor id",
-    "plan_id": 7,
-    "patient_id": 5,
-    "treatment_id": 5
-  },
-  {
-    "time_per_exercise": 12,
-    "pain": 2,
-    "comments": "neque aenean auctor gravida sem",
-    "plan_id": 7,
-    "patient_id": 1,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 21,
-    "pain": 3,
-    "comments": "lorem ipsum dolor sit amet consectetuer adipiscing elit proin risus",
-    "plan_id": 5,
-    "patient_id": 2,
-    "treatment_id": 9
-  },
-  {
-    "time_per_exercise": 49,
-    "pain": 1,
-    "comments": "sagittis nam congue risus semper porta volutpat quam pede",
-    "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 41,
-    "pain": 3,
-    "comments": "eget orci vehicula condimentum curabitur in libero",
-    "plan_id": 4,
-    "patient_id": 2,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 52,
-    "pain": 4,
-    "comments": "tortor risus dapibus augue vel accumsan tellus nisi",
-    "plan_id": 5,
-    "patient_id": 4,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 20,
-    "pain": 5,
-    "comments": "montes nascetur ridiculus mus etiam vel",
-    "plan_id": 5,
-    "patient_id": 4,
-    "treatment_id": 10
-  },
-  {
-    "time_per_exercise": 21,
-    "pain": 2,
-    "comments": "duis faucibus accumsan odio curabitur",
-    "plan_id": 10,
-    "patient_id": 4,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 23,
-    "pain": 3,
-    "comments": "in blandit ultrices enim lorem ipsum",
-    "plan_id": 5,
-    "patient_id": 4,
-    "treatment_id": 12
-  },
-  {
-    "time_per_exercise": 0,
-    "pain": 1,
-    "comments": "vestibulum ante ipsum primis in faucibus",
-    "plan_id": 8,
-    "patient_id": 5,
-    "treatment_id": 6
-  },
-  {
-    "time_per_exercise": 25,
-    "pain": 5,
-    "comments": "lacinia aenean sit amet justo",
-    "plan_id": 10,
-    "patient_id": 5,
-    "treatment_id": 1
-  },
-  {
-    "time_per_exercise": 31,
-    "pain": 1,
-    "comments": "vulputate justo in blandit ultrices enim lorem ipsum dolor",
-    "plan_id": 1,
-    "patient_id": 3,
-    "treatment_id": 11
-  },
-  {
-    "time_per_exercise": 19,
-    "pain": 2,
-    "comments": "placerat praesent blandit nam nulla integer pede justo lacinia",
-    "plan_id": 7,
-    "patient_id": 5,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 45,
-    "pain": 3,
-    "comments": "mi sit amet lobortis sapien sapien non mi integer",
-    "plan_id": 4,
-    "patient_id": 4,
-    "treatment_id": 8
-  },
-  {
-    "time_per_exercise": 60,
-    "pain": 4,
-    "comments": "enim leo rhoncus sed vestibulum",
-    "plan_id": 4,
-    "patient_id": 3,
-    "treatment_id": 19
-  },
-  {
-    "time_per_exercise": 5,
-    "pain": 2,
-    "comments": "fusce posuere felis sed lacus morbi sem",
-    "plan_id": 5,
-    "patient_id": 4,
-    "treatment_id": 14
-  },
-  {
-    "time_per_exercise": 27,
-    "pain": 1,
-    "comments": "consequat morbi a ipsum integer a nibh in quis",
-    "plan_id": 4,
-    "patient_id": 1,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 53,
-    "pain": 4,
-    "comments": "non mattis pulvinar nulla pede ullamcorper augue a",
-    "plan_id": 9,
-    "patient_id": 1,
-    "treatment_id": 15
-  },
-  {
-    "time_per_exercise": 29,
-    "pain": 3,
-    "comments": "erat curabitur gravida nisi at nibh in",
-    "plan_id": 6,
-    "patient_id": 3,
-    "treatment_id": 18
-  },
-  {
-    "time_per_exercise": 23,
-    "pain": 5,
-    "comments": "hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
-    "plan_id": 10,
-    "patient_id": 2,
-    "treatment_id": 3
+    "treatment_id": 5,
+    "created_at": "2016-11-13 05:22:45"
   },
   {
     "time_per_exercise": 18,
-    "pain": 5,
-    "comments": "penatibus et magnis dis parturient montes nascetur",
-    "plan_id": 10,
-    "patient_id": 2,
-    "treatment_id": 8
+    "pain": 1,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 6,
+    "treatment_id": 9,
+    "created_at": "2016-10-09 08:35:15"
   },
   {
-    "time_per_exercise": 14,
-    "pain": 5,
-    "comments": "aliquam non mauris morbi non lectus aliquam sit",
-    "plan_id": 4,
-    "patient_id": 2,
-    "treatment_id": 2
-  },
-  {
-    "time_per_exercise": 28,
+    "time_per_exercise": 54,
     "pain": 3,
-    "comments": "euismod scelerisque quam turpis adipiscing lorem vitae mattis",
+    "comments": "faucibus orci luctus et ultrices",
+    "patient_id": 4,
     "plan_id": 2,
-    "patient_id": 2,
-    "treatment_id": 14
+    "treatment_id": 2,
+    "created_at": "2016-11-10 00:29:30"
   },
   {
-    "time_per_exercise": 33,
+    "time_per_exercise": 11,
     "pain": 5,
-    "comments": "vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
-    "plan_id": 7,
-    "patient_id": 3,
-    "treatment_id": 3
-  },
-  {
-    "time_per_exercise": 34,
-    "pain": 4,
-    "comments": "habitasse platea dictumst etiam faucibus cursus urna ut tellus",
+    "comments": "amet sem fusce consequat nulla nisl nunc",
+    "patient_id": 5,
     "plan_id": 1,
-    "patient_id": 1,
-    "treatment_id": 6
+    "treatment_id": 17,
+    "created_at": "2016-09-21 10:27:36"
   },
   {
-    "time_per_exercise": 4,
-    "pain": 4,
-    "comments": "massa donec dapibus duis at velit eu est",
-    "plan_id": 7,
-    "patient_id": 4,
-    "treatment_id": 20
-  },
-  {
-    "time_per_exercise": 32,
-    "pain": 5,
-    "comments": "nisl aenean lectus pellentesque eget nunc donec",
-    "plan_id": 7,
-    "patient_id": 4,
-    "treatment_id": 14
-  },
-  {
-    "time_per_exercise": 37,
-    "pain": 1,
-    "comments": "pede justo eu massa donec dapibus duis at velit",
-    "plan_id": 4,
-    "patient_id": 5,
-    "treatment_id": 19
-  },
-  {
-    "time_per_exercise": 44,
-    "pain": 1,
-    "comments": "risus auctor sed tristique in tempus",
-    "plan_id": 9,
-    "patient_id": 5,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 22,
-    "pain": 5,
-    "comments": "vestibulum ante ipsum primis in",
-    "plan_id": 8,
+    "time_per_exercise": 1,
+    "pain": 3,
+    "comments": null,
     "patient_id": 2,
-    "treatment_id": 6
-  },
-  {
-    "time_per_exercise": 44,
-    "pain": 2,
-    "comments": "mauris laoreet ut rhoncus aliquet pulvinar sed",
-    "plan_id": 10,
-    "patient_id": 4,
-    "treatment_id": 4
-  },
-  {
-    "time_per_exercise": 14,
-    "pain": 5,
-    "comments": "bibendum felis sed interdum venenatis turpis enim blandit",
-    "plan_id": 8,
-    "patient_id": 3,
-    "treatment_id": 13
-  },
-  {
-    "time_per_exercise": 29,
-    "pain": 4,
-    "comments": "praesent lectus vestibulum quam sapien varius",
     "plan_id": 2,
-    "patient_id": 3,
-    "treatment_id": 17
+    "treatment_id": 2,
+    "created_at": "2016-10-25 23:01:49"
   },
   {
-    "time_per_exercise": 19,
+    "time_per_exercise": 45,
+    "pain": 1,
+    "comments": "phasellus sit amet erat nulla tempus vivamus in felis eu",
+    "patient_id": 3,
+    "plan_id": 2,
+    "treatment_id": 5,
+    "created_at": "2016-11-16 09:21:10"
+  },
+  {
+    "time_per_exercise": 45,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 17,
+    "created_at": "2016-11-08 19:51:04"
+  },
+  {
+    "time_per_exercise": 50,
+    "pain": 4,
+    "comments": "tincidunt in leo maecenas pulvinar",
+    "patient_id": 3,
+    "plan_id": 3,
+    "treatment_id": 15,
+    "created_at": "2016-11-11 15:26:46"
+  },
+  {
+    "time_per_exercise": 10,
+    "pain": 5,
+    "comments": "sit amet lobortis sapien sapien non",
+    "patient_id": 5,
+    "plan_id": 3,
+    "treatment_id": 14,
+    "created_at": "2016-09-14 14:10:31"
+  },
+  {
+    "time_per_exercise": 50,
+    "pain": 4,
+    "comments": "a ipsum integer a nibh in quis justo maecenas rhoncus",
+    "patient_id": 3,
+    "plan_id": 9,
+    "treatment_id": 10,
+    "created_at": "2016-10-28 06:43:22"
+  },
+  {
+    "time_per_exercise": 45,
     "pain": 2,
-    "comments": "orci luctus et ultrices posuere cubilia curae donec pharetra",
-    "plan_id": 4,
+    "comments": null,
     "patient_id": 4,
-    "treatment_id": 19
+    "plan_id": 6,
+    "treatment_id": 1,
+    "created_at": "2016-09-19 23:59:50"
+  },
+  {
+    "time_per_exercise": 2,
+    "pain": 4,
+    "comments": "vestibulum rutrum rutrum neque aenean",
+    "patient_id": 2,
+    "plan_id": 6,
+    "treatment_id": 13,
+    "created_at": "2016-10-23 02:48:11"
   },
   {
     "time_per_exercise": 30,
     "pain": 4,
-    "comments": "nullam molestie nibh in lectus pellentesque",
-    "plan_id": 9,
-    "patient_id": 3,
-    "treatment_id": 10
+    "comments": "magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis",
+    "patient_id": 1,
+    "plan_id": 5,
+    "treatment_id": 2,
+    "created_at": "2016-09-21 10:24:24"
   },
   {
-    "time_per_exercise": 59,
-    "pain": 3,
-    "comments": "accumsan tellus nisi eu orci mauris lacinia sapien",
-    "plan_id": 1,
+    "time_per_exercise": 49,
+    "pain": 1,
+    "comments": null,
     "patient_id": 1,
-    "treatment_id": 12
+    "plan_id": 4,
+    "treatment_id": 18,
+    "created_at": "2016-10-31 08:31:11"
+  },
+  {
+    "time_per_exercise": 32,
+    "pain": 1,
+    "comments": "et ultrices posuere cubilia curae donec pharetra magna vestibulum",
+    "patient_id": 1,
+    "plan_id": 4,
+    "treatment_id": 3,
+    "created_at": "2016-11-14 23:12:46"
+  },
+  {
+    "time_per_exercise": 0,
+    "pain": 1,
+    "comments": "consectetuer adipiscing elit proin interdum mauris non ligula pellentesque",
+    "patient_id": 4,
+    "plan_id": 1,
+    "treatment_id": 2,
+    "created_at": "2016-10-10 16:31:00"
+  },
+  {
+    "time_per_exercise": 38,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 7,
+    "treatment_id": 17,
+    "created_at": "2016-09-08 16:30:41"
+  },
+  {
+    "time_per_exercise": 16,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 9,
+    "treatment_id": 8,
+    "created_at": "2016-09-06 02:45:54"
+  },
+  {
+    "time_per_exercise": 51,
+    "pain": 3,
+    "comments": "fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id",
+    "patient_id": 1,
+    "plan_id": 2,
+    "treatment_id": 14,
+    "created_at": "2016-09-26 00:52:37"
+  },
+  {
+    "time_per_exercise": 19,
+    "pain": 4,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 8,
+    "treatment_id": 14,
+    "created_at": "2016-10-20 22:14:55"
+  },
+  {
+    "time_per_exercise": 2,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 4,
+    "plan_id": 2,
+    "treatment_id": 11,
+    "created_at": "2016-10-31 14:47:45"
+  },
+  {
+    "time_per_exercise": 35,
+    "pain": 1,
+    "comments": "consectetuer adipiscing elit proin risus praesent",
+    "patient_id": 4,
+    "plan_id": 5,
+    "treatment_id": 20,
+    "created_at": "2016-10-17 12:48:56"
+  },
+  {
+    "time_per_exercise": 52,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 6,
+    "treatment_id": 16,
+    "created_at": "2016-10-18 22:21:03"
+  },
+  {
+    "time_per_exercise": 30,
+    "pain": 4,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 3,
+    "treatment_id": 16,
+    "created_at": "2016-09-02 14:26:17"
+  },
+  {
+    "time_per_exercise": 42,
+    "pain": 4,
+    "comments": "nec molestie sed justo pellentesque viverra pede ac",
+    "patient_id": 5,
+    "plan_id": 5,
+    "treatment_id": 13,
+    "created_at": "2016-09-27 08:31:28"
+  },
+  {
+    "time_per_exercise": 55,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 15,
+    "created_at": "2016-10-18 23:14:48"
+  },
+  {
+    "time_per_exercise": 39,
+    "pain": 3,
+    "comments": "vel accumsan tellus nisi eu orci mauris lacinia",
+    "patient_id": 2,
+    "plan_id": 1,
+    "treatment_id": 4,
+    "created_at": "2016-09-21 01:54:33"
+  },
+  {
+    "time_per_exercise": 7,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 7,
+    "treatment_id": 18,
+    "created_at": "2016-09-03 13:57:42"
+  },
+  {
+    "time_per_exercise": 7,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 7,
+    "treatment_id": 1,
+    "created_at": "2016-09-09 12:49:46"
+  },
+  {
+    "time_per_exercise": 0,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 4,
+    "treatment_id": 13,
+    "created_at": "2016-09-19 07:46:12"
+  },
+  {
+    "time_per_exercise": 20,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 1,
+    "treatment_id": 8,
+    "created_at": "2016-09-14 02:14:10"
+  },
+  {
+    "time_per_exercise": 60,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 4,
+    "treatment_id": 1,
+    "created_at": "2016-11-05 03:04:15"
+  },
+  {
+    "time_per_exercise": 24,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 8,
+    "treatment_id": 5,
+    "created_at": "2016-11-05 04:42:28"
+  },
+  {
+    "time_per_exercise": 26,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 4,
+    "plan_id": 6,
+    "treatment_id": 20,
+    "created_at": "2016-09-06 19:51:13"
+  },
+  {
+    "time_per_exercise": 36,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 8,
+    "treatment_id": 7,
+    "created_at": "2016-10-20 09:02:12"
+  },
+  {
+    "time_per_exercise": 33,
+    "pain": 1,
+    "comments": "eu felis fusce posuere felis sed lacus morbi sem",
+    "patient_id": 2,
+    "plan_id": 7,
+    "treatment_id": 4,
+    "created_at": "2016-11-11 18:47:41"
+  },
+  {
+    "time_per_exercise": 37,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 4,
+    "plan_id": 10,
+    "treatment_id": 19,
+    "created_at": "2016-09-28 11:50:32"
+  },
+  {
+    "time_per_exercise": 41,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 3,
+    "treatment_id": 16,
+    "created_at": "2016-09-02 01:12:57"
+  },
+  {
+    "time_per_exercise": 36,
+    "pain": 2,
+    "comments": "etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus",
+    "patient_id": 4,
+    "plan_id": 10,
+    "treatment_id": 17,
+    "created_at": "2016-09-19 13:13:34"
+  },
+  {
+    "time_per_exercise": 48,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 4,
+    "treatment_id": 13,
+    "created_at": "2016-09-16 08:36:19"
+  },
+  {
+    "time_per_exercise": 50,
+    "pain": 5,
+    "comments": "lectus in quam fringilla rhoncus mauris enim",
+    "patient_id": 2,
+    "plan_id": 3,
+    "treatment_id": 19,
+    "created_at": "2016-10-27 11:15:36"
+  },
+  {
+    "time_per_exercise": 50,
+    "pain": 5,
+    "comments": "duis ac nibh fusce lacus purus aliquet at",
+    "patient_id": 5,
+    "plan_id": 7,
+    "treatment_id": 5,
+    "created_at": "2016-09-13 17:45:09"
+  },
+  {
+    "time_per_exercise": 56,
+    "pain": 3,
+    "comments": "etiam justo etiam pretium iaculis justo in hac habitasse",
+    "patient_id": 4,
+    "plan_id": 9,
+    "treatment_id": 7,
+    "created_at": "2016-09-19 05:28:35"
+  },
+  {
+    "time_per_exercise": 37,
+    "pain": 4,
+    "comments": "montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque",
+    "patient_id": 1,
+    "plan_id": 2,
+    "treatment_id": 20,
+    "created_at": "2016-10-05 02:19:51"
+  },
+  {
+    "time_per_exercise": 53,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 3,
+    "treatment_id": 13,
+    "created_at": "2016-10-02 01:28:59"
+  },
+  {
+    "time_per_exercise": 31,
+    "pain": 5,
+    "comments": "risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede",
+    "patient_id": 2,
+    "plan_id": 5,
+    "treatment_id": 14,
+    "created_at": "2016-09-29 07:12:56"
+  },
+  {
+    "time_per_exercise": 6,
+    "pain": 1,
+    "comments": "odio consequat varius integer ac leo pellentesque ultrices mattis",
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 17,
+    "created_at": "2016-11-03 21:33:24"
+  },
+  {
+    "time_per_exercise": 35,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 3,
+    "treatment_id": 16,
+    "created_at": "2016-11-07 12:36:40"
+  },
+  {
+    "time_per_exercise": 51,
+    "pain": 4,
+    "comments": "amet justo morbi ut odio",
+    "patient_id": 1,
+    "plan_id": 6,
+    "treatment_id": 16,
+    "created_at": "2016-10-13 14:39:30"
+  },
+  {
+    "time_per_exercise": 23,
+    "pain": 2,
+    "comments": "justo morbi ut odio cras",
+    "patient_id": 5,
+    "plan_id": 10,
+    "treatment_id": 11,
+    "created_at": "2016-09-04 19:30:48"
+  },
+  {
+    "time_per_exercise": 22,
+    "pain": 5,
+    "comments": "placerat ante nulla justo aliquam quis",
+    "patient_id": 3,
+    "plan_id": 3,
+    "treatment_id": 2,
+    "created_at": "2016-09-28 21:11:36"
+  },
+  {
+    "time_per_exercise": 30,
+    "pain": 2,
+    "comments": "ligula sit amet eleifend pede libero",
+    "patient_id": 4,
+    "plan_id": 9,
+    "treatment_id": 18,
+    "created_at": "2016-11-17 23:52:14"
+  },
+  {
+    "time_per_exercise": 1,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 7,
+    "treatment_id": 6,
+    "created_at": "2016-09-05 18:34:57"
+  },
+  {
+    "time_per_exercise": 19,
+    "pain": 4,
+    "comments": "orci luctus et ultrices posuere",
+    "patient_id": 4,
+    "plan_id": 6,
+    "treatment_id": 4,
+    "created_at": "2016-09-03 11:52:27"
+  },
+  {
+    "time_per_exercise": 42,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 8,
+    "treatment_id": 8,
+    "created_at": "2016-11-20 01:12:46"
+  },
+  {
+    "time_per_exercise": 2,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 9,
+    "treatment_id": 19,
+    "created_at": "2016-10-16 03:24:17"
+  },
+  {
+    "time_per_exercise": 6,
+    "pain": 4,
+    "comments": "suscipit nulla elit ac nulla sed vel",
+    "patient_id": 2,
+    "plan_id": 4,
+    "treatment_id": 2,
+    "created_at": "2016-09-26 07:38:37"
+  },
+  {
+    "time_per_exercise": 20,
+    "pain": 1,
+    "comments": "interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum",
+    "patient_id": 5,
+    "plan_id": 5,
+    "treatment_id": 12,
+    "created_at": "2016-09-17 06:27:21"
+  },
+  {
+    "time_per_exercise": 29,
+    "pain": 5,
+    "comments": "pede ac diam cras pellentesque volutpat",
+    "patient_id": 1,
+    "plan_id": 7,
+    "treatment_id": 9,
+    "created_at": "2016-11-20 07:56:32"
+  },
+  {
+    "time_per_exercise": 3,
+    "pain": 1,
+    "comments": "semper sapien a libero nam dui proin leo odio",
+    "patient_id": 4,
+    "plan_id": 2,
+    "treatment_id": 19,
+    "created_at": "2016-10-25 08:46:08"
+  },
+  {
+    "time_per_exercise": 13,
+    "pain": 5,
+    "comments": "erat tortor sollicitudin mi sit amet lobortis",
+    "patient_id": 5,
+    "plan_id": 8,
+    "treatment_id": 10,
+    "created_at": "2016-10-06 19:49:42"
+  },
+  {
+    "time_per_exercise": 32,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 1,
+    "treatment_id": 11,
+    "created_at": "2016-09-25 15:21:11"
+  },
+  {
+    "time_per_exercise": 9,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 4,
+    "treatment_id": 6,
+    "created_at": "2016-09-18 03:45:21"
+  },
+  {
+    "time_per_exercise": 51,
+    "pain": 4,
+    "comments": null,
+    "patient_id": 2,
+    "plan_id": 1,
+    "treatment_id": 7,
+    "created_at": "2016-09-04 21:00:20"
+  },
+  {
+    "time_per_exercise": 19,
+    "pain": 4,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 19,
+    "created_at": "2016-11-10 15:00:25"
+  },
+  {
+    "time_per_exercise": 10,
+    "pain": 5,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 4,
+    "treatment_id": 4,
+    "created_at": "2016-09-25 17:07:48"
+  },
+  {
+    "time_per_exercise": 60,
+    "pain": 2,
+    "comments": "blandit ultrices enim lorem ipsum",
+    "patient_id": 2,
+    "plan_id": 3,
+    "treatment_id": 1,
+    "created_at": "2016-09-25 07:29:02"
+  },
+  {
+    "time_per_exercise": 46,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 10,
+    "treatment_id": 8,
+    "created_at": "2016-10-31 20:43:31"
+  },
+  {
+    "time_per_exercise": 28,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 10,
+    "created_at": "2016-11-15 03:39:22"
+  },
+  {
+    "time_per_exercise": 50,
+    "pain": 4,
+    "comments": null,
+    "patient_id": 4,
+    "plan_id": 7,
+    "treatment_id": 3,
+    "created_at": "2016-10-03 18:33:22"
+  },
+  {
+    "time_per_exercise": 10,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 7,
+    "treatment_id": 4,
+    "created_at": "2016-10-14 19:57:59"
+  },
+  {
+    "time_per_exercise": 43,
+    "pain": 3,
+    "comments": null,
+    "patient_id": 5,
+    "plan_id": 1,
+    "treatment_id": 3,
+    "created_at": "2016-09-21 21:25:40"
+  },
+  {
+    "time_per_exercise": 51,
+    "pain": 1,
+    "comments": null,
+    "patient_id": 4,
+    "plan_id": 8,
+    "treatment_id": 19,
+    "created_at": "2016-11-01 13:33:07"
+  },
+  {
+    "time_per_exercise": 56,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 3,
+    "plan_id": 10,
+    "treatment_id": 6,
+    "created_at": "2016-09-06 15:53:59"
   },
   {
     "time_per_exercise": 23,
     "pain": 3,
-    "comments": "dui nec nisi volutpat eleifend donec ut dolor morbi vel",
-    "plan_id": 9,
-    "patient_id": 3,
-    "treatment_id": 8
+    "comments": "vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget",
+    "patient_id": 5,
+    "plan_id": 3,
+    "treatment_id": 3,
+    "created_at": "2016-11-19 00:15:39"
   },
   {
-    "time_per_exercise": 25,
-    "pain": 1,
-    "comments": "magna vestibulum aliquet ultrices erat tortor",
-    "plan_id": 6,
-    "patient_id": 2,
-    "treatment_id": 4
+    "time_per_exercise": 56,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 7,
+    "treatment_id": 3,
+    "created_at": "2016-11-09 02:07:02"
+  },
+  {
+    "time_per_exercise": 12,
+    "pain": 2,
+    "comments": null,
+    "patient_id": 1,
+    "plan_id": 7,
+    "treatment_id": 4,
+    "created_at": "2016-10-23 12:05:37"
   }
 ]
