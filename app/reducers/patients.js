@@ -29,7 +29,7 @@ export default function reducer(currentPatients = initialPatients, action) {
 /* ------------       DISPATCHERS     ------------------ */
 
 export const fetchPatients = therapistId => dispatch => {
-  axios.get(`/api/therapist/${therapistId}/patients`, credentials)
+  axios.get(`/api/therapist/${therapistId}/patients`)
     .then(res => dispatch(receivedPatients(res.data)))
     .catch(err => console.error('Unable to retrieve patients', err));
 }
