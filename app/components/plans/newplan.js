@@ -13,7 +13,7 @@ import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, Select
 import {RaisedButton, Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-const createPlan = (plan) => { console.log(plan) }
+const createPlan = (plan) => { console.log(plan) };
 
 /* PROPS:
   patient: {
@@ -31,12 +31,12 @@ const styleRow = {
 };
 
 const initialTreatment = {
-  time_per_exercise: 0,
-  reps: 0,
-  sets: 0,
+  time_per_exercise: '',
+  reps: '',
+  sets: '',
   resistance: '',
   notes: ''
-}
+};
 
 //=======  Component===============
 class NewPlan extends React.Component{
@@ -85,14 +85,14 @@ class NewPlan extends React.Component{
   }
 
   notesOnChange(evt) {
-    this.setState({ treatment: { notes: evt.target.value }})
+    this.setState({ treatment: { notes: evt.target.value }});
   }
 
 // treatment handler for this.state.treatment
   treatmentHandler(field, value) {
-    console.log('field', field)
-    console.log('value', value)
-    this.setState({ treatment :{[field]: value }})
+    console.log('field', field);
+    console.log('value', value);
+    this.setState({ treatment :{[field]: value }});
   }
 
 // Add/Remove Treatments
@@ -105,33 +105,36 @@ class NewPlan extends React.Component{
       notes: this.state.treatment.notes,
       exercise_id: this.state.selectedExercise.id,
       patient_id: this.props.currentPatient.id
-    }
+    };
+
     if (this.state.treatments.length === 0) {
-      this.setState({ treatments: [treatment] })
+      this.setState({ treatments: [treatment] });
     } else {
-      this.setState({ treatments: this.state.treatments.push(treatment) })
+      this.setState({ treatments: this.state.treatments.push(treatment) });
     }
-    this.setState({ treatment: initialTreatment })
+    this.setState({ treatment: initialTreatment });
+    this.setState({ selectedExercise: { title:" ", description: " "} });
+
   }
 
   removeTreatment(idx) {
     this.setState({ treatments: this.state.treatments.filter(treatment => {
-      if (treatment.idx !== idx) return treatment
+      if (treatment.idx !== idx) return treatment;
       })
-    })
+    });
   }
 
   //setting all local state and submit entire plan
   submitHandler(evt) {
-    evt.preventDefault()
+    evt.preventDefault();
     let newPlan = {
       duration : this.state.duration,
       therapy_focus : this.state.therapy_focus,
       notes : this.state.notes,
       patient_id: this.props.currentPatient.id,
       treatments: this.state.treatments
-    }
-    this.props.submitPlan(newPlan)
+    };
+    this.props.submitPlan(newPlan);
   }
 
   render(){
@@ -141,29 +144,29 @@ class NewPlan extends React.Component{
         <div className='row' id="newPlan">
           <div className='col-md-10'>
           <form onSubmit={this.submitHandler}>
-              <PlanOptions
-                durationOnChange={this.durationOnChange}
-                therapyHandler={this.therapyHandler}
-                noteHandler={this.noteHandler}
-                note={this.state.notes}
-                duration={this.state.duration}
-                therapy_focus={this.state.therapy_focus}
-              />
+            <PlanOptions
+              durationOnChange={this.durationOnChange}
+              therapyHandler={this.therapyHandler}
+              noteHandler={this.noteHandler}
+              note={this.state.notes}
+              duration={this.state.duration}
+              therapy_focus={this.state.therapy_focus}
+            />
             <div className="row" style={styleRow}>
               <div className="col-md-4">
-              <SelectField floatingLabelText="Exercise" value={this.state.selectedExercise.title} onChange={this.exerciseOnChange} maxHeight={200}>
-                {this.props.exercises.map((exercise, idx) => {
-                  return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> )
-                })}
-              </SelectField>
+                <SelectField floatingLabelText="Exercise" value={this.state.selectedExercise.title} onChange={this.exerciseOnChange} maxHeight={200}>
+                  {this.props.exercises.map((exercise, idx) => {
+                    return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
+                  })}
+                </SelectField>
               </div>
             </div>
             <Treatment
               exercise={this.state.selectedExercise}
               treatment={this.state.treatment}
-              addTreatment={this.state.addNewTreatment}
-              notesOnChange={this.state.notesOnChange}
-              treatmentHandler={this.state.treatmentHandler}
+              addTreatment={this.addNewTreatment}
+              notesOnChange={this.notesOnChange}
+              treatmentHandler={this.treatmentHandler}
             />
             <CreatedTreatments
               exercises={this.props.exercises}
