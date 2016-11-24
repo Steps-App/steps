@@ -18,14 +18,14 @@ const Exercise = db.define('exercise', {
   },
   img_url : {
     type: Sequelize.STRING,
-    defaultValue:"http://google.com/image.jpg",
+    defaultValue:"http://www.canadatamilsangam.com/wp-content/uploads/2015/04/default.png",
     validate:{
       isURL: true
     }
   },
   vid_url : {
     type: Sequelize.STRING,
-    defaultValue:"http://google.com/image.jpg",
+    defaultValue:"http://www.canadatamilsangam.com/wp-content/uploads/2015/04/default.png",
     validate :{
       isURL: true
     }

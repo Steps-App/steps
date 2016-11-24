@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production')
 
 const Promise = require('bluebird');
 const chalk = require('chalk');
+const moment = require('moment');
 
 // db + models
 const db = require('../../db/');
@@ -14,46 +15,49 @@ const Plan = db.model('plan')
 const Treatment = db.model('treatment')
 const Workout = db.model('workout')
 
-// seeds
-const TherapistList = require('./therapistSeed');
-const PatientList = require('./patientSeed');
-const ExerciseList = require('./exerciseSeed');
-const PlanList = require('./planSeed')
-const TreatmentList = require('./treatmentSeed')
-const WorkoutList = require('./workoutSeed')
+// All tbales and corresponding seed JSON files
+const tables = {
+  therapist: require('./therapistSeed'),
+  patient: require('./patientSeed'),
+  exercise: require('./exerciseSeed'),
+  plan: require('./planSeed'),
+  treatment: require('./treatmentSeed'),
+  workout: require('./workoutSeed')
+}
+
+// Returns a random number from 0-num
+const randomNum = num => Math.floor(Math.random() * num);
 
 // Returns array of random instances and removes them from original array
 const randomInstances = (count, list) => {
   const instances = [];
   for(let i = 0; i < count; i++) {
     if (!list.length) break;
-    const useInd = Math.floor(Math.random() * list.length);
+    const useInd = randomNum(list.length);
     instances.push(list[useInd]);
     list.splice(useInd, 1);
   }
   return instances;
 }
 
+// Returns a workout time <= the input time
+const workoutTime = time => time - (30 * randomNum((time / 30)-1));
+
 let createdTherapists;
 db.didSync
   .then(() => db.sync({ force: true }))
-  // Create therapists and patients
+  // Create initial seed data (no addociations yet)
   .then(() => {
-    return Promise.all([
-      Promise.map(TherapistList, therapist => Therapist.create(therapist)),
-      Promise.map(PatientList, patient => Patient.create(patient)),
-      Promise.map(ExerciseList, exercise => Exercise.create(exercise)),
-      Promise.map(PlanList, plan => Plan.create(plan)),
-      Promise.map(TreatmentList, treatment => Treatment.create(treatment))
-    ])
+    return Promise.all(Object.keys(tables).map(table =>
+      db.Promise.map(tables[table], result => db.model(table).create(result))))
   })
-  // Assign patients and random exercises to the therapists
-  // Assign plans to patients
   .spread((therapists, patients, exercises, plans) => {
     const updatedTherapists = [];
+    // Assign plans to patients
     patients.forEach((patient, i) => {
       patient.setPlans(randomInstances(2, plans));
     })
+    // Assign patients and random exercises to the therapists
     therapists.forEach((therapist, i) => {
       therapist.setPatients(randomInstances(20, patients));
       updatedTherapists.push(therapist.setExercises(randomInstances(20, exercises)));
@@ -62,6 +66,7 @@ db.didSync
   })
   .then(() => {
     return Promise.all([
+      Workout.findAll(),
       Treatment.findAll(),
       Plan.findAll({
         include: [{
@@ -71,21 +76,31 @@ db.didSync
       })
     ])
   })
-  .spread((treatments, plans) => {
+  .spread((workouts, treatments, plans) => {
     const updatedPlans = [];
     for (let i=0; i < plans.length; i++) {
-      const planExercises = plans[i].patient.therapist.exercises;
       const randomTreatments = randomInstances(5, treatments);
+      const days = Array(5).fill(0).map((val, i) => i);
       for (let j=0; j < randomTreatments.length; j++) {
-        randomTreatments[j].setExercise(...randomInstances(1, planExercises));
-        randomTreatments[j].update({patient_id: plans[i].patient_id });
+        // Update workout in reflection of corresponding treatment
+        const workout = randomInstances(1, workouts)[0];
+        workout.update({
+          plan_id: plans[i].id,
+          patient_id: plans[i].patient_id,
+          created_at: moment().subtract(...randomInstances(1, days), 'days'),
+          time_per_exercise: workoutTime(randomTreatments[j].time_per_exercise)
+        })
+        randomTreatments[j].setWorkouts(workout);
+        // Give each treatment a logical ancestor exercise and patient
+        randomTreatments[j].setExercise(...randomInstances(1, plans[i].patient.therapist.exercises));
+        randomTreatments[j].update({ patient_id: plans[i].patient_id });
 
       }
+      // Assign treatments to plans
       updatedPlans.push(plans[i].setTreatments(randomTreatments));
     }
     return Promise.all(updatedPlans);
   })
-  // .then(() => Workout.bulkCreate(WorkoutList))
   .then(() => console.log(chalk.green("Finished Seeding Database")))
   .catch(err => console.error(chalk.red('Issue with Seeding', err, err.stack)))
   .finally(function () {
