@@ -8,12 +8,12 @@ import Treatment from './treatment';
 import CreatedTreatments from './createdTreatments';
 
 //material-ui
-import {StepsRaisedButton, StepsFlatButton} from '../material-style'
+import {StepsRaisedButton, StepsFlatButton} from '../material-style';
 import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
 import {RaisedButton, Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-const createPlan = (plan) => { console.log(plan) };
+const createPlan = (plan) => { console.log(plan); };
 
 /* PROPS:
   patient: {
@@ -117,7 +117,7 @@ class NewPlan extends React.Component{
   }
 
   removeTreatment(idx) {
-    console.log(idx)
+    console.log(idx);
     let newTreatmentArray = this.state.treatments.filter((treatment,index)=> {
       if (idx !== index) return treatment;
     });
@@ -135,6 +135,8 @@ class NewPlan extends React.Component{
       patient_id: this.props.currentPatient.id,
       treatments: this.state.treatments
     };
+
+    console.log(`submitHandler ${newPlan}`);
     this.props.submitPlan(newPlan);
   }
 
@@ -162,7 +164,7 @@ class NewPlan extends React.Component{
                 </SelectField>
               </div>
             </div>
-            <Treatment
+             <Treatment
               exercise={this.state.selectedExercise}
               treatment={this.state.treatment}
               addTreatment={this.addNewTreatment}
@@ -170,7 +172,7 @@ class NewPlan extends React.Component{
               treatmentHandler={this.treatmentHandler}
             />
             <div>
-            <h> Patient Treatments </h>
+            <h4> Patient Treatments </h4>
               <CreatedTreatments
               exercises={this.props.exercises}
               treatments={this.state.treatments}
@@ -185,7 +187,9 @@ class NewPlan extends React.Component{
               <PatientPanel patient={this.props.currentPatient} />
             </div>
             <div className="row">
-              <RaisedButton primary={true} type="submit" label="Create Plan" style={{width: '100%'}}/>
+              <div>
+                <RaisedButton primary={true} type="submit" label="Create Plan" style={{width: '100%'}} onClick={this.submitHandler} />
+              </div>
             </div>
           </div>
         </div>

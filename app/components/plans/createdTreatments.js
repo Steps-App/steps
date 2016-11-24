@@ -24,11 +24,15 @@ export default (props) => {
                     <img src={exercise.img_url} className="img-responsive"/>
                   </TableRowColumn>
                   <TableRowColumn>
+                    <h4>Title</h4>
                     <p>{exercise.title} </p><br/>
+                    <h>Description</h>
                     <p>{exercise.description} </p><br/>
+                    <h>Additional Notes</h>
                     <p>{treatment.notes} </p><br/>
                   </TableRowColumn>
                   <TableRowColumn>
+                    <h4>Sets</h4>
                     <p>{treatment.sets} </p><br/>
                     <p>{treatment.reps} </p><br/>
                     <p>{treatment.time_per_exercise} </p><br/>
