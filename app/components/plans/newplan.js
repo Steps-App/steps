@@ -90,8 +90,6 @@ class NewPlan extends React.Component{
 
 // treatment handler for this.state.treatment
   treatmentHandler(field, value) {
-    console.log('field', field);
-    console.log('value', value);
     this.setState({ treatment :{[field]: value }});
   }
 
@@ -110,7 +108,8 @@ class NewPlan extends React.Component{
     if (this.state.treatments.length === 0) {
       this.setState({ treatments: [treatment] });
     } else {
-      this.setState({ treatments: this.state.treatments.push(treatment) });
+      let newTreatmentArray = this.state.treatments.concat(treatment);
+      this.setState({ treatments : newTreatmentArray});
     }
     this.setState({ treatment: initialTreatment });
     this.setState({ selectedExercise: { title:" ", description: " "} });
@@ -118,10 +117,12 @@ class NewPlan extends React.Component{
   }
 
   removeTreatment(idx) {
-    this.setState({ treatments: this.state.treatments.filter(treatment => {
-      if (treatment.idx !== idx) return treatment;
-      })
+    console.log(idx)
+    let newTreatmentArray = this.state.treatments.filter((treatment,index)=> {
+      if (idx !== index) return treatment;
     });
+    console.log(newTreatmentArray);
+    this.setState({ treatments: newTreatmentArray});
   }
 
   //setting all local state and submit entire plan
@@ -168,11 +169,14 @@ class NewPlan extends React.Component{
               notesOnChange={this.notesOnChange}
               treatmentHandler={this.treatmentHandler}
             />
-            <CreatedTreatments
+            <div>
+            <h> Patient Treatments </h>
+              <CreatedTreatments
               exercises={this.props.exercises}
               treatments={this.state.treatments}
-              removeTreatment={this.state.removeTreatment}
-            />
+              removeTreatment={this.removeTreatment}
+              />
+            </div>
           </form>
           </div>
 
