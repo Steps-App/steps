@@ -10,7 +10,7 @@ export default ({ treatment, num }) => {
     return moment(workout.created_at).format('MM/DD/YYYY') ===
       moment().format('MM/DD/YYYY');
   })
-  console.log(treatment)
+
   return (
     <div className={`row workout ${completedWorkout ? 'completed' : ''}`}>
       <div className="workout-index">#{num}</div>
