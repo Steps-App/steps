@@ -116,6 +116,24 @@ router.get('/:planId', (req, res, next) => {
     .catch(next)
 })
 
+// get a specific treatment from within a specific plan
+router.get('/:planId/treatments/:treatmentId', (req, res, next) => {
+  Treatment.findOne({
+      where: {
+        id: req.params.treatmentId
+      },
+      include: [ Exercise ]
+    })
+    .then(treatment => {
+      let planAndTreatment = {
+        plan: req.plan,
+        treatment: treatment
+      }
+      res.json(planAndTreatment)
+    })
+    .catch(next)
+})
+
 // -=-=-=-= UPDATE =-=-=-=-
 
 // update a plan
