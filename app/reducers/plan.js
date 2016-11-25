@@ -33,13 +33,13 @@ export const createdPlan = (data, displayErr) => dispatch => {
     treatments: data.treatments
   })
     .then(res => {
-      dispatch(createPlan(res.data))
+      dispatch(createPlan(res.data));
     })
     .catch(err => {
-      console.error('Unable to add plan', err)
-      displayErr('We experienced an unexpected error while trying to add your plan. Please try again later.')
+      console.error('Unable to add plan', err);
+      displayErr('We experienced an unexpected error while trying to add your plan. Please try again later.');
     });
-}
+};
 
 export const fetchPatientPlan = patientId => dispatch => {
   axios.get(`/api/patient/${patientId}/plan/current`)
@@ -48,4 +48,4 @@ export const fetchPatientPlan = patientId => dispatch => {
         dispatch(receivePlan(res.data));
     })
     .catch(err => console.error('Unable to fetch plan', err));
-}
+};

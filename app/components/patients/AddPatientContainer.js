@@ -68,7 +68,7 @@ const AddPatientDecorator = AddPatient => {
   }
 }
 
-const mapStateToProps = ({ user }) => ({ user })
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchtoProps = dispatch => ({
   addPatient: (patient, displayErr) => dispatch(createPatient(patient, displayErr))
