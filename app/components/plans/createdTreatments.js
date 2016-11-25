@@ -9,7 +9,7 @@ import {StepsTextField} from '../material-style';
 export default (props) => {
 
   const { exercises, treatments, removeTreatment } = props;
-
+  
   return (
     <div className="row">
       <div className="col-md-12">
@@ -25,17 +25,21 @@ export default (props) => {
                   </TableRowColumn>
                   <TableRowColumn>
                     <h4>Title</h4>
-                    <p>{exercise.title} </p><br/>
+                      <p>{exercise.title} </p><br/>
                     <h>Description</h>
-                    <p>{exercise.description} </p><br/>
+                      <p>{exercise.description} </p><br/>
                     <h>Additional Notes</h>
-                    <p>{treatment.notes} </p><br/>
+                      <p>{treatment.notes} </p><br/>
                   </TableRowColumn>
                   <TableRowColumn>
                     <h4>Sets</h4>
-                    <p>{treatment.sets} </p><br/>
-                    <p>{treatment.reps} </p><br/>
-                    <p>{treatment.time_per_exercise} </p><br/>
+                      <p>{treatment.sets} </p><br/>
+                    <h4>Reps</h4>
+                      <p>{treatment.reps} </p><br/>
+                    <h4>Resistance</h4>
+                      <p>{`${treatment.resistance} lbs`} </p><br/>
+                    <h4>Time</h4>
+                      <p>{`${treatment.time_per_exercise} min per exercise`} </p><br/>
                   </TableRowColumn>
                   <TableRowColumn>
                     <FloatingActionButton onClick={()=>{removeTreatment(idx);}} >
@@ -45,7 +49,6 @@ export default (props) => {
                 </TableRow>
               );
             })}
-
           </TableBody>
         </Table>
       </div>

@@ -8,7 +8,7 @@ import {StepsTextField} from '../material-style';
 
 export default (props) => {
 
-  const { exercise, treatment, addTreatment, notesOnChange, treatmentHandler } = props;
+  const { exercise, treatment, addTreatment, treatmentHandler } = props;
 
   return (
     <div className="row">
@@ -20,15 +20,46 @@ export default (props) => {
                 <img src={exercise.img_url} className="img-responsive"/>
               </TableRowColumn>
               <TableRowColumn>
-                <StepsTextField disabled={true} value={exercise.title} floatingLabelText="Exercise" /><br/>
-                <StepsTextField disabled={true} value={exercise.description} floatingLabelText='Description' multiLine={true} rows={2} rowsMax={4}/><br/>
-                <StepsTextField floatingLabelFixed={true} floatingLabelText="Notes for Patient" value={treatment.notes} onChange={notesOnChange}/><br/>
+                <StepsTextField
+                  disabled={true}
+                  value={exercise.title}
+                  floatingLabelText="Exercise" /><br/>
+                <StepsTextField disabled={true}
+                  value={exercise.description}
+                  floatingLabelText='Description'
+                  multiLine={true}
+                  rows={2}
+                  rowsMax={4}/><br/>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Notes for Patient"
+                  value={treatment.notes}
+                  onChange={(env) => treatmentHandler('notes', env.target.value)}/><br/>
               </TableRowColumn>
               <TableRowColumn>
-                <StepsTextField floatingLabelFixed={true} floatingLabelText="Sets" type="number" value={treatment.sets} onChange={(env) => treatmentHandler('sets', env.target.value)}/><br/>
-                <StepsTextField floatingLabelFixed={true} floatingLabelText="Reps" type="number" value={treatment.reps} onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
-                <StepsTextField floatingLabelFixed={true} floatingLabelText="Resistance : lbs" type="text" value={treatment.resistance} onChange={(env) =>treatmentHandler('resistance', env.target.value)}/><br/>
-                <StepsTextField floatingLabelFixed={true} floatingLabelText="Minutes" type="number" value={treatment.time_per_exercise} onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/><br/>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Sets"
+                  type="number"
+                  value={treatment.sets}
+                  onChange={(env) => treatmentHandler('sets', env.target.value)}/><br/>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Reps" type="number"
+                  value={treatment.reps}
+                  onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Resistance : lbs"
+                  type="text"
+                  value={treatment.resistance}
+                  onChange={(env) =>treatmentHandler('resistance', env.target.value)}/><br/>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Minutes"
+                  type="number"
+                  value={treatment.time_per_exercise}
+                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/><br/>
               </TableRowColumn>
               <TableRowColumn>
                 <FloatingActionButton onClick={() => addTreatment()}>

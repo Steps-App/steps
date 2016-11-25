@@ -6,7 +6,7 @@ import {SelectField, TextField , MenuItem} from "material-ui";
 import {StepsTextField} from '../material-style';
 
 export default function(props){
-  let { durationOnChange, therapyHandler, noteHandler, duration, note, therapy_focus } = props;
+  let { durationOnChange, therapyHandler, notesOnChange, duration, note, therapy_focus } = props;
 
 // style
  const styleRow = {
@@ -59,7 +59,7 @@ export default function(props){
           <StepsTextField
             hintText="Go Slow"
             multiLine={true}
-            onChange={noteHandler}
+            onChange={notesOnChange}
             value={note}
             floatingLabelText="Notes"
             rows={1}
