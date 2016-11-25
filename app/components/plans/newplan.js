@@ -1,4 +1,4 @@
-//React/Redux
+//React&Redux
 import React from 'react';
 //Stateless Components
 import PlanOptions from './newPlanOptions';
@@ -8,16 +8,15 @@ import CreatedTreatments from './createdTreatments';
 
 //material-ui
 import {StepsRaisedButton, StepsFlatButton} from '../material-style';
-import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
-import {RaisedButton, Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import {MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link} from 'material-ui';
 
-// styling
+// Styles
+//== Exerise SelectField Style
 const styleRow = {
   'display' : 'flex',
   'marginTop' : '1em'
 };
-
+// Initial Treatment Templete for reseting
 const initialTreatment = {
   time_per_exercise: '',
   reps: '',
@@ -51,7 +50,7 @@ export default class newPlan extends React.Component{
     this.addNewTreatment = this.addNewTreatment.bind(this);
     this.removeTreatment = this.removeTreatment.bind(this);
   }
-
+//==== Plan Option Handlers
 // persisting on local state for plan for duration and injury
   durationOnChange(evt, idx, value) {
     this.setState({ duration: value });
@@ -66,7 +65,7 @@ export default class newPlan extends React.Component{
   noteHandler(evt) {
     this.setState({notes : evt.target.value});
   }
-
+// Treatment Handlers
 // handle change to this.state.exercise
   exerciseOnChange(evt, idx) {
     this.setState({ selectedExercise: this.props.exercises[idx] });
@@ -81,7 +80,7 @@ export default class newPlan extends React.Component{
     this.setState({ treatment :{[field]: value }});
   }
 
-// ======= addNewTreatment =======
+// ======= addNewTreatment Button==========
   addNewTreatment() {
     let treatment = {
       time_per_exercise: this.state.treatment.time_per_exercise,
@@ -132,11 +131,28 @@ export default class newPlan extends React.Component{
 
   render(){
 
-    let ExerciseList = (Array.isArray(this.props.exercises)) ?                 <SelectField floatingLabelText="Exercise" value={this.state.selectedExercise.title} onChange={this.exerciseOnChange} maxHeight={200}>
-                      {this.props.exercises.map((exercise, idx) => {
+
+  // === IF Therapist has no exercises displays text instead of dropdown
+    let ExerciseList = (this.props.exercises===[]) ?
+                  <SelectField
+                  floatingLabelText="Exercise"
+                  value={this.state.selectedExercise.title}
+                  onChange={this.exerciseOnChange}
+                  maxHeight={200}>
+                    {this.props.exercises.map((exercise, idx) => {
                         return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
                       })}
-                    </SelectField> : <h4> No Exercises Added Yet! </h4> ;
+                  </SelectField>
+                  : <h4> Add Exercises to create Treatments </h4>;
+  // === IF no exercise is selected no form is form is showed
+    let TreatmentForm = (this.state.selectedExercise.id === undefined) ? null :
+                <Treatment
+                  exercise={this.state.selectedExercise}
+                  treatment={this.state.treatment}
+                  addTreatment={this.addNewTreatment}
+                  notesOnChange={this.notesOnChange}
+                  treatmentHandler={this.treatmentHandler}
+                />;
 
     return(
       <div className="container">
@@ -153,16 +169,11 @@ export default class newPlan extends React.Component{
             />
             <div className="row" style={styleRow}>
               <div className="col-md-4">
-                  {ExerciseList}
+                {ExerciseList}
               </div>
             </div>
-             <Treatment
-              exercise={this.state.selectedExercise}
-              treatment={this.state.treatment}
-              addTreatment={this.addNewTreatment}
-              notesOnChange={this.notesOnChange}
-              treatmentHandler={this.treatmentHandler}
-            />
+              {TreatmentForm}
+              <Divider/>
             <div>
             <h4> Patient Treatments </h4>
               <CreatedTreatments
@@ -180,7 +191,11 @@ export default class newPlan extends React.Component{
             </div>
             <div className="row">
               <div>
-                <RaisedButton primary={true} type="submit" label="Create Plan" style={{width: '100%'}} onClick={this.submitHandler} />
+                <StepsRaisedButton primary={true}
+                type="submit"
+                label="Create Plan"
+                style={{width: '100%'}}
+                onClick={this.submitHandler} />
               </div>
             </div>
           </div>
