@@ -5,7 +5,8 @@ import {Paper} from "material-ui";
 export default function(props){
 
   let {patient} = props;
-  let image = (patient.img_url === "") ?  "../../../src/images/defaultProfile.png" : patient.image;
+  console.log(props, patient)
+//  let image = (patient.img_url === "") ?  "../../../src/images/defaultProfile.png" : patient.img_url;
 //Styles
  const paperStyle = {
    'padding' : '1em',
@@ -15,7 +16,7 @@ export default function(props){
   return(
     <Paper style={paperStyle} zDepth={1}>
       <div>
-        <img className="profile" src={image} />
+        <img className="profile" src={patient.img_URL} />
       </div>
       <div>
         <p>{`First Name ${patient.first_name}`}</p>

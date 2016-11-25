@@ -8,10 +8,10 @@ import {createPlan} from '../../reducers/plan';
 
 
 
-const mapStateToProps = ({ currentpatient, exercises }) => ({ currentpatient, exercises });
+const mapStateToProps = ({ currentPatient, exercises }) => ({ currentPatient, exercises });
 
 const mapDispatchToProps = dispatch => ({
-  createPlan : (newPlan) => dispatch(createPlan(newPlan))
+  addPlan : (newPlan) => dispatch(createPlan(newPlan))
 });
 
 

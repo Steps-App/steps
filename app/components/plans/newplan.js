@@ -126,11 +126,17 @@ export default class newPlan extends React.Component{
     };
 
     console.log(`submitHandler ${newPlan}`);
-    this.props.createPlan(newPlan);
+    this.props.addPlan(newPlan);
   }
 
 
   render(){
+
+    let ExerciseList = (Array.isArray(this.props.exercises)) ?                 <SelectField floatingLabelText="Exercise" value={this.state.selectedExercise.title} onChange={this.exerciseOnChange} maxHeight={200}>
+                      {this.props.exercises.map((exercise, idx) => {
+                        return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
+                      })}
+                    </SelectField> : <h4> No Exercises Added Yet! </h4> ;
 
     return(
       <div className="container">
@@ -147,11 +153,7 @@ export default class newPlan extends React.Component{
             />
             <div className="row" style={styleRow}>
               <div className="col-md-4">
-                <SelectField floatingLabelText="Exercise" value={this.state.selectedExercise.title} onChange={this.exerciseOnChange} maxHeight={200}>
-                  {this.props.exercises.map((exercise, idx) => {
-                    return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
-                  })}
-                </SelectField>
+                  {ExerciseList}
               </div>
             </div>
              <Treatment
