@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { isBrowser } from '../utils'
+import { isBrowser, loginRedirect } from '../utils'
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -14,16 +14,17 @@ export const removeUser  = () => ({ type: REMOVE_USER })
 
 /* ------------       REDUCER     ------------------ */
 
-const initialUser = {
-  isTherapist: true,
-  img_url: 'https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline'
-};
-export default function reducer(currentUser = initialUser, action) {
+// const initialUser = {
+//   isTherapist: true,
+//   img_url: 'https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline'
+// };
+
+export default function reducer(currentUser = {}, action) {
   switch (action.type) {
     case SET_USER:
       return action.user;
     case REMOVE_USER:
-      return initialUser;
+      return {};
     default:
       return currentUser;
   }
@@ -36,11 +37,11 @@ export const login = (credentials, displayErr) => dispatch => {
     .then(res => {
       dispatch(setUser(res.data));
       if (isBrowser())
-        browserHistory.push('/');
+        browserHistory.push(loginRedirect(res.data.role));
     })
     .catch(err => {
       console.error('Unable to log in', err)
-      displayErr('Invalid credentials');
+      displayErr(err.response.data);
     });
 }
 
@@ -49,21 +50,21 @@ export const signup = (credentials, displayErr) => dispatch => {
     .then(res => {
       dispatch(setUser(res.data));
       if (isBrowser())
-        browserHistory.push('/');
+        browserHistory.push(loginRedirect(res.data.role));
     })
     .catch(err => {
       console.error('Unable to sign up', err)
-      displayErr('Issue with sign up');
+      displayErr(err.response.data);
     });
 }
 
-export const retrieveLoggedInUser = () => dispatch => {
+export const retrieveLoggedInUser = (cb) => dispatch => {
   axios.get('/api/auth/me')
     .then(res => {
-      if (res.data)
-        dispatch(setUser(res.data));
+      dispatch(setUser(res.data));
+      cb(null, res.data)
     })
-    .catch(err => console.error('Unable to retrieve logged in user', err));
+    .catch(cb);
 }
 
 export const logout = () => dispatch => {

@@ -37,6 +37,7 @@ const AddPatientDecorator = AddPatient => {
       // If no errors, attempt to submit
       if (!Object.keys(errs).length) {
         const newPatient = this.state;
+        newPatient.therapistId = this.props.user.id;
         this.props.addPatient(newPatient, (err) => {
           let newState = err ? { errors: {submit: err} } : initialState;
           this.setState(newState);
@@ -67,8 +68,11 @@ const AddPatientDecorator = AddPatient => {
   }
 }
 
+const mapStateToProps = ({ user }) => ({ user });
+
 const mapDispatchtoProps = dispatch => ({
   addPatient: (patient, displayErr) => dispatch(createPatient(patient, displayErr))
 })
 
-export default connect(null, mapDispatchtoProps)(AddPatientDecorator(AddPatient));
+export default connect(mapStateToProps, mapDispatchtoProps)
+  (AddPatientDecorator(AddPatient));

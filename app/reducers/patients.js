@@ -29,14 +29,13 @@ export default function reducer(currentPatients = initialPatients, action) {
 /* ------------       DISPATCHERS     ------------------ */
 
 export const fetchPatients = therapistId => dispatch => {
-  axios.get(`/api/therapist/${therapistId}/patients`, credentials)
+  axios.get(`/api/therapist/${therapistId}/patients`)
     .then(res => dispatch(receivedPatients(res.data)))
     .catch(err => console.error('Unable to retrieve patients', err));
 }
 
 export const createPatient = (data, displayErr) => dispatch => {
-  axios.post(`/api/auth/signup`, {
-    role: 'patient',
+  axios.post(`/api/therapist/${data.therapistId}/patients`, {
     firstName: data.firstName,
     lastName: data.lastName,
     email: data.email
@@ -48,6 +47,6 @@ export const createPatient = (data, displayErr) => dispatch => {
     })
     .catch(err => {
       console.error('Unable to add patient', err)
-      displayErr('We experienced an unexpect error while trying to add your patient. Please try again later.')
+      displayErr('We experienced an unexpected error while trying to add your patient. Please try again later.')
     });
 }

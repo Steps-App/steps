@@ -1,7 +1,6 @@
 //React/Redux
 import React from 'react';
-import {connect} from 'react-redux';
-//Components
+//Stateless Components
 import PlanOptions from './newPlanOptions';
 import PatientPanel from './PatientPanel';
 import Treatment from './treatment';
@@ -12,17 +11,6 @@ import {StepsRaisedButton, StepsFlatButton} from '../material-style';
 import {DropDownMenu, MenuItem, Divider, FloatingActionButton, TextField, SelectField, Link,Paper} from 'material-ui';
 import {RaisedButton, Table, TableHeader, TableRow,TableHeaderColumn, TableRowColumn} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-
-const createPlan = (plan) => { console.log(plan); };
-
-/* PROPS:
-  patient: {
-    id, first_name, last_name, img_url, ...biodata
-  },
-  exercises: [{
-    id, title, description, img_url, vid_url, therapist_id
-  }]
-*/
 
 // styling
 const styleRow = {
@@ -38,8 +26,8 @@ const initialTreatment = {
   notes: ''
 };
 
-//=======  Component===============
-class NewPlan extends React.Component{
+//=======  Component==========
+export default class newPlan extends React.Component{
   constructor(props){
     console.log(props);
     super(props);
@@ -93,7 +81,7 @@ class NewPlan extends React.Component{
     this.setState({ treatment :{[field]: value }});
   }
 
-// Add/Remove Treatments
+// ======= addNewTreatment =======
   addNewTreatment() {
     let treatment = {
       time_per_exercise: this.state.treatment.time_per_exercise,
@@ -116,6 +104,7 @@ class NewPlan extends React.Component{
 
   }
 
+// ======= removeTreatment =======
   removeTreatment(idx) {
     console.log(idx);
     let newTreatmentArray = this.state.treatments.filter((treatment,index)=> {
@@ -125,7 +114,7 @@ class NewPlan extends React.Component{
     this.setState({ treatments: newTreatmentArray});
   }
 
-  //setting all local state and submit entire plan
+//===== SubmitHandler for Entire Plan ======
   submitHandler(evt) {
     evt.preventDefault();
     let newPlan = {
@@ -137,8 +126,9 @@ class NewPlan extends React.Component{
     };
 
     console.log(`submitHandler ${newPlan}`);
-    this.props.submitPlan(newPlan);
+    this.props.createPlan(newPlan);
   }
+
 
   render(){
 
@@ -197,50 +187,3 @@ class NewPlan extends React.Component{
     );
   }
 }
-
-//========Container =============== Temporary :D =========
-
-const mapStateToProps = (state) => ({
-  user: state.user,
-  currentPatient: fakePatient,
-  exercises: fakeExerciseArray
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  submitPlan: (plan) => dispatch(createPlan(plan))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewPlan);
-
-//======FAKE DATA ============
-const fakeExerciseArray = [{
-  "id" : 1,
-  "title" : "Horizontal Abduction",
-  "description" : " Start by lying on your stomach and your arm dangling",
-  "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/Shoulder-Prone-Horizontal-Abduction.jpg",
-  "vid_url" : ""
- },
- {
-   "id" : 2,
-   "title" : "Wall or Table Push Up",
-   "description" : "To do this correctly, raise your arms up in front of you so your arms are even with the ground. Then try and make your arms a little longer by bringing your shoulders forward. This is the +, it is what you want to feel at the end each push up.",
-   "img_url" : "http://www.stellarhealthcenter.com/Exercises=Stretch/resized/shoulder-wall-push-up-start.jpg",
-   "vid_url" : ""
-  },
-  { "id" : 3,
-    "title" : "Prone External Rotation",
-    "description" : "Start by lying on your stomach and your arm dangling",
-    "img_url" : "../../../src/images/defaultProfile.png",
-    "vid_url" : ""
-  }
-];
-
-const fakePatient = {
-  id : 1,
-  first_name : "John",
-  last_name : "doe",
-  img_url : "",
-  email : "johndoe@gmail.com",
-  DOB : 'DEC 10 1989',
-  gender : 'M'
-};

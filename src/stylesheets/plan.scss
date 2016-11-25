@@ -1,0 +1,94 @@
+#plan {
+  width: 100%;
+  h1 {
+    /* {age header styling here */
+  }
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  > .plan-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.workouts {
+  padding-top: 10px;
+}
+
+// Row in patient plan
+.workout {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  &.completed { // fade all workouts completed today
+    > .workout-index, .workout-pic {
+      opacity: .6;
+    }
+    h2, p {
+      color: $disabled;
+    }
+  }
+  .workout-index { // workout row number
+    z-index: 1;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: $numbers;
+    color: $text-light;
+    position: absolute;
+  }
+  + .workout {
+    margin-top: 20px; // spacing between workouts
+  }
+  > * {
+    padding: 0; // removing column padding
+  }
+  > img {
+    max-width: 200px; // main workout image
+    max-height: inherit;
+  }
+  p {
+    margin: 0;
+    > span {
+      font-weight: bold;
+    }
+  }
+  > .workout-info {
+    display: inherit;
+    flex-direction: column;
+    > h2 {
+      margin: 0;
+    }
+    .workout-nums {
+      display: inherit;
+      flex-direction: row;
+      > p {
+        margin: 0;
+      }
+      > p + p::before {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-weight: bold;
+        content: '/';
+      }
+    }
+  }
+  .workout-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

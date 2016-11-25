@@ -8,6 +8,16 @@ const therapistModel  = db.model('therapist')
 const patientModel  = db.model('patient')
 const exerciseModel  = db.model('exercise')
 
+// dummy data
+const patientData = require('../../db/Seed/patientSeed.json')
+
+//testestetstets
+therapistRoutes.get('/data', (req, res) => {
+
+  res.send({code: Math.floor(Math.random()*(patientData.length))})
+  
+})
+
 // -=-=-=-= READ =-=-=-=-
 
 // get patients of a therapist 
@@ -70,6 +80,21 @@ therapistRoutes.get('/:id/exercises', (req, res, next) => {
 therapistRoutes.get('/:id/patients', (req, res, next) => {
   patientModel.findAll({ where:{ therapist_id: req.params.id } })
     .then(patients => res.send(patients))
+    .catch(next);
+})
+
+// create a new patient for the therapist
+therapistRoutes.post('/:id/patients', (req, res, next) => {
+  // Use random seed data for non-completed fields (for now)
+  const { DOB, gender, img_URL } = patientData[Math.floor(Math.random()*(patientData.length))];
+  patientModel.create({
+    therapist_id: req.params.id,
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
+    email: req.body.email,
+    DOB, gender, img_URL // random seed data!
+  })
+    .then(patient => res.send(patient))
     .catch(next);
 })
 

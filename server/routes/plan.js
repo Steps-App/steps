@@ -1,11 +1,15 @@
 // router
 const express = require('express')
 const router = express()
+const workoutRoutes = require('./workout')
 
 // Plan Model
+const sequelize = require('sequelize')
 const Plan = require('../../db/models/plan')
 const Patient = require('../../db/models/patient')
 const Treatment = require('../../db/models/treatment')
+const Workout = require('../../db/models/workout')
+const Exercise = require('../../db/models/exercise')
 
 /*
   Plan Model
@@ -78,6 +82,27 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
+// Get the patient's current (most recent) plan
+router.get('/current', (req, res, next) => {
+  Plan.findOne({
+    attributes: ['id'],
+    where: { patient_id: req.patientId },
+    order: [[sequelize.fn('max', sequelize.col('plan.created_at'))]],
+    group: 'plan.id'
+  })
+    .then(res => {
+      return Plan.findById(res.id, {
+        include: [ {
+          model: Treatment,
+          where: { status: 'active' },
+          include: [ Exercise, Workout ]
+        } ]
+      })
+    })
+    .then(plan => res.json(plan))
+    .catch(next)
+})
+
 // get a specific plan for a patient with associated treatments
 router.get('/:planId', (req, res, next) => {
   req.plan.getTreatments()
@@ -134,5 +159,7 @@ router.delete('/:planId', (req, res, next) => {
     .then(ok => { res.sendStatus(204) })
     .catch()
 })
+
+router.use('/:planId/workout', workoutRoutes)
 
 module.exports = router

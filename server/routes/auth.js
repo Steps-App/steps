@@ -45,6 +45,7 @@ router.post('/signup', (req, res, next) => {
     .then(user => {
       req.session.userId = user.id;
       req.session.role = req.body.role;
+      user.dataValues.role = req.body.role;
       res.status(201).send(user)
     })
     .catch(next);
@@ -85,6 +86,7 @@ router.post('/login', (req, res, next) => {
 
           req.session.userId = user.id;
           req.session.role = role;
+          user.dataValues.role = role;
           return res.send(user);
         })
     })
@@ -113,7 +115,10 @@ router.get('/me', (req, res, next) => {
 
   // Look up and return user
   model.findById(req.session.userId)
-    .then(user => res.send(user))
+    .then(user => {
+      user.dataValues.role = req.session.role;
+      res.send(user)
+    })
     .catch(next);
 });
 
