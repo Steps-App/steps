@@ -1,10 +1,47 @@
-[
-  {"first_name":"Emily","last_name":"Adams", "practice_name": "Steps", "license_id":"41813", "img_URL": "http://cyclesurfstudio.com/wp-content/uploads/2015/09/profile-pic-round.png", "email":"emily@steps.com","password":"1234"},
-  {"first_name":"Ben","last_name":"Parker", "practice_name": "Steps", "license_id":"94751", "img_URL": "https://lh6.googleusercontent.com/RPzAuHdIotBE0CqE7fdDFntiHH45k3wvLmdGWFSMlRyPXLOdiLQ04mSL7XgO72DyfDtzggcm9rTMiI_XzTmLYI7qIFVYX8Xdm0vFMSh7VIGy6W9Q-Rtw0dAuoWgzWHis0g", "email":"ben@steps.com","password":"1234"},
-  {"first_name":"Sarah","last_name":"Ellis", "practice_name": "Steps", "license_id":"36039", "img_URL": "http://sociallyaligned.com/wp-content/uploads/2014/06/Profile-pic-round.png",  "email":"sarah@steps.com","password":"1234"},
-  {"first_name":"Jake","last_name":"Wright", "practice_name": "Steps", "license_id":"82144", "img_URL": "http://acevasupportservices.com/wp-content/uploads/2014/11/profile-pic-round-300x295.jpg",
-  "email":"jake@steps.com","password":"1234"},
-  {"first_name":"Rebecca","last_name":"Bates", "practice_name": "Steps", "license_id":"28997", "img_URL": "http://techli.com/wp-content/uploads/Avesta_profile_round.png",  "email":"rebecca@steps.com","password":"1234"},
-  {"first_name":"Sam","last_name":"Smith", "practice_name": "Steps", "license_id":"68440", "img_URL": "http://192.185.89.43/~iaf/local/staticpage/pages/perfil1.png",
-  "email":"sam@steps.com","password":"1234"}
+[  
+  {  
+    "first_name":"Johnny",
+    "last_name":"Sanders",
+    "practice_name":"Visionary",
+    "license_id":31575,
+    "image_URL":"https://randomuser.me/api/portraits/women/70.jpg",
+    "email":"jsanders0@telegraph.co.uk",
+    "password":"1234"
+  },
+  {  
+    "first_name":"Keith",
+    "last_name":"Stephens",
+    "practice_name":"array",
+    "license_id":60574,
+    "image_URL":"https://randomuser.me/api/portraits/women/59.jpg",
+    "email":"kstephens1@usda.gov",
+    "password":"1234"
+  },
+  {  
+    "first_name":"Jessica",
+    "last_name":"Gray",
+    "practice_name":"tertiary",
+    "license_id":31357,
+    "image_URL":"https://randomuser.me/api/portraits/women/64.jpg",
+    "email":"jgray2@ow.ly",
+    "password":"1234"
+  },
+  {  
+    "first_name":"Arthur",
+    "last_name":"Rivera",
+    "practice_name":"maximized",
+    "license_id":55608,
+    "image_URL":"https://randomuser.me/api/portraits/women/98.jpg",
+    "email":"arivera3@engadget.com",
+    "password":"1234"
+  },
+  {  
+    "first_name":"Marilyn",
+    "last_name":"Hawkins",
+    "practice_name":"6th generation",
+    "license_id":90935,
+    "image_URL":"https://randomuser.me/api/portraits/women/86.jpg",
+    "email":"mhawkins4@technorati.com",
+    "password":"1234"
+  }
 ]

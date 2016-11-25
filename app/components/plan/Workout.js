@@ -10,7 +10,7 @@ export default ({ treatment, num }) => {
     return moment(workout.created_at).format('MM/DD/YYYY') ===
       moment().format('MM/DD/YYYY');
   })
-  console.log(num)
+
   return (
     <div className={`row workout ${completedWorkout ? 'completed' : ''}`}>
       <div className="workout-index">#{num}</div>
@@ -21,10 +21,13 @@ export default ({ treatment, num }) => {
           <p><span>Sets</span>{`: ${treatment.sets}`}</p>
           <p><span>Reps</span>{`: ${treatment.reps}`}</p>
         </div>
-        <p><span>Time</span>{`: ${formatTime(treatment.time_per_exercises)}`}</p>
+        <p><span>Time</span>{`: ${formatTime(treatment.time_per_exercise)}`}</p>
         <p><span>Resistance</span>{`: ${treatment.resistance}`}</p>
       </div>
-      <p className="col-xs-4"><span>Notes</span>{`: ${treatment.notes}`}</p>
+      <p className="col-xs-4">
+        <span>Notes</span>
+        {`: ${treatment.notes ? treatment.notes : 'No notes specified'}`}
+      </p>
       <div className="col-xs-2 workout-button">
         <StepsActionButton disabled={ completedWorkout ? true : false }>
           {
