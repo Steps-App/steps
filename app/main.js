@@ -35,10 +35,16 @@ import { loginRedirect } from './utils';
 // }
 
 // ===== OnEnters =====
-const appEnter = (nextState, replace) => {
-  // hit /api/auth/me to get logged in user
-  // If user is not logged in, redirect them to the home page
-  if (!Object.keys(store.getState().user).length) replace('/');
+const appEnter = (nextState, replace, callback) => {
+  store.dispatch(retrieveLoggedInUser((err, user) => {
+    // Home page and logged in -> default app view
+    if (!err && nextState.location.pathname === '/')
+      replace(loginRedirect(user.role));
+    // App page and not logged in -> home page
+    else if (err && nextState.location.pathname !== '/')
+      replace('/');
+    callback();
+  }));
 };
 
 const newPlanEnter = (nextState, replace) => {
