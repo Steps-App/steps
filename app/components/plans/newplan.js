@@ -133,7 +133,7 @@ export default class newPlan extends React.Component{
 
 
   // === IF Therapist has no exercises displays text instead of dropdown
-    let ExerciseList = (this.props.exercises===[]) ?
+    let ExerciseList = (this.props.exercises.length() > 0) ?
                   <SelectField
                   floatingLabelText="Exercise"
                   value={this.state.selectedExercise.title}
@@ -143,16 +143,16 @@ export default class newPlan extends React.Component{
                         return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
                       })}
                   </SelectField>
-                  : <h4> Add Exercises to create Treatments </h4>;
+                  : <h4> Add Exercises to create Treatments </h4>
   // === IF no exercise is selected no form is form is showed
-    let TreatmentForm = (this.state.selectedExercise.id === undefined) ? null :
+    let TreatmentForm = (this.state.selectedExercise === {}) ? null :
                 <Treatment
                   exercise={this.state.selectedExercise}
                   treatment={this.state.treatment}
                   addTreatment={this.addNewTreatment}
                   notesOnChange={this.notesOnChange}
                   treatmentHandler={this.treatmentHandler}
-                />;
+                />
 
     return(
       <div className="container">
