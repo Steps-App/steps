@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
-import { isBrowser } from '../utils'
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -21,8 +19,11 @@ export default function workoutReducer(workout = null, action) {
 
 /* ------------       DISPATCHERS     ------------------ */
 
-export const logActivity = (activity) => (dispatch) => {
+export const logActivity = (activity, done) => (dispatch) => {
   axios.post(`/api/patient/${activity.patientId}/plan/${activity.planId}/workout`, activity)
-    .then(ok => console.log('Workout logged'))
-    .catch(err => console.error('Unable to create workout', err))
+    .then(ok => done())
+    .catch(err => {
+      console.error('Unable to create workout', err)
+      done('We experienced an unexpected error while trying to log your workout.')
+    });
 }
