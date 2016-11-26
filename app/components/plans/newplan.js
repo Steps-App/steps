@@ -26,6 +26,7 @@ const initialTreatment = {
   notes: ''
 };
 
+
 //=======  Component==========
 export default class newPlan extends React.Component{
   constructor(props){
