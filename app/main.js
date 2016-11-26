@@ -11,7 +11,7 @@ import { fetchExercises } from './reducers/exercises'
 import { fetchPatientPlan } from './reducers/plan'
 import { fetchPatients } from './reducers/patients'
 import { fetchCurrentPatient } from './reducers/currentpatient'
-import { loadTreatment } from './reducers/treatment'
+import { fetchTreatment } from './reducers/treatment'
 
 // React Compontents
 import Home from './components/home/Home';
@@ -53,10 +53,10 @@ const patientPlanEnter = () => {
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 const singleTreatmentEnter = (nextState) => {
-  let state = store.getState()
-  // let { treatments } = plan
-  console.log(state)
-  // store.dispatch(loadTreatment(treatment))
+  let patientId = nextState.params.patientId,
+    planId = nextState.params.planId,
+    treatmentId = nextState.params.treatmentId
+  store.dispatch(fetchTreatment(patientId, planId, treatmentId))
 }
 
 render (
@@ -65,10 +65,10 @@ render (
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
-        <Route path="/plan/treatment/:treatmentId" component= { Treatment } onEnter={ singleTreatmentEnter }/>
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/patients/:patientId/plans/:planId/treatments/:treatmentId" component= { Treatment } onEnter={ singleTreatmentEnter }/>
         <Route path="/patients/dashboard" component={ PatientDash } />
         {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>

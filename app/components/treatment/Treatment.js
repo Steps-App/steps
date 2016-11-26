@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 // material ui
-import { Paper } from 'material-ui'
+import { CircularProgress, Paper } from 'material-ui'
 
 // sub-components
 import PlanPanel from './PlanPanel.js'
@@ -15,46 +15,82 @@ import PlanPanel from './PlanPanel.js'
 
 export class Treatment extends Component {
 
-  constructor() {
-    super()
-    const { plan, treatment } = this.props
-    const { exercise } = treatment
+  constructor(props) {
+    super(props)
   }
 
   render() {
 
+    const { treatment } = this.props
+    // stylings
+    const padded = { padding: '15px' }
+    const emphasis = { fontWeight: 'bold' }
+    // handle video
+    let media = ''
+    if (treatment.exercise.vid_url) {  // if a video exists...
+      media = treatment.exercise.vid_url.includes('youtube') ?  // youtube uses iframe
+        ( <div className='videoWrapper'>
+            <iframe src={ treatment.exercise.vid_url } frameborder='0' allowfullscreen></iframe>
+          </div>
+        ) :
+        ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
+    } else {  // if no video, then just the image...
+      media = ( <img src={ treatment.exercise.img_url } className='img-responsive' /> )
+    }
+
     return (
       <div className='container'>
-        <div className='row'>
-          <div className='col-md-10'>
+      <div className='row'>
+        <div className='col-md-12'>
             <div className='row'>
-              <h1> { `${plan.therapy_focus}: ${exercise.title}` }  }</h1>
-              <Paper>
-                <div className='row'>
-                  <div className='col-md-4'>
-                    { exercise.vid_url ?
-                      ( <video src={ exercise.vid_url }></video> ) :
-                      ( <img src={ exercise.img_url } alt={ exercise.title } /> )
-                    }
-                  </div>
-                  <div className='col-md-4'>
-                    <div>Title: { exercise.title }</div>
-                    <div>Description: { exercise.description }</div>
-                    <div>Therapist Notes: { treatment.notes }</div>
-                  </div>
-                  <div className='col-md-2'>
-                    <div>Duration: { treatment.duration }</div>
-                    <div>Sets: { treatment.sets }</div>
-                    <div>Reps: { treatment.reps }</div>
+              <h1> { `${treatment.exercise.title}` } </h1>
+            </div>
+        </div>
+        <div className='col-md-9'>
+          <div className='row'>
+            <Paper style={ padded }>
+              <div className='row'>
+                <div className='col-md-12'>
+                  { media }
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div>
+                    <p style={ emphasis }>Description: </p>
+                    <p>{ treatment.exercise.description }</p>
                   </div>
                 </div>
-              </Paper>
-            </div>
-          </div>
-          <div className='col-md-2'>
-            <PlanPanel plan={ plan } />
+                <div className='col-md-6'>
+                  <div>
+                    <p><span style={ emphasis }>Total Time (All Sets):  </span>
+                    { treatment.time_per_exercise }</p>
+                  </div>
+                  <div>
+                    <p><span style={ emphasis }>Sets:  </span>
+                    { treatment.sets }</p>
+                  </div>
+                  <div>
+                    <p><span style={ emphasis }>Reps:  </span>
+                    { treatment.reps }</p>
+                  </div>
+                  <div>
+                    <p><span style={ emphasis }>Resistance:  </span>
+                    { treatment.resistance }</p>
+                  </div>
+                  <div>
+                    <p style={ emphasis }>Therapist Notes: </p>
+                    <p>{ treatment.notes }</p>
+                  </div>
+                </div>
+              </div>
+            </Paper>
           </div>
         </div>
+        <div className='col-md-3'>
+          <PlanPanel plan={ treatment.plan } />
+        </div>
+      </div>
       </div>
     )
   }
@@ -62,7 +98,7 @@ export class Treatment extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapState = ({ user, plan, treatment }) => ({ user, plan, treatment })
+const mapState = ({ user, treatment }) => ({ user, treatment })
 
 // nothing to dispatch
 

@@ -4,19 +4,22 @@ import { StepsActionButton } from '../material-style'
 import FontIcon from 'material-ui/FontIcon'
 import { formatTime } from '../../utils'
 import moment from 'moment';
+import { Link } from 'react-router'
 
-export default ({ treatment, num }) => {
+export default ({ patientId, planId, treatment, num }) => {
   const completedWorkout = treatment.workouts && treatment.workouts.find(workout => {
     return moment(workout.created_at).format('MM/DD/YYYY') ===
       moment().format('MM/DD/YYYY');
   })
-  console.log(num)
+
   return (
     <div className={`row workout ${completedWorkout ? 'completed' : ''}`}>
       <div className="workout-index">#{num}</div>
       <img className="col-xs-3 workout-pic" src={treatment.exercise.img_url} />
       <div className="col-xs-3 workout-info">
-        <h2>{treatment.exercise.title}</h2>
+        <Link to={`/patients/${patientId}/plans/${planId}/treatments/${treatment.id}`}>
+          <h2>{treatment.exercise.title}</h2>
+        </Link>
         <div className="workout-nums">
           <p><span>Sets</span>{`: ${treatment.sets}`}</p>
           <p><span>Reps</span>{`: ${treatment.reps}`}</p>

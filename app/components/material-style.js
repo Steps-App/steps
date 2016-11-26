@@ -56,7 +56,6 @@ export const StepsFlatButton = props => (
 export const StepsActionButton = props => (
   <FloatingActionButton
     backgroundColor={ primary }
-    disabledColor={ secondary }
     disableFocusRipple={ true }
     disableTouchRipple={ true }
     { ...props }>
