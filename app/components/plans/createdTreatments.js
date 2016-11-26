@@ -9,7 +9,7 @@ import {StepsTextField} from '../material-style';
 export default (props) => {
 
   const { exercises, treatments, removeTreatment } = props;
-  
+
   return (
     <div className="row">
       <div className="col-md-12">
@@ -37,7 +37,7 @@ export default (props) => {
                     <h4>Reps</h4>
                       <p>{treatment.reps} </p><br/>
                     <h4>Resistance</h4>
-                      <p>{`${treatment.resistance} lbs`} </p><br/>
+                      <p>{`${treatment.resistance}`} </p><br/>
                     <h4>Time</h4>
                       <p>{`${treatment.time_per_exercise} min per exercise`} </p><br/>
                   </TableRowColumn>
