@@ -2,13 +2,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 //material-ui
-import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton} from 'material-ui';
+import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton, SelectField, MenuItem} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {StepsTextField} from '../material-style';
 
 export default (props) => {
 
   const { exercise, treatment, addTreatment, treatmentHandler } = props;
+  const items = [
+  <MenuItem key={1} value={'none'} primaryText="None" />,
+  <MenuItem key={2} value={'weighted'} primaryText="Weighted" />
+  ];
+
+
 
   return (
     <div className="row">
@@ -34,7 +40,8 @@ export default (props) => {
                   floatingLabelFixed={true}
                   floatingLabelText="Notes for Patient"
                   value={treatment.notes}
-                  onChange={(env) => treatmentHandler('notes', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('notes', env.target.value)}/>
+                 <br/>
               </TableRowColumn>
               <TableRowColumn>
                 <StepsTextField
@@ -42,24 +49,29 @@ export default (props) => {
                   floatingLabelText="Sets"
                   type="number"
                   value={treatment.sets}
-                  onChange={(env) => treatmentHandler('sets', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('sets', env.target.value)}/>
+                <br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
                   value={treatment.reps}
-                  onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
-                <StepsTextField
+                  onChange={(env) => treatmentHandler('reps', env.target.value)}/>
+                <br/>
+                <SelectField
                   floatingLabelFixed={true}
                   floatingLabelText="Resistance : lbs"
-                  type="text"
                   value={treatment.resistance}
-                  onChange={(env) =>treatmentHandler('resistance', env.target.value)}/><br/>
+                  onChange={(e,idx,val) =>treatmentHandler('resistance', val)}>
+                  {items}
+                </SelectField>
+                <br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"
                   type="number"
                   value={treatment.time_per_exercise}
-                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/>
+                <br/>
               </TableRowColumn>
               <TableRowColumn>
                 <FloatingActionButton onClick={() => addTreatment()}>
