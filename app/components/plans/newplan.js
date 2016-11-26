@@ -26,8 +26,6 @@ const initialTreatment = {
   notes: ''
 };
 
-// Used for Resistnence Select Field
-const resistanceEnum = { 1:'none', 2 : 'weighted'};
 
 //=======  Component==========
 export default class newPlan extends React.Component{
@@ -87,7 +85,7 @@ export default class newPlan extends React.Component{
       time_per_exercise: this.state.treatment.time_per_exercise,
       reps: this.state.treatment.reps,
       sets: this.state.treatment.sets,
-      resistance: resistanceEnum[this.state.treatment.resistance],
+      resistance: this.state.treatment.resistance,
       notes: this.state.treatment.notes,
       exercise_id: this.state.selectedExercise.id,
       patient_id: this.props.currentPatient.id

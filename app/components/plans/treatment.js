@@ -10,8 +10,8 @@ export default (props) => {
 
   const { exercise, treatment, addTreatment, treatmentHandler } = props;
   const items = [
-  <MenuItem key={1} value={1} primaryText="None" />,
-  <MenuItem key={2} value={2} primaryText="Weighted" />
+  <MenuItem key={1} value={'none'} primaryText="None" />,
+  <MenuItem key={2} value={'weighted'} primaryText="Weighted" />
   ];
 
 
