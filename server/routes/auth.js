@@ -1,5 +1,6 @@
 const Promise = require('bluebird');
 const db = require('../../db');
+const utils = require('../utils');
 const Therapist = db.model('therapist');
 const Patient = db.model('patient');
 const router = require('express').Router();
@@ -46,7 +47,20 @@ router.post('/signup', (req, res, next) => {
       req.session.userId = user.id;
       req.session.role = req.body.role;
       user.dataValues.role = req.body.role;
-      res.status(201).send(user)
+
+      // Send welcome email to the new user
+      if (!process.env.SENDGRID_API_KEY) res.status(201).send(user);
+      utils.sendEmail(
+        process.env.EMAIL, 																		// sender
+        user.email,																				    // recipient
+        `Welcome to Steps!`,		                              // subject
+        "Thanks for signing up with us",					          	// message
+        "text/plain",                                         // type
+        (statusCode, err) => {
+          if (err) return next(err);
+          res.status(201).send(user);
+        }
+      );
     })
     .catch(next);
 });

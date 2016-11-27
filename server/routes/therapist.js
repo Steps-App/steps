@@ -4,6 +4,7 @@ const therapistRoutes = express()
 
 // db models
 const db = require('../../db/')
+const utils = require('../utils');
 const therapistModel  = db.model('therapist')
 const patientModel  = db.model('patient')
 const exerciseModel  = db.model('exercise')
@@ -94,7 +95,22 @@ therapistRoutes.post('/:id/patients', (req, res, next) => {
     email: req.body.email,
     DOB, gender, img_URL // random seed data!
   })
-    .then(patient => res.send(patient))
+    .then(patient => {
+
+      // Send welcome email to the new user
+      if (!process.env.SENDGRID_API_KEY) res.status(201).send(patient);
+      utils.sendEmail(
+        process.env.EMAIL, 																		// sender
+        patient.email,																				// recipient
+        `Welcome to Steps!`,		                              // subject
+        "Your doctor signed you up, sucka!",					        // message
+        "text/plain",                                         // type
+        (statusCode, err) => {
+          if (err) return next(err);
+          res.status(201).send(patient);
+        }
+      );
+    })
     .catch(next);
 })
 
