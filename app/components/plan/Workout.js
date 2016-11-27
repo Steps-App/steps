@@ -5,7 +5,6 @@ import { StepsActionButton } from '../material-style'
 import FontIcon from 'material-ui/FontIcon'
 import { formatTime } from '../../utils'
 import moment from 'moment';
-import { Link } from 'react-router'
 
 export default ({ treatment, workoutFn, num }) => {
   const completedWorkout = treatment.workouts && treatment.workouts.find(workout => {

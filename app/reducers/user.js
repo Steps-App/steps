@@ -7,7 +7,6 @@ import { removePatient } from './currentpatient'
 import { removeExercises } from './exercises'
 import { removePatients } from './patients'
 import { removePlan } from './plan'
-import { unsetTreatment } from './treatment'
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -82,7 +81,6 @@ export const logout = () => dispatch => {
       dispatch(removePatients());
       dispatch(removePatient());
       dispatch(removePlan());
-      dispatch(unsetTreatment());
       if (isBrowser())
         browserHistory.push('/');
     })

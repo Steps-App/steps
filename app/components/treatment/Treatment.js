@@ -25,9 +25,7 @@ export class Treatment extends Component {
     const { treatments } = plan
     const treatmentId = Number(this.props.params.treatmentId)
     const treatment = treatments.find(treatment => {
-      console.log(treatment.id, '=?', this.props.params.treatmentId)
       if (treatment.id === treatmentId) return treatment
-      console.log('nope')
     })
 
     // stylings
