@@ -3,14 +3,11 @@ import { Link } from 'react-router'
 import { SvgIcon } from 'material-ui';
 import { StepsActionButton } from '../material-style'
 import FontIcon from 'material-ui/FontIcon'
-import { formatTime } from '../../utils'
+import { getCompletedWorkout, formatTime } from '../../utils'
 import moment from 'moment';
 
 export default ({ treatment, workoutFn, num }) => {
-  const completedWorkout = treatment.workouts && treatment.workouts.find(workout => {
-    return moment(workout.created_at).format('MM/DD/YYYY') ===
-      moment().format('MM/DD/YYYY');
-  })
+  const completedWorkout = getCompletedWorkout(treatment.workouts);
 
   return (
     <div className={`row workout ${completedWorkout ? 'completed' : ''}`}>

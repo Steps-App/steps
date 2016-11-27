@@ -20,7 +20,7 @@ import newPlansContainer from './components/plans/newPlanContainer';
 import Plan from './components/plan/PatientPlan';
 import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
-import PatientDash from './components/patients/PatientDash';
+import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
 import { loginRedirect } from './utils'
 
@@ -70,10 +70,10 @@ render (
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
+        <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
-        <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
   </Provider>,
