@@ -11,6 +11,7 @@ import { fetchExercises } from './reducers/exercises';
 import { fetchPatientPlan } from './reducers/plan';
 import { fetchPatients } from './reducers/patients';
 import { fetchCurrentPatient } from './reducers/currentpatient';
+import { setTreatment } from './reducers/treatment';
 
 // React Compontents
 import Home from './components/home/Home';
@@ -18,6 +19,7 @@ import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newPlanContainer';
 import Plan from './components/plan/PatientPlan';
+import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import { loginRedirect } from './utils';
@@ -63,6 +65,13 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (Object.keys(curPlan).length && curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    store.dispatch(setTreatment(nextState.params.treatmentId));
+  else replace('/plan');
+};
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 
@@ -72,6 +81,7 @@ render (
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter }/>
+        <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter }/>
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />

@@ -4,13 +4,15 @@ import patients from './patients';
 import exercises from './exercises';
 import plan from './plan';
 import currentPatient from './currentpatient';
+import currentTreatmentId from './treatment';
 
 const rootReducer = combineReducers({
   user,
   patients,
   exercises,
   plan,
-  currentPatient
+  currentPatient,
+  currentTreatmentId
 });
 
 export default rootReducer;

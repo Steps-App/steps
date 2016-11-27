@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router'
 import { SvgIcon } from 'material-ui';
 import { StepsActionButton } from '../material-style'
 import FontIcon from 'material-ui/FontIcon'
 import { formatTime } from '../../utils'
 import moment from 'moment';
 
-export default ({ treatment, num }) => {
+export default ({ treatment, workoutFn, num }) => {
   const completedWorkout = treatment.workouts && treatment.workouts.find(workout => {
     return moment(workout.created_at).format('MM/DD/YYYY') ===
       moment().format('MM/DD/YYYY');
@@ -29,13 +30,22 @@ export default ({ treatment, num }) => {
         {`: ${treatment.notes ? treatment.notes : 'No notes specified'}`}
       </p>
       <div className="col-xs-2 workout-button">
-        <StepsActionButton disabled={ completedWorkout ? true : false }>
-          {
-            completedWorkout ?
-              <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
+      {
+        completedWorkout ?
+          <StepsActionButton disabled={true}>
+            {/* TODO: Currently defaulting to pain level 3 when no input -> need real default */}
+            {
+              completedWorkout.pain ?
+                <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
+                <FontIcon className={'material-icons'}>check</FontIcon>
+            }
+          </StepsActionButton> :
+          <Link to={`/plan/treatments/${treatment.id}/workout`}>
+            <StepsActionButton>
               <FontIcon className={'material-icons'}>schedule</FontIcon>
-          }
-        </StepsActionButton>
+            </StepsActionButton>
+          </Link>
+      }
       </div>
     </div>
   )
