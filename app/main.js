@@ -65,7 +65,12 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
-const workoutEnter = nextState => store.dispatch(setTreatment(nextState.params.treatmentId));
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (Object.keys(curPlan).length && curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    store.dispatch(setTreatment(nextState.params.treatmentId));
+  else replace('/plan');
+};
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 

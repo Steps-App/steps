@@ -90,5 +90,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    span {
+      font-size: 36px !important;
+    }
+    img {
+      filter: grayscale(100%);
+    }
   }
 }

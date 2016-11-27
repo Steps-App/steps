@@ -15,8 +15,8 @@ const PatientPlan =  ({ plan }) => {
       <h1>My Plan</h1>
       <div className="plan-info">
         <div className="plan-details">
-          <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YY')}`}</p>
-          <p><span>End</span>{`: ${plan.end_date}`}</p>
+          <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YYYY')}`}</p>
+          <p><span>End</span>{`: ${moment(plan.end_date).format('MMM Do, YYYY')}`}</p>
           <p><span>Injury</span>{`: ${plan.therapy_focus}`}</p>
         </div>
         {

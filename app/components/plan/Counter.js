@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router';
 import Helmet from 'react-helmet'
-import { logActivity } from '../../reducers/workouts'
+import { logWorkout } from '../../reducers/plan'
 // material ui
 import { Paper } from 'material-ui'
 import { StepsActionButton, StepsTextField, StepsRaisedButton, StepsIconButton } from '../material-style'
@@ -105,7 +105,6 @@ class Counter extends Component {
     const showing = { visibility: this.state.hidden ? 'hidden' : 'visible' }
     const pageTitle = `${this.props.treatment.exercise.title ? this.props.treatment.exercise.title : 'Loading'} Workout`
 
-    console.log(this.state.status)
     return (
       <div id="counter">
         <Helmet title={pageTitle} />
@@ -178,11 +177,11 @@ const mapStateToProps = ({ user, plan, currentTreatmentId }) => ({
   treatment: plan.treatments.find(treatment => treatment.id == currentTreatmentId)
 })
 
-// action-creator logActivity(activity) =>
+// action-creator logWorkout(activity) =>
 // takes an object containing the local state of the counter as follows:
 // { time_per_exercise: seconds, pain: (1-5), comments: 'if any' }
 const mapDispatchToProps = (dispatch) => ({
-  finished: (activity, done) => dispatch(logActivity(activity, done))
+  finished: (activity, done) => dispatch(logWorkout(activity, done))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)
