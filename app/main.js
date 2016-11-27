@@ -17,6 +17,7 @@ import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newPlanContainer';
+import PlanConfirmContainer from './components/plans/PlanConfirmContainer';
 import Plan from './components/plan/PatientPlan';
 import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
@@ -63,6 +64,11 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
+const planConfirm = () => {
+   //next state in () + store.dispatch(fetchPatientPlan(nextState.params.patientId)); 
+   store.dispatch(fetchCurrentPatient(3));
+};
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 
@@ -75,6 +81,7 @@ render (
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/patients/3/planConfirmation" component={PlanConfirmContainer} onEnter={planConfirm} />
         <Route path="/patients/dashboard" component={ PatientDash } />
         {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>

@@ -4,14 +4,14 @@ import {connect} from 'react-redux';
 // == Component ==
 import newPlanComponent from './newplan';
 // == dispatch ==
-import {createPlan} from '../../reducers/plan';
+import {createdPlan} from '../../reducers/plan';
 
 
 
 const mapStateToProps = ({ currentPatient, exercises }) => ({ currentPatient, exercises });
 
 const mapDispatchToProps = dispatch => ({
-  addPlan : (newPlan) => dispatch(createPlan(newPlan))
+  addPlan : (newPlan) => dispatch(createdPlan(newPlan))
 });
 
 

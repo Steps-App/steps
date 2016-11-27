@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
+
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -17,6 +19,7 @@ const initialPlan = {}
 export default function reducer(currentPlan = initialPlan, action) {
   switch (action.type) {
     case CREATE_PLAN:
+      return action.plan;
     case RECEIVE_PLAN:
       return action.plan;
     default:
@@ -34,6 +37,7 @@ export const createdPlan = (data, displayErr) => dispatch => {
   })
     .then(res => {
       dispatch(createPlan(res.data));
+       browserHistory.push(`/patients/${data.patient_id}/planConfirmation`);
     })
     .catch(err => {
       console.error('Unable to add plan', err);
@@ -49,3 +53,6 @@ export const fetchPatientPlan = patientId => dispatch => {
     })
     .catch(err => console.error('Unable to fetch plan', err));
 };
+
+
+

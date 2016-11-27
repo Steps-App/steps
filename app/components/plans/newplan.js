@@ -119,7 +119,8 @@ export default class newPlan extends React.Component{
       patient_id: this.props.currentPatient.id,
       treatments: this.state.treatments
     };
-    console.log(`submitHandler ${newPlan}`);
+    //console.log(`submitHandler ${newPlan}`);
+    console.log(newPlan)
     this.props.addPlan(newPlan);
   }
 
