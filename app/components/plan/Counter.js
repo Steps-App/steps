@@ -172,9 +172,9 @@ class Counter extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapStateToProps = ({ user, plan, currentTreatmentId }) => ({
+const mapStateToProps = ({ user, plan }, { params }) => ({
   user,
-  treatment: plan.treatments.find(treatment => treatment.id == currentTreatmentId)
+  treatment: plan.treatments.find(treatment => treatment.id == params.treatmentId)
 })
 
 // action-creator logWorkout(activity) =>

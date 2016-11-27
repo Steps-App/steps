@@ -11,7 +11,6 @@ import { fetchExercises } from './reducers/exercises';
 import { fetchPatientPlan } from './reducers/plan';
 import { fetchPatients } from './reducers/patients';
 import { fetchCurrentPatient } from './reducers/currentpatient';
-import { setTreatment } from './reducers/treatment';
 
 // React Compontents
 import Home from './components/home/Home';
@@ -24,18 +23,6 @@ import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import Treatment from './components/treatment/Treatment'
 import { loginRedirect } from './utils'
-
-// React router hooks  << TO TEST COUNTER ROUTE, COMMENT THIS SECTION OUT
-// store.dispatch(retrieveLoggedInUser((err, user) => {
-//     // Home page and logged in -> default app view
-//     if (!err && nextState.location.pathname === '/')
-//       replace(loginRedirect(user.role));
-//     // App page and not logged in -> home page
-//     else if (err && nextState.location.pathname !== '/')
-//       replace('/');
-//     callback();
-//   }));
-// }
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
@@ -66,15 +53,14 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
-const workoutEnter = (nextState, replace) => {
-  const curPlan = store.getState().plan;
-  if (Object.keys(curPlan).length && curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
-    store.dispatch(setTreatment(nextState.params.treatmentId));
-  else replace('/plan');
-};
+const workoutEnter = (nextState, replace) => {		
+  const curPlan = store.getState().plan;		
+  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))		
+    replace('/plan');		
+};		
+
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
-
 
 render (
   <Provider store={ store }>
@@ -83,11 +69,11 @@ render (
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
+        <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
-        {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>
     </Router>
   </Provider>,

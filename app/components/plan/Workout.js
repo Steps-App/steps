@@ -5,7 +5,6 @@ import { StepsActionButton } from '../material-style'
 import FontIcon from 'material-ui/FontIcon'
 import { formatTime } from '../../utils'
 import moment from 'moment';
-import { Link } from 'react-router'
 
 export default ({ treatment, workoutFn, num }) => {
   const completedWorkout = treatment.workouts && treatment.workouts.find(workout => {
@@ -18,9 +17,11 @@ export default ({ treatment, workoutFn, num }) => {
       <div className="workout-index">#{num}</div>
       <img className="col-xs-3 workout-pic" src={treatment.exercise.img_url} />
       <div className="col-xs-3 workout-info">
-        <Link to={`/plan/treatments/${treatment.id}`}>
-          <h2>{treatment.exercise.title}</h2>
-        </Link>
+        <h2>
+          <Link to={`/plan/treatments/${treatment.id}`}>
+            {treatment.exercise.title}
+          </Link>
+        </h2>
         <div className="workout-nums">
           <p><span>Sets</span>{`: ${treatment.sets}`}</p>
           <p><span>Reps</span>{`: ${treatment.reps}`}</p>
