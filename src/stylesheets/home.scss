@@ -1,13 +1,23 @@
 @import "colors";
 
+#h {
+  width: 100%;
+  margin:0px;
+  padding: 0px;
+}
+
 #home {
   min-height: calc(100vh - 55px);
 }
 
 .home-nav {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
   width: 100%;
+  height: 100px;
+  opacity: 0.7;
+  z-index: 1;
+  top: 0;
+  left: 0;
   padding: 0 20px;
   border: none;
   background-color: transparent;
@@ -39,7 +49,7 @@
   }
 }
 
-.main {
+#home {
   background-image: url('https://static.pexels.com/photos/24746/pexels-photo-24746.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -48,17 +58,23 @@
   filter: saturate(100%);
   text-align: left;
   color: $text-light;
-  position: absolute;
-  width : 100%;
-  height: 600px;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin : 0px;
+  padding :0px;
   display: flex;
   align-items: center;
 }
 
-.main > div {
+#main > div {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+#main .row {
+  margin-top: 21em;
 }
 
 .intro-text {
@@ -75,3 +91,10 @@
     font-size: 15px;
   }
 }
+
+//about us
+
+#aboutus img{
+  height: 30vh
+}
+
