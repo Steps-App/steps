@@ -21,7 +21,15 @@ export class Treatment extends Component {
 
   render() {
 
-    const { treatment } = this.props
+    const { plan } = this.props
+    const { treatments } = plan
+    const treatmentId = Number(this.props.params.treatmentId)
+    const treatment = treatments.find(treatment => {
+      console.log(treatment.id, '=?', this.props.params.treatmentId)
+      if (treatment.id === treatmentId) return treatment
+      console.log('nope')
+    })
+
     // stylings
     const padded = { padding: '15px' }
     const emphasis = { fontWeight: 'bold' }
@@ -30,7 +38,7 @@ export class Treatment extends Component {
     if (treatment.exercise.vid_url) {  // if a video exists...
       media = treatment.exercise.vid_url.includes('youtube') ?  // youtube uses iframe
         ( <div className='videoWrapper'>
-            <iframe src={ treatment.exercise.vid_url } frameborder='0' allowfullscreen></iframe>
+            <iframe src={ treatment.exercise.vid_url } frameBorder='0' allowFullScreen></iframe>
           </div>
         ) :
         ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
@@ -88,7 +96,7 @@ export class Treatment extends Component {
           </div>
         </div>
         <div className='col-md-3'>
-          <PlanPanel plan={ treatment.plan } />
+          <PlanPanel plan={ plan } />
         </div>
       </div>
       </div>
@@ -98,7 +106,7 @@ export class Treatment extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapState = ({ user, treatment }) => ({ user, treatment })
+const mapState = ({ user, plan }) => ({ user, plan })
 
 // nothing to dispatch
 

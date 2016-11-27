@@ -17,7 +17,7 @@ export default ({ patientId, planId, treatment, num }) => {
       <div className="workout-index">#{num}</div>
       <img className="col-xs-3 workout-pic" src={treatment.exercise.img_url} />
       <div className="col-xs-3 workout-info">
-        <Link to={`/patients/${patientId}/plans/${planId}/treatments/${treatment.id}`}>
+        <Link to={`/plan/treatments/${treatment.id}`}>
           <h2>{treatment.exercise.title}</h2>
         </Link>
         <div className="workout-nums">

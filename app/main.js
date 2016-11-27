@@ -52,23 +52,16 @@ const patientPlanEnter = () => {
 };
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
-const singleTreatmentEnter = (nextState) => {
-  let patientId = nextState.params.patientId,
-    planId = nextState.params.planId,
-    treatmentId = nextState.params.treatmentId
-  store.dispatch(fetchTreatment(patientId, planId, treatmentId))
-}
-
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
+        <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
-        <Route path="/patients/:patientId/plans/:planId/treatments/:treatmentId" component= { Treatment } onEnter={ singleTreatmentEnter }/>
         <Route path="/patients/dashboard" component={ PatientDash } />
         {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>
