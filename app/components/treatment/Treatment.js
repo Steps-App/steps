@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import Helmet from 'react-helmet';
 
 // material ui
 import { CircularProgress, Paper } from 'material-ui'
@@ -13,39 +14,27 @@ import PlanPanel from './PlanPanel.js'
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-export class Treatment extends Component {
+const Treatment = ({ plan, treatment }) => {
 
-  constructor(props) {
-    super(props)
+  // stylings
+  const padded = { padding: '15px' }
+  const emphasis = { fontWeight: 'bold' }
+  // handle video
+  let media = ''
+  if (treatment.exercise.vid_url) {  // if a video exists...
+    media = treatment.exercise.vid_url.includes('youtube') ?  // youtube uses iframe
+      ( <div className='videoWrapper'>
+          <iframe src={ treatment.exercise.vid_url } frameBorder='0' allowFullScreen></iframe>
+        </div>
+      ) :
+      ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
+  } else {  // if no video, then just the image...
+    media = ( <img src={ treatment.exercise.img_url } className='img-responsive' /> )
   }
 
-  render() {
-
-    const { plan } = this.props
-    const { treatments } = plan
-    const treatmentId = Number(this.props.params.treatmentId)
-    const treatment = treatments.find(treatment => {
-      if (treatment.id === treatmentId) return treatment
-    })
-
-    // stylings
-    const padded = { padding: '15px' }
-    const emphasis = { fontWeight: 'bold' }
-    // handle video
-    let media = ''
-    if (treatment.exercise.vid_url) {  // if a video exists...
-      media = treatment.exercise.vid_url.includes('youtube') ?  // youtube uses iframe
-        ( <div className='videoWrapper'>
-            <iframe src={ treatment.exercise.vid_url } frameBorder='0' allowFullScreen></iframe>
-          </div>
-        ) :
-        ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
-    } else {  // if no video, then just the image...
-      media = ( <img src={ treatment.exercise.img_url } className='img-responsive' /> )
-    }
-
-    return (
-      <div className='container'>
+  return (
+    <div className='container'>
+      <Helmet title={treatment.exercise.title} />
       <div className='row'>
         <div className='col-md-12'>
             <div className='row'>
@@ -97,15 +86,15 @@ export class Treatment extends Component {
           <PlanPanel plan={ plan } />
         </div>
       </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapState = ({ user, plan }) => ({ user, plan })
-
-// nothing to dispatch
+const mapState = ({ plan }, { params }) => ({
+  plan,
+  treatment: plan.treatments.find(treatment => treatment.id == params.treatmentId)
+})
 
 export default connect(mapState)(Treatment)

@@ -38,10 +38,6 @@ class Counter extends Component {
   constructor(props) {
     super(props)
     this.state = initialState
-    // set treatment to props using react-router params
-    this.state.treatment = this.props.plan.treatments.find(treatment => {
-      if (treatment.id === Number(this.props.params.treatmentId)) return treatment
-    })
 
     // bind all our action handlers
     this.onStartClick = this.onStartClick.bind(this)
@@ -65,7 +61,7 @@ class Counter extends Component {
 
   // ticks up the elapsed time
   tick() {
-    if (this.state.elapsed >= this.state.treatment.time_per_exercise) {
+    if (this.state.elapsed >= this.props.treatment.time_per_exercise) {
       return this.onStopClick()
     }
     this.setState({ elapsed: this.state.elapsed + 1 })
@@ -90,8 +86,8 @@ class Counter extends Component {
       pain: this.state.pain,
       comments: this.state.comments,
       patientId: this.props.user.id,
-      planId: this.state.treatment.plan_id,
-      treatmentId: this.state.treatment.id
+      planId: this.props.treatment.plan_id,
+      treatmentId: this.props.treatment.id
     };
     this.props.finished(activity, (err) => {
       if (!err) browserHistory.push('/plan');
@@ -102,12 +98,12 @@ class Counter extends Component {
   render() {
 
     // math for timer
-    const mins = Math.floor((this.state.treatment.time_per_exercise - this.state.elapsed) / 60)
-    const secs = (this.state.treatment.time_per_exercise - this.state.elapsed) % 60
+    const mins = Math.floor((this.props.treatment.time_per_exercise - this.state.elapsed) / 60)
+    const secs = (this.props.treatment.time_per_exercise - this.state.elapsed) % 60
     // stylings
     const margin = { margin: '15px' }
     const showing = { visibility: this.state.hidden ? 'hidden' : 'visible' }
-    const pageTitle = `${this.state.treatment.exercise.title ? this.state.treatment.exercise.title : 'Loading'} Workout`
+    const pageTitle = `${this.props.treatment.exercise.title ? this.props.treatment.exercise.title : 'Loading'} Workout`
 
     return (
       <div id="counter">
@@ -176,9 +172,9 @@ class Counter extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapStateToProps = ({ user, plan }) => ({
+const mapStateToProps = ({ user, plan }, { params }) => ({
   user,
-  plan
+  treatment: plan.treatments.find(treatment => treatment.id == params.treatmentId)
 })
 
 // action-creator logWorkout(activity) =>
