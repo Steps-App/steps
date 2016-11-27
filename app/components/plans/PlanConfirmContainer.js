@@ -23,6 +23,8 @@ export class PlanConfirm extends Component {
 
     const { plan, currentPatient, exercises } = this.props;
     
+    console.log(plan.plan, "this is the PLAN WITHIN PLAN")
+    
     return (
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Plan Confirm" />
@@ -67,10 +69,10 @@ export class PlanConfirm extends Component {
            <p><span style={{fontWeight: "bold" }}>Patient Name</span>{`: ${currentPatient.first_name + " " + currentPatient.last_name  }`}</p>
            <p><span style={{fontWeight: "bold" }}>Age</span>{`: ${currentPatient.age}`}</p>
            <p><span style={{fontWeight: "bold" }}>Gender</span>{`: ${currentPatient.gender}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Start</span>{`: ${plan.created_at}`}</p>
-           <p><span style={{fontWeight: "bold" }}>End</span>{`: ${plan.end_date}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Injury</span>{`: ${plan.therapy_focus}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Notes</span>{`: ${plan.notes}`}</p>
+           <p><span style={{fontWeight: "bold" }}>Start</span>{`: ${plan.plan.created_at}`}</p>
+           <p><span style={{fontWeight: "bold" }}>End</span>{`: ${plan.plan.end_date}`}</p>
+           <p><span style={{fontWeight: "bold" }}>Injury</span>{`: ${plan.plan.therapy_focus}`}</p>
+           <p><span style={{fontWeight: "bold" }}>Notes</span>{`: ${plan.plan.notes}`}</p>
           </div>
      
        <Link to="/patients">
