@@ -1,0 +1,12 @@
+{% extends "./server/email_templates/layout.njk" %}
+
+{% block content %}
+    <h2>Welcome to Steps</h2>
+    <p>Hi there {{first_name}}! Your therapist has created a personalized therapy plan for you on our app.</p>
+    <p>We've gone ahead and created an account for you with the following temporary password:</p>
+    <p><span>Password:</span>&nbsp;{{password}}</p>
+    <div class="button">
+      <a href="#" target="_blank">Log In</a>
+    </div>
+    <p>You can use Steps to view the plan, complete your workouts, analyze your recovery progress, and much more!</p>
+{% endblock %}
