@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, RaisedButton, FloatingActionButton, FlatButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { TextField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
 import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText } from './colors'
 
 // Shared styles
@@ -53,15 +53,28 @@ export const StepsFlatButton = props => (
 );
 
 // Buttons for initiating actions on the page
-export const StepsActionButton = props => (
+export const StepsActionButton = props => {
+  return (
   <FloatingActionButton
-    backgroundColor={ primary }
+    backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
+    disabledColor={ props.disabledColor ? props.disabledColor : null }
+    disabled={ props.disabled ? true: false }
+    onTouchTap={ props.onTouchTap ? props.onTouchTap : null }
     disableFocusRipple={ true }
-    disableTouchRipple={ true }
-    { ...props }>
+    disableTouchRipple={ true } >
     { props.children }
   </FloatingActionButton>
-);
+)};
+
+export const StepsIconButton = props => {
+  return (
+  <IconButton
+    disableFocusRipple={ true }
+    disableTouchRipple={ true }
+    { ...props } >
+    { props.children }
+  </IconButton>
+)};
 
 export const StepsMenu = props => (
   <Menu

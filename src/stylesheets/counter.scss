@@ -1,0 +1,54 @@
+#counter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  > .timer-card {
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    > .timer-countdown {
+      > p {
+        margin: 0px;
+        font-size: 6em;
+      }
+    }
+    > .timer-buttons {
+      width: 100%;
+      display: inherit;
+      flex-direction: row;
+      justify-content: space-around;
+      svg {
+        width: 36px !important;
+      }
+    }
+    > .workout-data {
+      display: inherit;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      > .workout-pain-buttons {
+        display: inherit;
+        flex-direction: row;
+        justify-content: space-around;
+        > .workout-pain-button {
+          padding: 0px !important;
+          img {
+            height: 24px;
+            width: 24px;
+            transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+          }
+          &.selected img {
+            height: 36px;
+            width: 36px;
+            transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+          }
+        }
+      }
+      > .workout-submit {
+        text-align: center;
+      }
+    }
+  }
+  
+}

@@ -5,17 +5,18 @@ import moment from 'moment';
 import Workout from './Workout'
 import { createdPlan } from '../../reducers/plan'
 
-const PatientPlan =  ({ user, plan }) => {
+const PatientPlan =  ({ plan }) => {
   if (!Object.keys(plan).length) return null;
   let treatmentCount = 0;
+
   return (
     <div id="plan">
       <Helmet title="My Plan" />
       <h1>My Plan</h1>
       <div className="plan-info">
         <div className="plan-details">
-          <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YY')}`}</p>
-          <p><span>End</span>{`: ${plan.end_date}`}</p>
+          <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YYYY')}`}</p>
+          <p><span>End</span>{`: ${moment(plan.end_date).format('MMM Do, YYYY')}`}</p>
           <p><span>Injury</span>{`: ${plan.therapy_focus}`}</p>
         </div>
         {
@@ -26,13 +27,7 @@ const PatientPlan =  ({ user, plan }) => {
       {
         plan.treatments && plan.treatments.map(treatment => {
           return treatment.status === 'active' ?
-            <Workout
-              key={treatment.id}
-              patientId={user.id}
-              planId={plan.id}
-              num={++treatmentCount}
-              treatment={treatment}
-            /> : null
+            <Workout key={treatment.id} num={++treatmentCount} treatment={treatment} /> : null
         })
       }
       </div>
@@ -40,7 +35,6 @@ const PatientPlan =  ({ user, plan }) => {
   )
 }
 
-// TODO: Update plan reducer to retrieve plan from the database
-const mapStateToProps = ({ user, plan }) => ({ user, plan });
+const mapStateToProps = ({ plan }) => ({ plan });
 
 export default connect(mapStateToProps)(PatientPlan);

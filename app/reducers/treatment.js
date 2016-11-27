@@ -1,56 +1,25 @@
-import axios from 'axios'
-import { browserHistory } from 'react-router'
-import { isBrowser } from '../utils'
-
-const initialState = {
-  id: 0,
-  exercise: {},
-  notes: '',
-  reps: 0,
-  sets: 0,
-  time_per_exercise: 0,
-  resistance: '',
-  plan: {}
-}
+import axios from 'axios';
 
 /* -----------------    ACTIONS     ------------------ */
 
-// const REQUEST_TREATMENT = 'REQUEST_TREATMENT'
-const LOAD_TREATMENT = 'LOAD_TREATMENT'
+export const SET_TREATMENT   = 'SET_TREATMENT';
+export const UNSET_TREATMENT = 'UNSET_TREATMENT';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-export const loadTreatment = (payload) => ({
-  type: LOAD_TREATMENT,
-  payload
-})
+export const setTreatment  = treatmentId => ({ type: SET_TREATMENT, treatmentId });
+export const unsetTreatment  = () => ({ type: UNSET_TREATMENT });
 
 /* ------------       REDUCER     ------------------ */
 
-export default function treatmentReducer(treatment = initialState, action) {
+const inititalTreatmentId = null;
+export default function reducer(currentTreatmentId = inititalTreatmentId, action) {
   switch (action.type) {
-    case LOAD_TREATMENT:
-      return Object.assign({}, treatment, {
-        id: action.payload.treatment.id,
-        exercise: action.payload.treatment.exercise,
-        notes: action.payload.treatment.notes,
-        reps: action.payload.treatment.reps,
-        sets: action.payload.treatment.sets,
-        resistance: action.payload.treatment.resistance,
-        time_per_exercise: action.payload.treatment.time_per_exercise,
-        plan: action.payload.plan
-      })
+    case SET_TREATMENT:
+      return action.treatmentId;
+    case UNSET_TREATMENT:
+      return inititalTreatmentId;
     default:
-      return treatment
+      return currentTreatmentId;
   }
-}
-
-/* ------------       DISPATCHERS     ------------------ */
-
-export const fetchTreatment = (patientId, planId, treatmentId) => (dispatch) => {
-  axios.get(`/api/patient/${patientId}/plan/${planId}/treatment/${treatmentId}`)
-    .then(result => {
-      dispatch(loadTreatment(result.data))
-    })
-    .catch(err => console.error(err))
 }

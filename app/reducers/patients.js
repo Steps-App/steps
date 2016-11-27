@@ -5,12 +5,14 @@ import { isBrowser } from '../utils'
 /* -----------------    ACTIONS     ------------------ */
 
 export const RECEIVED_PATIENTS    = 'RECEIVED_PATIENTS'
-export const ADDED_PATIENT    = 'ADDED_PATIENT'
+export const ADDED_PATIENT        = 'ADDED_PATIENT'
+export const REMOVE_PATIENTS      = 'REMOVE_PATIENTS'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 export const receivedPatients = patients => ({ type: RECEIVED_PATIENTS, patients })
 export const addedPatient  = patient => ({ type: ADDED_PATIENT, patient })
+export const removePatients  = () => ({ type: REMOVE_PATIENTS })
 
 /* ------------       REDUCER     ------------------ */
 
@@ -21,6 +23,8 @@ export default function reducer(currentPatients = initialPatients, action) {
       return action.patients;
     case ADDED_PATIENT:
       return [ ...currentPatients, action.patient];
+    case REMOVE_PATIENTS:
+      return initialPatients;
     default:
       return currentPatients;
   }

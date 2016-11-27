@@ -1,9 +1,11 @@
 const Sequelize = require('sequelize');
+const moment = require('moment');
 const db = require('../db');
 
 const Plan = db.define('plan', {
   duration: {
     type: Sequelize.INTEGER,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
@@ -19,26 +21,22 @@ const Plan = db.define('plan', {
     }
   },
   notes: Sequelize.TEXT
-},{
-    underscored: true,
-    hooks: {
-      beforeCreate: function(plan){
-        plan.end_date = plan.endDateCalc(plan);
-      }
+}, {
+  underscored: true,
+  hooks: {
+    beforeCreate: function(plan){
+      plan.setEndDate();
+    }
+  },
+  instanceMethods: {
+    setEndDate: function() {
+      this.end_date =  moment().add(this.duration, 'weeks')
     },
-    instanceMethods: {
-      endDateCalc: function(instance) {
-        let millisecondsPerWeek = 604800000;
-        let today = new Date();
-        return new Date( (today.getMilliseconds() + (instance.duration * millisecondsPerWeek)) );
-      },
-      countdown: function(plan) {
-        let today = new Date();
-         return plan.end_date - today;
-      }
+    countdown: function() {
+      let today = new Date();
+      return this.end_date - today;
     }
   }
-);
-
+});
 
 module.exports = Plan;

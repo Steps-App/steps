@@ -28,7 +28,13 @@ const Patient = db.define('patient', {
     type: Sequelize.ENUM,
     values: ['M','F']
   },
-  img_URL: Sequelize.STRING,
+  img_URL : {
+    type: Sequelize.STRING,
+    defaultValue:"https://s-media-cache-ak0.pinimg.com/564x/30/93/d2/3093d2a63cf2a6d4d1a6a276676d7ae7.jpg",
+    validate:{
+      isURL: true
+    }
+  },
   password_digest: Sequelize.STRING,
   password: Sequelize.VIRTUAL
 }, {
