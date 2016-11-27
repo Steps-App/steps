@@ -1,0 +1,54 @@
+@import '../../../src/stylesheets/colors';
+
+.background {
+  width : 100%;
+  height: 100%;
+  background-color: $background;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: $text-dark;
+}
+
+.banner {
+  padding: 15px 0;
+  background-color: $toolbar;
+  text-align: center;
+  color: $text-light;
+  > img {
+    width: 60px;
+    height: 60px;
+  }
+  > h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+}
+
+.email-body {
+  padding: 0 10px;
+}
+
+.footer {
+  padding: 10px 10px 20px 10px;
+  text-align: center;
+  color: $placeholder-text;
+  p {
+    margin: 0;
+  }
+  p + p {
+    margin-top: 5px;
+  }
+}
+
+.button {
+  background-color: $primary;
+  text-align: center;
+  > a {
+    display:inline-block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    color: $text-light;
+    text-decoration: none;
+    font-size: 1.4em;
+  }
+}
