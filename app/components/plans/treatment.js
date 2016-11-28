@@ -8,13 +8,7 @@ import {StepsTextField} from '../material-style';
 
 export default (props) => {
 
-  const { exercise, treatment, addTreatment, treatmentHandler } = props;
-  const items = [
-  <MenuItem key={1} value={'none'} primaryText="None" />,
-  <MenuItem key={2} value={'weighted'} primaryText="Weighted" />
-  ];
-
-
+  const { exercise, treatment, addTreatment, resistanceOnChange, treatmentHandler } = props;
 
   return (
     <div className="row">
@@ -55,16 +49,16 @@ export default (props) => {
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
                   value={treatment.reps}
-                  onChange={(env) => treatmentHandler('reps', env.target.value)}/>
-                <br/>
+                  onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
                 <SelectField
                   floatingLabelFixed={true}
-                  floatingLabelText="Resistance : lbs"
+                  floatingLabelText="Resistance"
                   value={treatment.resistance}
-                  onChange={(e,idx,val) =>treatmentHandler('resistance', val)}>
-                  {items}
-                </SelectField>
-                <br/>
+                  onChange={resistanceOnChange}
+                >
+                  <MenuItem value='weighted' primaryText='weighted'/>
+                  <MenuItem value='none' primaryText='none' />
+                </SelectField><br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"

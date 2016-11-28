@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { isBrowser } from '../utils'
+import { removePlan } from './plan'
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -34,7 +35,10 @@ export default function reducer(currentPatients = initialPatients, action) {
 
 export const fetchPatients = therapistId => dispatch => {
   axios.get(`/api/therapist/${therapistId}/patients`)
-    .then(res => dispatch(receivedPatients(res.data)))
+    .then(res => {
+      dispatch(receivedPatients(res.data))
+      dispatch(removePlan())
+    })
     .catch(err => console.error('Unable to retrieve patients', err));
 }
 

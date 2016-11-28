@@ -6,7 +6,7 @@ import {SelectField, TextField , MenuItem} from "material-ui";
 import {StepsTextField} from '../material-style';
 
 export default function(props){
-  let { durationOnChange, therapyHandler, notesOnChange, duration, note, therapy_focus } = props;
+  let { durationOnChange, therapyHandler, notesOnChange, duration, note, therapyFocus } = props;
 
 // style
  const styleRow = {
@@ -29,7 +29,8 @@ export default function(props){
   return (
     <div className='row' style={styleRow} id='plan-options'>
       <div className='col-md-4' >
-          <SelectField id="duration"
+          <SelectField
+            id="duration"
             floatingLabelText="Duration"
             maxHeight={200}
             value={duration}
@@ -50,7 +51,7 @@ export default function(props){
             hintText="Knee Injury"
             multiLine={true}
             onChange={therapyHandler}
-            value={therapy_focus}
+            value={therapyFocus}
             floatingLabelText="Therapy Focus"
           />
         </div>
