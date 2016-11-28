@@ -14,7 +14,7 @@ import { StepsRaisedButton } from '../material-style'
 const PatientList = ({ patients }) => (
   <div id="patient-list" className="col-xs-12">
     <Helmet title="Patients" />
-    <h1>Patient List</h1>
+    <h1 className="page-header">Patient List</h1>
     <Link to="/patients/new">
       <StepsRaisedButton label="Add Patient" />
     </Link>
