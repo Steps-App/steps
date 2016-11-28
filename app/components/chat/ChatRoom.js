@@ -14,7 +14,7 @@ import { Paper } from 'material-ui'
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 // socket global
-let socket = io.connect(`http://localhost:8080/1`)
+let socket = io.connect(`http://localhost:8080/3`)
 
 export class ChatRoom extends Component {
 
