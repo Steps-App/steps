@@ -1,5 +1,6 @@
 //React&Redux
 import React from 'react';
+import { browserHistory } from 'react-router'
 //Stateless Components
 import PlanOptions from './newPlanOptions';
 import PatientPanel from './PatientPanel';
@@ -17,7 +18,7 @@ const styleRow = {
   'marginTop' : '1em'
 };
 
-// Initial Treatment Templete for reseting
+// Initial Treatment Template for reseting
 const initialTreatment = {
   time_per_exercise: '',
   reps: '',
@@ -26,25 +27,33 @@ const initialTreatment = {
   notes: ''
 };
 
+const initialState = {
+  duration : 0,
+  therapyFocus : "",
+  notes : "",
+  selectedExercise : {},
+  treatment: initialTreatment,
+  treatments : []
+};
 
 //=======  Component==========
 export default class newPlan extends React.Component{
   constructor(props){
-    console.log(props);
     super(props);
 
-    this.state={
-      duration : 0,
-      therapy_focus : "",
-      notes : "",
-      selectedExercise : {},
+    this.state = this.props.plan !== null ? {
+      duration: this.props.plan.duration,
+      therapyFocus: this.props.plan.therapyFocus,
+      notes: this.props.plan.notes,
+      selectedExercise: {},
       treatment: initialTreatment,
-      treatments : []
-    };
+      treatments: this.props.plan.treatments
+    } : initialState
 
     this.durationOnChange = this.durationOnChange.bind(this);
     this.therapyHandler = this.therapyHandler.bind(this);
     this.exerciseOnChange = this.exerciseOnChange.bind(this);
+    this.resistanceOnChange = this.resistanceOnChange.bind(this);
     this.notesOnChange = this.notesOnChange.bind(this);
     this.treatmentHandler = this.treatmentHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -57,9 +66,9 @@ export default class newPlan extends React.Component{
     this.setState({ duration: value });
   }
 
-//onchange handler for therapy_focus
+//onchange handler for therapyFocus
   therapyHandler(evt) {
-    this.setState({ therapy_focus : evt.target.value});
+    this.setState({ therapyFocus : evt.target.value});
   }
 
 //onchange handler for PlanNotes
@@ -70,6 +79,11 @@ export default class newPlan extends React.Component{
 // handle change to this.state.exercise
   exerciseOnChange(evt, idx) {
     this.setState({ selectedExercise: this.props.exercises[idx] });
+  }
+
+  resistanceOnChange(evt, idx, value) {
+    let newTreatment = Object.assign({}, this.state.treatment, {resistance: value})
+    this.setState({ treatment: newTreatment })
   }
 
 // Handler for this.state.treatments // all states within
@@ -115,13 +129,14 @@ export default class newPlan extends React.Component{
     evt.preventDefault();
     let newPlan = {
       duration : this.state.duration,
-      therapy_focus : this.state.therapy_focus,
+      therapyFocus : this.state.therapyFocus,
       notes : this.state.notes,
       patient_id: this.props.currentPatient.id,
       treatments: this.state.treatments
     };
-    console.log(`submitHandler ${newPlan}`);
+    console.log(newPlan)
     this.props.addPlan(newPlan);
+    browserHistory.push(`/patients/${this.props.currentPatient.id}/plans/confirmation`)
   }
 
 // -=-=-=-=-=-=-=-=-=-=-= Component Starts Here -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -129,10 +144,10 @@ export default class newPlan extends React.Component{
   // === IF Therapist has no exercises displays text instead of dropdown
     let ExerciseList = (this.props.exercises.length > 0) ?
                   <SelectField
-                  floatingLabelText="Exercise"
-                  value={this.state.selectedExercise.title}
-                  onChange={this.exerciseOnChange}
-                  maxHeight={200}>
+                    floatingLabelText="Exercise"
+                    value={this.state.selectedExercise.title}
+                    onChange={this.exerciseOnChange}
+                    maxHeight={200}>
                     {this.props.exercises.map((exercise, idx) => {
                         return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
                       })}
@@ -143,6 +158,7 @@ export default class newPlan extends React.Component{
                 <Treatment
                   exercise={this.state.selectedExercise}
                   treatment={this.state.treatment}
+                  resistanceOnChange={this.resistanceOnChange}
                   addTreatment={this.addNewTreatment}
                   treatmentHandler={this.treatmentHandler}
                 />;
@@ -158,7 +174,7 @@ export default class newPlan extends React.Component{
               notesOnChange={this.notesOnChange}
               note={this.state.notes}
               duration={this.state.duration}
-              therapy_focus={this.state.therapy_focus}
+              therapyFocus={this.state.therapyFocus}
             />
             <div className="row" style={styleRow}>
               <div className="col-md-4">
@@ -172,9 +188,9 @@ export default class newPlan extends React.Component{
               </div>
               <h4 style={{"display" : "center"}}> Patient Treatments </h4>
               <CreatedTreatments
-              exercises={this.props.exercises}
-              treatments={this.state.treatments}
-              removeTreatment={this.removeTreatment}
+                exercises={this.props.exercises}
+                treatments={this.state.treatments}
+                removeTreatment={this.removeTreatment}
               />
             </div>
           </form>
@@ -187,10 +203,11 @@ export default class newPlan extends React.Component{
             <div className="row">
               <div>
                 <StepsRaisedButton primary={true}
-                type="submit"
-                label="Create Plan"
-                style={{width: '100%'}}
-                onClick={this.submitHandler} />
+                  type="submit"
+                  label="Create Plan"
+                  style={{width: '100%'}}
+                  onClick={this.submitHandler}
+                />
               </div>
             </div>
           </div>

@@ -17,12 +17,14 @@ import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newPlanContainer';
+import PlanConfirmContainer from './components/plans/PlanConfirmContainer';
 import Plan from './components/plan/PatientPlan';
 import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import Treatment from './components/treatment/Treatment'
 import { loginRedirect } from './utils'
+
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
@@ -53,12 +55,13 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
-const workoutEnter = (nextState, replace) => {		
-  const curPlan = store.getState().plan;		
-  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))		
-    replace('/plan');		
-};		
+const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    replace('/plan');
+};		
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
@@ -73,6 +76,7 @@ render (
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
     </Router>
