@@ -3,57 +3,76 @@ import moment from 'moment';
 import randomColor from 'randomcolor'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
+import { active } from '../colors'
+
+const width = 800;
+const height = 500;
+
+// Create array of fake treatment data for the past 7 days
+const fakeData = treatments => {
+  return Array(7).fill().map((val, i) => {
+    let dataPoint = {
+      date: moment().subtract(6, 'days').add(i, 'days').format('dddd, MMM Do')
+    };
+    treatments.forEach(treatment => {
+      dataPoint[treatment.exercise.title] = Math.floor(Math.random() * 5) + 1;
+    })
+    return dataPoint;
+  });
+}
+
 const data = [
   {
     date: moment("2016-11-21T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 2,
-    'Customizable': 4,
-    'high-level': 4
+    'zero administration': 2,
+    'clear-thinking': 4,
+    'task-force': 4
   },
   {
     date: moment("2016-11-22T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 1,
-    'Customizable': 3,
-    'high-level': 4
+    'zero administration': 1,
+    'clear-thinking': 3,
+    'task-force': 4
   },
   {
     date: moment("2016-11-23T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 2,
-    'Customizable': 3,
-    'high-level': 4
+    'zero administration': 2,
+    'clear-thinking': 3,
+    'task-force': 4
   },
   {
     date: moment("2016-11-24T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 1,
-    'Customizable': 2,
-    'high-level': 3
+    'zero administration': 1,
+    'clear-thinking': 2,
+    'task-force': 3
   },
   {
     date: moment("2016-11-25T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 1,
-    'high-level': 3
+    'zero administration': 1,
+    'task-force': 3
   },
   {
     date: moment("2016-11-26T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 2,
-    'Customizable': 1,
-    'high-level': 3
+    'zero administration': 2,
+    'clear-thinking': 1,
+    'task-force': 3
   },
   {
     date: moment("2016-11-27T22:46:24.075Z").format('dddd, MMM Do'),
-    'next generation': 1,
-    'Customizable': 1,
-    'high-level': 2
+    'zero administration': 1,
+    'clear-thinking': 1,
+    'task-force': 2
   }
 ];
 
-const CustomizedAxisTick = ({ x, y, stroke, payload }) => (
+const CustomizedDateTick = ({ x, y, stroke, payload }) => (
   <g transform={`translate(${x},${y})`}>
     <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>
   </g>
 );
 
 const CustomizedDot = ({ cx, cy, payload, label }) => {
+  console.log(payload)
   switch(payload[label]) {
     case 1:
       return (
@@ -80,27 +99,40 @@ const CustomizedDot = ({ cx, cy, payload, label }) => {
   }
 };
 
+const PainLabel = (props) => {
+  console.log(props)
+  return (
+    <g className="recharts-cartesian-axis-label">
+      <text width={props.width} height={props.height} transform="rotate(-90)" x={props.x} y={props.y} className="recharts-text" fontSize="18px">
+        <tspan x={-(height/2)} dy="0em">
+          Pain
+        </tspan>
+      </text>
+    </g>
+  )
+};
+
 export default ({ treatments }) => (
-  <LineChart className= "progress-graph" width={800} height={500} data={data}
+  <LineChart className= "progress-graph" width={width} height={height} data={fakeData(treatments)}
     margin={{ top: 20, right: 30, left: 30, bottom: 10 }}>
-    <XAxis dataKey="date" height={100} tick={<CustomizedAxisTick/>}
+    <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
       interval={0} tickCount={7} />
-    <YAxis label="Pain" type="number"
+    <YAxis label={<PainLabel />} type="number"
       domain={[0, 5]} interval={0} tickCount={6} />
-    <CartesianGrid strokeDasharray="3 3"/>
+    <CartesianGrid strokeDasharray="3 3" />
     <Tooltip/>
-    <Legend verticalAlign="top" iconSize={20}
-      height={30} />
+    <Legend verticalAlign="top" iconSize={16} height={30} />
     {
       treatments.map(treatment => {
-        console.log('heyo')
+        let lineColor = randomColor({ luminosity: 'dark', hue: 'rgb' });
         return (
           <Line key={treatment.id}
-            type="monotone"
+            type="monotone" legendType="square"
             connectNulls={ true }
             dataKey={ treatment.exercise.title }
-            stroke={randomColor({ luminosity: 'dark', hue: 'rgb' })}
-            dot={<CustomizedDot label={treatment.exercise.title} />} />
+            stroke={lineColor}
+            dot={<CustomizedDot label={treatment.exercise.title} />}
+            activeDot={{ stroke: lineColor, r: 10, opacity: .4 }} />
         )
       })
     }
