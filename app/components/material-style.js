@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
-import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText } from './colors'
+import { TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
 
 // Shared styles
 const tabsBorderRadius = '4px';
@@ -27,6 +27,22 @@ export const StepsTextField = props => (
     errorStyle={{ color: errorText }}
     { ...props }
   />
+);
+
+// Regular dropdown list
+export const StepsSelectField = props => (
+  <SelectField
+    labelStyle={{ color: textDark }}
+    floatingLabelStyle={{ color: placeholderText, fontWeight: '500' }}
+    iconStyle={{fill: placeholderText}}
+    underlineStyle={{ borderBottomColor: placeholderText }}
+    underlineDisabledStyle={{ borderBottomColor: disabled }}
+    underlineFocusStyle={{ borderBottomColor: activeInputLabels }}
+    errorStyle={{ color: errorText }}
+    maxHeight={200}
+    { ...props } >
+    { props.children }
+  </SelectField>
 );
 
 // Primary button for submitting/confirming data
@@ -85,8 +101,8 @@ export const StepsMenu = props => (
   </Menu>
 )
 
-// Menu item for popovers
-export const StepsPopoverMenuItem = props => (
+// Menu item children of Menu
+export const StepsMenuItem = props => (
   <MenuItem
     style={{ minHeight: '20px', lineHeight: '20px', padding: '10px 5px' }}
     disableFocusRipple={ true }

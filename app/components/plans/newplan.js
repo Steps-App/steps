@@ -9,8 +9,8 @@ import Treatment from './treatment';
 import CreatedTreatments from './createdTreatments';
 
 //material-ui
-import {StepsRaisedButton, StepsFlatButton} from '../material-style';
-import {MenuItem, Divider, FloatingActionButton, SelectField, Link} from 'material-ui';
+import { StepsSelectField, StepsMenuItem, StepsRaisedButton, StepsFlatButton } from '../material-style';
+import { Divider, FloatingActionButton } from 'material-ui';
 
 // Styles
 //== Exerise SelectField Style
@@ -29,7 +29,7 @@ const initialTreatment = {
 };
 
 const initialState = {
-  duration : 0,
+  duration : 4,
   therapyFocus : "",
   notes : "",
   selectedExercise : {},
@@ -144,15 +144,15 @@ export default class newPlan extends React.Component{
   render(){
   // === IF Therapist has no exercises displays text instead of dropdown
     let ExerciseList = (this.props.exercises.length > 0) ?
-                  <SelectField
+                  <StepsSelectField
                     floatingLabelText="Exercise"
                     value={this.state.selectedExercise.title}
                     onChange={this.exerciseOnChange}
                     maxHeight={200}>
                     {this.props.exercises.map((exercise, idx) => {
-                        return ( <MenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
-                      })}
-                  </SelectField>
+                      return ( <StepsMenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
+                    })}
+                  </StepsSelectField>
                   : <h4> Add Exercises to create Treatments </h4>;
   // === IF this.selectedExercise is an empty object form is not shown
     let TreatmentForm = (Object.keys(this.state.selectedExercise).length === 0) ? <h5> Please Select an Exercise</h5> :
