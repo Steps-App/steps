@@ -8,10 +8,6 @@ import StatCard from './StatCard'
 import ProgressGraph from './ProgressGraph'
 import { getCompletedWorkout, daysBetween } from '../../utils'
 
-//Material UI
-import {  } from 'material-ui'
-import {  } from '../material-style'
-
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 const Dashboard = ({ user, plan }) => {
