@@ -85,11 +85,9 @@ router.get('/', (req, res, next) => {
 // Get the patient's current (most recent) plan
 router.get('/current', (req, res, next) => {
   Plan.findOne({
-    attributes: ['id'],
-    where: { patient_id: req.patientId },
-    order: [[sequelize.fn('max', sequelize.col('plan.created_at'))]],
-    group: 'plan.id'
-  })
+      where: { patient_id: req.patientId },
+      order: [['created_at', 'DESC']]
+    })
     .then(res => {
       return Plan.findById(res.id, {
         include: [ {
@@ -99,7 +97,9 @@ router.get('/current', (req, res, next) => {
         } ]
       })
     })
-    .then(plan => res.json(plan))
+    .then(plan => {
+      res.json(plan)
+    })
     .catch(next)
 })
 

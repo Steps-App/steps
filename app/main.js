@@ -23,6 +23,7 @@ import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import Treatment from './components/treatment/Treatment'
+import CurrentPlan from './components/plans/CurrentPlan'
 import { loginRedirect } from './utils'
 
 
@@ -42,7 +43,7 @@ const appEnter = (nextState, replace, callback) => {
 const newPlanEnter = (nextState, replace) => {
   // Check if patientId matches a patient on State, grab exercises for the therapist
   // otherwise, redirect to /patients
-  if (store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
+  if(store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
     store.dispatch(fetchExercises(store.getState().user.id));
     store.dispatch(fetchCurrentPatient(nextState.params.patientId));
   } else replace('/patients');
@@ -55,13 +56,22 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
+const therapistPlanEnter = (nextState) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length) {
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId))
+    store.dispatch(fetchPatientPlan(nextState.params.patientId))
+    store.dispatch(fetchExercises(store.getState().user.id))
+  }
+};
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 const workoutEnter = (nextState, replace) => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
     replace('/plan');
-};		
+};
 
 
 render (
@@ -75,6 +85,7 @@ render (
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
         <Route path="/patients/dashboard" component={ PatientDash } />
       </Route>
