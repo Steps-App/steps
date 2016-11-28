@@ -23,18 +23,6 @@ import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import { loginRedirect } from './utils';
 
-// React router hooks  << TO TEST COUNTER ROUTE, COMMENT THIS SECTION OUT
-// store.dispatch(retrieveLoggedInUser((err, user) => {
-//     // Home page and logged in -> default app view
-//     if (!err && nextState.location.pathname === '/')
-//       replace(loginRedirect(user.role));
-//     // App page and not logged in -> home page
-//     else if (err && nextState.location.pathname !== '/')
-//       replace('/');
-//     callback();
-//   }));
-// }
-
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
   store.dispatch(retrieveLoggedInUser((err, user) => {
@@ -65,7 +53,7 @@ const patientPlanEnter = () => {
 };
 
 const planConfirm = (nextState) => {
-   //next state in () + store.dispatch(fetchPatientPlan(nextState.params.patientId)); 
+   //next state in () + store.dispatch(fetchPatientPlan(nextState.params.patientId));
    //store.dispatch(fetchCurrentPatient(3));
    store.dispatch(fetchCurrentPatient(nextState.params.patientId));
 };
@@ -82,9 +70,8 @@ render (
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
-        <Route path="/patients/:patientId/planConfirmation" component={PlanConfirmContainer} onEnter={planConfirm} />
+        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} onEnter={planConfirm} />
         <Route path="/patients/dashboard" component={ PatientDash } />
-        {/* <Route path="/counter" component={ Counter } />  << TO TEST, UNCOMMENT */}
       </Route>
     </Router>
   </Provider>,

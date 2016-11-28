@@ -4,15 +4,12 @@ import {connect} from 'react-redux';
 // == Component ==
 import newPlanComponent from './newplan';
 // == dispatch ==
-import {createdPlan} from '../../reducers/plan';
+import {addPlan} from '../../reducers/plan';
 
-
-
-const mapStateToProps = ({ currentPatient, exercises }) => ({ currentPatient, exercises });
+const mapStateToProps = ({ currentPatient, exercises, plan }) => ({ currentPatient, exercises, plan });
 
 const mapDispatchToProps = dispatch => ({
-  addPlan : (newPlan) => dispatch(createdPlan(newPlan))
+  addPlan : (newPlan) => dispatch(addPlan(newPlan))
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(newPlanComponent);

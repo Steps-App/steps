@@ -50,12 +50,12 @@ router.param('planId', (req, res, next, id) => {
 router.post('/', (req, res, next) => {
   Plan.create({
       duration: req.body.plan.duration,  // weeks
-      therapy_focus: req.body.plan.therapy_focus,
+      therapy_focus: req.body.plan.therapyFocus,
       notes: req.body.plan.notes,
       patient_id: req.patientId,       // passed via router param handler on patient routes
       treatments: req.body.treatments
     }, {
-      include: [ Treatment ]  // IMPORTANT: treatment props must exactly equal table cols 
+      include: [ Treatment ]  // IMPORTANT: treatment props must exactly equal table cols
     })
     .then(createdPlan => {
       let plan = {

@@ -2,13 +2,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 //material-ui
-import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton} from 'material-ui';
+import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton, SelectField, MenuItem} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {StepsTextField} from '../material-style';
 
 export default (props) => {
 
-  const { exercise, treatment, addTreatment, treatmentHandler } = props;
+  const { exercise, treatment, addTreatment, resistanceOnChange, treatmentHandler } = props;
 
   return (
     <div className="row">
@@ -48,12 +48,15 @@ export default (props) => {
                   floatingLabelText="Reps" type="number"
                   value={treatment.reps}
                   onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
-                <StepsTextField
+                <SelectField
                   floatingLabelFixed={true}
-                  floatingLabelText="Resistance : lbs"
-                  type="text"
+                  floatingLabelText="Resistance"
                   value={treatment.resistance}
-                  onChange={(env) =>treatmentHandler('resistance', env.target.value)}/><br/>
+                  onChange={resistanceOnChange}
+                >
+                  <MenuItem value='weighted' primaryText='weighted'/>
+                  <MenuItem value='none' primaryText='none' />
+                </SelectField><br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"
