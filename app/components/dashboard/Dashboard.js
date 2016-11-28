@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 
 // sub-components
 import StatCard from './StatCard'
+import ProgressGraph from './ProgressGraph'
 import { getCompletedWorkout, daysBetween } from '../../utils'
 
 //Material UI
@@ -22,7 +23,6 @@ const Dashboard = ({ user, plan }) => {
     return getCompletedWorkout(treatment.workouts) ? remaining : remaining + 1;
   }, 0);
   const daysToGo = daysBetween(new Date(), new Date(plan.end_date));
-  console.log(plan.treatments)
   
   return (
     <div id="dashboard">
@@ -44,6 +44,7 @@ const Dashboard = ({ user, plan }) => {
           iconPath="dashboard/pie-chart.svg"
           text="workouts completed" />
       </div>
+      <ProgressGraph treatments={plan.treatments} />
     </div>
   )
 }

@@ -16,7 +16,7 @@ const PATHS = {
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios', 'moment', 'material-ui',
+  'axios', 'moment', 'material-ui', 'recharts', 'randomcolor',
   'react', 'react-dom', 'react-router', 'react-helmet', 'react-tap-event-plugin',
   'redux', 'react-redux', 'redux-logger', 'redux-thunk'
 ]
