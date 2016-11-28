@@ -6,6 +6,9 @@ const express = require('express')
 const session = require('express-session')
 const path = require('path')
 const app = express()  // invoke router as 'app'
+const server = require('http').createServer(app)  // for hook-in to socket.io
+const io = require('socket.io')(server)  // socket.io hooked-in
+
 const PATHS = {
   indexHTML: path.join(__dirname, '../public/index.html'),
   public: path.join(__dirname, '../public'),
@@ -50,11 +53,36 @@ app.use((err, req, res, next) => {
 
 // racers, start your engines! (only if not testing w/ Supertest)
 if (!module.parent) {
-  app.listen(PORT, err => {
+  server.listen(PORT, err => {
     if (err) throw err
     console.log(chalk.green(`Server listening on port: ${PORT}`))
   })
 }
 
-// export it, of course
+io.on('connection', (socket) => {
+
+  console.log('socket connected')
+
+  socket.on('userEnter', (data) => {
+    let room = data.room
+    socket.join(room)
+    console.log(`${data.user} joined ${room}`)
+    io.in(room).emit(`${data.user} joined`, data)
+  })
+
+  socket.on('userLeave', (data) => {
+    let room = data.room
+    socket.leave(room)
+    console.log(`${data.user} left ${room}`)
+    io.in(room).emit(`${data.user} left`, data)
+  })
+
+  socket.on('newMessage', (data) => {
+    console.log(`message sent: ${data}`)
+    io.in(room).emit(data)
+  })
+
+})
+
+// export app and socket.io server
 module.exports = app

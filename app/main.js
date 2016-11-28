@@ -22,6 +22,7 @@ import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
 import PatientDash from './components/patients/PatientDash';
 import Treatment from './components/treatment/Treatment'
+import ChatRoom from './components/chat/ChatRoom'
 import { loginRedirect } from './utils'
 
 // ===== OnEnters =====
@@ -53,11 +54,11 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
-const workoutEnter = (nextState, replace) => {		
-  const curPlan = store.getState().plan;		
-  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))		
-    replace('/plan');		
-};		
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    replace('/plan');
+};
 
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
@@ -74,6 +75,7 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
+        <Route path="/messages" component={ ChatRoom } />
       </Route>
     </Router>
   </Provider>,

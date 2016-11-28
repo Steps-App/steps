@@ -1,0 +1,47 @@
+#chat {
+  margin: 0 auto;
+}
+
+#messages {
+  height: 500px;
+  list-style-type: none;
+  margin: 0;
+  overflow: scroll;
+  padding: 20px;
+}
+#messages li {
+  padding: 5px 10px;
+  width: 75%;
+}
+
+#messenger input {
+  width: 80%;
+}
+#messenger form {
+  bottom: 0;
+  background: #011f4b;
+  width: 100%;
+}
+
+// Chat Bubble CSS adapted from a design by Nicolas Gallagher (http://nicolasgallagher.com/)
+
+.chat-border {
+  background: #fff;
+  border: 3px solid #5a8f00;
+  color:#333;
+  margin: 5px;
+  padding: 15px;
+  position: relative;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
