@@ -18,7 +18,13 @@ const Therapist = db.define('therapist', {
   },
   practice_name: Sequelize.STRING,
   license_id: Sequelize.STRING,
-  img_URL: Sequelize.STRING,
+  img_URL : {
+    type: Sequelize.STRING,
+    defaultValue:"https://lh3.googleusercontent.com/-3XEatggPXpI/AAAAAAAAAAI/AAAAAAAAAAA/FT-j1wenhsg/photo.jpg",
+    validate:{
+      isURL: true
+    }
+  },
   email: {
     type: Sequelize.STRING,
     unique: true,

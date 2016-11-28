@@ -1,0 +1,10 @@
+@import '../common';
+
+.email-body {
+  p > span {
+    font-weight: bold;
+  }
+  .button {
+    width: 100px;
+  }
+}

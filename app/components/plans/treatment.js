@@ -34,7 +34,8 @@ export default (props) => {
                   floatingLabelFixed={true}
                   floatingLabelText="Notes for Patient"
                   value={treatment.notes}
-                  onChange={(env) => treatmentHandler('notes', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('notes', env.target.value)}/>
+                 <br/>
               </TableRowColumn>
               <TableRowColumn>
                 <StepsTextField
@@ -42,7 +43,8 @@ export default (props) => {
                   floatingLabelText="Sets"
                   type="number"
                   value={treatment.sets}
-                  onChange={(env) => treatmentHandler('sets', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('sets', env.target.value)}/>
+                <br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
@@ -62,7 +64,8 @@ export default (props) => {
                   floatingLabelText="Minutes"
                   type="number"
                   value={treatment.time_per_exercise}
-                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/><br/>
+                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/>
+                <br/>
               </TableRowColumn>
               <TableRowColumn>
                 <FloatingActionButton onClick={() => addTreatment()}>

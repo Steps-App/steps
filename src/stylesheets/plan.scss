@@ -31,7 +31,7 @@
     > .workout-index, .workout-pic {
       opacity: .6;
     }
-    h2, p {
+    h2, p, a {
       color: $disabled;
     }
   }
@@ -90,5 +90,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    span {
+      font-size: 36px !important;
+    }
+    img {
+      filter: grayscale(100%);
+    }
   }
 }

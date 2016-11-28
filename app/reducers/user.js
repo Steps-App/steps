@@ -2,6 +2,12 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { isBrowser, loginRedirect } from '../utils'
 
+// Other related actions
+import { removePatient } from './currentpatient'
+import { removeExercises } from './exercises'
+import { removePatients } from './patients'
+import { removePlan } from './plan'
+
 /* -----------------    ACTIONS     ------------------ */
 
 export const SET_USER    = 'SET_USER'
@@ -71,6 +77,10 @@ export const logout = () => dispatch => {
   axios.delete('/api/auth/logout')
     .then(() => {
       dispatch(removeUser());
+      dispatch(removeExercises());
+      dispatch(removePatients());
+      dispatch(removePatient());
+      dispatch(removePlan());
       if (isBrowser())
         browserHistory.push('/');
     })

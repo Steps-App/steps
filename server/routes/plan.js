@@ -29,7 +29,7 @@ const Exercise = require('../../db/models/exercise')
     plan.getTreatments/setTreatments
 */
 
-// PATH: <server-domain>/api/paitent/:patientId/plan/+
+// PATH: <server-domain>/api/patient/:patientId/plan/+
 
 // -=-=-= PARAM HANDLING =-=-=-
 
@@ -112,6 +112,24 @@ router.get('/:planId', (req, res, next) => {
         treatments: treatments  // and plan treatments in response
       }
       res.json(plan)
+    })
+    .catch(next)
+})
+
+// get a specific treatment from within a specific plan
+router.get('/:planId/treatment/:treatmentId', (req, res, next) => {
+  Treatment.findOne({
+      where: {
+        id: req.params.treatmentId
+      },
+      include: [ Exercise ]
+    })
+    .then(treatment => {
+      let planAndTreatment = {
+        plan: req.plan,
+        treatment: treatment
+      }
+      res.json(planAndTreatment)
     })
     .catch(next)
 })

@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   patients,
   exercises,
   plan,
-  currentPatient
+  currentPatient,
 });
 
 export default rootReducer;
