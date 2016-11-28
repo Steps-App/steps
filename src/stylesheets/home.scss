@@ -67,14 +67,14 @@
   align-items: center;
 }
 
-#main > div {
+#intro > div {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-#main .row {
-  margin-top: 21em;
+#intro .row {
+  margin-top: 15em;
 }
 
 .intro-text {
@@ -114,8 +114,9 @@
     display: block;
   }
   #work {
-    height: 30vh;
-  }
+    height: 40vh;
+    margin : 5vh;
+    }
 
   #us img {
     height: 30vh

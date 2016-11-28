@@ -28,7 +28,7 @@ export default () => (
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-      <div className="container" id="main">
+      <div className="container" id="intro">
         <div className="row">
           <div className="col-xs-5 intro-text">
             <p className="intro-heading" >Physical therapy for the way you live today</p>
@@ -47,7 +47,7 @@ export default () => (
       </div>
       <div className="row" id="aboutinfo">
          <div className="col-xs-12 col-md-6">
-           <img src={require="../../../src/images/work.jpg"} id="work"></img>
+           <img src={require("../../../src/images/work.jpg")} id="work"></img>
          </div>
          <div className="col-xs-12 col-md-6">
            <div className="aboutcontent" >
