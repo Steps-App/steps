@@ -23,7 +23,8 @@ const Dashboard = ({ user, plan }) => {
   return (
     <div id="dashboard">
       <Helmet title="Dashboard" />
-      <h1>{`Hello ${user.first_name}!`}</h1>
+      <h1 className="page-header">Dashboard</h1>
+      <h2>{`Hello ${user.first_name}!`}</h2>
       <div className="cards row">
         <StatCard // Days left in plan 
           number={ daysToGo }

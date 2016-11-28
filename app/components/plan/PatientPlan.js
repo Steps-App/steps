@@ -12,7 +12,7 @@ const PatientPlan =  ({ plan }) => {
   return (
     <div id="plan">
       <Helmet title="My Plan" />
-      <h1>My Plan</h1>
+      <h1 className="page-header">My Plan</h1>
       <div className="plan-info">
         <div className="plan-details">
           <p><span>Start</span>{`: ${moment(plan.created_at).format('MMM Do, YYYY')}`}</p>

@@ -25,17 +25,10 @@ export class PlanConfirm extends Component {
 
     return (
       <div id="patient-list" className="col-xs-12">
-        <Helmet title="Plan Confirm" />
-        <h1>Plan Confirmation</h1>
-
+        <Helmet title="Confirm Plan" />
+        <h1 className="page-header">Plan Confirmation</h1>
         <div id="treatmentsfinal" className="col-xs-10">
         <Table style={{backgroundColor:'none'}}>
-          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow>
-              <TableHeaderColumn></TableHeaderColumn>
-              <TableHeaderColumn></TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
           <TableBody displayRowCheckbox={false}>
           {
             plan.treatments && plan.treatments.map( treatment => {
@@ -56,7 +49,7 @@ export class PlanConfirm extends Component {
                     </TableRowColumn>
                 </TableRow>
               )
-           })
+            })
           }
          </TableBody>
         </Table>

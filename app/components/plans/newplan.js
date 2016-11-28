@@ -1,5 +1,6 @@
 //React&Redux
 import React from 'react';
+import Helmet from 'react-helmet';
 import { browserHistory } from 'react-router'
 //Stateless Components
 import PlanOptions from './newPlanOptions';
@@ -165,6 +166,8 @@ export default class newPlan extends React.Component{
 
     return(
       <div className="container">
+        <Helmet title="New Plan" />
+        <h1 className="page-header">New Plan</h1>
         <div className='row' id="newPlan">
           <div className='col-md-10'>
           <form onSubmit={this.submitHandler}>
