@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { StepsTextField, StepsRaisedButton } from '../material-style'
+import { StepsTextField, StepsRaisedButton, StepsFlatButton } from '../material-style'
 import { errorText } from '../colors'
 
 export default ({ handleChange, handleSubmit, errors }) => (
@@ -45,13 +45,16 @@ export default ({ handleChange, handleSubmit, errors }) => (
         </div>
       </div>
       <div style={{ textAlign: 'center' }}>
+      {
+        errors.submit ?
+        <p style={{ color: errorText }}>{ errors.submit }</p> : null
+      }
         <StepsRaisedButton
           label="Create"
           type="submit" />
-        {
-          errors.submit ?
-            <p style={{ color: errorText }}>{ errors.submit }</p> : null
-        }
+        <Link to={"/patients"}>
+          <StepsFlatButton id="cancel" fullWidth={true} label="Cancel" type="button" />
+        </Link>
       </div>
     </form>
   </div>

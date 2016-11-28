@@ -6,6 +6,8 @@
 @import "video";
 @import "counter";
 @import "newplan";
+@import "patientlist";
+
 
 body,html {
   width : 100%;
@@ -32,6 +34,10 @@ body,html {
 
 #new-patient {
   width: 100%;
+
+  #cancel {
+    width: 30vh;
+  }
 }
 
 // Page Headers
