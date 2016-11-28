@@ -44,10 +44,10 @@ export class PlanConfirm extends Component {
             let exercise = exercises.filter(exercise => exercise.id === treatment.exercise_id)[0]
             return(
               <TableRow key={ treatment.id }>
-                  <TableRowColumn style={{ padding: 0 , width: "auto" }} >
+                  <TableRowColumn style={{ width: "30%" }} >
                   <img style={{width: "auto", height: "auto"}} src={exercise.img_url} />
                   </TableRowColumn>
-                  <TableRowColumn style={{ padding: 0, width: "auto" }} >
+                  <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
                     <p style={{fontWeight: "bold", fontSize: "larger" }}>{`${exercise.title}`}</p>   
                     <p><span style={{fontWeight: "bold"}} >Sets</span>{`: ${treatment.sets}`}  / 
                     <span style={{fontWeight: "bold"}}>Reps</span>{`: ${treatment.reps}`}  /  
@@ -57,7 +57,7 @@ export class PlanConfirm extends Component {
                     <p><span style={{fontWeight: "bold"}}>Notes</span>{`: ${treatment.notes}`}</p>
                   </TableRowColumn>
               </TableRow>
-            )
+            )   
            })
           }
          </TableBody>
