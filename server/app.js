@@ -63,8 +63,10 @@ io.on('connection', (socket) => {
 
   console.log('socket connected')
 
+  let room = ''
+
   socket.on('userEnter', (data) => {
-    let room = data.room
+    room = data.room
     socket.join(room)
     console.log(`${data.user} joined ${room}`)
     io.in(room).emit(`${data.user} joined`, data)

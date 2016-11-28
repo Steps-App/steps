@@ -13,9 +13,6 @@ import { Paper } from 'material-ui'
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-// socket global
-let socket = io.connect(`http://localhost:8080/3`)
-
 export class ChatRoom extends Component {
 
   constructor(props) {
@@ -27,8 +24,8 @@ export class ChatRoom extends Component {
       message: ''
     }
     // pick a unique room for the therapist-patient chat based on patient id
-    // this.room = this.props.user.role === 'patient' ?
-    //   this.props.user.id : this.props.currentPatient.id
+    this.room = this.props.user.role === 'patient' ?
+      this.props.user.id.toString() : this.props.currentPatient.id.toString()
     // bind our methods to use in render()
     this.onMessageReceived = this.onMessageReceived.bind(this)
     this.onMessageSent = this.onMessageSent.bind(this)
@@ -36,13 +33,13 @@ export class ChatRoom extends Component {
   }
 
   componentDidMount() {
-    // socket = io.connect(`http://localhost:8080/${this.room}`) // init socket
-    socket.emit('userEnter', { room: this.room, user: this.state.user })
-    socket.on('newMessage', this.onMessageReceived)
+    this.socket = io.connect(`localhost:8080/${this.room}`) // init socket
+    this.socket.emit('userEnter', { room: this.room, user: this.state.user })
+    this.socket.on('newMessage', this.onMessageReceived)
   }
 
   componentWillUnmount() {
-    socket.emit('userLeave', { room: this.room, user: this.state.user })
+    this.socket.emit('userLeave', { room: this.room, user: this.state.user })
   }
 
   onMessageReceived(data) {
@@ -64,7 +61,7 @@ export class ChatRoom extends Component {
     // add message to local state
     this.setState({ messages: [...this.state.messages, message] })
     // broadcast the message
-    socket.emit('newMessage', message)
+    this.socket.emit('newMessage', message)
      // wipe clean the message prop
     this.setState({ message: '' })
   }
