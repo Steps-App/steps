@@ -12,13 +12,13 @@ const height = 500;
 const fakeData = treatments => {
   return Array(7).fill().map((val, i) => {
     let dataPoint = {
-      date: moment().subtract(6, 'days').add(i, 'days').format('dddd, MMM Do')
+      date: moment().subtract(i, 'days').format('dddd, MMM Do')
     };
     treatments.forEach(treatment => {
       dataPoint[treatment.exercise.title] = Math.floor(Math.random() * 5) + 1;
     })
     return dataPoint;
-  });
+  }).reverse();
 }
 
 const data = [
