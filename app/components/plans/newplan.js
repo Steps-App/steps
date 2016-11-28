@@ -41,7 +41,7 @@ export default class newPlan extends React.Component{
   constructor(props){
     super(props);
 
-    this.state = this.props.plan !== null ? {
+    this.state = Object.keys(this.props.plan).length ? {
       duration: this.props.plan.duration,
       therapyFocus: this.props.plan.therapyFocus,
       notes: this.props.plan.notes,

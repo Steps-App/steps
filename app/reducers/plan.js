@@ -19,14 +19,14 @@ export const addedWorkout  = workout => ({ type: ADDED_WORKOUT, workout });
 
 /* ------------       REDUCER     ------------------ */
 
-export default function reducer(currentPlan = null, action) {
+export default function reducer(currentPlan = {}, action) {
   switch (action.type) {
     case ADD_PLAN:
       return action.plan;
     case RECEIVE_PLAN:
       return action.plan;
     case REMOVE_PLAN:
-      return null
+      return {}
     case ADDED_WORKOUT:
       const treatmentInd = currentPlan.treatments
         .findIndex(treatment => treatment.id === action.workout.treatment_id);
@@ -36,7 +36,7 @@ export default function reducer(currentPlan = null, action) {
       });
       return Object.assign({}, currentPlan)
     default:
-      return null;
+      return currentPlan;
   }
 }
 
