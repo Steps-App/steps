@@ -93,40 +93,9 @@ export class PlanConfirm extends Component {
   }
 }
 
-// <Link to={`/patients/${currentPatient.id}/plans/new`}>
-
-
-
-
-
-
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
 const mapStateToProps = ({ plan, currentPatient, exercises }) => ({ plan, currentPatient, exercises })
-
-// const mapStateToProps = ({ plan, currentPatient }) => (
-//   {
-//      plan: {
-//       id: 1,
-//       created_at: '10/11/16',
-//       end_date: '12/2/16',
-//       therapy_focus: 'Torn Rotator Cuff',
-//       notes: "Normally, this would be done in a week ",
-//       treatments: [
-//         { id: 1, reps: 4, sets: 5, resistance: 'none', time_per_exercises: 150, status: 'active', plan_id: 1, exercise: { id: 1, title: 'Workout #1', img_url: 'http://www.knee-pain-explained.com/images/saq1.jpg',
-//           description: "no description"},
-//           notes: "these are notes" },
-//         { id: 2, reps: 4, sets: 5, resistance: 'none', time_per_exercises: 150, status: 'active', plan_id: 1, exercise: { id: 1, title: 'Workout #1', img_url: 'http://www.knee-pain-explained.com/images/saq1.jpg',
-//           description: "no description"},
-//           notes: "these are notes" },
-//         { id: 5, reps: 4, sets: 5, resistance: 'none', time_per_exercises: 150, status: 'active', plan_id: 1, exercise: { id: 1, title: 'Workout #1', img_url: 'http://www.knee-pain-explained.com/images/saq1.jpg',
-//           description: "no description"},
-//           notes: "these are notes" },
-//         ]
-//     },
-//     currentPatient: currentPatient
-//   }
-// )
 
 const mapDispatchtoProps = dispatch => ({
   createPlan : (newPlan) => dispatch(createPlan(newPlan))

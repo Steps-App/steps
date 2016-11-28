@@ -4,26 +4,29 @@ import { browserHistory } from 'react-router';
 
 /* -----------------    ACTIONS     ------------------ */
 
-export const RECEIVE_PLAN = 'RECEIVE_PLAN';
 export const ADD_PLAN = 'ADD_PLAN';
+export const REMOVE_PLAN = 'REMOVE_PLAN'
+export const RECEIVE_PLAN = 'RECEIVE_PLAN';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 //export const receivePlan = plan => ({ type: RECEIVE_PLAN, plan })
 export const addPlan  = plan => ({ type: ADD_PLAN, plan });
+export const removePlan = () => ({ type: REMOVE_PLAN })
 export const receivePlan  = plan => ({ type: RECEIVE_PLAN, plan });
 
 /* ------------       REDUCER     ------------------ */
 
-const initialPlan = {}
-export default function reducer(currentPlan = initialPlan, action) {
+export default function reducer(currentPlan = null, action) {
   switch (action.type) {
     case ADD_PLAN:
       return action.plan;
     case RECEIVE_PLAN:
       return action.plan;
+    case REMOVE_PLAN:
+      return null
     default:
-      return currentPlan;
+      return null;
   }
 }
 
@@ -34,10 +37,7 @@ export const createPlan = (data, displayErr) => dispatch => {
       plan:{duration: data.duration, therapyFocus: data.therapyFocus, notes: data.notes},
       treatments: data.treatments
     })
-    .then(res => {
-      dispatch(addPlan(res.data));
-      browserHistory.push('/patients');
-    })
+    .then(ok => browserHistory.push('/patients'))
     .catch(err => {
       console.error('Unable to add plan', err);
       displayErr('We experienced an unexpected error while trying to add your plan. Please try again later.');
