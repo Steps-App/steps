@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 /* -----------------    ACTIONS     ------------------ */
 
 export const RECEIVE_PLAN   = 'RECEIVE_PLAN';
-export const CREATE_PLAN    = 'CREATE_PLAN';
+export const ADD_PLAN       = 'ADD_PLAN';
 export const REMOVE_PLAN    = 'REMOVE_PLAN';
 export const ADDED_WORKOUT  = 'ADDED_WORKOUT';
 
@@ -16,7 +16,6 @@ export const addPlan  = plan => ({ type: ADD_PLAN, plan });
 export const removePlan = () => ({ type: REMOVE_PLAN })
 export const receivePlan  = plan => ({ type: RECEIVE_PLAN, plan });
 export const addedWorkout  = workout => ({ type: ADDED_WORKOUT, workout });
-export const removePlan  = () => ({ type: REMOVE_PLAN });
 
 /* ------------       REDUCER     ------------------ */
 

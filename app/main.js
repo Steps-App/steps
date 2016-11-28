@@ -63,7 +63,6 @@ const workoutEnter = (nextState, replace) => {
     replace('/plan');
 };		
 
-const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 render (
   <Provider store={ store }>
