@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { browserHistory } from 'react-router'
 //Stateless Components
 import PlanOptions from './newPlanOptions';
-import PatientPanel from './PatientPanel';
+import PatientPanel from './patientPanel';
 import Treatment from './treatment';
 import CreatedTreatments from './createdTreatments';
 
