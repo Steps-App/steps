@@ -2,28 +2,51 @@
 
 
 
-
-.addptbutton {
+// remove and add patient buttons
+.ptbutton {
   text-align: end;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .add{
+    margin: 1vh;
+  }
+
+  .remove{
+    margin : 1vh;
+
+    #cancel {
+      background-color: $error-text !important;
+      margin: 1vh;
+    }
+  }
 }
 
-#iconPtRow {
-  text-align: center;
-}
+// patient tiles
 
 .tile{
   border: 1px solid black;
   padding : 1vh;
   text-align: -webkit-center;
-  width: 33vh;
-
+  width: 34vh;
   .col {
     display: center;
   }
 
 }
 
+// removeBadge
 .removeBadge {
   padding:  1vh 2vh 2vh 4vh !important;
+
+  > span {
+    display: none !important;
+  }
+}
+
+.showRemove {
+  padding:  1vh 2vh 2vh 4vh !important;
+
 }

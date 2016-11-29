@@ -26,6 +26,7 @@ import moment from 'moment';
 
 
 
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 
@@ -34,7 +35,14 @@ export class PatientList extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      showRemove : false
+    }
+    this.showRemove = this.showRemove.bind(this);
+  }
+
+  showRemove (){
+    this.setState({showRemove:!this.state.showRemove});
   }
 
   render() {
@@ -45,12 +53,22 @@ export class PatientList extends Component {
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Patients" />
         <h1 className="page-header">Patient List</h1>
-        <div className="addptbutton">
+        <div className='row'>
+        <div className="ptbutton">
+          <div className="remove">
+            <StepsRaisedButton fullWidth={true} id="cancel"
+              label="Remove Patient"
+              onClick={this.showRemove}
+            />
+          </div>
+          <div className="add">
             <Link to="/patients/new">
-              <StepsRaisedButton
+              <StepsRaisedButton fullWidth={true}
                 label="Add Patient"
               />
             </Link>
+          </div>
+        </div>
         </div>
         <div className="row" >
 
@@ -65,14 +83,14 @@ export class PatientList extends Component {
               <GridTile key={ patient.id }
                    style={gridTile}>
                <Badge
-                   className="removeBadge"
-                   badgeContent={<IconButton
-                   tooltip="Current Plan"
+                   className={ this.state.showRemove ? "showRemove" : "removeBadge"}
+                   badgeContent={ <IconButton
+                   tooltip="Remove Patient"
                    iconClassName="material-icons"
                    onClick={() => removePatient(patient.id)}>
                    highlight_off
-                   </IconButton>
-                 }>
+                   </IconButton>}>
+
                 <div className="tile" >
                   <div className="row" >
                     <div className="col-xs-6" >
