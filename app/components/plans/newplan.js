@@ -29,7 +29,7 @@ const initialTreatment = {
 };
 
 const initialState = {
-  duration : 4,
+  duration : 0,
   therapyFocus : "",
   notes : "",
   selectedExercise : {},
@@ -51,6 +51,8 @@ export default class newPlan extends React.Component{
       selectedExercise: {},
       treatment: initialTreatment,
       treatments: this.props.plan.treatments,
+      planErrors: {},
+      treatmentErrors: {}
     } : initialState
 
     this.durationOnChange = this.durationOnChange.bind(this);
@@ -59,7 +61,6 @@ export default class newPlan extends React.Component{
     this.resistanceOnChange = this.resistanceOnChange.bind(this);
     this.notesOnChange = this.notesOnChange.bind(this);
     this.treatmentHandler = this.treatmentHandler.bind(this);
-    this.clearTreatmentError = this.clearTreatmentError.bind(this);
     this.treatmentValidate = this.treatmentValidate.bind(this);
     this.clearPlanError = this.clearPlanError.bind(this);
     this.planValidate = this.planValidate.bind(this);
@@ -82,7 +83,6 @@ export default class newPlan extends React.Component{
 
 //onchange handler for PlanNotes
   notesOnChange(evt) {
-    this.clearPlanError('notes')
     this.setState({ notes : evt.target.value});
   }
 // Treatment Handlers
@@ -94,25 +94,24 @@ export default class newPlan extends React.Component{
 // handle change to resistance selector
   resistanceOnChange(evt, idx, value) {
     let newProperty = Object.assign({}, this.state.treatment, {resistance: value})
-    newProperty = this.clearTreatmentError('resistance', newProperty)
+    if (this.state.treatmentErrors['resistance']){
+      let newErrs = this.state.treatmentErrors
+      delete newErrs['resistance']
+      newProperty.treatmentErrors = newErrs;
+    }
     this.setState({ treatment: newProperty })
   }
 
 // Handler for this.state.treatments // all states within
   treatmentHandler(field, value) {
     let newProperty = {[field] : value}
-    newProperty = this.clearTreamentError(field, newProperty)  // clear any treatment error for this field
-    let newTreatment = Object.assign({}, this.state.treatment, newProperty); // merges old state with changes
-    this.setState( { treatment : newTreatment});
-  }
-
-  clearTreatmentError(field, newProperty) {
-    if (this.state.treatmentErrors[field]) {     // if a validation error exists for the field
-      let newErrors = this.state.treatmentErrors // create a temporary holder for all errors
-      delete newErrors[field]                    // delete this field's error from that holder
-      newProperty.treatmentErrors = newErrors    // add the other errors to the new field object
+    if (this.state.treatmentErrors[field]){
+      let newErrs = this.state.treatmentErrors
+      delete newErrs[field]
+      newProperty.treatmentErrors = newErrs;
     }
-    return newProperty
+    let newTreatment = Object.assign({}, this.state.treatment, newProperty); // merges old state with changes
+    this.setState({ treatment : newTreatment });
   }
 
   // Ensure the proper form fields are valid
@@ -122,13 +121,11 @@ export default class newPlan extends React.Component{
     if (!this.state.treatment.reps) errs.reps = 'This field is required';
     if (!this.state.treatment.sets) errs.sets = 'This field is required';
     if (!this.state.treatment.resistance) errs.resistance = 'This field is required';
-    if (!this.state.treatment.notes) errs.notes = 'This field is required';
-    if (!this.state.selectedExercise.id) = 'This field is required'
     return errs;
   }
 
   clearPlanError(field) {
-    if (this.state.planErrors[field]) {     // see clearTreatmentError ^^^^
+    if (this.state.planErrors[field]) {
       let newErrors = this.state.planErrors
       delete newErrors[field]
       this.setState({ planErrors: newErrors })
@@ -139,8 +136,7 @@ export default class newPlan extends React.Component{
     let errs = {}
     if (!this.state.duration) errs.duration = 'This field is required'
     if (!this.state.therapyFocus) errs.therapyFocus = 'This field is required'
-    if (!this.state.notes) errs.notes = 'This field is required'
-    if (!this.state.selectedExercise) errs.selectedExercise = 'This field is required'
+    if (!this.state.treatments[0] && !this.state.selectedExercise.exercise_id) errs.selectedExercise = 'This field is required'
     return errs
   }
 
@@ -151,7 +147,7 @@ export default class newPlan extends React.Component{
 
     if (!Object.keys(errs).length) {  // if no errors, create treatment
       let treatment = {
-        time_per_exercise: this.state.treatment.time_per_exercise,
+        time_per_exercise: (this.state.treatment.time_per_exercise * 60),
         reps: this.state.treatment.reps,
         sets: this.state.treatment.sets,
         resistance: this.state.treatment.resistance,
@@ -186,16 +182,21 @@ export default class newPlan extends React.Component{
 //===== SubmitHandler for Entire Plan ======
   submitHandler(evt) {
     evt.preventDefault();
-    let newPlan = {
-      duration : this.state.duration,
-      therapyFocus : this.state.therapyFocus,
-      notes : this.state.notes,
-      patient_id: this.props.currentPatient.id,
-      treatments: this.state.treatments
-    };
+    const errs = this.planValidate()          // validate fields
+    this.setState({ planErrors: errs })  // add to state
 
-    this.props.addPlan(newPlan);
-    browserHistory.push(`/patients/${this.props.currentPatient.id}/plans/confirmation`)
+    if (!Object.keys(errs).length) {    // if no errors, create plan
+      let newPlan = {
+        duration : this.state.duration,
+        therapyFocus : this.state.therapyFocus,
+        notes : this.state.notes,
+        patient_id: this.props.currentPatient.id,
+        treatments: this.state.treatments
+      };
+
+      this.props.addPlan(newPlan);
+      browserHistory.push(`/patients/${this.props.currentPatient.id}/plans/confirmation`)
+    }
   }
 
 // -=-=-=-=-=-=-=-=-=-=-= Component Starts Here -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -204,9 +205,11 @@ export default class newPlan extends React.Component{
     let ExerciseList = (this.props.exercises.length > 0) ?
                   <StepsSelectField
                     floatingLabelText="Exercise"
+                    errorText={this.state.planErrors.selectedExercise}
                     value={this.state.selectedExercise.title}
                     onChange={this.exerciseOnChange}
-                    maxHeight={200}>
+                    maxHeight={200}
+                  >
                     {this.props.exercises.map((exercise, idx) => {
                       return ( <StepsMenuItem key={exercise.id} value={exercise.title} primaryText={exercise.title} /> );
                     })}
@@ -220,6 +223,7 @@ export default class newPlan extends React.Component{
                   resistanceOnChange={this.resistanceOnChange}
                   addTreatment={this.addNewTreatment}
                   treatmentHandler={this.treatmentHandler}
+                  treatmentErrors={this.state.treatmentErrors}
                 />;
 
     return(
@@ -236,6 +240,7 @@ export default class newPlan extends React.Component{
               note={this.state.notes}
               duration={this.state.duration}
               therapyFocus={this.state.therapyFocus}
+              planErrors={this.state.planErrors}
             />
             <div className="row" style={styleRow}>
               <div className="col-md-4">

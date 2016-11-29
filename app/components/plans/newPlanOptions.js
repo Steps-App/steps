@@ -6,7 +6,7 @@ import { StepsTextField, StepsSelectField, StepsMenuItem } from '../material-sty
 // Default weeks for the duration dropdown
 const weeks = [ 4, 6, 8, 12, 18, 26 ];
 
-export default function({ durationOnChange, therapyHandler, notesOnChange, duration, note, therapyFocus }) {
+export default function({ durationOnChange, therapyHandler, notesOnChange, duration, note, therapyFocus, planErrors }) {
 
   // style
   const styleRow = {
@@ -30,6 +30,7 @@ export default function({ durationOnChange, therapyHandler, notesOnChange, durat
           <StepsSelectField
             id="duration"
             floatingLabelText="Duration"
+            errorText={ planErrors.duration }
             maxHeight={200}
             value={duration}
             onChange={durationOnChange}
@@ -45,6 +46,7 @@ export default function({ durationOnChange, therapyHandler, notesOnChange, durat
           <StepsTextField
             hintText="Knee Injury"
             multiLine={true}
+            errorText={ planErrors.therapyFocus }
             onChange={therapyHandler}
             value={therapyFocus}
             floatingLabelText="Therapy Focus"
