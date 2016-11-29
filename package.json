@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Physical Therapy for The Way You Live Today",
   "main": "server/app.js",
-  "engines": { "node": "6.7"},
+  "engines": {
+    "node": "6.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jakepeyser/steps.git"
@@ -31,7 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",

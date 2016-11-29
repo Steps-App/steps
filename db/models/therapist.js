@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt-nodejs')
 const db = require('../db')
 
 // Each therapist requires a first name, last name, email, and password
@@ -62,7 +62,7 @@ function setEmailAndPassword(therapist) {
   therapist.email = therapist.email && therapist.email.toLowerCase()
 
   return new Promise((resolve, reject) =>
-    bcrypt.hash(therapist.get('password'), 10, (err, hash) => {
+    bcrypt.hash(therapist.get('password'), null, null, (err, hash) => {
       if (err) reject(err)
       therapist.set('password_digest', hash)
       resolve(therapist)
