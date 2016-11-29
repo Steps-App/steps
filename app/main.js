@@ -24,6 +24,7 @@ import PatientListContainer from './components/patients/PatientListContainer';
 import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
 import CurrentPlan from './components/plans/CurrentPlan'
+import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
 
 
@@ -67,6 +68,8 @@ const therapistPlanEnter = (nextState) => {
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
+const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
+
 const workoutEnter = (nextState, replace) => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
@@ -81,6 +84,7 @@ render (
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
+        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
