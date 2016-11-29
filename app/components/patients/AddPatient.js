@@ -49,12 +49,12 @@ export default ({ handleChange, handleSubmit, errors }) => (
         errors.submit ?
         <p style={{ color: errorText }}>{ errors.submit }</p> : null
       }
+      <Link id='cancelAdd' to={"/patients"}>
+        <StepsRaisedButton id="cancel"  label="Cancel" type="button" />
+      </Link>
         <StepsRaisedButton
           label="Create"
           type="submit" />
-        <Link to={"/patients"}>
-          <StepsFlatButton id="cancel" fullWidth={true} label="Cancel" type="button" />
-        </Link>
       </div>
     </form>
   </div>

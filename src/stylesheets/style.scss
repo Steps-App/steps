@@ -37,6 +37,11 @@ body,html {
 
   #cancel {
     width: 30vh;
+    background-color : $error-text !important;
+  }
+
+  #cancelAdd {
+    margin-right: 6vh;
   }
 }
 
