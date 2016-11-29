@@ -5,10 +5,13 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 
 //Material UI
-import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter, RaisedButton } from 'material-ui'
+import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui';
+import { StepsRaisedButton } from '../material-style'
+import { secondary } from '../colors'
+import moment from 'moment';
 
-import {createPlan} from '../../reducers/plan';
+import { createPlan } from '../../reducers/plan';
+import { fullName } from '../../utils'
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -54,32 +57,24 @@ export class PlanConfirm extends Component {
          </TableBody>
         </Table>
       </div>
-        <div className="sidepanel" className="col-xs-2" style={{paddingRight: "0px", fontSize: "smaller"}} >
-          <div className="plan-details">
-           <img style={{width: "auto", height: "auto", borderRadius: "50%", paddingBottom: "15px"  }} src={currentPatient.img_URL} />
-           <p><span style={{fontWeight: "bold" }}>Patient Name</span>{`: ${currentPatient.first_name + " " + currentPatient.last_name  }`}</p>
-           <p><span style={{fontWeight: "bold" }}>DOB</span>{`: ${currentPatient.DOB}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Gender</span>{`: ${currentPatient.gender}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Therapy Focus</span>{`: ${plan.therapyFocus}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Duration</span>{`: ${plan.duration}`}</p>
-           <p><span style={{fontWeight: "bold" }}>Notes</span>{`: ${plan.notes}`}</p>
-          </div>
-
-          <RaisedButton
-            label="Confirm"
-            backgroundColor="#005B96"
-            labelStyle={{color: 'white'}}
-            onClick={() => createPlan(this.props.plan)}
-          />
-      <div className="divider" style={{ height:"15px"}} />
-
-          <RaisedButton
+      <div className="sidepanel" className="col-xs-2" style={{paddingRight: "0px", fontSize: "smaller"}} >
+        <div className="plan-details">
+          <img style={{width: "auto", height: "auto", borderRadius: "50%", paddingBottom: "15px"  }} src={currentPatient.img_URL} />
+          <p><span style={{fontWeight: "bold" }}>Patient Name</span>{`: ${ fullName(currentPatient) }`}</p>
+          <p><span style={{fontWeight: "bold" }}>DOB</span>{`: ${moment(currentPatient.DOB).format('MMM Do, YYYY')}`}</p>
+          <p><span style={{fontWeight: "bold" }}>Gender</span>{`: ${currentPatient.gender}`}</p>
+          <p><span style={{fontWeight: "bold" }}>Therapy Focus</span>{`: ${plan.therapyFocus}`}</p>
+          <p><span style={{fontWeight: "bold" }}>Duration</span>{`: ${plan.duration} weeks`}</p>
+          <p><span style={{fontWeight: "bold" }}>Notes</span>{`: ${plan.notes}`}</p>
+        </div>
+        <StepsRaisedButton
+          label="Confirm"
+          onClick={() => createPlan(this.props.plan)} />
+        <div className="divider" style={{ height:"15px"}} />
+          <StepsRaisedButton
             label="Edit"
-            backgroundColor="#8D5300"
-            labelStyle={{color: 'white'}}
-            onClick={() => browserHistory.push(`/patients/${currentPatient.id}/plans/new`)}
-          />
-
+            backgroundColor={ secondary }
+            onClick={() => browserHistory.push(`/patients/${currentPatient.id}/plans/new`)} />
         </div>
       </div>
     )

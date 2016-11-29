@@ -1,18 +1,13 @@
 import React from 'react';
-//material-ui
-import {Paper} from "material-ui";
+import { Paper } from "material-ui";
+import moment from 'moment';
 
-export default function(props){
-
-  let {patient} = props;
-
-//Styles
- const paperStyle = {
-   'padding' : '1em',
-   'textAlign' : 'center'
- };
-
-
+export default ({ patient }) => {
+  //Styles
+  const paperStyle = {
+    'padding' : '1em',
+    'textAlign' : 'center'
+  };
 
   return(
     <Paper style={paperStyle} zDepth={1}>
@@ -22,9 +17,8 @@ export default function(props){
       <div>
         <p>{`First Name : ${patient.first_name}`}</p>
         <p>{`Last Name : ${patient.last_name}`}</p>
-        <p>{`DOB : ${patient.DOB}`} </p>
+        <p>{`DOB : ${moment(patient.DOB).format('MMM Do, YYYY')}`} </p>
       </div>
     </Paper>
   );
-
 }
