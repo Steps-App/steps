@@ -6,6 +6,9 @@ const express = require('express')
 const session = require('express-session')
 const path = require('path')
 const app = express()  // invoke router as 'app'
+const server = require('http').createServer(app)  // for hook-in to socket.io
+const io = require('socket.io')(server)  // socket.io hooked-in
+
 const PATHS = {
   indexHTML: path.join(__dirname, '../public/index.html'),
   public: path.join(__dirname, '../public'),
@@ -50,11 +53,45 @@ app.use((err, req, res, next) => {
 
 // racers, start your engines! (only if not testing w/ Supertest)
 if (!module.parent) {
-  app.listen(PORT, err => {
+  server.listen(PORT, err => {
     if (err) throw err
     console.log(chalk.green(`Server listening on port: ${PORT}`))
   })
 }
 
-// export it, of course
+io.on('connection', (socket) => {
+  console.log('socket connected')
+  // global unique patient-therapist room
+  let room = ''
+
+  socket.on('userEnter', (data) => {
+    // set room to patient_id
+    room = data.room
+    // sent client to that room
+    socket.join(room)
+    let message = `${data.user} has entered the chat`
+    // alert user entry
+    io.to(room).emit('notification', message)
+  })
+
+  socket.on('userLeave', (data) => {
+    let message = `${data.user} has left the chat`
+    // alert user departure
+    io.to(room).emit('notification', message)
+  })
+
+  // alert typing
+  socket.on('typing', (data) => {
+    let message = `${data.user} is typing`
+    io.to(room).emit('notification', message)
+  })
+
+  // workhorse function for all message handling
+  socket.on('newMessage', (data) => {
+    io.to(room).emit('newMessage', data)
+  })
+
+})
+
+// export app and socket.io server
 module.exports = app

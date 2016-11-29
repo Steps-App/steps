@@ -23,6 +23,7 @@ import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
 import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
+import ChatRoom from './components/chat/ChatRoom'
 import CurrentPlan from './components/plans/CurrentPlan'
 import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
@@ -57,6 +58,12 @@ const patientPlanEnter = () => {
     store.dispatch(fetchPatientPlan(store.getState().user.id));
 };
 
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    replace('/plan');
+};
+
 const therapistPlanEnter = (nextState) => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length) {
@@ -89,6 +96,8 @@ render (
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
+        <Route path="/patients/dashboard" component={ PatientDash } />
+        <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
       </Route>
