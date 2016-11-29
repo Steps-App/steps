@@ -1,30 +1,32 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
+
 
 /* -----------------    ACTIONS     ------------------ */
 
 export const RECEIVE_PLAN   = 'RECEIVE_PLAN';
-export const CREATE_PLAN    = 'CREATE_PLAN';
+export const ADD_PLAN       = 'ADD_PLAN';
 export const REMOVE_PLAN    = 'REMOVE_PLAN';
 export const ADDED_WORKOUT  = 'ADDED_WORKOUT';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 //export const receivePlan = plan => ({ type: RECEIVE_PLAN, plan })
-export const createPlan  = plan => ({ type: CREATE_PLAN, plan });
+export const addPlan  = plan => ({ type: ADD_PLAN, plan });
+export const removePlan = () => ({ type: REMOVE_PLAN })
 export const receivePlan  = plan => ({ type: RECEIVE_PLAN, plan });
 export const addedWorkout  = workout => ({ type: ADDED_WORKOUT, workout });
-export const removePlan  = () => ({ type: REMOVE_PLAN });
 
 /* ------------       REDUCER     ------------------ */
 
-const initialPlan = {}
-export default function reducer(currentPlan = initialPlan, action) {
+export default function reducer(currentPlan = {}, action) {
   switch (action.type) {
-    case CREATE_PLAN:
+    case ADD_PLAN:
+      return action.plan;
     case RECEIVE_PLAN:
       return action.plan;
     case REMOVE_PLAN:
-      return initialPlan;
+      return {}
     case ADDED_WORKOUT:
       const treatmentInd = currentPlan.treatments
         .findIndex(treatment => treatment.id === action.workout.treatment_id);
@@ -52,14 +54,12 @@ export const logWorkout = (activity, done) => (dispatch) => {
     });
 }
 
-export const createdPlan = (data, displayErr) => dispatch => {
+export const createPlan = (data, displayErr) => dispatch => {
   axios.post(`/api/patient/${data.patient_id}/plan`, {
-    plan:{duration: data.duration, therapy_focus: data.therapy_focus, notes: data.notes},
-    treatments: data.treatments
-  })
-    .then(res => {
-      dispatch(createPlan(res.data));
+      plan:{duration: data.duration, therapyFocus: data.therapyFocus, notes: data.notes},
+      treatments: data.treatments
     })
+    .then(ok => browserHistory.push('/patients'))
     .catch(err => {
       console.error('Unable to add plan', err);
       displayErr('We experienced an unexpected error while trying to add your plan. Please try again later.');
@@ -69,8 +69,18 @@ export const createdPlan = (data, displayErr) => dispatch => {
 export const fetchPatientPlan = patientId => dispatch => {
   axios.get(`/api/patient/${patientId}/plan/current`)
     .then(res => {
-      if (res.data)
-        dispatch(receivePlan(res.data));
+      if (res.data) {
+        let plan = {
+          duration: res.data.duration,
+          therapyFocus: res.data.therapy_focus,
+          notes: res.data.notes,
+          treatments: res.data.treatments,
+          endDate: res.data.end_date,
+          createdAt: res.data.created_at,
+          patientId: res.data.patient_id
+        }
+        dispatch(receivePlan(plan));
+      }
     })
     .catch(err => console.error('Unable to fetch plan', err));
 };

@@ -1,48 +1,44 @@
 import React from 'react';
 
 //material-ui
-import {SelectField, TextField , MenuItem} from "material-ui";
+import { StepsTextField, StepsSelectField, StepsMenuItem } from '../material-style';
 
-import {StepsTextField} from '../material-style';
+// Default weeks for the duration dropdown
+const weeks = [ 4, 6, 8, 12, 18, 26 ];
 
-export default function(props){
-  let { durationOnChange, therapyHandler, notesOnChange, duration, note, therapy_focus } = props;
+export default function({ durationOnChange, therapyHandler, notesOnChange, duration, note, therapyFocus }) {
 
-// style
- const styleRow = {
-   'display' : 'flex',
-   'marginTop' : '1em'
+  // style
+  const styleRow = {
+    'display' : 'flex',
+    'marginTop' : '1em'
+  };
 
- };
+  const durationStyle = {
+    'width' :'250px',
+    'marginRight' : '2em'
+  };
 
- const durationStyle = {
-     'width' :'250px',
-     'marginRight' : '2em'
- };
-
- const injuryStyle = {
-   'width' :'250px',
-   'marginRight' : '2em'
- };
-
+  const injuryStyle = {
+    'width' :'250px',
+    'marginRight' : '2em'
+  };
 
   return (
     <div className='row' style={styleRow} id='plan-options'>
       <div className='col-md-4' >
-          <SelectField id="duration"
+          <StepsSelectField
+            id="duration"
             floatingLabelText="Duration"
             maxHeight={200}
             value={duration}
             onChange={durationOnChange}
             style={durationStyle}
           >
-              <MenuItem value={4} primaryText="4 Weeks"/>
-              <MenuItem value={6} primaryText="6 Weeks"/>
-              <MenuItem value={8} primaryText="8 Weeks"/>
-              <MenuItem value={12} primaryText="12 Weeks"/>
-              <MenuItem value={18} primaryText="18 Weeks"/>
-              <MenuItem value={26} primaryText="26 Weeks"/>
-          </SelectField>
+          {
+            weeks.map(week => <StepsMenuItem value={week} primaryText={`${week} Weeks`}/>)
+          }
+          </StepsSelectField>
         </div>
 
         <div className='col-md-4'>
@@ -50,7 +46,7 @@ export default function(props){
             hintText="Knee Injury"
             multiLine={true}
             onChange={therapyHandler}
-            value={therapy_focus}
+            value={therapyFocus}
             floatingLabelText="Therapy Focus"
           />
         </div>

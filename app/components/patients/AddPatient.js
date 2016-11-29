@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { StepsTextField, StepsRaisedButton } from '../material-style'
+import { StepsTextField, StepsRaisedButton, StepsFlatButton } from '../material-style'
 import { errorText } from '../colors'
 
 export default ({ handleChange, handleSubmit, errors }) => (
   <div id="new-patient">
     <Helmet title="New Patient" />
+    <h1 className="page-header">Add Patient</h1>
     <form className="new-patient-form" onSubmit={ handleSubmit }>
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
@@ -44,13 +45,16 @@ export default ({ handleChange, handleSubmit, errors }) => (
         </div>
       </div>
       <div style={{ textAlign: 'center' }}>
+      {
+        errors.submit ?
+        <p style={{ color: errorText }}>{ errors.submit }</p> : null
+      }
+      <Link id='cancelAdd' to={"/patients"}>
+        <StepsRaisedButton id="cancel"  label="Cancel" type="button" />
+      </Link>
         <StepsRaisedButton
           label="Create"
           type="submit" />
-        {
-          errors.submit ?
-            <p style={{ color: errorText }}>{ errors.submit }</p> : null
-        }
       </div>
     </form>
   </div>

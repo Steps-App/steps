@@ -1,4 +1,5 @@
-import { PATIENT, THERAPIST } from './constants.js'
+import { PATIENT, THERAPIST } from './constants.js';
+import moment from 'moment';
 
 // Check whether script is being run in browser or Node
 export const isBrowser = () => {
@@ -11,6 +12,20 @@ export const isBrowser = () => {
 
 // Return formatted full name of user
 export const fullName = user => `${user.first_name} ${user.last_name}`;
+
+// Returns the number of days between the input dates
+export const daysBetween = (start, end) => {
+  const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+  return Math.round(Math.abs((start.getTime() - end.getTime())/(oneDay)));
+}
+
+// Retrieves today's completed workout from the input treatment
+// Returns undefined when no workout for today
+export const getCompletedWorkout = workouts => {
+  return workouts && workouts.find(workout =>
+    moment(workout.created_at).format('MM/DD/YYYY') === moment().format('MM/DD/YYYY')
+  );
+}
 
 // Redirect page for logged in user based on role
 export const loginRedirect = role => {

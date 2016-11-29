@@ -17,13 +17,17 @@ import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import newPlansContainer from './components/plans/newPlanContainer';
+import PlanConfirmContainer from './components/plans/PlanConfirmContainer';
 import Plan from './components/plan/PatientPlan';
 import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
-import PatientDash from './components/patients/PatientDash';
+import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
 import ChatRoom from './components/chat/ChatRoom'
+import CurrentPlan from './components/plans/CurrentPlan'
+import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
+
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
@@ -41,7 +45,7 @@ const appEnter = (nextState, replace, callback) => {
 const newPlanEnter = (nextState, replace) => {
   // Check if patientId matches a patient on State, grab exercises for the therapist
   // otherwise, redirect to /patients
-  if (store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
+  if(store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
     store.dispatch(fetchExercises(store.getState().user.id));
     store.dispatch(fetchCurrentPatient(nextState.params.patientId));
   } else replace('/patients');
@@ -60,8 +64,24 @@ const workoutEnter = (nextState, replace) => {
     replace('/plan');
 };
 
+const therapistPlanEnter = (nextState) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length) {
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId))
+    store.dispatch(fetchPatientPlan(nextState.params.patientId))
+    store.dispatch(fetchExercises(store.getState().user.id))
+  }
+};
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
+
+const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
+
+const workoutEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
+    replace('/plan');
+};
 
 render (
   <Provider store={ store }>
@@ -71,15 +91,17 @@ render (
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
+        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
+        <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ PatientDash } />
         <Route path="/messages" component={ ChatRoom } />
+        <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
+        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
       </Route>
     </Router>
   </Provider>,
   document.getElementById('app')
 );
-
-{/* <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} /> */}

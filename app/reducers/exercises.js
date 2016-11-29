@@ -4,11 +4,13 @@ import axios from 'axios';
 
 export const RECEIVED_EXERCISES    = 'RECEIVED_EXERCISES'
 export const REMOVE_EXERCISES      = 'REMOVE_EXERCISES'
+export const REMOVE_ONE_EXERCISE   = 'REMOVE_ONE_EXERCISE'
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 export const receivedExercises = exercises => ({ type: RECEIVED_EXERCISES, exercises })
 export const removeExercises = () => ({ type: REMOVE_EXERCISES })
+export const removeOneExercise = (id) => ({ type: REMOVE_ONE_EXERCISE, id })
 
 /* ------------       REDUCER     ------------------ */
 
@@ -19,6 +21,8 @@ export default function reducer(currentExercises = initialExercises, action) {
       return action.exercises;
     case REMOVE_EXERCISES:
       return initialExercises;
+    case REMOVE_ONE_EXERCISE:
+      return currentExercises.filter(exercise => exercise.id !== action.id)
     default:
       return currentExercises;
   }
@@ -33,3 +37,14 @@ export const fetchExercises = therapistId => dispatch => {
       console.error('Unable to retrieve exercises', err);
     });
 };
+
+//this delete route does not exist 
+
+export const deleteExercise = (id) => dispatch => {
+  axios.delete(`/api/therapist/${therapistId}/exercises/${id}`)
+    .then(ok => {
+      dispatch(removeOneExercise(id))
+      browserHistory.push('/exercises')
+    })
+    .catch(err => console.error(err))
+}

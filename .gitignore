@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 .env
+*.log
+
 
 # Webpack bundles
 public/

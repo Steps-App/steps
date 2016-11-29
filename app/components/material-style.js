@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
-import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText } from './colors'
+import { TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
 
 // Shared styles
 const tabsBorderRadius = '4px';
@@ -29,11 +29,27 @@ export const StepsTextField = props => (
   />
 );
 
+// Regular dropdown list
+export const StepsSelectField = props => (
+  <SelectField
+    labelStyle={{ color: textDark }}
+    floatingLabelStyle={{ color: placeholderText, fontWeight: '500' }}
+    iconStyle={{fill: placeholderText}}
+    underlineStyle={{ borderBottomColor: placeholderText }}
+    underlineDisabledStyle={{ borderBottomColor: disabled }}
+    underlineFocusStyle={{ borderBottomColor: activeInputLabels }}
+    errorStyle={{ color: errorText }}
+    maxHeight={200}
+    { ...props } >
+    { props.children }
+  </SelectField>
+);
+
 // Primary button for submitting/confirming data
 export const StepsRaisedButton = props => (
   <RaisedButton
-    backgroundColor={primary}
-    labelColor={textLight}
+    backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
+    labelColor={ textLight }
     style={{ marginTop: '.5em', marginBottom: '.5em', width: '25%' }}
     disableFocusRipple={ true }
     disableTouchRipple={ true }
@@ -49,6 +65,7 @@ export const StepsFlatButton = props => (
     hoverColor={ props.backgroundColor }
     disableFocusRipple={ true }
     disableTouchRipple={ true }
+    { ...props}
   />
 );
 
@@ -85,8 +102,8 @@ export const StepsMenu = props => (
   </Menu>
 )
 
-// Menu item for popovers
-export const StepsPopoverMenuItem = props => (
+// Menu item children of Menu
+export const StepsMenuItem = props => (
   <MenuItem
     style={{ minHeight: '20px', lineHeight: '20px', padding: '10px 5px' }}
     disableFocusRipple={ true }

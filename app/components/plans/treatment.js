@@ -2,19 +2,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 //material-ui
-import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton, SelectField, MenuItem} from 'material-ui';
+import {TableHeader,TableRowColumn,TableRow,Table, TableBody, FloatingActionButton} from 'material-ui';
+import { StepsTextField, StepsSelectField, StepsMenuItem } from '../material-style';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {StepsTextField} from '../material-style';
 
 export default (props) => {
 
-  const { exercise, treatment, addTreatment, treatmentHandler } = props;
-  const items = [
-  <MenuItem key={1} value={'none'} primaryText="None" />,
-  <MenuItem key={2} value={'weighted'} primaryText="Weighted" />
-  ];
-
-
+  const { exercise, treatment, addTreatment, resistanceOnChange, treatmentHandler } = props;
 
   return (
     <div className="row">
@@ -49,27 +43,31 @@ export default (props) => {
                   floatingLabelText="Sets"
                   type="number"
                   value={treatment.sets}
+                  fullWidth={true}
                   onChange={(env) => treatmentHandler('sets', env.target.value)}/>
                 <br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
                   value={treatment.reps}
-                  onChange={(env) => treatmentHandler('reps', env.target.value)}/>
-                <br/>
-                <SelectField
+                  fullWidth={true}
+                  onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
+                <StepsSelectField
                   floatingLabelFixed={true}
-                  floatingLabelText="Resistance : lbs"
+                  floatingLabelText="Resistance"
                   value={treatment.resistance}
-                  onChange={(e,idx,val) =>treatmentHandler('resistance', val)}>
-                  {items}
-                </SelectField>
-                <br/>
+                  fullWidth={true}
+                  onChange={resistanceOnChange}
+                >
+                  <StepsMenuItem value='weighted' primaryText='Weighted'/>
+                  <StepsMenuItem value='none' primaryText='None' />
+                </StepsSelectField><br/>
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"
                   type="number"
                   value={treatment.time_per_exercise}
+                  fullWidth={true}
                   onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)}/>
                 <br/>
               </TableRowColumn>

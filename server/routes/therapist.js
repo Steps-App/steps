@@ -8,6 +8,11 @@ const therapistModel  = db.model('therapist')
 const patientModel  = db.model('patient')
 const exerciseModel  = db.model('exercise')
 
+// email helpers
+const EmailTemplate = require('email-templates').EmailTemplate;
+const utils = require('../utils');
+const path = require('path');
+
 // dummy data
 const patientData = require('../../db/Seed/patientSeed.json')
 
@@ -94,7 +99,30 @@ therapistRoutes.post('/:id/patients', (req, res, next) => {
     email: req.body.email,
     DOB, gender, img_URL // random seed data!
   })
-    .then(patient => res.send(patient))
+    .then(patient => {
+
+      if (!process.env.SENDGRID_API_KEY) res.status(201).send(patient);
+
+      // Send welcome email to the new patient
+      const welcome = new EmailTemplate(path.resolve(__dirname, '..', 'email_templates', 'patient_welcome'))
+      welcome.render({
+        first_name: patient.first_name,
+        password: patient.password
+      })
+      .then( renderedEmail => {
+        utils.sendEmail(
+          process.env.EMAIL, 								// sender
+          patient.email,										// recipient
+          `Welcome to Steps!`,		          // subject
+          renderedEmail.html,					      // html message
+          "text/html",                      // type
+          (statusCode, err) => {
+            if (err) return next(err);
+            res.status(201).send(patient);
+          }
+        );
+      })
+    })
     .catch(next);
 })
 

@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 30 37.5" xml:space="preserve"><g transform="translate(-450 -200)"><g xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="452,214 451,214 451,216 452,216 452,219 455,219 455,211 452,211   "/><polygon points="470,214 460,214 460,208 456,208 456,222 460,222 460,216 470,216 470,222 474,222 474,208 470,208   "/><polygon points="478,214 478,211 475,211 475,219 478,219 478,216 479,216 479,214   "/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="14px" viewBox="0 0 28 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#000000">
+            <polygon id="Shape" points="1 6 0 6 0 8 1 8 1 11 4 11 4 3 1 3"></polygon>
+            <polygon id="Shape" points="19 6 9 6 9 0 5 0 5 14 9 14 9 8 19 8 19 14 23 14 23 0 19 0"></polygon>
+            <polygon id="Shape" points="27 6 27 3 24 3 24 11 27 11 27 8 28 8 28 6"></polygon>
+        </g>
+    </g>
+</svg>

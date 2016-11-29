@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const tools = require('./libs/webpack.tools');
@@ -10,13 +11,14 @@ const path = require('path');
 const PATHS = {
   app: path.join(__dirname, 'app', 'main.js'),
   build: path.join(__dirname, 'public'),
+  logo: path.join(__dirname, 'src/images/logo.png'),
   stylesheets: path.join(__dirname, 'src/stylesheets', 'style.scss'),
   html_template: path.join(__dirname, '/src/index.html')
 };
 
 // Vendor dependencies, isolated for chunking
 const vendorDependencies = [
-  'axios', 'moment', 'material-ui',
+  'axios', 'moment', 'material-ui', 'recharts', 'randomcolor',
   'react', 'react-dom', 'react-router', 'react-helmet', 'react-tap-event-plugin',
   'redux', 'react-redux', 'redux-logger', 'redux-thunk'
 ]
@@ -45,6 +47,10 @@ const common = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+    new FaviconsWebpackPlugin({
+      logo: PATHS.logo,
+      emitStats: false
     }),
     new HtmlWebpackPlugin(htmlTemplate)
   ],
