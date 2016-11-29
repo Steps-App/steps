@@ -9,10 +9,13 @@ export default (props) => {
       <ul id='messages'>
           { messages.map((message, idx) => {
             return (
-              <li key={ idx } className={`chat-border ${message.align}`}>
-                <strong>{ message.user }: </strong>
-                <span>{ message.text }</span>
-              </li>
+              <div key={idx}>
+                <li className={`chat-border ${message.align}`}>
+                  <strong>{ message.user }: </strong>
+                  <span>{ message.text }</span>
+                </li>
+                <li className='clear'></li>
+              </div>
             )
           })}
       </ul>

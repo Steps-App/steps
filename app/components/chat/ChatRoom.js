@@ -33,7 +33,7 @@ export class ChatRoom extends Component {
   }
 
   componentDidMount() {
-    this.socket = io.connect(`localhost:8080/${this.room}`) // init socket
+    this.socket = io.connect() // init socket
     this.socket.emit('userEnter', { room: this.room, user: this.state.user })
     this.socket.on('newMessage', this.onMessageReceived)
   }
@@ -43,10 +43,19 @@ export class ChatRoom extends Component {
   }
 
   onMessageReceived(data) {
-    let message = {
-      user: data.user,
-      text: data.text,
-      align: 'right'
+    let message = {}
+    if (data.user === this.state.user) {
+      message = {
+        user: data.user,
+        text: data.text,
+        align: 'left'
+      }
+    } else {
+      message = {
+        user: data.user,
+        text: data.text,
+        align: 'right'
+      }
     }
     this.setState({ messages: [...this.state.messages, message] })
   }
@@ -56,10 +65,7 @@ export class ChatRoom extends Component {
     let message = {
       user: this.state.user,
       text: this.state.message,
-      align: 'left'
     }
-    // add message to local state
-    this.setState({ messages: [...this.state.messages, message] })
     // broadcast the message
     this.socket.emit('newMessage', message)
      // wipe clean the message prop

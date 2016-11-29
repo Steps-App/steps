@@ -63,25 +63,24 @@ io.on('connection', (socket) => {
 
   console.log('socket connected')
 
-  let room = ''
-
   socket.on('userEnter', (data) => {
-    room = data.room
-    socket.join(room)
-    console.log(`${data.user} joined ${room}`)
-    io.in(room).emit(`${data.user} joined`, data)
+    let message = {
+      user: data.user,
+      text: 'is entering the chat'
+    }
+    io.emit('newMessage', message)
   })
 
   socket.on('userLeave', (data) => {
-    let room = data.room
-    socket.leave(room)
-    console.log(`${data.user} left ${room}`)
-    io.in(room).emit(`${data.user} left`, data)
+    let message = {
+      user: data.user,
+      text: 'has left the chat'
+    }
+    io.emit('newMessage', message)
   })
 
   socket.on('newMessage', (data) => {
-    console.log(`message sent: ${data}`)
-    io.in(room).emit(data)
+    io.emit('newMessage', data)
   })
 
 })

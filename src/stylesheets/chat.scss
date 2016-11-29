@@ -27,8 +27,7 @@
 
 .chat-border {
   background: #fff;
-  border: 3px solid #5a8f00;
-  color:#333;
+  color: #333;
   margin: 5px;
   padding: 15px;
   position: relative;
@@ -39,9 +38,16 @@
 }
 
 .left {
+  border: 3px solid #5a8f00;
   text-align: left;
 }
 
 .right {
+  border: 3px solid #0000ff;
+  float: right;
   text-align: right;
+}
+
+.clear {
+  clear: both;
 }
