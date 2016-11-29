@@ -77,12 +77,6 @@ const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().us
 
 const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
 
-const workoutEnter = (nextState, replace) => {
-  const curPlan = store.getState().plan;
-  if (!Object.keys(curPlan).length || !curPlan.treatments.find(treatment => treatment.id == nextState.params.treatmentId))
-    replace('/plan');
-};
-
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
