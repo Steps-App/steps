@@ -34,7 +34,9 @@ const initialState = {
   notes : "",
   selectedExercise : {},
   treatment: initialTreatment,
-  treatments : []
+  treatments : [],
+  treatmentErrors: {},
+  planErrors: {}
 };
 
 //=======  Component==========
@@ -48,7 +50,7 @@ export default class newPlan extends React.Component{
       notes: this.props.plan.notes,
       selectedExercise: {},
       treatment: initialTreatment,
-      treatments: this.props.plan.treatments
+      treatments: this.props.plan.treatments,
     } : initialState
 
     this.durationOnChange = this.durationOnChange.bind(this);
@@ -74,46 +76,70 @@ export default class newPlan extends React.Component{
 
 //onchange handler for PlanNotes
   notesOnChange(evt) {
-    this.setState({notes : evt.target.value});
+    this.setState({ notes : evt.target.value});
   }
 // Treatment Handlers
 // handle change to this.state.exercise
   exerciseOnChange(evt, idx) {
     this.setState({ selectedExercise: this.props.exercises[idx] });
   }
-
+// handle change to resistance selector
   resistanceOnChange(evt, idx, value) {
-    let newTreatment = Object.assign({}, this.state.treatment, {resistance: value})
-    this.setState({ treatment: newTreatment })
+    let newProperty = Object.assign({}, this.state.treatment, {resistance: value})
+    this.setState({ treatment: newProperty })
   }
 
 // Handler for this.state.treatments // all states within
   treatmentHandler(field, value) {
-    let newProperties = {[field] : value} ;
-    let newTreatment = Object.assign({},this.state.treatment, newProperties); //merges old state with changes
+    let newProperty = {[field] : value}
+    if (this.state.treatmentErrors[field]) {     // if a validation error exists for the field
+      let newErrors = this.state.treatmentErrors   // create a temporary holder for all errors
+      delete newErrors[field]             // delete this field's error from that holder
+      newProperty.treatmentErrors = newErrors    // add the other errors to the new field object
+    }
+    let newTreatment = Object.assign({}, this.state.treatment, newProperty); //merges old state with changes
     this.setState( { treatment : newTreatment});
+  }
+
+  // Ensure the proper form fields are valid
+  treatmentValidate() {
+    let errs = {};
+    if (!this.state.treatment.time_per_exercise) errs.time_per_exercise = 'This field is required';
+    if (!this.state.treatment.reps) errs.reps = 'This field is required';
+    if (!this.state.treatment.sets) errs.sets = 'This field is required';
+    if (!this.state.treatment.resistance) errs.resistance = 'This field is required';
+    if (!this.state.treatment.notes) errs.notes = 'This field is required';
+    if (!this.state.selectedExercise.id) = 'This field is required'
+    return errs;
   }
 
 // ======= addNewTreatment Button==========
   addNewTreatment() {
-    let treatment = {
-      time_per_exercise: this.state.treatment.time_per_exercise,
-      reps: this.state.treatment.reps,
-      sets: this.state.treatment.sets,
-      resistance: this.state.treatment.resistance,
-      notes: this.state.treatment.notes,
-      exercise_id: this.state.selectedExercise.id,
-      patient_id: this.props.currentPatient.id
-    };
+    const errs = this.treatmentValidate();  // validate fields
+    this.setState({ treatmentErrors: errs })  // add to state
 
-    if (this.state.treatments.length === 0) {
-      this.setState({ treatments: [treatment] });
+    if (!Object.keys(errs).length) {  // if no errors, create treatment
+      let treatment = {
+        time_per_exercise: this.state.treatment.time_per_exercise,
+        reps: this.state.treatment.reps,
+        sets: this.state.treatment.sets,
+        resistance: this.state.treatment.resistance,
+        notes: this.state.treatment.notes,
+        exercise_id: this.state.selectedExercise.id,
+        patient_id: this.props.currentPatient.id
+      }
+
+      if (this.state.treatments.length === 0) {  // if first treatment
+        this.setState({ treatments: [treatment] });
+      } else {
+        let newTreatmentArray = this.state.treatments.concat(treatment); // if not
+        this.setState({ treatments : newTreatmentArray});
+      }
+      this.setState({ treatment: initialTreatment }); //resets treatment form
+      this.setState({ selectedExercise: {} }); // clears this.state.selectedExercise
     } else {
-      let newTreatmentArray = this.state.treatments.concat(treatment);
-      this.setState({ treatments : newTreatmentArray});
+      console.log(errs) // if errors, console.log instead of creating treatment
     }
-    this.setState({ treatment: initialTreatment }); //resets treatment form
-    this.setState({ selectedExercise: {} }); // clears this.state.selectedExercise
   }
 
 // ======= removeTreatment =======
