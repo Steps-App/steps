@@ -15,6 +15,8 @@ import { Paper } from 'material-ui'
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
+const PLACEHOLDER = '\xa0'  // to hold uniform height in notifications display
+
 export class ChatRoom extends Component {
 
   constructor(props) {
@@ -89,7 +91,7 @@ export class ChatRoom extends Component {
 
   onNotification(data) {
     this.setState({ notifications: data })
-    setTimeout(() => this.setState({ notifications: '\xa0' }), 4000)
+    setTimeout(() => this.setState({ notifications: PLACEHOLDER }), 4000)
   }
 
   render() {
