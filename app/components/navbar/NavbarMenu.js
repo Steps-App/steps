@@ -12,6 +12,7 @@ import { StepsMenu, StepsMenuItem } from '../material-style'
 
 const navbarTabs = [
   {type: 'patients', role: THERAPIST},
+  {type: 'plan', role: PATIENT},
   {type: 'dashboard'},
   {type: 'exercises', role: THERAPIST},
   {type: 'messages'}
