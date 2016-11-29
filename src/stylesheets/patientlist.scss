@@ -1,1 +1,28 @@
 @import "colors";
+
+
+
+
+.addptbutton {
+  text-align: end;
+  margin-bottom: 10px;
+}
+
+#iconPtRow {
+  text-align: center;
+}
+
+.tile{
+  border: 1px solid black;
+  padding : 1vh;
+  text-align: -webkit-center;
+
+  .col {
+    display: center;
+  }
+
+}
+
+.removeBadge {
+  padding:  1vh 2vh 2vh 4vh !important;
+}
