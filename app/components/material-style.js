@@ -48,8 +48,8 @@ export const StepsSelectField = props => (
 // Primary button for submitting/confirming data
 export const StepsRaisedButton = props => (
   <RaisedButton
-    backgroundColor={primary}
-    labelColor={textLight}
+    backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
+    labelColor={ textLight }
     style={{ marginTop: '.5em', marginBottom: '.5em', width: '25%' }}
     disableFocusRipple={ true }
     disableTouchRipple={ true }

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 
-//Material UI
-import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter, RaisedButton } from 'material-ui'
+//Material UI and additional libs
+import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui';
+import moment from 'moment';
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -24,16 +24,10 @@ export class CurrentPlan extends Component {
     return (
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Current Patient Plan" />
-        <h1>Current Patient Plan</h1>
+        <h1 className="page-header">Current Patient Plan</h1>
 
         <div id="treatmentsfinal" className="col-xs-10">
         <Table style={{backgroundColor:'none'}}>
-          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow>
-              <TableHeaderColumn></TableHeaderColumn>
-              <TableHeaderColumn></TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
           <TableBody displayRowCheckbox={false}>
           {
             plan.treatments && plan.treatments.map( treatment => {
@@ -54,7 +48,7 @@ export class CurrentPlan extends Component {
                     </TableRowColumn>
                 </TableRow>
               )
-           })
+            })
           }
          </TableBody>
         </Table>
@@ -63,7 +57,7 @@ export class CurrentPlan extends Component {
           <div className="plan-details">
            <img style={{width: "auto", height: "auto", borderRadius: "50%", paddingBottom: "15px"  }} src={currentPatient.img_URL} />
            <p><span style={{fontWeight: "bold" }}>Patient Name</span>{`: ${currentPatient.first_name + " " + currentPatient.last_name  }`}</p>
-           <p><span style={{fontWeight: "bold" }}>DOB</span>{`: ${currentPatient.DOB}`}</p>
+           <p><span style={{fontWeight: "bold" }}>DOB</span>{`: ${moment(currentPatient.DOB).format('MMM Do, YYYY')}`}</p>
            <p><span style={{fontWeight: "bold" }}>Gender</span>{`: ${currentPatient.gender}`}</p>
            <p><span style={{fontWeight: "bold" }}>Therapy Focus</span>{`: ${plan.therapyFocus}`}</p>
            <p><span style={{fontWeight: "bold" }}>Duration</span>{`: ${plan.duration}`}</p>
