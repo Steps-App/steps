@@ -11,3 +11,11 @@ export const activeInputLabels = '#005B96';
 export const errorText = '#D9534F';
 export const textLight = '#FFFFFF';
 export const textDark = '#000000';
+
+// MuiTheme to be used by the entire app
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+export const muiTheme = getMuiTheme({}, {
+  menuItem: {
+    selectedTextColor: active,
+  }
+});
