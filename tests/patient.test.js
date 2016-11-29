@@ -1,7 +1,7 @@
 import chai from 'chai'
 const expect = chai.expect
 import chalk from 'chalk'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt-nodejs'
 
 import db from '../db'
 import Patient from '../db/models/patient'
