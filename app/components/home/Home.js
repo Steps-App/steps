@@ -10,7 +10,7 @@ import {Paper} from 'material-ui';
 import Signin from './Signin'
 
 //About us
-const defaultPix = require('../../../src/images/defaultProfile.png');
+const defaultPix = '../../../src/images/defaultProfile.png';
 
 const navbarLinks = {
   about: 'About Us',
