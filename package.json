@@ -72,6 +72,7 @@
     "css-loader": "^0.25.x",
     "enzyme": "^2.6.0",
     "extract-text-webpack-plugin": "^1.0.x",
+    "favicons-webpack-plugin": "0.0.7",
     "file-loader": "^0.9.x",
     "html-webpack-plugin": "^2.24.x",
     "json-loader": "^0.5.4",
