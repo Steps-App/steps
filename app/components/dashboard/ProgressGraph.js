@@ -72,7 +72,6 @@ const CustomizedDateTick = ({ x, y, stroke, payload }) => (
 );
 
 const CustomizedDot = ({ cx, cy, payload, label }) => {
-  console.log(payload)
   switch(payload[label]) {
     case 1:
       return (
@@ -99,18 +98,15 @@ const CustomizedDot = ({ cx, cy, payload, label }) => {
   }
 };
 
-const PainLabel = (props) => {
-  console.log(props)
-  return (
-    <g className="recharts-cartesian-axis-label">
-      <text width={props.width} height={props.height} transform="rotate(-90)" x={props.x} y={props.y} className="recharts-text" fontSize="18px">
-        <tspan x={-(height/2)} dy="0em">
-          Pain
-        </tspan>
-      </text>
-    </g>
-  )
-};
+const PainLabel = (props) => (
+  <g className="recharts-cartesian-axis-label">
+    <text width={props.width} height={props.height} transform="rotate(-90)" x={props.x} y={props.y} className="recharts-text" fontSize="18px">
+      <tspan x={-(height/2)} dy="0em">
+        Pain
+      </tspan>
+    </text>
+  </g>
+);
 
 export default ({ treatments }) => (
   <LineChart className= "progress-graph" width={width} height={height} data={fakeData(treatments)}

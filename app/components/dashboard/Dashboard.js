@@ -14,11 +14,10 @@ const Dashboard = ({ user, plan }) => {
   if (!Object.keys(plan).length) return null;
   // TODO: Complete dashboard for therapist -> for now, just return null
   if (user.role === 'therapist') return null;
-
   const workoutsToGo = plan.treatments.reduce((remaining, treatment) => {
     return getCompletedWorkout(treatment.workouts) ? remaining : remaining + 1;
   }, 0);
-  const daysToGo = daysBetween(new Date(), new Date(plan.end_date));
+  const daysToGo = daysBetween(new Date(), new Date(plan.endDate));
   
   return (
     <div id="dashboard">
