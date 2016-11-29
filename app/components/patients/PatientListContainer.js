@@ -28,7 +28,7 @@ export class PatientList extends Component {
         <Helmet title="Patients" />
         <h1>Patient List</h1>
         <Link to="/patients/new">
-          <RaisedButton
+          <StepsRaisedButton
             label="Add Patient"
             backgroundColor="#005B96"
             labelStyle={{color: 'white'}}
@@ -55,19 +55,19 @@ export class PatientList extends Component {
                   </TableRowColumn>
                   <TableRowColumn style={{ width: '10px' }}>{ patient.gender }</TableRowColumn>
                   <TableRowColumn>
-                    <RaisedButton
+                    <StepsRaisedButton
                       label="Current Plan"
                       backgroundColor="#005B96"
                       labelStyle={{color: 'white'}}
                       onClick={() => browserHistory.push(`/patients/${patient.id}/plans/current`)}
                     />
-                    <RaisedButton
+                    <StepsRaisedButton
                       label="New Plan"
                       backgroundColor="#009900"
                       labelStyle={{color: 'white'}}
                       onClick={() => browserHistory.push(`/patients/${patient.id}/plans/new`)}
                     />
-                    <RaisedButton
+                    <StepsRaisedButton
                       label="Delete Patient"
                       backgroundColor="#ff0000"
                       labelStyle={{color: 'white'}}
