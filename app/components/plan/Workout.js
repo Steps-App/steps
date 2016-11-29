@@ -37,7 +37,7 @@ export default ({ treatment, workoutFn, num }) => {
             {/* TODO: Currently defaulting to pain level 3 when no input -> need real default */}
             {
               completedWorkout.pain ?
-                <img src={`/public/images/emojis/${completedWorkout.pain}pain.svg`} /> :
+                <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
                 <FontIcon className={'material-icons'}>check</FontIcon>
             }
           </StepsActionButton> :

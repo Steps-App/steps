@@ -140,7 +140,7 @@ class Counter extends Component {
                   tooltip={`${painLevels[key]} Pain`}
                   tooltipPosition="bottom-center"
                   onTouchTap={ () => this.onPainClick(key) } >
-                  <img src={`/public/images/emojis/${key}pain.svg`} />
+                  <img src={require(`../../../src/images/emojis/${key}pain.svg`)} />
                 </StepsIconButton>
               ))
             }
