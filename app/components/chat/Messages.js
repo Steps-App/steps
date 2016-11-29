@@ -5,8 +5,8 @@ export default (props) => {
   const { messages } = props
 
   return (
-    <div className='row'>
-      <ul id='messages'>
+    <div>
+        <ul id='messages'>
           { messages.map((message, idx) => {
             return (
               <div key={idx}>
@@ -18,7 +18,7 @@ export default (props) => {
               </div>
             )
           })}
-      </ul>
+        </ul>
     </div>
   )
 }

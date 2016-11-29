@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import Helmet from 'react-helmet'
+import Notification from './Notification'
 import Messages from './Messages'
 import Messenger from './Messenger'
 
@@ -21,7 +23,8 @@ export class ChatRoom extends Component {
     this.state = {
       user: this.props.user.first_name + ' ' + this.props.user.last_name,
       messages: [],
-      message: ''
+      message: '',
+      notifications: '\xa0'
     }
     // pick a unique room for the therapist-patient chat based on patient id
     this.room = this.props.user.role === 'patient' ?
@@ -30,15 +33,21 @@ export class ChatRoom extends Component {
     this.onMessageReceived = this.onMessageReceived.bind(this)
     this.onMessageSent = this.onMessageSent.bind(this)
     this.onMessageChange = this.onMessageChange.bind(this)
+    this.onNotification = this.onNotification.bind(this)
   }
 
   componentDidMount() {
-    this.socket = io.connect() // init socket
+    // initialize client socket
+    this.socket = io.connect()
+    // let server know the room to 'speak' in and that a user has entered that room
     this.socket.emit('userEnter', { room: this.room, user: this.state.user })
+    // workhorse function on client side for message handling
     this.socket.on('newMessage', this.onMessageReceived)
+    this.socket.on('notification', this.onNotification)
   }
 
   componentWillUnmount() {
+    // notify departure on chat close
     this.socket.emit('userLeave', { room: this.room, user: this.state.user })
   }
 
@@ -48,15 +57,16 @@ export class ChatRoom extends Component {
       message = {
         user: data.user,
         text: data.text,
-        align: 'left'
+        align: 'right'   // messages from you are green and on the right
       }
     } else {
       message = {
         user: data.user,
         text: data.text,
-        align: 'right'
+        align: 'left'   // messages from chat partner are blue and on the left
       }
     }
+    // put message on the local state for rendering
     this.setState({ messages: [...this.state.messages, message] })
   }
 
@@ -74,6 +84,12 @@ export class ChatRoom extends Component {
 
   onMessageChange(evt) {
     this.setState({ message: evt.target.value })
+    this.socket.emit('typing', { user: this.state.user })
+  }
+
+  onNotification(data) {
+    this.setState({ notifications: data })
+    setTimeout(() => this.setState({ notifications: '\xa0' }), 4000)
   }
 
   render() {
@@ -81,7 +97,8 @@ export class ChatRoom extends Component {
     return (
       <div className='container chat'>
       <Helmet title='Therapist messaging' />
-        <Paper className='col-sm-12 col-md-6 col-md-offset-3'>
+        <Paper className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'>
+          <Notification notifications={ this.state.notifications } />
           <Messages messages={ this.state.messages } />
           <Messenger
             message={ this.state.message }

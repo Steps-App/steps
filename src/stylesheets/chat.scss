@@ -1,5 +1,6 @@
-#chat {
-  margin: 0 auto;
+.chat {
+  margin: 0;
+  width: 100%
 }
 
 #messages {
@@ -7,31 +8,37 @@
   list-style-type: none;
   margin: 0;
   overflow: scroll;
-  padding: 20px;
+  padding: 10px;
 }
+
 #messages li {
-  padding: 5px 10px;
   width: 75%;
 }
 
 #messenger input {
-  width: 80%;
+  margin-left: 5px;
+  margin-right: 2px;
+  width: 78%;
 }
+
 #messenger form {
   bottom: 0;
   background: #011f4b;
   width: 100%;
 }
 
-// Chat Bubble CSS adapted from a design by Nicolas Gallagher (http://nicolasgallagher.com/)
+#notifications {
+  display: block;
+  height: 30px;
+  width: 100%;
+}
 
 .chat-border {
   background: #fff;
   color: #333;
   margin: 5px;
-  padding: 15px;
+  padding: 5px;
   position: relative;
-  /* css3 */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;

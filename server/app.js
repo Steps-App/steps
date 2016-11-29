@@ -60,27 +60,35 @@ if (!module.parent) {
 }
 
 io.on('connection', (socket) => {
-
   console.log('socket connected')
+  // global unique patient-therapist room
+  let room = ''
 
   socket.on('userEnter', (data) => {
-    let message = {
-      user: data.user,
-      text: 'is entering the chat'
-    }
-    io.emit('newMessage', message)
+    // set room to patient_id
+    room = data.room
+    // sent client to that room
+    socket.join(room)
+    let message = `${data.user} has entered the chat`
+    // alert user entry
+    io.to(room).emit('notification', message)
   })
 
   socket.on('userLeave', (data) => {
-    let message = {
-      user: data.user,
-      text: 'has left the chat'
-    }
-    io.emit('newMessage', message)
+    let message = `${data.user} has left the chat`
+    // alert user departure
+    io.to(room).emit('notification', message)
   })
 
+  // alert typing
+  socket.on('typing', (data) => {
+    let message = `${data.user} is typing`
+    io.to(room).emit('notification', message)
+  })
+
+  // workhorse function for all message handling
   socket.on('newMessage', (data) => {
-    io.emit('newMessage', data)
+    io.to(room).emit('newMessage', data)
   })
 
 })
