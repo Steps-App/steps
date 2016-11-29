@@ -10,7 +10,7 @@ import {Paper} from 'material-ui';
 import Signin from './Signin'
 
 //About us
-const defaultPix = require("../../../src/images/defaultProfile.png");
+const defaultPix = '/public/images/defaultProfile.png';
 
 const navbarLinks = {
   about: 'About Us',
@@ -66,7 +66,7 @@ export default () => (
       </div>
       <div className="row" id="aboutinfo">
          <div className="col-xs-12 col-md-6">
-           <img src={require("../../../src/images/work.jpg")} id="work"></img>
+           <img src='/public/images/work.jpg' id="work"></img>
          </div>
          <div className="col-xs-12 col-md-6">
            <div className="aboutcontent" >
