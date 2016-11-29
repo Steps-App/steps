@@ -5,10 +5,12 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 import { deletePatient } from '../../reducers/patients'
 
-//Material UI
-import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter } from 'material-ui'
-import { StepsRaisedButton } from '../material-style'
+//Material
+import { GridList, GridTile, IconButton} from 'material-ui';
+import {StepsRaisedButton} from '../material-style';
+
+
+
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -26,59 +28,59 @@ export class PatientList extends Component {
     return (
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Patients" />
-        <h1>Patient List</h1>
-        <Link to="/patients/new">
-          <StepsRaisedButton
-            label="Add Patient"
-            backgroundColor="#005B96"
-            labelStyle={{color: 'white'}}
-          />
-        </Link>
-        <Table >
-          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow>
-              <TableHeaderColumn></TableHeaderColumn>
-              <TableHeaderColumn>Name</TableHeaderColumn>
-              <TableHeaderColumn>Gender</TableHeaderColumn>
-              <TableHeaderColumn>{}</TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
-          <TableBody displayRowCheckbox={false}>
+        <h1 className="page-header">Patient List</h1>
+        <div className="addptbutton">
+            <Link to="/patients/new">
+              <StepsRaisedButton
+                label="Add Patient"
+                backgroundColor="#005B96"
+                labelStyle={{color: 'white'}}
+              />
+            </Link>
+        </div>
+        <div className="container" >
+
+        <GridList
+            cellHeight={200}>
+
           {
             patients && patients.map( patient =>
-              <TableRow key={ patient.id }>
-                  <TableRowColumn style={{ width: '250px', padding: 0 }}>
-                    <img className="img-responsive" src={patient.img_URL}></img>
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: '150px' }}>
-                    { patient.first_name + " " + patient.last_name }
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: '10px' }}>{ patient.gender }</TableRowColumn>
-                  <TableRowColumn>
-                    <StepsRaisedButton
-                      label="Current Plan"
-                      backgroundColor="#005B96"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => browserHistory.push(`/patients/${patient.id}/plans/current`)}
-                    />
-                    <StepsRaisedButton
-                      label="New Plan"
-                      backgroundColor="#009900"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => browserHistory.push(`/patients/${patient.id}/plans/new`)}
-                    />
-                    <StepsRaisedButton
-                      label="Delete Patient"
-                      backgroundColor="#ff0000"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => removePatient(patient.id)}
-                    />
-                  </TableRowColumn>
-              </TableRow>
+              <GridTile key={ patient.id }>
+                  <div className="row" >
+                    <div className="col-xs-12 col-md-6" >
+                      <img className="img-responsive" src={patient.img_URL}/>
+                    </div>
+                    <div className="col-xs-12 col-md-6" >
+                      <h5>{ patient.first_name + " " + patient.last_name }</h5>
+                      <h5>{ `Gender : ${patient.gender}`}</h5>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <Link to={`/patients/${patient.id}/plans/current`}>
+                      <IconButton tooltip="Current Plan" iconClassName="material-icons">
+                      assignment
+                      </IconButton>
+                    </Link>
+                    <Link to={`/patients/${patient.id}/plans/new`}>
+                      <IconButton tooltip="Current Plan" iconClassName="material-icons">
+                      add_box
+                      </IconButton>
+                    </Link>
+
+                      <IconButton
+                      tooltip="Current Plan"
+                      iconClassName="material-icons"
+                      onClick={() => removePatient(patient.id)}>
+                      highlight_off
+                      </IconButton>
+
+
+                  </div>
+              </GridTile>
             )
           }
-         </TableBody>
-        </Table>
+        </GridList>
+        </div>
       </div>
     )
   }
