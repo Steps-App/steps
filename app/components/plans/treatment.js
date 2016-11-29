@@ -8,7 +8,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 
 export default (props) => {
 
-  const { exercise, treatment, addTreatment, resistanceOnChange, treatmentHandler } = props;
+  const { exercise, treatment, treatmentErrors, addTreatment, resistanceOnChange, treatmentHandler } = props;
 
   return (
     <div className="row">
@@ -33,6 +33,7 @@ export default (props) => {
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Notes for Patient"
+                  errorText={treatmentErrors.notes}
                   value={treatment.notes}
                   onChange={(env) => treatmentHandler('notes', env.target.value)}/>
                  <br/>
@@ -41,6 +42,7 @@ export default (props) => {
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Sets"
+                  errorText={treatmentErrors.sets}
                   type="number"
                   value={treatment.sets}
                   fullWidth={true}
@@ -49,12 +51,14 @@ export default (props) => {
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
+                  errorText={treatmentErrors.reps}
                   value={treatment.reps}
                   fullWidth={true}
                   onChange={(env) => treatmentHandler('reps', env.target.value)}/><br/>
                 <StepsSelectField
                   floatingLabelFixed={true}
                   floatingLabelText="Resistance"
+                  errorText={treatmentErrors.resistance}
                   value={treatment.resistance}
                   fullWidth={true}
                   onChange={resistanceOnChange}
@@ -65,6 +69,7 @@ export default (props) => {
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"
+                  errorText={treatmentErrors.time_per_exercise}
                   type="number"
                   value={treatment.time_per_exercise}
                   fullWidth={true}
