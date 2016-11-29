@@ -1,38 +1,66 @@
-#plan {
-  width: 100%;
-  h1 {
-    /* {age header styling here */
-  }
-}
+@import "screens";
+@import "colors";
 
-.plan-info {
+#plan {
   display: flex;
   flex-direction: column;
-  > .plan-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  span {
-    font-weight: bold;
+  width: 100%;
+}
+
+.plan-content {
+  display: inherit;
+  flex-direction: row-reverse;
+  > .plan-info { // Paper container
+    max-width: 35% !important;
+    margin-left: 20px;
+    .plan-details {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 10px 0;
+      > .info-item + .info-item {
+        padding: 5px 0;
+      }
+    }
   }
 }
 
-.workouts {
-  padding-top: 10px;
+@media (max-width: $lg) {
+  .plan-content {
+    display: inherit;
+    flex-direction: column;
+    > .plan-info { // Paper container
+      max-width: initial !important;
+      margin-left: 0;
+      .plan-details {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        > .info-item + .info-item {
+          padding-top: 0;
+        }
+      }
+    }
+  }
 }
 
 // Row in patient plan
 .workout {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  height: 200px;
-  &.completed { // fade all workouts completed today
-    > .workout-index, .workout-pic {
-      opacity: .6;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: flex-end;
+  + .workout {
+    margin-top: 30px;
+  }
+  &:hover, &.completed { // show notes and fade pic on hover
+    .workout-notes {
+      z-index: 1;
     }
-    h2, p, a {
-      color: $disabled;
+    .workout-pic {
+      opacity: .4;
     }
   }
   .workout-index { // workout row number
@@ -48,53 +76,96 @@
     border-radius: 50%;
     background-color: $numbers;
     color: $text-light;
+  }
+  .workout-pic-wrapper {
+    width: 100%;
+    background: 
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, .8),
+        rgba(0, 0, 0, 1)
+      );
+    > img {
+      width: 100%;
+      min-height: 200px;
+      max-height: 350px;
+      transition: all 0.25s linear;
+    }
+  }
+  > .workout-banner, > .workout-notes {
+    color: $text-light;
+  }
+  > .workout-notes {
+    z-index: -1;
     position: absolute;
-  }
-  + .workout {
-    margin-top: 20px; // spacing between workouts
-  }
-  > * {
-    padding: 0; // removing column padding
-  }
-  > img {
-    max-width: 200px; // main workout image
-    max-height: inherit;
-  }
-  p {
-    margin: 0;
-    > span {
-      font-weight: bold;
+    padding: 25px 25px 0 25px;
+    width: 100%;
+    font-size: 1.2em;
+    transition: all 0.25s linear;
+    .info-item + .info-item { // all notes except first
+      margin-top: 10px;
     }
   }
-  > .workout-info {
-    display: inherit;
-    flex-direction: column;
-    > h2 {
-      margin: 0;
-    }
-    .workout-nums {
+  > .workout-banner {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    > .workout-info {
       display: inherit;
-      flex-direction: row;
-      > p {
+      flex-direction: column;
+      padding: 5px 0 5px 10px;
+      > h2, p {
         margin: 0;
       }
-      > p + p::before {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        font-weight: bold;
-        content: '/';
+      a, a:hover { // treatment link
+        color: $active;
+      }
+      > div { // treatment info (sets, reps, etc)
+        display: inherit;
+        flex-direction: row;
+        padding-top: 5px;
+        > .info-item + .info-item::before {
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+          font-weight: bold;
+          content: '/';
+        }
+        @media (max-width: $sm) {
+          &.bonus-info {
+            display: none
+          }
+        }
+      }
+    }
+    > .workout-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 10px;
+      span {
+        font-size: 36px !important;
+      }
+      img {
+        filter: grayscale(100%);
       }
     }
   }
-  .workout-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    span {
-      font-size: 36px !important;
+  @media (max-width: $sm) {
+    .workout-banner {
+      bottom: 68px
     }
-    img {
-      filter: grayscale(100%);
-    }
+  }
+}
+
+@media (max-width: $lg) {
+  .workouts {
+    margin-top: 20px;
+    padding: 15px 10px;
   }
 }
