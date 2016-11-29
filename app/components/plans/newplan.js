@@ -59,6 +59,10 @@ export default class newPlan extends React.Component{
     this.resistanceOnChange = this.resistanceOnChange.bind(this);
     this.notesOnChange = this.notesOnChange.bind(this);
     this.treatmentHandler = this.treatmentHandler.bind(this);
+    this.clearTreatmentError = this.clearTreatmentError.bind(this);
+    this.treatmentValidate = this.treatmentValidate.bind(this);
+    this.clearPlanError = this.clearPlanError.bind(this);
+    this.planValidate = this.planValidate.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
     this.addNewTreatment = this.addNewTreatment.bind(this);
     this.removeTreatment = this.removeTreatment.bind(this);
@@ -66,39 +70,49 @@ export default class newPlan extends React.Component{
 //==== Plan Option Handlers
 // persisting on local state for plan for duration and injury
   durationOnChange(evt, idx, value) {
+    this.clearPlanError('duration')
     this.setState({ duration: value });
   }
 
 //onchange handler for therapyFocus
   therapyHandler(evt) {
+    this.clearPlanError('therapyFocus')
     this.setState({ therapyFocus : evt.target.value});
   }
 
 //onchange handler for PlanNotes
   notesOnChange(evt) {
+    this.clearPlanError('notes')
     this.setState({ notes : evt.target.value});
   }
 // Treatment Handlers
 // handle change to this.state.exercise
   exerciseOnChange(evt, idx) {
+    this.clearPlanError('selectedExercise')
     this.setState({ selectedExercise: this.props.exercises[idx] });
   }
 // handle change to resistance selector
   resistanceOnChange(evt, idx, value) {
     let newProperty = Object.assign({}, this.state.treatment, {resistance: value})
+    newProperty = this.clearTreatmentError('resistance', newProperty)
     this.setState({ treatment: newProperty })
   }
 
 // Handler for this.state.treatments // all states within
   treatmentHandler(field, value) {
     let newProperty = {[field] : value}
+    newProperty = this.clearTreamentError(field, newProperty)  // clear any treatment error for this field
+    let newTreatment = Object.assign({}, this.state.treatment, newProperty); // merges old state with changes
+    this.setState( { treatment : newTreatment});
+  }
+
+  clearTreatmentError(field, newProperty) {
     if (this.state.treatmentErrors[field]) {     // if a validation error exists for the field
-      let newErrors = this.state.treatmentErrors   // create a temporary holder for all errors
-      delete newErrors[field]             // delete this field's error from that holder
+      let newErrors = this.state.treatmentErrors // create a temporary holder for all errors
+      delete newErrors[field]                    // delete this field's error from that holder
       newProperty.treatmentErrors = newErrors    // add the other errors to the new field object
     }
-    let newTreatment = Object.assign({}, this.state.treatment, newProperty); //merges old state with changes
-    this.setState( { treatment : newTreatment});
+    return newProperty
   }
 
   // Ensure the proper form fields are valid
@@ -111,6 +125,23 @@ export default class newPlan extends React.Component{
     if (!this.state.treatment.notes) errs.notes = 'This field is required';
     if (!this.state.selectedExercise.id) = 'This field is required'
     return errs;
+  }
+
+  clearPlanError(field) {
+    if (this.state.planErrors[field]) {     // see clearTreatmentError ^^^^
+      let newErrors = this.state.planErrors
+      delete newErrors[field]
+      this.setState({ planErrors: newErrors })
+    }
+  }
+
+  planValidate() {
+    let errs = {}
+    if (!this.state.duration) errs.duration = 'This field is required'
+    if (!this.state.therapyFocus) errs.therapyFocus = 'This field is required'
+    if (!this.state.notes) errs.notes = 'This field is required'
+    if (!this.state.selectedExercise) errs.selectedExercise = 'This field is required'
+    return errs
   }
 
 // ======= addNewTreatment Button==========
@@ -151,6 +182,7 @@ export default class newPlan extends React.Component{
     console.log(newTreatmentArray);
     this.setState({ treatments: newTreatmentArray});
   }
+
 //===== SubmitHandler for Entire Plan ======
   submitHandler(evt) {
     evt.preventDefault();
@@ -161,7 +193,7 @@ export default class newPlan extends React.Component{
       patient_id: this.props.currentPatient.id,
       treatments: this.state.treatments
     };
-    console.log(newPlan)
+
     this.props.addPlan(newPlan);
     browserHistory.push(`/patients/${this.props.currentPatient.id}/plans/confirmation`)
   }
