@@ -15,7 +15,8 @@ import moment from 'moment';
  const gridList = {
   "width" : "fluid",
   height: "100%",
-  overflow: 'visible'
+  overflow: 'visible',
+  "textAlign" : "center"
 }
 
  const gridTile = {
@@ -51,7 +52,7 @@ export class PatientList extends Component {
               />
             </Link>
         </div>
-        <div className="container" >
+        <div className="row" >
 
         <GridList
             cellHeight={'auto'}
