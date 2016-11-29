@@ -1,6 +1,18 @@
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "node"
-  - "iojs"
+- '6'
+cache:
+  directories:
+  - node_modules
+services:
+- postgresql
+install: npm install
+script: npm test && npm run build
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: T/ppw4sUSG/lRXnqIH+Lx5aY8EyZIcHjeHI7aoLtXBiqZFzOQniaO8mVAN5OPJi9aWZnypC+uJxatRSL8Q9J9Zxdkq4Sginv9dd1f4RrVH1SmiI8o/rN6aDLT9iKbRvAWgPWY0y5aZL3xo/y96OFepqPMwI65SlR5bQMHYIMPLqS8+bLLIWJp1p3/+KyeheB9Gor6diQrE/mSlioX7aE7Ty+OySWV+ChSPcy6p68N4RUeoKP2APtR57matN1WNGzG2Y7qhx9t8HB07ALt475e2RmJfJUx8xTPmKxQMoeY1Zw4qu6YGw0/X3YNMHpCt4knSR4SugDCWh9PUg/QBeYTk5j18trNZFs38clMztjPQKCREsCx9YmA87gF2Jgi060E/LQeN6qos3BTodkcwK5Nuxwh3bmW1T7LjlkmV5I3LgiPnnyu8bXE3iGPDXjvXn7LlL0tvmEjlPw9VzL5x1gWoSZTgzgcPEOKAIMyQM8DIIGE46SeQBHKWd3sdUN0bXrawyFmAmJCWopVD+G9ljqtrOxwZOnm1IqubdoeWLkSddFTaJOKHhW+ncsD9VINgCfACCIRFQn3zkIf2sHHSx9LnV69Ucr86hd3/PKSoaYtrT2mpYQ6FfSlz8o0qKYUW0aGpZqgJVxV8KR+Z6uI4C+PCkAGfn/gIDnkfJnNFNsChg=
+  app:
+    master: buckits
+  run: npm run seed
