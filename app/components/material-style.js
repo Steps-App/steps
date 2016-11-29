@@ -65,6 +65,7 @@ export const StepsFlatButton = props => (
     hoverColor={ props.backgroundColor }
     disableFocusRipple={ true }
     disableTouchRipple={ true }
+    { ...props}
   />
 );
 
