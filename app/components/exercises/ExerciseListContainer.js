@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 import { deleteExercise } from '../../reducers/exercises'
-
+import InfoItem from '../widgets/InfoItem'
 //Material UI
 import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter, IconButton, FontIcon} from 'material-ui'
+         TableBody, TableRow, TableRowColumn,Divider, TableFooter, IconButton, FontIcon} from 'material-ui'
 
 import { StepsRaisedButton } from '../material-style'
 
@@ -48,6 +48,9 @@ export class ExerciseList extends Component {
             backgroundColor="#005B96"
               />
             </div>
+
+          <Divider/>
+
           <div className="table">
           <Table style={{backgroundColor:'none'}} >
             <TableBody displayRowCheckbox={false}>
@@ -59,13 +62,15 @@ export class ExerciseList extends Component {
                     </TableRowColumn>
                     <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
                       <div className="exercise-title">
-                        <p >{exercise.title}</p>
-                        <IconButton id={this.state.showRemove ? "show" : "remove"} tooltip="Permanent" iconClassName="material-icons" onClick={() => deleteExercise(user.id, exercise.id)}>
+                      <InfoItem icon="fitness_center" label="Title"  content={exercise.title}/>
+                        { this.state.showRemove ?
+                          <IconButton id="remove" tooltip="Permanent" iconClassName="material-icons" onClick={() => deleteExercise(user.id, exercise.id)}>
                           highlight_off
-                        </IconButton>
+                          </IconButton> : null
+                        }
                       </div>
                       <div className="exercise-description">
-                        <p><span style={{fontWeight: "bold"}}>Description</span>{`: ${exercise.description}`}</p>
+                        <InfoItem icon="description" label="Description"  content={exercise.description}/>
                       </div>
                     </TableRowColumn>
                 </TableRow>
