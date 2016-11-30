@@ -37,6 +37,12 @@
   + .workout {
     margin-top: 30px;
   }
+  > a { // treatment link
+    width: 100%;
+    p, &:hover p {
+      color: $text-light
+    }
+  }
   &:hover, &.completed { // show notes and fade pic on hover
     .workout-notes {
       z-index: 1;
@@ -60,10 +66,10 @@
       transition: all 0.25s linear;
     }
   }
-  > .workout-banner, > .workout-notes {
+  .workout-banner, > .workout-notes {
     color: $text-light;
   }
-  > .workout-notes {
+  .workout-notes {
     z-index: -1;
     position: absolute;
     padding: 25px 25px 0 25px;
@@ -74,7 +80,7 @@
       margin-top: 10px;
     }
   }
-  > .workout-banner {
+  .workout-banner {
     z-index: 1;
     position: absolute;
     display: flex;
@@ -91,9 +97,9 @@
       > h2, p {
         margin: 0;
       }
-      a, a:hover { // treatment link
+      /*a, a:hover { // treatment link
         color: $active;
-      }
+      }*/
       > div { // treatment info (sets, reps, etc)
         display: inherit;
         flex-direction: row;
