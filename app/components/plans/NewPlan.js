@@ -6,13 +6,14 @@ import { browserHistory } from 'react-router'
 import PlanOptions from './NewPlanOptions';
 import NewTreatment from './NewTreatment';
 import TreatmentsList from '../treatment/TreatmentsList';
+import SidePanel from '../widgets/SidePanel';
 import InfoItem from '../widgets/InfoItem';
 
 //material-ui
 import { StepsSelectField, StepsMenu, StepsMenuItem,
         StepsRaisedButton, StepsActionButton } from '../material-style';
-import { FontIcon, Paper, Divider, Popover } from 'material-ui';
-import { background, errorText } from '../colors';
+import { FontIcon, Divider, Popover } from 'material-ui';
+import { errorText } from '../colors';
 import { fullName } from '../../utils';
 import moment from 'moment';
 
@@ -196,23 +197,19 @@ export default class NewPlan extends React.Component{
         <Helmet title="New Plan" />
         <h1 className="page-header">New Plan</h1>
         <div className="new-plan-content">
-          <div className="info-panel">
-            <Paper style={{ backgroundColor: background }} zDepth={2} rounded={false}>
-              <div className="info-content">
-                <img src={this.props.currentPatient.img_URL} />
-                <InfoItem icon="person" label="Name"
-                  content={ fullName(this.props.currentPatient) } />
-                <InfoItem icon="date_range" label="Birthday"
-                  content={ moment(this.props.currentPatient).format('MMM Do, YYYY') } />
-              </div>
-            </Paper>
+          <SidePanel>
+            <img src={this.props.currentPatient.img_URL} />
+            <InfoItem icon="person" label="Name"
+              content={ fullName(this.props.currentPatient) } />
+            <InfoItem icon="date_range" label="Birthday"
+              content={ moment(this.props.currentPatient).format('MMM Do, YYYY') } />
             <StepsRaisedButton
               type="submit"
               label="Create Plan"
               fullWidth={true}
               style={{ marginTop: '20px'}}
               onClick={this.submitHandler} />
-          </div>
+          </SidePanel>
           <form onSubmit={this.submitHandler}>
             <PlanOptions
               duration={this.state.duration}
