@@ -9,7 +9,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 export default (props) => {
 
   const { exercise, treatment, treatmentErrors, addTreatment, resistanceOnChange, treatmentHandler } = props;
-
+  console.log('exercise',exercise)
   return (
     <div className="row">
       <div className="col-md-12">

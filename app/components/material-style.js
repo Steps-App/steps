@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 import { TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
-import { background, tabs, primary, secondary, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
+import { background, tabs, primary, secondary, active, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
 
 // Shared styles
 const tabsBorderRadius = '4px';
@@ -97,7 +97,8 @@ export const StepsMenu = props => (
   <Menu
     style={{ backgroundColor: background }}
     listStyle={{ paddingTop: '0px', paddingBottom: '0px' }}
-    selectedMenuItemStyle={{ backgroundColor: 'black' }} >
+    selectedMenuItemStyle={{ color: active }}
+    { ...props } >
     { props.children }
   </Menu>
 )

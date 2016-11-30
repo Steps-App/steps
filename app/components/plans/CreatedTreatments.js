@@ -9,7 +9,6 @@ import {StepsTextField} from '../material-style';
 export default (props) => {
 
   const { exercises, treatments, removeTreatment } = props;
-
   return (
     <div className="row">
       <div className="col-md-12">
