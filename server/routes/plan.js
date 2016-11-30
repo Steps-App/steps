@@ -89,13 +89,14 @@ router.get('/current', (req, res, next) => {
       order: [['created_at', 'DESC']]
     })
     .then(res => {
+      if (res) {
       return Plan.findById(res.id, {
         include: [ {
           model: Treatment,
           where: { status: 'active' },
           include: [ Exercise, Workout ]
         } ]
-      })
+      })}
     })
     .then(plan => {
       res.json(plan)
