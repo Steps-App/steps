@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 import { deleteExercise } from '../../reducers/exercises'
-
+import InfoItem from '../widgets/InfoItem'
 //Material UI
 import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter} from 'material-ui'
+         TableBody, TableRow, TableRowColumn,Divider, TableFooter, IconButton, FontIcon} from 'material-ui'
 
 import { StepsRaisedButton } from '../material-style'
 
@@ -17,7 +17,15 @@ export class ExerciseList extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      showRemove :false
+    }
+    this.showRemove = this.showRemove.bind(this);
+
+  }
+
+  showRemove (){
+    this.setState({showRemove:!this.state.showRemove});
   }
 
   render() {
@@ -25,37 +33,45 @@ export class ExerciseList extends Component {
     const {user, exercises, deleteExercise } = this.props;
 
     return (
-     
-      <div id="exercise-list" className="col-xs-12">
+
+      <div id="exercise-list" >
           <Helmet title="Exercise List" />
           <h1 className="page-header">Exercise List</h1>
-  
+          <div  className="exercisebt">
           <StepsRaisedButton
-            label="Add New Exercise"
+            label="Remove"
+            backgroundColor="#D9534F"
+            onClick={this.showRemove}
+          />
+          <StepsRaisedButton
+            label="Add"
             backgroundColor="#005B96"
-            labelStyle={{color: 'white'}}
-            style={{marginBottom: '20px', float: 'right'}}
               />
+            </div>
+
+          <hr/>
+
           <div className="table">
           <Table style={{backgroundColor:'none'}} >
             <TableBody displayRowCheckbox={false}>
             {
               exercises && exercises.map( exercise =>
-                <TableRow key={ exercise.id } selectable={false}>
-                    <TableRowColumn style={{ width: "30%" }}>
-                      <img className="img-responsive" src={exercise.img_url}></img>
+                <TableRow key={ exercise.id }  selectable={false}>
+                    <TableRowColumn style={{"padding-bottom":"1em", "padding-top": "1em", width: "15em"}}>
+                      <img src={exercise.img_url}></img>
                     </TableRowColumn>
                     <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
-                        <p style={{fontWeight: "bold", fontSize: "larger" }}>{`${exercise.title}`}</p>
-                        <p><span style={{fontWeight: "bold"}}>Description</span>{`: ${exercise.description}`}</p>
-                      </TableRowColumn>
-                    <TableRowColumn >
-                        <StepsRaisedButton
-                          label="Delete"
-                          backgroundColor="#ff0000"
-                          labelStyle={{color: 'white'}}
-                          onClick={() => deleteExercise(user.id, exercise.id)}
-                        />
+                      <div className="exercise-title">
+                      <InfoItem icon="fitness_center" label="Title"  content={exercise.title}/>
+                        { this.state.showRemove ?
+                          <IconButton id="remove" tooltip="Permanent" iconClassName="material-icons" onClick={() => deleteExercise(user.id, exercise.id)}>
+                          highlight_off
+                          </IconButton> : null
+                        }
+                      </div>
+                      <div className="exercise-description">
+                        <InfoItem icon="description" label="Description"  content={exercise.description}/>
+                      </div>
                     </TableRowColumn>
                 </TableRow>
               )
@@ -78,10 +94,3 @@ const mapDispatchtoProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchtoProps)(ExerciseList);
-
-
-
-
-
-
-
