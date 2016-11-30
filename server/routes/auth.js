@@ -40,7 +40,7 @@ router.post('/signup', (req, res, next) => {
     error.status = 422;
     return next(error);
   }
-  
+
   model.create(Object.assign({
     first_name: req.body.firstName,
     last_name: req.body.lastName,
@@ -130,6 +130,8 @@ router.get('/me', (req, res, next) => {
     model = Therapist;
   else if (req.session.role === PATIENT)
     model = Patient;
+  else if (req.headers.referer === 'http://localhost:8080/' || 'http://steps-app.herokuapp.com/')
+    return res.sendStatus(204)
   else {
     let error = new Error('Not logged in');
     error.status = 401;

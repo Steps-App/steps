@@ -34,6 +34,26 @@ export const loginRedirect = role => {
   else return '/';
 }
 
+// Ensure user is seeing the appropriate side of the app (patient or therapist)
+export const checkRoute = (role, route) => {
+  const patientRoutes = [
+    '/plan',
+    `/plan/${/\S/g}`,
+    '/plan/treatments/:treatmentId/workout',
+    '/dashboard',
+    '/messages'
+  ]
+  const therapistRoutes = [
+    '/patients',
+    `/patients/${/\S/g}`,
+    '/exercises',
+    '/messages'
+  ]
+  if (role === THERAPIST && therapistRoutes.includes(route)) return true
+  if (role === PATIENT && patientRoutes.includes(route)) return true
+  return false
+}
+
 // Format an inout amount of seconds into X min XX sec
 export const formatTime = time => {
   const minutes = Math.floor(time / 60);

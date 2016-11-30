@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react';
-import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route, Redirect, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
@@ -26,17 +26,26 @@ import Treatment from './components/treatment/Treatment'
 import ChatRoom from './components/chat/ChatRoom'
 import CurrentPlan from './components/plans/CurrentPlan'
 import ExerciseListContainer from './components/exercises/ExerciseListContainer'
-import { loginRedirect } from './utils'
+import NotFound from './components/home/NotFound'
+import { loginRedirect, checkRoute } from './utils'
 
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
+  let userPath = nextState.location.pathname
+  console.log(userPath)
   store.dispatch(retrieveLoggedInUser((err, user) => {
     // Home page and logged in -> default app view
-    if (!err && nextState.location.pathname === '/')
+    if (!err && user && userPath === '/') {
       replace(loginRedirect(user.role));
+    }
+    // if user tries to access path outside of authorities
+    else if (!err && user && userPath !== '/') {
+      if (!checkRoute(user.role, userPath))
+        replace(loginRedirect(user.role))
+    }
     // App page and not logged in -> home page
-    else if (err && nextState.location.pathname !== '/')
+    else if (err && userPath !== '/')
       replace('/');
     callback();
   }));
@@ -85,15 +94,16 @@ render (
         <Route path="/plan" component={ Plan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
-        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
+        <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={newPlansContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
+        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
+        <Route path="/*" component={ NotFound } />
       </Route>
     </Router>
   </Provider>,
