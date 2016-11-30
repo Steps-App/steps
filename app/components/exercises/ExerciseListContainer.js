@@ -37,18 +37,15 @@ export class ExerciseList extends Component {
       <div id="exercise-list" >
           <Helmet title="Exercise List" />
           <h1 className="page-header">Exercise List</h1>
-          <div>
+          <div  className="exercisebt">
           <StepsRaisedButton
-            label="Delete"
+            label="Remove"
             backgroundColor="#D9534F"
-            labelStyle={{color: 'white'}}
             onClick={this.showRemove}
           />
           <StepsRaisedButton
-            label="Add New Exercise"
+            label="Add"
             backgroundColor="#005B96"
-            labelStyle={{color: 'white'}}
-            style={{marginBottom: '20px', float: 'right'}}
               />
             </div>
           <div className="table">
@@ -56,21 +53,19 @@ export class ExerciseList extends Component {
             <TableBody displayRowCheckbox={false}>
             {
               exercises && exercises.map( exercise =>
-                <TableRow key={ exercise.id } selectable={false}>
-                    <TableRowColumn>
+                <TableRow key={ exercise.id }  selectable={false}>
+                    <TableRowColumn style={{"padding-bottom":"1em", "padding-top": "1em", width: "15em"}}>
                       <img src={exercise.img_url}></img>
                     </TableRowColumn>
                     <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
                       <div className="exercise-title">
-                        <h3 className="col-md-6" >{exercise.title}</h3>
-
+                        <p >{exercise.title}</p>
                         <IconButton id={this.state.showRemove ? "show" : "remove"} tooltip="Permanent" iconClassName="material-icons" onClick={() => deleteExercise(user.id, exercise.id)}>
                           highlight_off
                         </IconButton>
                       </div>
                       <div className="exercise-description">
                         <p><span style={{fontWeight: "bold"}}>Description</span>{`: ${exercise.description}`}</p>
-
                       </div>
                     </TableRowColumn>
                 </TableRow>
