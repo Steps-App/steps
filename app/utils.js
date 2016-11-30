@@ -39,7 +39,6 @@ export const checkRoute = (role, route) => {
   const patientRoutes = [
     '/plan',
     `/plan/${/\S/g}`,
-    '/plan/treatments/:treatmentId/workout',
     '/dashboard',
     '/messages'
   ]
