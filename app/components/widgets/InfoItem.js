@@ -1,6 +1,5 @@
 import React from 'react';
 import FontIcon from 'material-ui/FontIcon';
-import moment from 'moment';
 
 export default ({ icon, iconColor, label, content }) => (
   <div className="info-item">

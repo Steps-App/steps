@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router'
 //Stateless Components
 import PlanOptions from './NewPlanOptions';
 import NewTreatment from './NewTreatment';
-import CreatedTreatments from './CreatedTreatments';
+import TreatmentsList from '../treatment/TreatmentsList';
 import InfoItem from '../widgets/InfoItem';
 
 //material-ui
@@ -48,7 +48,7 @@ const initialState = {
 export default class NewPlan extends React.Component{
   constructor(props){
     super(props);
-
+    console.log(this.props.plan)
     this.state = Object.keys(this.props.plan).length ? {
       duration: this.props.plan.duration,
       therapyFocus: this.props.plan.therapyFocus,
@@ -134,7 +134,7 @@ export default class NewPlan extends React.Component{
     let errs = {};
     if (!this.state.duration) errs.duration = 'This field is required';
     if (!this.state.therapyFocus) errs.therapyFocus = 'This field is required';
-    if (!this.state.treatments[0] && !this.state.selectedExercise) errs.selectedExercise = 'You need to add at least one treatment';
+    if (!this.state.treatments.length) errs.selectedExercise = 'You need to add at least one treatment';
     return errs;
   }
 
@@ -223,6 +223,8 @@ export default class NewPlan extends React.Component{
           <form onSubmit={this.submitHandler}>
             <PlanOptions
               duration={this.state.duration}
+              therapyFocus={this.state.therapyFocus}
+              notes={this.state.notes}
               handleChange={this.handleChange}
               planErrors={this.state.planErrors}
             />
@@ -251,13 +253,10 @@ export default class NewPlan extends React.Component{
                   treatmentHandler={this.treatmentHandler}
                   treatmentErrors={this.state.treatmentErrors} /> : null
             }
-            <div>
-              <div>
-                <Divider/>
-              </div>
-              <h4 style={{"display" : "center"}}> Patient Treatments </h4>
-              <CreatedTreatments
-                exercises={this.props.exercises}
+            <hr />
+            <div className="created-treatments">
+              <h3> Created Treatments </h3>
+              <TreatmentsList
                 treatments={this.state.treatments}
                 removeTreatment={this.removeTreatment} />
             </div>

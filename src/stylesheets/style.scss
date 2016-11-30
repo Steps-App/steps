@@ -8,6 +8,7 @@
 @import "chat";
 @import "new-plan";
 @import "new-treatment";
+@import "treatments";
 @import "patientlist";
 @import "info-item";
 @import "info-panel";
@@ -33,6 +34,10 @@ body,html {
   padding-top: 5em;
   display: flex;
   justify-content: center;
+}
+
+hr {
+  border-color: $placeholder-text;
 }
 
 #new-patient {

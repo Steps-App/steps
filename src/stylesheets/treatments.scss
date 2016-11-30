@@ -1,0 +1,44 @@
+@import "colors";
+
+#treatments-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.treatment {
+  display: inherit;
+  flex-direction: row;
+  color: $text-dark;
+  > img { // exercise image
+    max-width: 50%;
+    max-height: 200px;
+  }
+  > .treatment-info {
+    display: inherit;
+    flex-direction: column;
+    padding: 5px 10px;
+    > .treatment-header {
+      display: inherit;
+      flex-direction: row;
+      justify-content: space-between;
+      > h3 {
+        margin: 0;
+      }
+    }
+    > .treatment-fields {
+      display: inherit;
+      flex-direction: row;
+      > .info-item + .info-item::before { // treatment data separators
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-weight: bold;
+        content: '/';
+      }
+    }
+    > .treatment-fields + div, > .info-item + div { // space out treatment text
+      padding-top: 5px;
+    }
+  }
+}

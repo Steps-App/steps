@@ -1,3 +1,5 @@
+@import "screens";
+
 .new-treatment {
   display: flex;
   flex-direction: column;
@@ -40,4 +42,24 @@
       margin: 0 5px;
     }
   }
+  @media (max-width: $sm) {
+  .treatment-inputs {
+    flex-direction: column;
+    .treatment-fields {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      > div {
+        width: 100% !important;
+      }
+      > div + div {
+        padding-left: 0;
+      }
+    }
+    > .add-button {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
 }
