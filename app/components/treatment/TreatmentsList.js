@@ -24,11 +24,15 @@ const TreatmentsList =  ({ treatments, removeTreatment }) => {
           <div className="treatment-info">
             <div className="treatment-header">
               <h3>{treatment.exercise.title}</h3>
-              <StepsActionButton mini={true}
-                backgroundColor={ errorText }
-                onTouchTap={ () => removeTreatment(idx) } >
-                <FontIcon className={'material-icons'}>clear</FontIcon>
-              </StepsActionButton>
+              {
+                // Only show remove button if passed down
+                removeTreatment ?
+                  <StepsActionButton mini={true}
+                    backgroundColor={ errorText }
+                    onTouchTap={ () => removeTreatment(idx) } >
+                    <FontIcon className={'material-icons'}>clear</FontIcon>
+                  </StepsActionButton> : null
+              }
             </div>
             <div className="treatment-fields">
               <InfoItem icon="all_inclusive" label="Sets" iconColor={ textDark }

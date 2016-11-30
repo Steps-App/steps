@@ -1,10 +1,14 @@
 @import "colors";
+@import "screens";
 
 #treatments-list {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 15px 10px;
+  @media (max-width: $lg) {
+    padding: 30px 10px;
+  }
 }
 
 .treatment {

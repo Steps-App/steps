@@ -17,7 +17,7 @@ import Home from './components/home/Home';
 import App from './components/App';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import NewPlanContainer from './components/plans/NewPlanContainer';
-import PlanConfirmContainer from './components/plans/PlanConfirmContainer';
+import PlanConfirm from './components/plans/PlanConfirm';
 import Plan from './components/plan/PatientPlan';
 import Counter from './components/plan/Counter';
 import PatientListContainer from './components/patients/PatientListContainer';
@@ -93,7 +93,7 @@ render (
         <Route path="/patients/dashboard" component={ Dashboard } />
         <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
-        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
+        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirm} />
       </Route>
     </Router>
   </Provider>,
