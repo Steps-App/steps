@@ -45,6 +45,18 @@
   }
 }
 
+.workouts {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+@media (max-width: $lg) {
+  .workouts {
+    margin-top: 20px;
+    padding: 15px 10px;
+  }
+}
+
 // Row in patient plan
 .workout {
   position: relative;
@@ -147,7 +159,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-right: 10px;
+      padding-right: 15px;
+      a > div {
+        background-color: transparent !important;
+      }
       span {
         font-size: 36px !important;
       }
@@ -160,12 +175,5 @@
     .workout-banner {
       bottom: 68px
     }
-  }
-}
-
-@media (max-width: $lg) {
-  .workouts {
-    margin-top: 20px;
-    padding: 15px 10px;
   }
 }
