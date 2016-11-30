@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt-nodejs')
 
 const Patient = db.define('patient', {
   first_name: {
@@ -60,7 +60,7 @@ function setEmailAndPassword(patient) {
   if (!patient.password) patient.password = randAlpha(6)
 
   return new Promise((resolve, reject) =>
-    bcrypt.hash(patient.get('password'), 10, (err, hash) => {
+    bcrypt.hash(patient.get('password'), null, null, (err, hash) => {
       if (err) reject(err)
       patient.set('password_digest', hash)
       resolve(patient)
