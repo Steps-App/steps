@@ -16,66 +16,64 @@ export default ({ treatment, workoutFn, num }) => {
 
   return (
     <div className={`workout ${completedWorkout ? 'completed' : ''}`}>
-      <div className="workout-notes">
-        {
-          // Show either treatment notes or workout comments (if completed)
-          !completedWorkout ?
+      <Link to={`/plan/treatments/${treatment.id}`}>
+        <div className="workout-notes">
+          {
+            // Show either treatment notes or workout comments (if completed)
+            !completedWorkout ?
+              <div>
+                <InfoItem icon="description" label="Description" iconColor={ textLight }
+                  content={ treatment.exercise.description } />
+                <InfoItem icon="speaker_notes" label="Notes" iconColor={ textLight }
+                  content={ treatment.notes ? treatment.notes : 'No notes specified' } />
+              </div>
+              : completedWorkout.comments ?
+              <InfoItem icon="speaker_notes" label="Comments" iconColor={ textLight }
+                content={ completedWorkout.comments } /> : null
+          }
+        </div>
+        <div className="workout-banner">
+          <div className="workout-info">
+            <h2>{treatment.exercise.title}</h2>
             <div>
-              <InfoItem icon="description" label="Description" iconColor={ textLight }
-                content={ treatment.exercise.description } />
-              <InfoItem icon="speaker_notes" label="Notes" iconColor={ textLight }
-                content={ treatment.notes ? treatment.notes : 'No notes specified' } />
+              <InfoItem icon="all_inclusive" label="Sets" iconColor={ textLight }
+                content={ treatment.sets } />
+              <InfoItem icon="layers" label="Reps" iconColor={ textLight }
+                content={ treatment.reps } />
             </div>
-            : completedWorkout.comments ?
-            <InfoItem icon="speaker_notes" label="Comments" iconColor={ textLight }
-              content={ completedWorkout.comments } /> : null
-        }
-      </div>
-      <div className="workout-banner">
-        <div className="workout-info">
-          <h2>
-            <Link to={`/plan/treatments/${treatment.id}`}>
-              {treatment.exercise.title}
-            </Link>
-          </h2>
-          <div>
-            <InfoItem icon="all_inclusive" label="Sets" iconColor={ textLight }
-              content={ treatment.sets } />
-            <InfoItem icon="layers" label="Reps" iconColor={ textLight }
-              content={ treatment.reps } />
+            <div className="bonus-info">
+              <InfoItem icon="alarm" label="Time" iconColor={ textLight }
+                content={ formatTime(treatment.time_per_exercise) } />
+              <InfoItem icon="fitness_center" label="Resistance" iconColor={ textLight }
+                content={ treatment.resistance } />
+            </div>
           </div>
-          <div className="bonus-info">
-            <InfoItem icon="alarm" label="Time" iconColor={ textLight }
-              content={ formatTime(treatment.time_per_exercise) } />
-            <InfoItem icon="fitness_center" label="Resistance" iconColor={ textLight }
-              content={ treatment.resistance } />
+          <div className="workout-button">
+          {
+            completedWorkout ?
+              <StepsActionButton disabled={true}>
+                {
+                  completedWorkout.pain ?
+                    <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
+                    <FontIcon className={'material-icons'}>check</FontIcon>
+                }
+              </StepsActionButton> :
+              <Link to={`/plan/treatments/${treatment.id}/workout`}>
+                <StepsActionButton>
+                  <FontIcon className={'material-icons'}>schedule</FontIcon>
+                </StepsActionButton>
+              </Link>
+          }
           </div>
         </div>
-        <div className="workout-button">
-        {
-          completedWorkout ?
-            <StepsActionButton disabled={true}>
-              {
-                completedWorkout.pain ?
-                  <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
-                  <FontIcon className={'material-icons'}>check</FontIcon>
-              }
-            </StepsActionButton> :
-            <Link to={`/plan/treatments/${treatment.id}/workout`}>
-              <StepsActionButton>
-                <FontIcon className={'material-icons'}>schedule</FontIcon>
-              </StepsActionButton>
-            </Link>
-        }
+        <div className="treatment-number">#{num}</div>
+        <div className="workout-pic-wrapper">
+          <img
+            className="workout-pic"
+            alt={treatment.exercise.title}
+            src={treatment.exercise.img_url} />
         </div>
-      </div>
-      <div className="treatment-number">#{num}</div>
-      <div className="workout-pic-wrapper">
-        <img
-          className="workout-pic"
-          alt={treatment.exercise.title}
-          src={treatment.exercise.img_url} />
-      </div>
+      </Link>
     </div>
   )
 }
