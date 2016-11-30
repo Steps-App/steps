@@ -197,18 +197,19 @@ export default class NewPlan extends React.Component{
         <Helmet title="New Plan" />
         <h1 className="page-header">New Plan</h1>
         <div className="new-plan-content">
-          <SidePanel>
-            <img src={this.props.currentPatient.img_URL} />
+          <SidePanel
+            imgURL={this.props.currentPatient.img_URL}
+            buttons={[
+              <StepsRaisedButton
+              type="submit"
+              label="Create Plan"
+              fullWidth={true}
+              onClick={this.submitHandler} />
+            ]}>
             <InfoItem icon="person" label="Name"
               content={ fullName(this.props.currentPatient) } />
             <InfoItem icon="date_range" label="Birthday"
               content={ moment(this.props.currentPatient).format('MMM Do, YYYY') } />
-            <StepsRaisedButton
-              type="submit"
-              label="Create Plan"
-              fullWidth={true}
-              style={{ marginTop: '20px'}}
-              onClick={this.submitHandler} />
           </SidePanel>
           <form onSubmit={this.submitHandler}>
             <PlanOptions
