@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { browserHistory } from 'react-router'
 //Stateless Components
 import PlanOptions from './NewPlanOptions';
-import Treatment from './Treatment';
+import NewTreatment from './NewTreatment';
 import CreatedTreatments from './CreatedTreatments';
 import InfoItem from '../widgets/InfoItem';
 
@@ -159,7 +159,7 @@ export default class NewPlan extends React.Component{
         selectedExercise: null,
         treatment: initialTreatment,
         treatments: !this.state.treatments.length ?
-          [ treatment ] : [ ...this.state.treatments, treatment ]
+          [ treatment ] : [ treatment, ...this.state.treatments ]
       };
     } else {
       console.error(errs) // if errors, console.log instead of creating treatment
@@ -241,16 +241,15 @@ export default class NewPlan extends React.Component{
                 </div> : <h4> Add Exercises to create Treatments </h4>
             }
             {
-              // Show Treatmment form, otherwise instruct therapist to select one
+              // Render new treatment form, will not be visible if exercise null
               this.state.selectedExercise ?
-                <Treatment
+                <NewTreatment
                   exercise={this.props.exercises.find(exercise => exercise.id === this.state.selectedExercise)}
                   treatment={this.state.treatment}
                   resistanceOnChange={this.resistanceOnChange}
                   addTreatment={this.addNewTreatment}
                   treatmentHandler={this.treatmentHandler}
-                  treatmentErrors={this.state.treatmentErrors} />
-                : null
+                  treatmentErrors={this.state.treatmentErrors} /> : null
             }
             <div>
               <div>

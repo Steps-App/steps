@@ -76,6 +76,7 @@ export const StepsActionButton = props => {
     backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
     disabledColor={ props.disabledColor ? props.disabledColor : null }
     disabled={ props.disabled ? true: false }
+    mini={ props.mini ? true: false }
     onTouchTap={ props.onTouchTap ? props.onTouchTap : null }
     disableFocusRipple={ true }
     disableTouchRipple={ true } >
