@@ -49,7 +49,7 @@ export class ExerciseList extends Component {
               />
             </div>
 
-          <Divider/>
+          <hr/>
 
           <div className="table">
           <Table style={{backgroundColor:'none'}} >

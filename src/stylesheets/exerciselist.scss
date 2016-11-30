@@ -7,30 +7,29 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
   .exercisebt{
     display: flex;
     justify-content: space-around;
   }
-
+  hr{
+    border : 1px;
+    border-top: 1px solid black;
+    width: 100%
+  }
   img {
     width: 13em;
     height: 8em;
 
   }
-
-
   .exercise-title{
     .info-item{
         padding :1em;
     }
-
     height : 3em;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
-
   .exercise-description {
     .info-item{
         padding :1em;
@@ -43,6 +42,4 @@
     height: 10px !important;
     width:  10px !important;
   }
-
-
 }
