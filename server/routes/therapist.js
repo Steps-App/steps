@@ -23,6 +23,9 @@ therapistRoutes.get('/data', (req, res) => {
   
 })
 
+//Route is '/api/therapist'
+
+
 // -=-=-=-= READ =-=-=-=-
 
 // get patients of a therapist 
@@ -78,6 +81,15 @@ therapistRoutes.get('/:id/exercises', (req, res, next) => {
     .then(exercises => res.send(exercises))
     .catch(next);
 })
+
+// delete one exercise for the therapist
+therapistRoutes.delete('/:id/exercises/:exerciseId', (req, res, next) => {
+  exerciseModel.destroy({ where:{ id: req.params.exerciseId } })
+    .then(() => res.sendStatus(204))
+    .catch(next);
+})
+
+
 
 /* PATIENTS */
 
