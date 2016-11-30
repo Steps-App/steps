@@ -10,38 +10,8 @@
 .plan-content {
   display: inherit;
   flex-direction: row-reverse;
-  > .plan-info { // Paper container
-    max-width: 35% !important;
-    margin-left: 20px;
-    .plan-details {
-      display: flex;
-      flex-direction: column;
-      padding: 10px 10px 0;
-      > .info-item + .info-item {
-        padding: 5px 0;
-      }
-    }
-  }
-}
-
-@media (max-width: $lg) {
-  .plan-content {
-    display: inherit;
+  @media (max-width: $lg) {
     flex-direction: column;
-    > .plan-info { // Paper container
-      max-width: initial !important;
-      margin-left: 0;
-      .plan-details {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        > .info-item + .info-item {
-          padding-top: 0;
-        }
-      }
-    }
   }
 }
 
@@ -74,20 +44,6 @@
     .workout-pic {
       opacity: .4;
     }
-  }
-  .workout-index { // workout row number
-    z-index: 1;
-    position: absolute;
-    margin-left: -15px;
-    margin-top: -15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    background-color: $numbers;
-    color: $text-light;
   }
   .workout-pic-wrapper {
     width: 100%;

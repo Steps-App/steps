@@ -1,0 +1,51 @@
+@import "colors";
+@import "screens";
+
+#new-plan {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-plan-content {
+  display: inherit;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: $lg) {
+  .new-plan-content {
+    flex-direction: column;
+  }
+}
+
+.new-plan-form {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+@media (max-width: $lg) {
+  .new-plan-form {
+    margin-top: 20px;
+    padding: 15px 10px;
+  }
+}
+
+.new-plan-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.add-exercise {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 10px 10px 0;
+  > p {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 1.2em;
+  }
+}

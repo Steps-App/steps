@@ -6,11 +6,12 @@
 @import "video";
 @import "counter";
 @import "chat";
-@import "newplan";
+@import "new-plan";
+@import "new-treatment";
+@import "treatments";
 @import "patientlist";
 @import "info-item";
-
->>>>>>> master
+@import "info-panel";
 
 body,html {
   width : 100%;
@@ -33,6 +34,10 @@ body,html {
   padding-top: 5em;
   display: flex;
   justify-content: center;
+}
+
+hr {
+  border-color: $placeholder-text;
 }
 
 #new-patient {

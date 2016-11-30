@@ -69,7 +69,7 @@ export default ({ treatment, workoutFn, num }) => {
         }
         </div>
       </div>
-      <div className="workout-index">#{num}</div>
+      <div className="treatment-number">#{num}</div>
       <div className="workout-pic-wrapper">
         <img
           className="workout-pic"
