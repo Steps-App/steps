@@ -1,3 +1,5 @@
+@import "screens";
+
 .side-panel { // Paper container
   min-width: 25% !important;
   max-width: 35% !important;
@@ -46,8 +48,13 @@
       > .panel-img + .panel-info {
         padding-top: 0;
       }
-      > .panel-info > .info-item + .info-item {
-        padding-top: 5px;
+      > .panel-info {
+        > * {
+          max-width: $sm;
+        }
+        > .info-item + .info-item {
+          padding-top: 5px;
+        }
       }
     }
     }
