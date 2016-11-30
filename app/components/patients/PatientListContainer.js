@@ -16,7 +16,7 @@ import moment from 'moment';
   "width" : "fluid",
   height: "100%",
   overflow: 'visible',
-  "textAlign" : "center"
+  "justify-content" : "center"
 }
 
  const gridTile = {
@@ -95,27 +95,29 @@ export class PatientList extends Component {
                   <div className="row" >
                     <div className="col-xs-6" >
                       <img className="img-responsive" src={patient.img_URL}/>
-                      <h5> Patient Id : {patient.id} </h5>
+                      <p> Patient Id : {patient.id} </p>
                     </div>
                     <div className="col-xs-6" >
-                      <h5>{`Last : ${patient.last_name} ` }</h5>
-                      <h5>{`First : ${patient.first_name} ` }</h5>
-                      <h5>{`DOB : ${moment(patient.DOB).format('l')} `}</h5>
-                      <h5>{ `Gender : ${patient.gender}`}</h5>
+                      <p>{`Last : ${patient.last_name} ` }</p>
+                      <p>{`First : ${patient.first_name} ` }</p>
+                      <p>{`DOB : ${patient.DOB ? moment(patient.DOB).format('l') : 'None'} `}</p>
+                      <p>{ `Gender : ${patient.gender ? patient.gender : 'n/a'}`}</p>
 
-                      <Link to={`/patients/${patient.id}/plans/current`}>
-                        <IconButton tooltip="Current Plan" iconClassName="material-icons">
-                        assignment
-                        </IconButton>
-                      </Link>
-                      <Link to={`/patients/${patient.id}/plans/new`}>
-                        <IconButton tooltip="Current Plan" iconClassName="material-icons">
-                        add_box
-                        </IconButton>
-                      </Link>
                     </div>
                   </div>
+                  <div className='row' id='pticon'>
 
+                    <Link to={`/patients/${patient.id}/plans/current`}>
+                      <IconButton tooltip="Current Plan" iconClassName="material-icons">
+                      assignment
+                      </IconButton>
+                    </Link>
+                    <Link to={`/patients/${patient.id}/plans/new`}>
+                      <IconButton tooltip="Add Plan" iconClassName="material-icons">
+                      add_box
+                      </IconButton>
+                    </Link>
+                  </div>
                 </div>
                 </Badge>
               </GridTile>

@@ -30,9 +30,15 @@
   border: 1px solid black;
   padding : 1vh;
   text-align: -webkit-center;
-  width: 34vh;
+  width: 35vh;
+  height : 28vh;
   .col {
     display: center;
+  }
+
+  p{
+    word-wrap: normal;
+    font-size: small;
   }
 
 }
