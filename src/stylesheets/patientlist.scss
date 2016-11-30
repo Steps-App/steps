@@ -1,5 +1,5 @@
 @import "colors";
-
+@import "screens";
 
 
 // remove and add patient buttons
@@ -30,8 +30,8 @@
   border: 1px solid black;
   padding : 1vh;
   text-align: -webkit-center;
-  width: 35vh;
-  height : 28vh;
+  width: 18em;
+
   .col {
     display: center;
   }
