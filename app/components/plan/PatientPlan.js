@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import moment from 'moment';
 import Workout from './Workout'
@@ -8,7 +9,15 @@ import InfoItem from '../widgets/InfoItem'
 import { primary, active, errorText } from '../colors'
 
 const PatientPlan =  ({ plan }) => {
-  if (!Object.keys(plan).length) return null;
+  if (!Object.keys(plan).length) {
+    return (
+      <div>
+        <h1 className="page-header"><p>No Plan Currently Active</p></h1>
+        <h4><p><Link to="/messages">Message</Link> your therapist to check the status of your plan.</p></h4>
+      </div>
+    )
+  }
+
   let treatmentCount = 0;
 
   return (
@@ -26,7 +35,7 @@ const PatientPlan =  ({ plan }) => {
           <InfoItem icon="accessibility" label="Therapy Focus"
             content={ plan.therapyFocus } />
           {
-            plan.notes ?  
+            plan.notes ?
               <InfoItem icon="speaker_notes" label="Notes"
                 content={ plan.notes } /> : null
           }
