@@ -57,7 +57,7 @@ export class PatientList extends Component {
         <div className="ptbutton">
           <div className="remove">
             <StepsRaisedButton fullWidth={true} id="cancel"
-              label="Remove Patient"
+              label={this.state.showRemove ? "Done Removing" : "Remove Patient"}
               onClick={this.showRemove}
             />
           </div>
