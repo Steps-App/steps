@@ -22,7 +22,7 @@ export class ExerciseList extends Component {
 
   render() {
 
-    const { exercises, deleteExercise } = this.props;
+    const {user, exercises, deleteExercise } = this.props;
 
     return (
      
@@ -41,7 +41,7 @@ export class ExerciseList extends Component {
             <TableBody displayRowCheckbox={false}>
             {
               exercises && exercises.map( exercise =>
-                <TableRow key={ exercise.id }>
+                <TableRow key={ exercise.id } selectable={false}>
                     <TableRowColumn style={{ width: "30%" }}>
                       <img className="img-responsive" src={exercise.img_url}></img>
                     </TableRowColumn>
@@ -54,7 +54,7 @@ export class ExerciseList extends Component {
                           label="Delete"
                           backgroundColor="#ff0000"
                           labelStyle={{color: 'white'}}
-                          onClick={() => deleteExercise(exercise.id)}
+                          onClick={() => deleteExercise(user.id, exercise.id)}
                         />
                     </TableRowColumn>
                 </TableRow>
@@ -70,11 +70,11 @@ export class ExerciseList extends Component {
 
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapStateToProps = ({ exercises }) => ({ exercises })
+const mapStateToProps = ({user, exercises }) => ({user, exercises })
 
 const mapDispatchtoProps = dispatch => ({
   createExercise : (newExercise) => dispatch(createExercise(newExercise)),
-  deleteExercise : (exerciseId) => dispatch(deleteExercise(exerciseId))
+  deleteExercise : (userId, exerciseId) => dispatch(deleteExercise(userId, exerciseId))
 })
 
 export default connect(mapStateToProps, mapDispatchtoProps)(ExerciseList);
