@@ -19,6 +19,7 @@ const TreatmentsList =  ({ treatments, removeTreatment }) => {
       <p>There are currently no treatments in your plan</p> :
       treatments.map((treatment, idx) => (
         <div className="treatment" key={idx}>
+          <div className="treatment-number">#{idx + 1}</div>
           <img src={treatment.exercise.img_url} className="img-responsive"/>
           <div className="treatment-info">
             <div className="treatment-header">
