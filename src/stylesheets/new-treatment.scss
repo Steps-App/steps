@@ -25,14 +25,18 @@
     flex-direction: row;
     > .treatment-fields {
       display: inherit;
+      flex-direction: column;
+      width: 80%;
+      > .treatment-nums {
+      display: inherit;
       flex-direction: row;
       justify-content: space-around;
-      width: 80%;
-      > div {
-        width: 100px !important;
-      }
-      > div + div {
-        padding-left: 5px;
+        > div {
+          width: 100px !important;
+        }
+        > div + div {
+          padding-left: 5px;
+        }
       }
     }
     > .add-button {
@@ -46,14 +50,17 @@
   .treatment-inputs {
     flex-direction: column;
     .treatment-fields {
-      flex-direction: column;
       justify-content: center;
       width: 100%;
-      > div {
-        width: 100% !important;
-      }
-      > div + div {
-        padding-left: 0;
+      > .treatment-nums {
+      display: inherit;
+      flex-direction: column;
+        > div {
+          width: 100% !important;
+        }
+        > div + div {
+          padding-left: 0;
+        }
       }
     }
     > .add-button {

@@ -23,35 +23,46 @@ export default ({ exercise, treatment, treatmentErrors,
           </div>
           <div className="treatment-inputs">
             <div className = "treatment-fields">
+              <div className="treatment-nums">
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Sets"
+                  value={treatment.sets}
+                  errorText={treatmentErrors.sets}
+                  type="number"
+                  onChange={(env) => treatmentHandler('sets', env.target.value)} />
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Reps" type="number"
+                  value={treatment.reps}
+                  errorText={treatmentErrors.reps}
+                  onChange={(env) => treatmentHandler('reps', env.target.value)} />
+                <StepsSelectField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Resistance"
+                  value={treatment.resistance}
+                  errorText={treatmentErrors.resistance}
+                  onChange={resistanceOnChange} >
+                  <StepsMenuItem value='weighted' primaryText='Weighted'/>
+                  <StepsMenuItem value='none' primaryText='None' />
+                </StepsSelectField>
+                <StepsTextField
+                  floatingLabelFixed={true}
+                  floatingLabelText="Minutes"
+                  value={treatment.time_per_exercise}
+                  errorText={treatmentErrors.time_per_exercise}
+                  type="number"
+                  onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)} />
+              </div>
               <StepsTextField
-                floatingLabelFixed={true}
-                floatingLabelText="Sets"
-                value={treatment.sets}
-                errorText={treatmentErrors.sets}
-                type="number"
-                onChange={(env) => treatmentHandler('sets', env.target.value)} />
-              <StepsTextField
-                floatingLabelFixed={true}
-                floatingLabelText="Reps" type="number"
-                value={treatment.reps}
-                errorText={treatmentErrors.reps}
-                onChange={(env) => treatmentHandler('reps', env.target.value)} />
-              <StepsSelectField
-                floatingLabelFixed={true}
-                floatingLabelText="Resistance"
-                value={treatment.resistance}
-                errorText={treatmentErrors.resistance}
-                onChange={resistanceOnChange} >
-                <StepsMenuItem value='weighted' primaryText='Weighted'/>
-                <StepsMenuItem value='none' primaryText='None' />
-              </StepsSelectField>
-              <StepsTextField
-                floatingLabelFixed={true}
-                floatingLabelText="Minutes"
-                value={treatment.time_per_exercise}
-                errorText={treatmentErrors.time_per_exercise}
-                type="number"
-                onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)} />
+                hintText="Write special treatment instructions here"
+                value={treatment.notes}
+                multiLine={true}
+                floatingLabelText="Notes"
+                rows={1}
+                rowsMax={2}
+                fullWidth={true}
+                onChange={(env) => treatmentHandler('notes', env.target.value)} />
             </div>
             <div className="add-button">
               <StepsRaisedButton

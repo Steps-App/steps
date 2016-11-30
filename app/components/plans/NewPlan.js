@@ -16,13 +16,6 @@ import { background, errorText } from '../colors';
 import { fullName } from '../../utils';
 import moment from 'moment';
 
-// Styles
-//== Exercise SelectField Style
-const styleRow = {
-  'display' : 'flex',
-  'marginTop' : '1em'
-};
-
 // Initial Treatment Template for reseting
 const initialTreatment = {
   time_per_exercise: '',
