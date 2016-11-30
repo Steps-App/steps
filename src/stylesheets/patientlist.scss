@@ -1,1 +1,58 @@
 @import "colors";
+
+
+
+// remove and add patient buttons
+.ptbutton {
+  text-align: end;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .add{
+    margin: 1vh;
+  }
+
+  .remove{
+    margin : 1vh;
+
+    #cancel {
+      background-color: $error-text !important;
+      margin: 1vh;
+    }
+  }
+}
+
+// patient tiles
+
+.tile{
+  border: 1px solid black;
+  padding : 1vh;
+  text-align: -webkit-center;
+  width: 35vh;
+  height : 28vh;
+  .col {
+    display: center;
+  }
+
+  p{
+    word-wrap: normal;
+    font-size: small;
+  }
+
+}
+
+// removeBadge
+.removeBadge {
+  padding:  1vh 2vh 2vh 4vh !important;
+
+  > span {
+    display: none !important;
+  }
+}
+
+.showRemove {
+  padding:  1vh 2vh 2vh 4vh !important;
+
+}
