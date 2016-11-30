@@ -1,0 +1,32 @@
+
+
+
+
+
+#exercise-list{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  img {
+    width: 13em;
+    height: 8em;
+  }
+
+
+  .exercise-title{
+    > p {
+      font-size: 21px;
+      font-weight: 500;
+      padding-left: none;
+      margin-bottom: none;
+
+    }
+  }
+
+
+
+  #remove{
+    visibility: hidden;
+  }
+}
