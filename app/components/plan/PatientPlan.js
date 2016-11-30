@@ -9,14 +9,7 @@ import InfoItem from '../widgets/InfoItem'
 import { primary, active, errorText } from '../colors'
 
 const PatientPlan =  ({ plan }) => {
-  if (!Object.keys(plan).length) {
-    return (
-      <div>
-        <h1 className="page-header"><p>No Plan Currently Active</p></h1>
-        <h4><p><Link to="/messages">Message</Link> your therapist to check the status of your plan.</p></h4>
-      </div>
-    )
-  }
+  if (!Object.keys(plan).length) return null
 
   let treatmentCount = 0;
 
