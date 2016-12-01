@@ -15,6 +15,7 @@ import { fetchCurrentPatient } from './reducers/currentpatient';
 // React Compontents
 import Home from './components/home/Home';
 import App from './components/App';
+import Patient from './components/patients/Patient';
 import AddPatientContainer from './components/patients/AddPatientContainer';
 import NewPlanContainer from './components/plans/NewPlanContainer';
 import Plan from './components/plans/Plan';
@@ -58,12 +59,19 @@ const appEnter = (nextState, replace, callback) => {
   }));
 };
 
+// If no patient on the state, fetch their info
+const singlePatientEnter = nextState => {
+  const curPatient = store.getState().currentPatient;
+  if (!Object.keys(curPatient).length || curPatient.id != nextState.params.patientId)
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId, true));
+};
+
 const newPlanEnter = (nextState, replace) => {
   // Check if patientId matches a patient on State, grab exercises for the therapist
   // otherwise, redirect to /patients
   if(store.getState().patients.find(patient => patient.id == nextState.params.patientId )) {
     store.dispatch(fetchExercises(store.getState().user.id));
-    store.dispatch(fetchCurrentPatient(nextState.params.patientId));
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId, false));
   } else replace('/patients');
 };
 
@@ -83,7 +91,7 @@ const workoutEnter = (nextState, replace) => {
 const therapistPlanEnter = (nextState) => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length) {
-    store.dispatch(fetchCurrentPatient(nextState.params.patientId))
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId, false))
     store.dispatch(fetchPatientPlan(nextState.params.patientId))
     store.dispatch(fetchExercises(store.getState().user.id))
   }
@@ -105,10 +113,10 @@ render (
         <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
+        <Route path="/patients/:patientId" component={ Patient } onEnter={ singlePatientEnter } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
-        <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
-        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
+        <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
+        <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
         <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/*" component={ NotFound } />
       </Route>

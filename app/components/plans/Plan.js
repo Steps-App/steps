@@ -33,10 +33,10 @@ const Plan = ({ plan, currentPatient, createPlan, route }) => {
     onClick={() => browserHistory.push(`/patients/${currentPatient.id}/plans/new`)} />
   ] : null;
   return (
-    <div id="confirm-plan">
+    <div id="patient-plan">
       <Helmet title={route.confirm ? 'Confirm Plan' : `${patientName}'s Plan`} />
       <h1 className="page-header">{route.confirm ? 'Plan Confirmation' : `${patientName}'s Plan`}</h1>
-      <div className="confirm-plan-content">
+      <div className="patient-plan-content">
         <SidePanel imgURL={ currentPatient.img_URL } buttons={ buttons }>
           <InfoItem icon="person" label="Name"
             content={ patientName } />

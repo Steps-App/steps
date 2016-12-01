@@ -9,6 +9,7 @@ const patientModel  = db.model('patient')
 const planModel = db.model('plan')
 const therapistModel  = db.model('therapist')
 const treatmentModel  = db.model('treatment')
+const exerciseModel  = db.model('exercise')
 const workoutModel  = db.model('workout')
 
 // -=-=-= PARAM HANDLER =-=-=-=-
@@ -29,19 +30,21 @@ patientRoutes.get('/', (req, res, next) => {
 
 //get one patient with all data
 patientRoutes.get('/:patientId', function(req, res, next){
+  // Checks 'treatment' and 'workout' query params for optional inclusion
+  const planIncludes = req.query.treatments === 'yes' ? [{
+    model: treatmentModel,
+    required: false,
+    include: req.query.workouts === 'yes' ? [ exerciseModel, workoutModel ] : [ exerciseModel ]
+  }] : [];
+
+  // Retrieves the current plan and its children
   patientModel.findOne({
     where: { id: req.patientId },
-    include: [
-      { model: planModel,
-        required: false
-      },
-      { model: treatmentModel,
-        required: false
-      },
-      { model: workoutModel,
-        required: false
-      }
-    ]
+    include: [{
+      model: planModel,
+      required: false,
+      include: planIncludes
+    }]
   })
   .then(patient => res.send(patient))
   .catch(next);

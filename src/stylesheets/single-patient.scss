@@ -1,0 +1,28 @@
+@import "screens";
+
+#single-patient {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-patient-content {
+  display: inherit;
+  flex-direction: column;
+  .single-patient-data {
+    display: inherit;
+    flex-direction: row-reverse;
+    @media (max-width: $lg) {
+      flex-direction: column;
+    }
+  }
+  .plan-table {
+    padding: 15px 10px;
+    @media (max-width: $lg) {
+      .minimize {
+        display: none;
+      }
+    }
+  }
+}
+
