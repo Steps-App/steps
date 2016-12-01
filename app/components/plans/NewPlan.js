@@ -192,13 +192,14 @@ export default class NewPlan extends React.Component{
 
 // -=-=-=-=-=-=-=-=-=-=-= Component Starts Here -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   render(){
+    const { currentPatient, exercises } = this.props;
     return (
       <div id="new-plan">
         <Helmet title="New Plan" />
         <h1 className="page-header">New Plan</h1>
         <div className="new-plan-content">
           <SidePanel
-            imgURL={this.props.currentPatient.img_URL}
+            imgURL={currentPatient.img_URL}
             buttons={[
               <StepsRaisedButton
               type="submit"
@@ -207,9 +208,13 @@ export default class NewPlan extends React.Component{
               onClick={this.submitHandler} />
             ]}>
             <InfoItem icon="person" label="Name"
-              content={ fullName(this.props.currentPatient) } />
-            <InfoItem icon="date_range" label="Birthday"
-              content={ moment(this.props.currentPatient).format('MMM Do, YYYY') } />
+              content={ fullName(currentPatient) } />
+            <InfoItem icon="fingerprint" label="Patient ID"
+              content={ currentPatient.emr_id } />
+            <InfoItem icon="event" label="Birthday"
+              content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
+            <InfoItem icon="assignment_ind" label="Gender"
+              content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
           </SidePanel>
           <form onSubmit={this.submitHandler}>
             <PlanOptions
@@ -221,7 +226,7 @@ export default class NewPlan extends React.Component{
             />
             {
               // Create exercise list dropdown, or else instruct therapist to create ones
-              this.props.exercises.length ?
+              exercises.length ?
                 <div className="add-exercise">
                   {
                     this.state.planErrors.selectedExercise ?
@@ -237,7 +242,7 @@ export default class NewPlan extends React.Component{
               // Render new treatment form, will not be visible if exercise null
               this.state.selectedExercise ?
                 <NewTreatment
-                  exercise={this.props.exercises.find(exercise => exercise.id === this.state.selectedExercise)}
+                  exercise={exercises.find(exercise => exercise.id === this.state.selectedExercise)}
                   treatment={this.state.treatment}
                   resistanceOnChange={this.resistanceOnChange}
                   addTreatment={this.addNewTreatment}
@@ -266,7 +271,7 @@ export default class NewPlan extends React.Component{
               this.handleExercisesClose();
             }}>
           {
-            this.props.exercises.map(exercise =>
+            exercises.map(exercise =>
               <StepsMenuItem key={exercise.id}
                 value={exercise.id} primaryText={exercise.title} />
             )

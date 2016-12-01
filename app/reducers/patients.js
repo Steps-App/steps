@@ -50,7 +50,8 @@ export const createPatient = (data, displayErr) => dispatch => {
   axios.post(`/api/therapist/${data.therapistId}/patients`, {
     firstName: data.firstName,
     lastName: data.lastName,
-    email: data.email
+    email: data.email,
+    emrId: data.patientId
   })
     .then(res => {
       dispatch(addedPatient(res.data))

@@ -40,7 +40,9 @@ const Plan = ({ plan, currentPatient, createPlan, route }) => {
         <SidePanel imgURL={ currentPatient.img_URL } buttons={ buttons }>
           <InfoItem icon="person" label="Name"
             content={ patientName } />
-          <InfoItem icon="date_range" label="Birthday"
+          <InfoItem icon="fingerprint" label="Patient ID"
+            content={ currentPatient.emr_id } />
+          <InfoItem icon="event" label="Birthday"
             content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
           <InfoItem icon="assignment_ind" label="Gender"
             content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
