@@ -1,0 +1,67 @@
+@import "colors";
+@import "screens";
+
+#treatments-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  @media (max-width: $lg) {
+    padding: 30px 10px;
+  }
+}
+
+.treatment {
+  display: inherit;
+  flex-direction: row;
+  color: $text-dark;
+  > img { // exercise image
+    min-width: 250px;
+    max-height: 200px;
+  }
+  > .treatment-info {
+    width: 100%;
+    display: inherit;
+    flex-direction: column;
+    padding: 5px 10px;
+    > .treatment-header {
+      display: inherit;
+      flex-direction: row;
+      justify-content: space-between;
+      > h3 {
+        margin: 0;
+      }
+    }
+    > .treatment-fields {
+      display: inherit;
+      flex-direction: row;
+      > .info-item + .info-item::before { // treatment data separators
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-weight: bold;
+        content: '/';
+      }
+    }
+    > .treatment-fields + div, > .info-item + div { // space out treatment text
+      padding-top: 5px;
+    }
+  }
+  + .treatment {
+    padding-top: 25px;
+  }
+}
+
+.treatment-number { // treatment/workout row number
+  z-index: 1;
+  position: absolute;
+  margin-left: -15px;
+  margin-top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: $numbers;
+  color: $text-light;
+}

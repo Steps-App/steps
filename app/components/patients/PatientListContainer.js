@@ -5,18 +5,44 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 import { deletePatient } from '../../reducers/patients'
 
-//Material UI
-import { Table, TableHeader, TableHeaderColumn,
-         TableBody, TableRow, TableRowColumn, TableFooter } from 'material-ui'
-import { StepsRaisedButton } from '../material-style'
+//Material
+import { GridList, GridTile, IconButton, Badge} from 'material-ui';
+import {StepsRaisedButton} from '../material-style';
+import moment from 'moment';
+
+
+//-=-=-=-=-=-=-= GridList -=-=-=-=-=-=
+ const gridList = {
+  "width" : "fluid",
+  height: "100%",
+  overflow: 'visible',
+  "justify-content" : "center"
+}
+
+ const gridTile = {
+   "overflow" : "visible",
+   "display" : "webikit-center"
+ }
+
+
+
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
+
+
 
 export class PatientList extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      showRemove : false
+    }
+    this.showRemove = this.showRemove.bind(this);
+  }
+
+  showRemove (){
+    this.setState({showRemove:!this.state.showRemove});
   }
 
   render() {
@@ -26,59 +52,79 @@ export class PatientList extends Component {
     return (
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Patients" />
-        <h1>Patient List</h1>
-        <Link to="/patients/new">
-          <StepsRaisedButton
-            label="Add Patient"
-            backgroundColor="#005B96"
-            labelStyle={{color: 'white'}}
-          />
-        </Link>
-        <Table >
-          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow>
-              <TableHeaderColumn></TableHeaderColumn>
-              <TableHeaderColumn>Name</TableHeaderColumn>
-              <TableHeaderColumn>Gender</TableHeaderColumn>
-              <TableHeaderColumn>{}</TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
-          <TableBody displayRowCheckbox={false}>
+        <h1 className="page-header">Patient List</h1>
+        <div className='row'>
+        <div className="ptbutton">
+          <div className="remove">
+            <StepsRaisedButton fullWidth={true} id="cancel"
+              label={this.state.showRemove ? "Done Removing" : "Remove Patient"}
+              onClick={this.showRemove}
+            />
+          </div>
+          <div className="add">
+            <Link to="/patients/new">
+              <StepsRaisedButton fullWidth={true}
+                label="Add Patient"
+              />
+            </Link>
+          </div>
+        </div>
+        </div>
+        <div className="row" >
+
+        <GridList
+            cellHeight={'auto'}
+            padding ={1}
+            cols={'auto'}
+            style={gridList}>
+
           {
             patients && patients.map( patient =>
-              <TableRow key={ patient.id }>
-                  <TableRowColumn style={{ width: '250px', padding: 0 }}>
-                    <img className="img-responsive" src={patient.img_URL}></img>
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: '150px' }}>
-                    { patient.first_name + " " + patient.last_name }
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: '10px' }}>{ patient.gender }</TableRowColumn>
-                  <TableRowColumn>
-                    <StepsRaisedButton
-                      label="Current Plan"
-                      backgroundColor="#005B96"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => browserHistory.push(`/patients/${patient.id}/plans/current`)}
-                    />
-                    <StepsRaisedButton
-                      label="New Plan"
-                      backgroundColor="#009900"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => browserHistory.push(`/patients/${patient.id}/plans/new`)}
-                    />
-                    <StepsRaisedButton
-                      label="Delete Patient"
-                      backgroundColor="#ff0000"
-                      labelStyle={{color: 'white'}}
-                      onClick={() => removePatient(patient.id)}
-                    />
-                  </TableRowColumn>
-              </TableRow>
+              <GridTile key={ patient.id }
+                   style={gridTile}>
+               <Badge
+                   className={ this.state.showRemove ? "showRemove" : "removeBadge"}
+                   badgeContent={ <IconButton
+                   tooltip="Remove Patient"
+                   iconClassName="material-icons"
+                   onClick={() => removePatient(patient.id)}>
+                   highlight_off
+                   </IconButton>}>
+
+                <div className="tile" >
+                  <div className="row" >
+                    <div className="col-xs-6" >
+                      <img className="img-responsive" src={patient.img_URL}/>
+                      <p> Patient Id : {patient.id} </p>
+                    </div>
+                    <div className="col-xs-6" >
+                      <p>{`Last : ${patient.last_name} ` }</p>
+                      <p>{`First : ${patient.first_name} ` }</p>
+                      <p>{`DOB : ${patient.DOB ? moment(patient.DOB).format('l') : 'None'} `}</p>
+                      <p>{ `Gender : ${patient.gender ? patient.gender : 'n/a'}`}</p>
+
+                    </div>
+                  </div>
+                  <div className='row' id='pticon'>
+
+                    <Link to={`/patients/${patient.id}/plans/current`}>
+                      <IconButton tooltip="Current Plan" iconClassName="material-icons">
+                      assignment
+                      </IconButton>
+                    </Link>
+                    <Link to={`/patients/${patient.id}/plans/new`}>
+                      <IconButton tooltip="Add Plan" iconClassName="material-icons">
+                      add_box
+                      </IconButton>
+                    </Link>
+                  </div>
+                </div>
+                </Badge>
+              </GridTile>
             )
           }
-         </TableBody>
-        </Table>
+        </GridList>
+        </div>
       </div>
     )
   }

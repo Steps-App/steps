@@ -1,0 +1,62 @@
+@import "screens";
+
+.side-panel { // Paper container
+  min-width: 25% !important;
+  max-width: 35% !important;
+  margin-left: 20px;
+  .panel-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    > .panel-content {
+        display: inherit;
+        flex-direction: column;
+      > .panel-img {
+        align-self: center;
+        padding: 10px 0;
+        > img {
+          width: auto;
+          height: auto;
+          display: flex;
+          border-radius: 50%;
+        }
+      }
+      > .panel-img + .panel-info {
+        padding-top: 10px;
+      }
+      > .panel-info > .info-item + .info-item {
+        padding-top: 5px;
+      }
+    }
+    > .panel-buttons {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .side-panel { // Paper container
+    max-width: initial !important;
+    margin-left: 0;
+    .panel-wrapper {
+      > .panel-content {
+        display: inherit;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      > .panel-img + .panel-info {
+        padding-top: 0;
+      }
+      > .panel-info {
+        > * {
+          max-width: $sm;
+        }
+        > .info-item + .info-item {
+          padding-top: 5px;
+        }
+      }
+    }
+    }
+  }
+}

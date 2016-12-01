@@ -13,9 +13,16 @@
   background-color: $toolbar;
   text-align: center;
   color: $text-light;
-  > img {
-    width: 60px;
-    height: 60px;
+  > .logo-circle {
+    background-image: url('https://steps-app.herokuapp.com/images/logo.png');
+    background-size: 35px 22px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: white;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
   }
   > h1 {
     margin: 0;

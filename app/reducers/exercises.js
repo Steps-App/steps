@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -40,7 +41,7 @@ export const fetchExercises = therapistId => dispatch => {
 
 //this delete route does not exist 
 
-export const deleteExercise = (id) => dispatch => {
+export const deleteExercise = (therapistId, id) => dispatch => {
   axios.delete(`/api/therapist/${therapistId}/exercises/${id}`)
     .then(ok => {
       dispatch(removeOneExercise(id))

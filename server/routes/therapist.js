@@ -23,6 +23,9 @@ therapistRoutes.get('/data', (req, res) => {
   
 })
 
+//Route is '/api/therapist'
+
+
 // -=-=-=-= READ =-=-=-=-
 
 // get patients of a therapist 
@@ -79,6 +82,15 @@ therapistRoutes.get('/:id/exercises', (req, res, next) => {
     .catch(next);
 })
 
+// delete one exercise for the therapist
+therapistRoutes.delete('/:id/exercises/:exerciseId', (req, res, next) => {
+  exerciseModel.destroy({ where:{ id: req.params.exerciseId } })
+    .then(() => res.sendStatus(204))
+    .catch(next);
+})
+
+
+
 /* PATIENTS */
 
 // get all patients for a therapist
@@ -97,6 +109,7 @@ therapistRoutes.post('/:id/patients', (req, res, next) => {
     first_name: req.body.firstName,
     last_name: req.body.lastName,
     email: req.body.email,
+    emr_id: req.body.emrId,
     DOB, gender, img_URL // random seed data!
   })
     .then(patient => {

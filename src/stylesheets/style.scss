@@ -6,10 +6,15 @@
 @import "video";
 @import "counter";
 @import "chat";
-@import "newplan";
+@import "new-plan";
+@import "new-treatment";
+@import "confirm-plan";
+@import "treatments";
 @import "patientlist";
-
->>>>>>> master
+@import "info-item";
+@import "exerciselist";
+@import "info-panel";
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
 
 body,html {
   width : 100%;
@@ -17,7 +22,7 @@ body,html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Oxygen", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $text-dark;
   background-color: $background;
 }
@@ -32,6 +37,10 @@ body,html {
   padding-top: 5em;
   display: flex;
   justify-content: center;
+}
+
+hr {
+  border-color: $placeholder-text;
 }
 
 #new-patient {

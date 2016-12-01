@@ -1,0 +1,72 @@
+@import "screens";
+
+.new-treatment {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+ > .new-treatment-exercise {
+    display: inherit;
+    flex-direction: row;
+    > img { // exercise image
+      max-width: 50%;
+      max-height: 200px;
+    }
+    .exercise-info {
+      display: inherit;
+      flex-direction: column;
+      padding-left: 10px;
+      > h3 {
+        margin-top: 5px;
+      }
+    }
+ }
+  > .treatment-inputs {
+    display: inherit;
+    flex-direction: row;
+    > .treatment-fields {
+      display: inherit;
+      flex-direction: column;
+      width: 80%;
+      > .treatment-nums {
+      display: inherit;
+      flex-direction: row;
+      justify-content: space-around;
+        > div {
+          width: 100px !important;
+        }
+        > div + div {
+          padding-left: 5px;
+        }
+      }
+    }
+    > .add-button {
+      display: inherit;
+      align-items: flex-end;
+      width: 20%;
+      margin: 0 5px;
+    }
+  }
+  @media (max-width: $sm) {
+  .treatment-inputs {
+    flex-direction: column;
+    .treatment-fields {
+      justify-content: center;
+      width: 100%;
+      > .treatment-nums {
+      display: inherit;
+      flex-direction: column;
+        > div {
+          width: 100% !important;
+        }
+        > div + div {
+          padding-left: 0;
+        }
+      }
+    }
+    > .add-button {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+}
