@@ -107,8 +107,8 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
-        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
+        <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
+        <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
         <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/*" component={ NotFound } />
       </Route>
