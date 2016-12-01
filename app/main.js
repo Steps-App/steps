@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react';
-import { Router, Route, Redirect, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
