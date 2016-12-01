@@ -25,18 +25,35 @@ import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
 import ChatRoom from './components/chat/ChatRoom'
 import ExerciseListContainer from './components/exercises/ExerciseListContainer'
-import { loginRedirect } from './utils'
+import NotFound from './components/home/NotFound'
+import { loginRedirect, checkRoute } from './utils'
 
+// Constants
+import { VALID_ROUTES, THERAPIST_REGEX, PATIENT_REGEX } from './constants'
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
+  let userPath = nextState.location.pathname
   store.dispatch(retrieveLoggedInUser((err, user) => {
     // Home page and logged in -> default app view
-    if (!err && nextState.location.pathname === '/')
+    if (!err && user && userPath === '/') {
       replace(loginRedirect(user.role));
-    // App page and not logged in -> home page
-    else if (err && nextState.location.pathname !== '/')
-      replace('/');
+    }
+    // if logged-in user tries to access path outside of authorities
+    // send them back to their home page
+    else if (!err && user && (VALID_ROUTES.includes(userPath) ||
+      userPath.match(PATIENT_REGEX) || userPath.match(THERAPIST_REGEX))) {
+      if (!checkRoute(user.role, userPath)) {
+        replace(loginRedirect(user.role))
+      }
+    }
+    // if non-user (or not logged-in user) tries to access a valid page
+    // redirect to log-in
+    else if (err && VALID_ROUTES.includes(userPath) ||
+      userPath.match(PATIENT_REGEX) || userPath.match(THERAPIST_REGEX)) {
+      replace('/')
+    }
+    // else 404 not found via default routing below
     callback();
   }));
 };
@@ -84,15 +101,16 @@ render (
         <Route path="/plan" component={ PatientPlan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
-        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
+        <Route path="/messages" component={ ChatRoom } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/messages" component={ ChatRoom } />
-        <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
-        <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
+        <Route path="/patients/:patientId/plans/current" component={ CurrentPlan } onEnter={therapistPlanEnter} />
+        <Route path="/patients/:patientId/plans/confirmation" component={PlanConfirmContainer} />
+        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
+        <Route path="/*" component={ NotFound } />
       </Route>
     </Router>
   </Provider>,

@@ -1,4 +1,5 @@
-import { PATIENT, THERAPIST } from './constants.js';
+import { PATIENT, THERAPIST, PATIENT_ROUTES,
+  THERAPIST_ROUTES, THERAPIST_REGEX, PATIENT_REGEX } from './constants.js';
 import moment from 'moment';
 
 // Check whether script is being run in browser or Node
@@ -32,6 +33,16 @@ export const loginRedirect = role => {
   if (role === THERAPIST) return '/patients';
   else if (role === PATIENT) return '/plan';
   else return '/';
+}
+
+// Ensure user is seeing the appropriate side of the app (patient or therapist)
+export const checkRoute = (role, route) => {
+  if (role === THERAPIST && (THERAPIST_ROUTES.includes(route) || route.match(THERAPIST_REGEX)))
+    return true
+  if (role === PATIENT && (PATIENT_ROUTES.includes(route) || route.match(PATIENT_REGEX)))
+    return true
+  console.log('returning false')
+  return false
 }
 
 // Format an inout amount of seconds into X min XX sec
