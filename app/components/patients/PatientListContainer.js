@@ -6,8 +6,8 @@ import { Link, browserHistory } from 'react-router';
 import { deletePatient } from '../../reducers/patients'
 
 //Material
-import { GridList, GridTile, IconButton, Badge} from 'material-ui';
-import {StepsRaisedButton} from '../material-style';
+import { GridList, GridTile, IconButton, Badge, Dialog} from 'material-ui';
+import {StepsRaisedButton, StepsFlatButton} from '../material-style';
 import moment from 'moment';
 
 
@@ -36,7 +36,8 @@ export class PatientList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showRemove : false
+      showRemove : false,
+      confirmOpen:false
     }
     this.showRemove = this.showRemove.bind(this);
   }
@@ -45,9 +46,31 @@ export class PatientList extends Component {
     this.setState({showRemove:!this.state.showRemove});
   }
 
+  dialogClose(){
+    this.setState({confirmOpen: false});
+  }
+
+  dialogOpen(){
+    this.setState({confirmOpen: true});
+  }
+
   render() {
 
     const { patients, removePatient } = this.props;
+    const actions = [
+        <StepsFlatButton
+          label="Cancel"
+          primary={true}
+          onTouchTap={this.confirmClose}
+        />,
+        <StepsFlatButton
+          label="Comfirm"
+          primary={true}
+          keyboardFocused={true}
+          onTouchTap={this.confirmClose}
+        />,
+      ];
+
 
     return (
       <div id="patient-list" className="col-xs-12">
@@ -55,18 +78,18 @@ export class PatientList extends Component {
         <h1 className="page-header">Patient List</h1>
         <div className='row'>
         <div className="ptbutton">
-          <div className="remove">
-            <StepsRaisedButton fullWidth={true} id="cancel"
-              label={this.state.showRemove ? "Done Removing" : "Remove Patient"}
-              onClick={this.showRemove}
-            />
-          </div>
           <div className="add">
             <Link to="/patients/new">
               <StepsRaisedButton fullWidth={true}
                 label="Add Patient"
               />
             </Link>
+          </div>
+          <div className={this.state.showRemove ? "finish" : "remove"}>
+            <StepsRaisedButton fullWidth={true} id="cancel"
+              label={this.state.showRemove ? "Edit Finished" : "Edit Patients"}
+              onClick={this.showRemove}
+            />
           </div>
         </div>
         </div>
@@ -95,7 +118,7 @@ export class PatientList extends Component {
                   <div className="row" >
                     <div className="col-xs-6" >
                       <img className="img-responsive" src={patient.img_URL}/>
-                      <p> Patient Id : {patient.id} </p>
+                      <p> Patient Id : {patient.emr_id} </p>
                     </div>
                     <div className="col-xs-6" >
                       <p>{`Last : ${patient.last_name} ` }</p>
@@ -125,6 +148,18 @@ export class PatientList extends Component {
           }
         </GridList>
         </div>
+
+
+            <Dialog
+              title="Dialog With Actions"
+              actions={actions}
+              modal={false}
+              open={this.state.confirmOpen}
+              onRequestClose={this.confirmClose}
+            >
+              The actions in this window were passed in as an array of React objects.
+            </Dialog>
+
       </div>
     )
   }

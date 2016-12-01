@@ -4,11 +4,10 @@
 
 // remove and add patient buttons
 .ptbutton {
-  text-align: end;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:flex-end;;
 
   .add{
     margin: 1vh;
@@ -16,10 +15,16 @@
 
   .remove{
     margin : 1vh;
-
     #cancel {
-      background-color: $error-text !important;
       margin: 1vh;
+    }
+  }
+
+  .finish{
+    margin : 1vh;
+    #cancel {
+      margin: 1vh;
+      background-color: $secondary !important;
     }
   }
 }
@@ -39,6 +44,10 @@
   p{
     word-wrap: normal;
     font-size: small;
+  }
+
+  .material-icons{
+    font-size: 30px;
   }
 
 }
