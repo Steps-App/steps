@@ -49,7 +49,7 @@ db.didSync
   // Create initial seed data (no addociations yet)
   .then(() => {
     return Promise.all(Object.keys(tables).map(table =>
-      db.Promise.map(tables[table], result => db.model(table).create(result))))
+      db.Promise.map(tables[table], result => db.model(table).create(result))));
   })
   .spread((therapists, patients, exercises, plans) => {
     const updatedTherapists = [];

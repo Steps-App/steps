@@ -14,7 +14,7 @@
 @import "info-item";
 @import "exerciselist";
 @import "info-panel";
-
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
 
 body,html {
   width : 100%;
@@ -22,7 +22,7 @@ body,html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Oxygen", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $text-dark;
   background-color: $background;
 }
