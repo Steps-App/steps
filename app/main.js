@@ -29,6 +29,7 @@ import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
 
 
+
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
   store.dispatch(retrieveLoggedInUser((err, user) => {
@@ -41,6 +42,7 @@ const appEnter = (nextState, replace, callback) => {
     callback();
   }));
 };
+
 
 const newPlanEnter = (nextState, replace) => {
   // Check if patientId matches a patient on State, grab exercises for the therapist
