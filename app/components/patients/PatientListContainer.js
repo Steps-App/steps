@@ -37,9 +37,12 @@ export class PatientList extends Component {
     super(props)
     this.state = {
       showRemove : false,
-      confirmOpen:false
+      confirmOpen:false,
+      selectedPt :{}
     }
     this.showRemove = this.showRemove.bind(this);
+    this.dialogClose = this.dialogClose.bind(this);
+    this.dialogOpen = this.dialogOpen.bind(this);
   }
 
   showRemove (){
@@ -48,10 +51,12 @@ export class PatientList extends Component {
 
   dialogClose(){
     this.setState({confirmOpen: false});
+    this.setState({selectedPt :{}});
   }
 
-  dialogOpen(){
+  dialogOpen(patient){
     this.setState({confirmOpen: true});
+    this.setState({selectedPt : patient});
   }
 
   render() {
@@ -61,14 +66,17 @@ export class PatientList extends Component {
         <StepsFlatButton
           label="Cancel"
           primary={true}
-          onTouchTap={this.confirmClose}
+          onTouchTap={this.dialogClose}
         />,
         <StepsFlatButton
-          label="Comfirm"
+          label="Confirm"
           primary={true}
           keyboardFocused={true}
-          onTouchTap={this.confirmClose}
-        />,
+          onTouchTap={()=>{
+            removePatient(this.state.selectedPt.id);
+            this.dialogClose();
+          }}
+        />
       ];
 
 
@@ -110,7 +118,7 @@ export class PatientList extends Component {
                    badgeContent={ <IconButton
                    tooltip="Remove Patient"
                    iconClassName="material-icons"
-                   onClick={() => removePatient(patient.id)}>
+                   onClick={() => this.dialogOpen(patient)}>
                    highlight_off
                    </IconButton>}>
 
@@ -151,13 +159,14 @@ export class PatientList extends Component {
 
 
             <Dialog
-              title="Dialog With Actions"
+              title="Cofirm Deletion"
               actions={actions}
               modal={false}
               open={this.state.confirmOpen}
-              onRequestClose={this.confirmClose}
+              onRequestClose={this.dialogClose}
             >
-              The actions in this window were passed in as an array of React objects.
+              {`Would you like to permenantly delete the following patient :
+              ${this.state.selectedPt.first_name} ${this.state.selectedPt.last_name}`}
             </Dialog>
 
       </div>
