@@ -23,6 +23,12 @@ const Patient = db.define('patient', {
       isEmail: true
     }
   },
+  emr_id: {
+    type: Sequelize.INTEGER,
+    validate: {
+      notEmpty: true
+    }
+  },
   DOB: Sequelize.DATEONLY,
   gender: {
     type: Sequelize.ENUM,

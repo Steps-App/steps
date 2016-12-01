@@ -109,6 +109,7 @@ therapistRoutes.post('/:id/patients', (req, res, next) => {
     first_name: req.body.firstName,
     last_name: req.body.lastName,
     email: req.body.email,
+    emr_id: req.body.emrId,
     DOB, gender, img_URL // random seed data!
   })
     .then(patient => {
