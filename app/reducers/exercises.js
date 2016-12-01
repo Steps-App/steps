@@ -58,8 +58,8 @@ export const addExercise = (therapistId, data) => dispatch => {
   axios.post(`/api/therapist/${therapistId}/exercises`, {
     title: data.title,
     description: data.description,
-    img_url: data.img_url,
-    vid_url: data.vid_url
+    imgUrl: data.img_url,
+    vidUrl: data.vid_url
   })
     .then(res => {
       dispatch(addedExercise(res.data))
