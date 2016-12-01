@@ -130,8 +130,10 @@ router.get('/me', (req, res, next) => {
     model = Therapist;
   else if (req.session.role === PATIENT)
     model = Patient;
-  else if (req.headers.referer === 'http://localhost:8080/' || 'http://steps-app.herokuapp.com/')
+  else if (req.headers.referer === 'http://localhost:8080/' ||
+    req.headers.referer === 'http://steps-app.herokuapp.com/') {
     return res.sendStatus(204)
+  }
   else {
     let error = new Error('Not logged in');
     error.status = 401;
