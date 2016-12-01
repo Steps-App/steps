@@ -5,11 +5,13 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 import { deleteExercise } from '../../reducers/exercises'
 import InfoItem from '../widgets/InfoItem'
+import AddExerciseContainer from './AddExerciseContainer'
 //Material UI
 import { Table, TableHeader, TableHeaderColumn,
          TableBody, TableRow, TableRowColumn,Divider, TableFooter, IconButton, FontIcon} from 'material-ui'
 
 import { StepsRaisedButton } from '../material-style'
+
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -43,12 +45,10 @@ export class ExerciseList extends Component {
             backgroundColor="#D9534F"
             onClick={this.showRemove}
           />
-          <StepsRaisedButton
-            label="Add"
-            backgroundColor="#005B96"
-              />
-            </div>
-
+          </div>
+          
+          <AddExerciseContainer user={user} />
+          
           <hr/>
 
           <div className="table">

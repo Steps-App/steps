@@ -1,8 +1,4 @@
 
-
-
-
-
 #exercise-list{
   display: flex;
   flex-direction: column;
@@ -42,4 +38,9 @@
     height: 10px !important;
     width:  10px !important;
   }
+  .form-box {
+  border: 1px solid #edd5ed;
+  padding: 0 15px 15px;
+  margin-bottom: 20px;
+ }
 }
