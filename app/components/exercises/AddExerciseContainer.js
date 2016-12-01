@@ -38,8 +38,14 @@ function AddExerciseDecorator (AddExercise) {
 
     handleSubmit (evt) {
       evt.preventDefault();
-      this.props.addExercise(this.props.user.id, this.state)
-      this.setState(initialState);
+      const errs = this.validate();
+      this.setState({ errors: errs })
+      if (!Object.keys(errs).length) {
+        this.props.addExercise(this.props.user.id, this.state)
+        this.setState(initialState);
+      }
+      else
+        console.error(errs);
     }
 
     render() {

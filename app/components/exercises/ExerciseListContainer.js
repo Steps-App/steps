@@ -39,13 +39,6 @@ export class ExerciseList extends Component {
       <div id="exercise-list" >
           <Helmet title="Exercise List" />
           <h1 className="page-header">Exercise List</h1>
-          <div  className="exercisebt">
-          <StepsRaisedButton
-            label="Remove"
-            backgroundColor="#D9534F"
-            onClick={this.showRemove}
-          />
-          </div>
           
           <AddExerciseContainer user={user} />
           
@@ -62,16 +55,19 @@ export class ExerciseList extends Component {
                     </TableRowColumn>
                     <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
                       <div className="exercise-title">
-                      <InfoItem icon="fitness_center" label="Title"  content={exercise.title}/>
-                        { this.state.showRemove ?
-                          <IconButton id="remove" tooltip="Permanent" iconClassName="material-icons" onClick={() => deleteExercise(user.id, exercise.id)}>
-                          highlight_off
-                          </IconButton> : null
-                        }
+                      <h3>{exercise.title}</h3>
                       </div>
                       <div className="exercise-description">
                         <InfoItem icon="description" label="Description"  content={exercise.description}/>
                       </div>
+                    </TableRowColumn>
+                    <TableRowColumn style={{width:"10px", "padding-right": "8em"}}>
+                        <FontIcon
+                          className="material-icons md-25"
+                          style={{color: 'red'}}
+                          onClick={() => deleteExercise(user.id, exercise.id)}>
+                          remove_circle_outline
+                        </FontIcon>
                     </TableRowColumn>
                 </TableRow>
               )

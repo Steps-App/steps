@@ -58,6 +58,7 @@ export default ({ handleChange, handleSubmit, open, errors}) => {
             </div>
 
           </fieldset>
+          <div className="exerbuttons">
           <StepsRaisedButton
             label="Submit"
             type="submit"
@@ -68,6 +69,7 @@ export default ({ handleChange, handleSubmit, open, errors}) => {
             onClick={ () => handleChange('open', false) }
             backgroundColor="#D9534F"
             />
+          </div>  
         </form>
     }
     </div>
