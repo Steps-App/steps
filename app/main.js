@@ -26,6 +26,7 @@ import Treatment from './components/treatment/Treatment'
 import ChatRoom from './components/chat/ChatRoom'
 import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import NotFound from './components/home/NotFound'
+import AccountContainer from './components/account/AccountContainer';
 import { loginRedirect, checkRoute } from './utils'
 
 // Constants
@@ -103,6 +104,7 @@ render (
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
         <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
         <Route path="/messages" component={ ChatRoom } />
+        <Route path="/account" component={ AccountContainer } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
