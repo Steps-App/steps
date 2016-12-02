@@ -59,10 +59,11 @@ const appEnter = (nextState, replace, callback) => {
   }));
 };
 
-// If no patient on the state, fetch their info
+// If no patient on the state or patient plans don't contain treatments, fetch their info
 const singlePatientEnter = nextState => {
   const curPatient = store.getState().currentPatient;
-  if (!Object.keys(curPatient).length || curPatient.id != nextState.params.patientId)
+  if (!Object.keys(curPatient).length || curPatient.id != nextState.params.patientId ||
+      (curPatient.plans.length && !curPatient.plans[0].treatments))
     store.dispatch(fetchCurrentPatient(nextState.params.patientId, true));
 };
 

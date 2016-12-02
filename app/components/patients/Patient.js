@@ -96,11 +96,11 @@ export class Patient extends Component {
                 {
                   sortedPlans.map(plan => (
                     <TableRow key={plan.id} selectable={false} style={{background: 'none'}}>
-                      <TableRowColumn>{ plan.therapy_focus }</TableRowColumn>
-                      <TableRowColumn>{ moment(plan.created_at).format('MMM Do, YYYY') }</TableRowColumn>
-                      <TableRowColumn>{ moment(plan.end_date).format('MMM Do, YYYY') }</TableRowColumn>
-                      <TableRowColumn className="minimize">{ plan.notes }</TableRowColumn>
-                      <TableRowColumn>
+                      <TableRowColumn style={{textAlign: "center"}}>{ plan.therapy_focus }</TableRowColumn>
+                      <TableRowColumn style={{textAlign: "center"}}>{ moment(plan.created_at).format('MMM Do, YYYY') }</TableRowColumn>
+                      <TableRowColumn style={{textAlign: "center"}}>{ moment(plan.end_date).format('MMM Do, YYYY') }</TableRowColumn>
+                      <TableRowColumn style={{textAlign: "center"}} className="minimize">{ plan.notes }</TableRowColumn>
+                      <TableRowColumn style={{textAlign: "center"}}>
                         <Link to={`/patients/${currentPatient.id}/plans/${plan.id}`}>
                           <FontIcon className="material-icons" hoverColor={ active }>assignment</FontIcon>
                         </Link>
