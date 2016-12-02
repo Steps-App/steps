@@ -1,3 +1,4 @@
+@import "colors";
 
 #exercise-list{
   display: flex;
@@ -35,11 +36,11 @@
     height: 10px !important;
     width:  10px !important;
   }
-  .form-box {
-  border: 1px solid #005B96;
-  padding: 0 15px 15px;
-  margin-bottom: 20px;
- }
- #exerbuttons {
- }
+ .submit-button {
+      display: inherit;
+    }
+ .cancel-button {
+      display: inherit;
+    }
+ 
 }

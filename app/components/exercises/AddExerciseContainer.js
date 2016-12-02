@@ -4,7 +4,7 @@ import AddExercise  from './AddExercise';
 import { addExercise } from '../../reducers/exercises'
 
 const initialState = {
-  open: false, title: '', img_url: '', description: '', vid_url: '' , errors: {}
+  open: false, title: '', imgUrl: null, description: '', vidUrl: null , errors: {}
 }
 
 function AddExerciseDecorator (AddExercise) {
@@ -32,7 +32,7 @@ function AddExerciseDecorator (AddExercise) {
       let errs = {};
       if (!this.state.title) errs.title = 'This field is required';
       if (!this.state.description) errs.description = 'This field is required';
-      if (!this.state.img_url) errs.img_url = 'This field is required';
+      if (!this.state.imgUrl) errs.imgUrl = 'This field is required';
       return errs;
     }
 

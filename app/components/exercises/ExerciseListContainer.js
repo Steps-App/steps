@@ -10,7 +10,8 @@ import AddExerciseContainer from './AddExerciseContainer'
 import { Table, TableHeader, TableHeaderColumn,
          TableBody, TableRow, TableRowColumn,Divider, TableFooter, IconButton, FontIcon} from 'material-ui'
 
-import { StepsRaisedButton } from '../material-style'
+import { StepsRaisedButton, StepsActionButton } from '../material-style'
+import { textDark, errorText } from '../colors';
 
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
@@ -50,7 +51,7 @@ export class ExerciseList extends Component {
             {
               exercises && exercises.map( exercise =>
                 <TableRow key={ exercise.id }  selectable={false}>
-                    <TableRowColumn style={{"padding-bottom":"1em", "padding-top": "1em", width: "15em"}}>
+                    <TableRowColumn style={{"paddingBottom":"1em", "paddingTop": "1em", width: "15em"}}>
                       <img src={exercise.img_url}></img>
                     </TableRowColumn>
                     <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
@@ -61,13 +62,13 @@ export class ExerciseList extends Component {
                         <InfoItem icon="description" label="Description"  content={exercise.description}/>
                       </div>
                     </TableRowColumn>
-                    <TableRowColumn style={{width:"10px", "padding-right": "8em"}}>
-                        <FontIcon
-                          className="material-icons md-25"
-                          style={{color: 'red'}}
-                          onClick={() => deleteExercise(user.id, exercise.id)}>
-                          remove_circle_outline
-                        </FontIcon>
+                    <TableRowColumn style={{width:"10px", "paddingRight": "8em"}}>
+                        <StepsActionButton mini={true}
+                          backgroundColor={ errorText }
+                          onTouchTap={ () => deleteExercise(user.id, exercise.id) } >
+                          <FontIcon className={'material-icons'}>clear</FontIcon>
+                        </StepsActionButton>
+
                     </TableRowColumn>
                 </TableRow>
               )

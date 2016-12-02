@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { StepsTextField, StepsSelectField, StepsMenuItem, StepsRaisedButton } from '../material-style';
+import { StepsTextField, StepsSelectField, StepsMenuItem, StepsRaisedButton, StepsActionButton } from '../material-style';
+import { primary, errorText, background } from '../colors';
+import { FontIcon, Paper } from 'material-ui';
 
 export default ({ handleChange, handleSubmit, open, errors}) => {
   return (
-    <div id="add-exercise">
+    <div id="add-exercise" style={{ textAlign: 'center' }} >
     {
       !open ?
-        <StepsRaisedButton
+      <StepsRaisedButton
           label="Add New Exercise"
           onClick={ () => handleChange('open', true) }
-          backgroundColor="#005B96"
+          backgroundColor={primary}
         /> :
-        <form onSubmit={ handleSubmit }>
-          <fieldset className="form-box">
-          <legend style={{width: '145px'}}>New Exercise</legend>
-            <div className="row">
+      <Paper style={{ backgroundColor: background }} zDepth={2} rounded={false}>
+          <form onSubmit={ handleSubmit }>
+            <h2 style={{ textAlign: 'center' }}>New Exercise</h2>
               <div className="col-xs-12">
                 <StepsTextField
                   floatingLabelText="Title"
@@ -24,8 +25,8 @@ export default ({ handleChange, handleSubmit, open, errors}) => {
                   onChange={(evt) => handleChange("title", evt.target.value) }
                 />
               </div>
-            </div>
-            <div className="row">
+           
+          
               <div className="col-xs-12">
                 <StepsTextField
                   floatingLabelText="Description"
@@ -34,43 +35,47 @@ export default ({ handleChange, handleSubmit, open, errors}) => {
                   onChange={(evt) => handleChange("description", evt.target.value) }
                 />
               </div>
-            </div>
+           
             
-            <div className="row">
+           
               <div className="col-xs-12">
                 <StepsTextField
                   floatingLabelText="Image URL"
                   fullWidth={true}
-                  errorText={ errors.img_url }
-                  onChange={(evt) => handleChange("img_url", evt.target.value) }
+                  errorText={ errors.imgUrl }
+                  onChange={(evt) => handleChange("imgUrl", evt.target.value) }
                 />
               </div>
-            </div>
+         
 
-            <div className="row">
+         
               <div className="col-xs-12">
                 <StepsTextField
                   floatingLabelText="Video URL"
                   fullWidth={true}
-                  onChange={(evt) => handleChange("vid_url", evt.target.value) }
+                  onChange={(evt) => handleChange("vidUrl", evt.target.value) }
                 />
               </div>
-            </div>
+           
 
-          </fieldset>
-          <div className="exerbuttons">
-          <StepsRaisedButton
-            label="Submit"
-            type="submit"
-            backgroundColor="#005B96"
-          />
-          <StepsRaisedButton
-            label="Cancel"
-            onClick={ () => handleChange('open', false) }
-            backgroundColor="#D9534F"
+          <div style={{ textAlign: 'center' }}>
+            <div className="submit-button">
+            <StepsRaisedButton
+              label="Submit"
+              type="submit"
+              backgroundColor= {primary}
             />
-          </div>  
-        </form>
+            </div>
+            <div className="cancel-button">
+            <StepsRaisedButton
+              label="Cancel"
+              onTouchTap={ () => handleChange('open', false) }
+              backgroundColor={errorText}
+              />
+            </div>  
+          </div> 
+        </form> 
+      </Paper>
     }
     </div>
   )
