@@ -1,82 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { StepsTextField, StepsSelectField, StepsMenuItem, StepsRaisedButton, StepsActionButton } from '../material-style';
-import { primary, errorText, background } from '../colors';
+import { StepsTextField, StepsRaisedButton, StepsActionButton } from '../material-style';
+import { errorText, background } from '../colors';
 import { FontIcon, Paper } from 'material-ui';
 
-export default ({ handleChange, handleSubmit, open, errors}) => {
-  return (
-    <div id="add-exercise" style={{ textAlign: 'center' }} >
-    {
-      !open ?
-      <StepsRaisedButton
-          label="Add New Exercise"
-          onClick={ () => handleChange('open', true) }
-          backgroundColor={primary}
-        /> :
-      <Paper style={{ backgroundColor: background }} zDepth={2} rounded={false}>
-          <form onSubmit={ handleSubmit }>
-            <h2 style={{ 'textAlign': 'left', paddingTop: "20px", paddingLeft: "20px", margin: "0" }}>New Exercise</h2>
-              <div className="col-xs-12">
-                <StepsTextField
-                  floatingLabelText="Title"
-                  errorText={ errors.title }
-                  fullWidth={ true }
-                  onChange={(evt) => handleChange("title", evt.target.value) }
-                />
-              </div>
-           
-          
-              <div className="col-xs-12">
-                <StepsTextField
-                  floatingLabelText="Description"
-                  errorText={ errors.description }
-                  fullWidth={ true }
-                  onChange={(evt) => handleChange("description", evt.target.value) }
-                />
-              </div>
-           
-            
-           
-              <div className="col-xs-12">
-                <StepsTextField
-                  floatingLabelText="Image URL"
-                  fullWidth={true}
-                  errorText={ errors.imgUrl }
-                  onChange={(evt) => handleChange("imgUrl", evt.target.value) }
-                />
-              </div>
-         
-
-         
-              <div className="col-xs-12">
-                <StepsTextField
-                  floatingLabelText="Video URL"
-                  fullWidth={true}
-                  onChange={(evt) => handleChange("vidUrl", evt.target.value) }
-                />
-              </div>
-           
-
-          <div style={{ textAlign: 'center' }}>
-            <div className="submit-button">
-            <StepsRaisedButton
-              label="Submit"
-              type="submit"
-              backgroundColor= {primary}
+export default ({ handleChange, handleSubmit, open, errors}) => (
+  <div id="add-exercise">
+  {
+    !open ?
+    <div className="add-exercise-button">
+      <p> Add new exercise </p>
+      <StepsActionButton onTouchTap={ () => handleChange('open', true) }>
+        <FontIcon className={'material-icons'}>add</FontIcon>
+      </StepsActionButton>
+    </div> :
+    <Paper style={{ backgroundColor: background }} zDepth={2} rounded={false}>
+      <h2>New Exercise</h2>
+      <form className="add-exercise-form" onSubmit={ handleSubmit }>
+        <StepsTextField
+          floatingLabelText="Title"
+          errorText={ errors.title }
+          fullWidth={ true }
+          onChange={(evt) => handleChange("title", evt.target.value) }
+        />
+        <StepsTextField
+          floatingLabelText="Description"
+          errorText={ errors.description }
+          fullWidth={ true }
+          onChange={(evt) => handleChange("description", evt.target.value) }
+        />
+        <StepsTextField
+          floatingLabelText="Image URL"
+          fullWidth={true}
+          errorText={ errors.imgUrl }
+          onChange={(evt) => handleChange("imgUrl", evt.target.value) }
+        />
+        <StepsTextField
+          floatingLabelText="Video URL"
+          fullWidth={true}
+          onChange={(evt) => handleChange("vidUrl", evt.target.value) }
+        />
+        <div className="add-exercise-buttons">
+          <StepsRaisedButton
+            label="Submit"
+            type="submit"
+          />
+          <StepsRaisedButton
+            label="Cancel"
+            onTouchTap={ () => handleChange('open', false) }
+            backgroundColor={errorText}
             />
-            </div>
-            <div className="cancel-button">
-            <StepsRaisedButton
-              label="Cancel"
-              onTouchTap={ () => handleChange('open', false) }
-              backgroundColor={errorText}
-              />
-            </div>  
-          </div> 
-        </form> 
-      </Paper>
-    }
-    </div>
-  )
-};
+        </div>
+        {
+          // Error message when display when issue submitting
+          errors.submit ?
+          <p className="error-message">{ errors.submit }</p> : null
+        }
+      </form> 
+    </Paper>
+  }
+  </div>
+);

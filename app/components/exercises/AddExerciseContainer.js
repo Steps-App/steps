@@ -16,7 +16,6 @@ function AddExerciseDecorator (AddExercise) {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleChange(field, value) {
       let newState = {};
       newState[field] = value;
@@ -41,8 +40,10 @@ function AddExerciseDecorator (AddExercise) {
       const errs = this.validate();
       this.setState({ errors: errs })
       if (!Object.keys(errs).length) {
-        this.props.addExercise(this.props.user.id, this.state)
-        this.setState(initialState);
+        this.props.addExercise(this.props.user.id, this.state, (err) => {
+          let newState = err ? { errors: { submit: err } } : initialState;
+          this.setState(newState);
+        });
       }
       else
         console.error(errs);
@@ -65,8 +66,8 @@ function AddExerciseDecorator (AddExercise) {
 //const mapStateToProps = ({user}) => ({user})
 
 const mapDispatchToProps = dispatch => ({
-  addExercise: (userId, data) => {
-    dispatch(addExercise(userId, data));
+  addExercise: (userId, data, cb) => {
+    dispatch(addExercise(userId, data, cb));
   }
 });
 
