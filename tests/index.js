@@ -10,7 +10,8 @@ const tests = [
   'patient',
   'plan',
   'workout',
-  'navbar'
+  'navbar',
+  'materialstyle'
 ];
 
 tests.forEach(test => require(`./${test}.test.js`));
