@@ -77,14 +77,19 @@ therapistRoutes.post('/:id/exercises', (req, res, next) => {
 
 // get all exercises for the therapist
 therapistRoutes.get('/:id/exercises', (req, res, next) => {
-  exerciseModel.findAll({ where:{ therapist_id: req.params.id } })
+  exerciseModel.findAll({
+    where:{ therapist_id: req.params.id, status: 'active' }
+  })
     .then(exercises => res.send(exercises))
     .catch(next);
 })
 
 // delete one exercise for the therapist
 therapistRoutes.delete('/:id/exercises/:exerciseId', (req, res, next) => {
-  exerciseModel.destroy({ where:{ id: req.params.exerciseId } })
+  exerciseModel.update(
+    { status: 'inactive' },
+    { where:{ id: req.params.exerciseId } }
+  )
     .then(() => res.sendStatus(204))
     .catch(next);
 })

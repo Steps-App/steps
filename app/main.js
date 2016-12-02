@@ -25,7 +25,7 @@ import PatientListContainer from './components/patients/PatientListContainer';
 import Dashboard from './components/dashboard/Dashboard';
 import Treatment from './components/treatment/Treatment'
 import ChatRoom from './components/chat/ChatRoom'
-import ExerciseListContainer from './components/exercises/ExerciseListContainer'
+import ExerciseList from './components/exercises/ExerciseList'
 import NotFound from './components/home/NotFound'
 import { loginRedirect, checkRoute } from './utils'
 
@@ -129,7 +129,7 @@ render (
         <Route path="/patients/:patientId/plans/:planId" component={ Plan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistCurPlanEnter} confirm={false} />
         <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
-        <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
+        <Route path="/exercises" component={ ExerciseList } onEnter={ exerciseListEnter } />
         <Route path="/*" component={ NotFound } />
       </Route>
     </Router>

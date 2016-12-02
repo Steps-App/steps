@@ -54,7 +54,7 @@ export const deleteExercise = (therapistId, id) => dispatch => {
     .catch(err => console.error(err))
 }
 
-export const addExercise = (therapistId, data) => dispatch => {
+export const addExercise = (therapistId, data, cb) => dispatch => {
   axios.post(`/api/therapist/${therapistId}/exercises`, {
     title: data.title,
     description: data.description,
@@ -63,10 +63,10 @@ export const addExercise = (therapistId, data) => dispatch => {
   })
     .then(res => {
       dispatch(addedExercise(res.data))
-      if (isBrowser())
-        browserHistory.push('/exercises');
+      cb();
     })
     .catch(err => {
       console.error('Unable to add exercise', err);
+      cb('We experienced an unexpected error while trying to create your exercise. Please check your inputs.')
     });
 }
