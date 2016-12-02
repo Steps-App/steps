@@ -3,6 +3,7 @@ import React from 'react';
 // Testing Tools
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
+import chalk from 'chalk';
 
 /* -=-=-=-= Components being tested =-=-=-=-=-*/
 
@@ -93,10 +94,36 @@ describe('Custom Wrapped Material-Style Components',() => {
       });
     });
 
-  //BUTTONS
+//BUTTONS
   /* --- StepsFlatButton ---*/
     describe('StepsFlatButton Style Wrapper Component', () => {
+      it('StepsFlatButton defaults with the style given with wrapper',() =>{
 
+
+        it('StepsFlatButton requires prop label or children or icon',()=>{
+          try{
+            let but = shallow(<StepsFlatButton/> );
+          } catch(err){
+            console.log(chalk.blue(err));
+          }
+
+          // let defaultProps = {
+          //     floatingLabelStyle:{ color: placeholderText, fontWeight: '500' },
+          //     floatingLabelFocusStyle:{ color: activeInputLabels },
+          //     floatingLabelFixed: false,
+          //     underlineStyle:{ borderBottomColor: placeholderText },
+          //     underlineFocusStyle:{ borderBottomColor: activeInputLabels },
+          //     errorStyle:{ color: errorText },
+          //     disabled: false,
+          //     fullWidth: false,
+          //     rows : 1,
+          //     type : "text",
+          //     underlineShow: true,
+          //     multiLine: false
+          //   };
+          // expect(TextFieldprops).to.deep.equal(defaultProps);
+        });
+      });
     });
 
   /* --- StepsIconButton ---*/
@@ -108,7 +135,7 @@ describe('Custom Wrapped Material-Style Components',() => {
   describe("StepsActionButton Style Wrapper Component", () =>{
 
   });
-
+// DROP DOWN MENUES
   /* --- StepsMenuItem ---*/
   describe("StepsMenuItem Style Wrapper Component", () =>{
 
@@ -123,7 +150,7 @@ describe('Custom Wrapped Material-Style Components',() => {
   describe("StepsSelectField Style Wrapper Component", () =>{
 
   });
-
+// TABS
   /* --- StepsTab ---*/
   describe("StepsTab Style Wrapper Component", () =>{
 
