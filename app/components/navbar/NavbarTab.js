@@ -6,7 +6,7 @@ import { toolbar, textLight } from '../colors'
 // Regular text input
 export default props => (
   <div className="navbar-item">
-    <Link to={`/${props.type}`}>
+    <Link to={ props.type === 'messages' ? `/${props.type}/${props.id}` : `${props.type}` }>
       <StepsFlatButton
         label={ props.type.charAt(0).toUpperCase() + props.type.slice(1) }
         textColor={ textLight }

@@ -15,7 +15,7 @@ const navbarTabs = [
   {type: 'plan', role: PATIENT},
   {type: 'dashboard'},
   {type: 'exercises', role: THERAPIST},
-  {type: 'messages'}
+  {type: 'messages', role: PATIENT}
 ]
 
 export default class NavbarMenu extends React.Component {
@@ -45,7 +45,7 @@ export default class NavbarMenu extends React.Component {
         {
           navbarTabs.map((tab, i) =>
             !tab.role || tab.role === user.role ?
-              <NavbarTab key={i} type={tab.type} /> : null
+              <NavbarTab key={i} type={tab.type} id={user.id} /> : null
           )
         }
         <div className="navbar-item">

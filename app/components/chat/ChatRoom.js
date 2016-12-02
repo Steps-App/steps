@@ -6,7 +6,8 @@ import Helmet from 'react-helmet'
 import Notification from './Notification'
 import Messages from './Messages'
 import Messenger from './Messenger'
-
+// constant
+import { PATIENT } from '../../constants'
 // material ui
 import { Paper } from 'material-ui'
 
@@ -29,8 +30,7 @@ export class ChatRoom extends Component {
       notifications: '\xa0'
     }
     // pick a unique room for the therapist-patient chat based on patient id
-    this.room = this.props.user.role === 'patient' ?
-      this.props.user.id.toString() : this.props.currentPatient.id.toString()
+    this.room = this.props.params.room
     // bind our methods to use in render()
     this.onMessageReceived = this.onMessageReceived.bind(this)
     this.onMessageSent = this.onMessageSent.bind(this)
@@ -51,14 +51,15 @@ export class ChatRoom extends Component {
   componentWillUnmount() {
     // notify departure on chat close
     this.socket.emit('userLeave', { room: this.room, user: this.state.user })
+    if (this.state.user.role === PATIENT) dispatch(removeAlert(this.room))
   }
 
   onMessageReceived(data) {
     let message = {}
     if (data.user === this.state.user) {
       message = {
-        user: data.user,
-        text: data.text,
+        user: data.user, // messages have a bolded user/sender
+        text: data.text, // and a regular font text that follows
         align: 'right'   // messages from you are green and on the right
       }
     } else {
@@ -88,10 +89,13 @@ export class ChatRoom extends Component {
     this.setState({ message: evt.target.value })
     this.socket.emit('typing', { user: this.state.user })
   }
-
+ // these are all user actions, not limited to notifications to a therapist
+ // of a patient being in the chat, which alone are dispatched to the redux store
   onNotification(data) {
-    this.setState({ notifications: data })
-    setTimeout(() => this.setState({ notifications: PLACEHOLDER }), 4000)
+    if (this.state.notifications === PLACEHOLDER) {  // prevent notification "races"
+      this.setState({ notifications: data })
+      setTimeout(() => this.setState({ notifications: PLACEHOLDER }), 4000)
+    }
   }
 
   render() {

@@ -67,6 +67,7 @@ io.on('connection', (socket) => {
   socket.on('userEnter', (data) => {
     // set room to patient_id
     room = data.room
+    io.emit('messageAlert', room)
     // sent client to that room
     socket.join(room)
     let message = `${data.user} has entered the chat`
@@ -78,6 +79,7 @@ io.on('connection', (socket) => {
     let message = `${data.user} has left the chat`
     // alert user departure
     io.to(room).emit('notification', message)
+    io.emit('removeAlert', room)
   })
 
   // alert typing

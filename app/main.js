@@ -90,7 +90,7 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/messages" component={ ChatRoom } />
+        <Route path="/messages/:room" component={ ChatRoom } />
         <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
         <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
       </Route>
