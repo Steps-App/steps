@@ -192,7 +192,7 @@ describe('Routes', () => {
         .expect(200)
         .end((err, res) => {
           if (err) return done(err)
-          expect(res.body.plan).to.include({ therapy_focus: 'Post Tommy John\'s surgery' })
+          expect(res.body).to.include({ therapy_focus: 'Post Tommy John\'s surgery' })
           expect(res.body.treatments[0]).to.include({ reps: 10, sets: 3 })
           done()
         })
