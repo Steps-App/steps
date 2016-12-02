@@ -16,7 +16,6 @@ function AddExerciseDecorator (AddExercise) {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
     handleChange(field, value) {
       let newState = {};
       newState[field] = value;
@@ -51,7 +50,6 @@ function AddExerciseDecorator (AddExercise) {
     }
 
     render() {
-      console.log(this.state)
       return (
         <AddExercise
           handleChange={this.handleChange}
