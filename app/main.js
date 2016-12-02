@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { retrieveLoggedInUser } from './reducers/user';
 import { fetchExercises } from './reducers/exercises';
-import { fetchPatientPlan } from './reducers/plan';
+import { fetchPlan } from './reducers/plan';
 import { fetchPatients } from './reducers/patients';
 import { fetchCurrentPatient } from './reducers/currentpatient';
 
@@ -79,7 +79,7 @@ const newPlanEnter = (nextState, replace) => {
 const patientPlanEnter = () => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length)
-    store.dispatch(fetchPatientPlan(store.getState().user.id));
+    store.dispatch(fetchPlan(store.getState().user.id));
 };
 
 const workoutEnter = (nextState, replace) => {
@@ -88,11 +88,21 @@ const workoutEnter = (nextState, replace) => {
     replace('/plan');
 };
 
-const therapistPlanEnter = (nextState) => {
+const therapistPlanEnter = nextState => {
+  const { plan, currentPatient, exercises, user } = store.getState();
+  if (!Object.keys(plan).length || plan.id != nextState.params.planId)
+    store.dispatch(fetchPlan(nextState.params.patientId, nextState.params.planId));
+  if (!Object.keys(currentPatient).length || currentPatient.id != nextState.params.patientId)
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId, false))
+  if (!exercises.length)
+    store.dispatch(fetchExercises(user.id))
+};
+
+const therapistCurPlanEnter = nextState => {
   const curPlan = store.getState().plan;
   if (!Object.keys(curPlan).length) {
     store.dispatch(fetchCurrentPatient(nextState.params.patientId, false))
-    store.dispatch(fetchPatientPlan(nextState.params.patientId))
+    store.dispatch(fetchPlan(nextState.params.patientId))
     store.dispatch(fetchExercises(store.getState().user.id))
   }
 };
@@ -115,7 +125,8 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId" component={ Patient } onEnter={ singlePatientEnter } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
-        <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
+        <Route path="/patients/:patientId/plans/:planId" component={ Plan } onEnter={therapistPlanEnter} />
+        <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistCurPlanEnter} confirm={false} />
         <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
         <Route path="/exercises" component={ ExerciseListContainer } onEnter={ exerciseListEnter } />
         <Route path="/*" component={ NotFound } />

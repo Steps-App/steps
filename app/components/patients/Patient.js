@@ -32,6 +32,7 @@ const Plan = ({ currentPatient }) => {
     <StepsRaisedButton
     label="Chat"
     fullWidth={true}
+    onTouchTap={ () => browserHistory.push('/messages') }
     onClick={() => console.log('route to chat')} />,
     <StepsRaisedButton
     label="Remove"

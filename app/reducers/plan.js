@@ -66,8 +66,10 @@ export const createPlan = (data, displayErr) => dispatch => {
     });
 };
 
-export const fetchPatientPlan = patientId => dispatch => {
-  axios.get(`/api/patient/${patientId}/plan/current`)
+// Returns either a specific or current plan if planId === null
+export const fetchPlan = (patientId, planId) => dispatch => {
+  const route = `/api/patient/${patientId}/plan/${planId ? planId : 'current'}`
+  axios.get(route)
     .then(res => {
       if (res.data) {
         let plan = {

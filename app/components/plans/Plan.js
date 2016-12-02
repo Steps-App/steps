@@ -32,6 +32,7 @@ const Plan = ({ plan, currentPatient, createPlan, route }) => {
     backgroundColor={ secondary }
     onClick={() => browserHistory.push(`/patients/${currentPatient.id}/plans/new`)} />
   ] : null;
+
   return (
     <div id="patient-plan">
       <Helmet title={route.confirm ? 'Confirm Plan' : `${patientName}'s Plan`} />
