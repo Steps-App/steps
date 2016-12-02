@@ -98,7 +98,7 @@ export class ChatRoom extends Component {
 
     return (
       <div className='container chat'>
-      <Helmet title='Therapist messaging' />
+      <Helmet title='Chat' />
         <Paper className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'>
           <Notification notifications={ this.state.notifications } />
           <Messages messages={ this.state.messages } />
