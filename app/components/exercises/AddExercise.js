@@ -16,7 +16,7 @@ export default ({ handleChange, handleSubmit, open, errors}) => {
         /> :
       <Paper style={{ backgroundColor: background }} zDepth={2} rounded={false}>
           <form onSubmit={ handleSubmit }>
-            <h2 style={{ textAlign: 'center' }}>New Exercise</h2>
+            <h2 style={{ 'textAlign': 'left', paddingTop: "20px", paddingLeft: "20px", margin: "0" }}>New Exercise</h2>
               <div className="col-xs-12">
                 <StepsTextField
                   floatingLabelText="Title"
