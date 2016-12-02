@@ -72,15 +72,12 @@
 .message-notify {
   z-index: 1;
   position: absolute;
-  margin-right: -15px;
-  margin-top: -15px;
+  margin-top: -12px;
+  margin-left: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  background-color: white;
-  border-color: green;
-  color: green;
 }

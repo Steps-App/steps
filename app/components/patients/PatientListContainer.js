@@ -8,6 +8,7 @@ import { deletePatient } from '../../reducers/patients'
 //Material
 import { GridList, GridTile, Badge, IconButton} from 'material-ui';
 import { StepsRaisedButton, StepsIconButton } from '../material-style';
+import SMS from 'material-ui/svg-icons/communication/textsms'
 import moment from 'moment';
 
 //-=-=-=-=-=-=-= GridList -=-=-=-=-=-=
@@ -40,7 +41,7 @@ export class PatientList extends Component {
   }
 
   componentDidMount() {
-    this.socket = io()
+    this.socket = io.connect()
     this.socket.on('messageAlert', this.addNotification)
     this.socket.on('removeAlert', this.removeNotification)
   }
@@ -94,11 +95,14 @@ export class PatientList extends Component {
 
           {
             patients && patients.map(patient => {
-              let hidden = this.state.notifications.includes(patient.id) ? '' : 'hidden'
+              let hidden = this.state.notifications.includes(patient.id.toString()) ? '' : 'hidden'
 
               return (
                 <GridTile key={ patient.id }
                    style={gridTile}>
+                 <div className={`message-notify ${hidden}`}>
+                  <SMS tooltip="Patient Message Waiting" color="green" style={{ height: '48px', width: '48px'}}/>
+                 </div>
                  <Badge
                      className={ this.state.showRemove ? "showRemove" : "removeBadge"}
                      badgeContent={ <IconButton
@@ -107,7 +111,6 @@ export class PatientList extends Component {
                      onClick={() => removePatient(patient.id)}>
                      highlight_off
                      </IconButton>}>
-
                   <div className="tile" >
                     <div className="row" >
                       <div className="col-xs-6" >
@@ -142,13 +145,6 @@ export class PatientList extends Component {
                         </StepsIconButton>
                       </Link>
                     </div>
-                  </div>
-                  <div className={`message-notify ${hidden}`}>
-                    <StepsIconButton
-                      tooltip="Patient Message Waiting"
-                      iconClassName="material-icons">
-                    message
-                    </StepsIconButton>
                   </div>
                   </Badge>
                 </GridTile>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { Chip, TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
 import { background, tabs, primary, secondary, active, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
 
 // Shared styles
@@ -114,6 +114,14 @@ export const StepsMenuItem = props => (
   />
 );
 
+export const StepsChipRight = (props) => (
+  <Chip
+    style={{ textAlign: 'right', display: 'block', float: 'right' }}
+    { ...props }>
+    { props.children }
+  </Chip>
+)
+
 export const StepsTabs = props => (
   <Tabs
     style={{backgroundColor: background, borderRadius: tabsBorderRadius }}
@@ -135,5 +143,6 @@ const TabWrapper = props => (
     { props.children }
   </Tab>
 );
+
 TabWrapper.muiName = 'Tab'; // Needed for inheritance hack
 export const StepsTab = TabWrapper;

@@ -24,7 +24,7 @@ export class ChatRoom extends Component {
     super(props)
     // local state of user, messages array, and 'wipe clean' message
     this.state = {
-      user: this.props.user.first_name + ' ' + this.props.user.last_name,
+      user: this.props.user,
       messages: [],
       message: '',
       notifications: '\xa0'
@@ -51,14 +51,13 @@ export class ChatRoom extends Component {
   componentWillUnmount() {
     // notify departure on chat close
     this.socket.emit('userLeave', { room: this.room, user: this.state.user })
-    if (this.state.user.role === PATIENT) dispatch(removeAlert(this.room))
   }
 
   onMessageReceived(data) {
     let message = {}
-    if (data.user === this.state.user) {
+    if (data.user.id === this.state.user.id) {
       message = {
-        user: data.user, // messages have a bolded user/sender
+        user: data.user, // messages have a user with img and name
         text: data.text, // and a regular font text that follows
         align: 'right'   // messages from you are green and on the right
       }
@@ -103,7 +102,9 @@ export class ChatRoom extends Component {
     return (
       <div className='container chat'>
       <Helmet title='Chat' />
-        <Paper className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'>
+        <Paper
+          className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'
+          style={{ height: '90%' }}>
           <Notification notifications={ this.state.notifications } />
           <Messages messages={ this.state.messages } />
           <Messenger

@@ -4,7 +4,7 @@
 }
 
 #messages {
-  height: 500px;
+  height: 475px;
   list-style-type: none;
   margin: 0;
   overflow: scroll;
@@ -16,14 +16,24 @@
 }
 
 #messenger input {
-  margin-left: 5px;
-  margin-right: 2px;
-  width: 78%;
+  border-width: 0;
+  border-radius: 8px;
+  display: inline-block;
+  height: 2.5em;
+  margin: 5px;
+  vertical-align: bottom;
+  width: 80%;
+}
+
+#messenger input:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 #messenger form {
-  bottom: 0;
   background: #011f4b;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
 }
 
@@ -33,24 +43,11 @@
   width: 100%;
 }
 
-.chat-border {
-  background: #fff;
-  color: #333;
-  margin: 5px;
-  padding: 5px;
-  position: relative;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-
 .left {
-  border: 3px solid #5a8f00;
   text-align: left;
 }
 
 .right {
-  border: 3px solid #0000ff;
   float: right;
   text-align: right;
 }

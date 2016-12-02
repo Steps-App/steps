@@ -1,5 +1,7 @@
 import React from 'react'
+import { FloatingActionButton } from 'material-ui'
 import { StepsRaisedButton } from '../material-style'
+import Send from 'material-ui/svg-icons/content/send'
 
 export default (props) => {
 
@@ -9,11 +11,14 @@ export default (props) => {
     <div className='row' id='messenger'>
       <form onSubmit={ onMessageSent }>
         <input value={ message } onChange={ onMessageChange }/>
-        <StepsRaisedButton
-          label='Send'
-          style={{ width: '20%' }}
-          type='submit'
-        />
+        <FloatingActionButton
+          backgroundColor="green"
+          mini={ true }
+          style={{ margin: '5px'}}
+          type="submit"
+          >
+          <Send />
+        </FloatingActionButton>
       </form>
     </div>
   )
