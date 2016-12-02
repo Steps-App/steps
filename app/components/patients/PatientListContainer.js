@@ -90,7 +90,12 @@ export class PatientList extends Component {
             style={gridList}>
 
           {
-            patients && patients.map( patient => {
+            // Sort patients alphabetically and map them into GridTile components
+            patients && patients.sort((a,b) => {
+              if (b.last_name < a.last_name) return 1;
+              else if (b.last_name > a.last_name) return -1;
+              else return 0;
+            }).map( patient => {
               const patientButtons = [
                 { icon: "person", tooltip: "Patient Details", link: `/patients/${patient.id}` },
                 { icon: "assignment", tooltip: "Current Plan", link: `/patients/${patient.id}/plans/current` },

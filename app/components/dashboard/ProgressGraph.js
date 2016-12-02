@@ -68,6 +68,12 @@ const CustomizedDateTick = ({ x, y, stroke, payload }) => (
   </g>
 );
 
+const CustomizedPainTick = ({ x, y, stroke, payload }) => (
+  <g transform={`translate(${x},${y})`}>
+    <text x={0} y={0} dx={-10} textAnchor="end" fill="#666">{payload.value}</text>
+  </g>
+);
+
 const CustomizedDot = ({ cx, cy, payload, label }) => {
   switch(payload[label]) {
     case 1:
@@ -116,7 +122,7 @@ export default ({ treatments, width, height }) => {
       <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
         interval={0} tickCount={7} />
       <YAxis label={<PainLabel chartHeight={ chartHeight } />} type="number"
-        domain={[0, 5]} interval={0} tickCount={6} />
+        domain={[0, 5]} interval={0} tickCount={6} tick={<CustomizedPainTick/>} />
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip/>
       <Legend verticalAlign="top" iconSize={16} height={30} />

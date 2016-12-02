@@ -42,18 +42,16 @@ export class Patient extends Component {
 
     const patientName = fullName(currentPatient);
     const sortedPlans = currentPatient.plans.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    console.log(sortedPlans)
     const buttons = [
       <StepsRaisedButton
       label="Chat"
       fullWidth={true}
-      onTouchTap={ () => browserHistory.push('/messages') }
-      onClick={() => console.log('route to chat')} />,
+      onTouchTap={ () => browserHistory.push('/messages') } />,
       <StepsRaisedButton
       label="Remove"
       fullWidth={true}
       backgroundColor={ errorText }
-      onClick={() => this.dialogToggle()} />
+      onTouchTap={() => this.dialogToggle()} />
     ];
 
     return (
