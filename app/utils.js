@@ -12,7 +12,8 @@ export const isBrowser = () => {
 }
 
 // Return formatted full name of user
-export const fullName = user => `${user.first_name} ${user.last_name}`;
+export const fullName = (user, reverse) =>
+  reverse ? `${user.last_name}, ${user.first_name}` : `${user.first_name} ${user.last_name}`;
 
 // Returns the number of days between the input dates
 export const daysBetween = (start, end) => {
