@@ -28,22 +28,25 @@ export default  class Home extends React.Component{
 
    $(function(){
 
-     var $demoText = $(".intro-heading");
-
+     let $demoText = $(".intro-heading");
+     let $content = $(".intro-content");
      const animation = ()=> {
+     //
+    //  $demoText.html( $demoText.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
 
-     $demoText.html( $demoText.html().replace(/./g, "<span>$&</span>").replace(/\s/g, "&nbsp;"));
 
+      TweenMax.fromTo($demoText,2,{x:"-=650"},{x:0, opacity:1, ease:Power4.easeOut});
 
-
-       let tweenTime = 3;
-
-       TweenMax.delayedCall(tweenTime);
-       $demoText.find("span").each(function(){
-         var rand = Math.ceil(Math.random()*tweenTime*100)/100;
-         TweenMax.fromTo(this, tweenTime-rand, {autoAlpha:0, color:"red"}, {autoAlpha:1, color:"black", delay:rand});
-       });
-
+      TweenMax.fromTo($content,2,{x: "-=500"},{x:0, opacity:1, ease:Power4.easeOut, delay:1});
+       //
+      //  let tweenTime = 3;
+       //
+      //  TweenMax.delayedCall(tweenTime);
+      //  $demoText.find("span").each(function(){
+      //    var rand = Math.ceil(Math.random()*tweenTime*100)/100;
+      //    TweenMax.fromTo(this, tweenTime-rand, {autoAlpha:0, color:"red"}, {autoAlpha:1, color:"black", delay:rand});
+      //  });
+       //
 
      };
      animation();
