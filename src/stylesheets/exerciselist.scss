@@ -1,16 +1,10 @@
-
-
-
-
+@import "colors";
 
 #exercise-list{
   display: flex;
   flex-direction: column;
   width: 100%;
-  .exercisebt{
-    display: flex;
-    justify-content: space-around;
-  }
+  
   hr{
     border : 1px;
     border-top: 1px solid black;
@@ -42,4 +36,11 @@
     height: 10px !important;
     width:  10px !important;
   }
+ .submit-button {
+      display: inherit;
+    }
+ .cancel-button {
+      display: inherit;
+    }
+ 
 }
