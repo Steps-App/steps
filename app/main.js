@@ -27,6 +27,9 @@ import ChatRoom from './components/chat/ChatRoom'
 import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
 
+// constants
+import { THERAPIST } from './constants'
+
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
@@ -72,6 +75,13 @@ const therapistPlanEnter = (nextState) => {
   }
 };
 
+const therapistChatEnter = (nextState) => {
+  const user = store.getState().user
+  if (user.role === THERAPIST) {
+    store.dispatch(fetchCurrentPatient(nextState.params.room))
+  }
+}
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
@@ -90,7 +100,7 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
         <Route path="/patients/dashboard" component={ Dashboard } />
-        <Route path="/messages/:room" component={ ChatRoom } />
+        <Route path="/messages/:room" component={ ChatRoom } onEnter={ therapistChatEnter }/>
         <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistPlanEnter} confirm={false} />
         <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
       </Route>

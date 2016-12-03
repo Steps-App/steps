@@ -1,11 +1,17 @@
+//libraries
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import moment from 'moment'
 import Helmet from 'react-helmet'
-import Notification from './Notification'
+
+// sub-components
+import Notifications from './Notifications'
 import Messages from './Messages'
 import Messenger from './Messenger'
+import SidePanel from '../widgets/SidePanel'
+import InfoItem from '../widgets/InfoItem'
 // constant
 import { PATIENT } from '../../constants'
 // material ui
@@ -27,7 +33,7 @@ export class ChatRoom extends Component {
       user: this.props.user,
       messages: [],
       message: '',
-      notifications: '\xa0'
+      notifications: PLACEHOLDER
     }
     // pick a unique room for the therapist-patient chat based on patient id
     this.room = this.props.params.room
@@ -99,20 +105,31 @@ export class ChatRoom extends Component {
 
   render() {
 
+    const { currentPatient } = this.props
+
     return (
-      <div className='container chat'>
-      <Helmet title='Chat' />
-        <Paper
-          className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'
-          style={{ height: '90%' }}>
-          <Notification notifications={ this.state.notifications } />
-          <Messages messages={ this.state.messages } />
-          <Messenger
-            message={ this.state.message }
-            onMessageChange={ this.onMessageChange }
-            onMessageSent={ this.onMessageSent }
-          />
-        </Paper>
+      <div className='chat'>
+        <Helmet title='Chat' />
+          <Paper
+            className='chatroom'
+            style={{ height: '90%' }}>
+            <Notifications notifications={ this.state.notifications } />
+            <Messages messages={ this.state.messages } />
+            <Messenger
+              message={ this.state.message }
+              onMessageChange={ this.onMessageChange }
+              onMessageSent={ this.onMessageSent } />
+          </Paper>
+          <SidePanel imgURL={ currentPatient.img_URL }>
+            <InfoItem icon="person" label="Name"
+            content={ currentPatient.first_name + ' ' + currentPatient.last_name } />
+            <InfoItem icon="fingerprint" label="Patient ID"
+            content={ currentPatient.emr_id } />
+            <InfoItem icon="event" label="Birthday"
+            content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
+            <InfoItem icon="assignment_ind" label="Gender"
+            content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
+          </SidePanel>
       </div>
     )
   }

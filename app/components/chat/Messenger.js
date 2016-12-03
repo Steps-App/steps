@@ -8,7 +8,7 @@ export default (props) => {
   const { onMessageSent, onMessageChange, message } = props
 
   return (
-    <div className='row' id='messenger'>
+    <div id='messenger'>
       <form onSubmit={ onMessageSent }>
         <input value={ message } onChange={ onMessageChange }/>
         <FloatingActionButton
