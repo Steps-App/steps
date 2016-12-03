@@ -239,7 +239,7 @@
             + a { // space out social icons
               margin-left: 10px;
             }
-            &:hover > svg {
+            &:hover > svg { // change social icon color on hover
               fill: $active !important;
             }
           }
@@ -247,7 +247,7 @@
         &:hover { // hover over a single coder
           background: black;
           > img {
-            opacity: .2; // fase coder image
+            opacity: .2; // fade coder image
           }
           > .coder-data {
             display: flex;

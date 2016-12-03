@@ -164,6 +164,7 @@ export default () => (
                     <h4>{coder.name}</h4>
                     <div className="coder-links">
                     {
+                      // Display each coder's social icons
                       Object.keys(coder.links).map((key, idx) =>
                         <a key={ idx } href={ coder.links[key] } target="_blank">
                           <SocialMediaIcon color={ textLight } type={ key } />
