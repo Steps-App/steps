@@ -120,7 +120,9 @@ export class ChatRoom extends Component {
               onMessageChange={ this.onMessageChange }
               onMessageSent={ this.onMessageSent } />
           </Paper>
-          <SidePanel imgURL={ currentPatient.img_URL }>
+          {/* using 'hidden' classname here attached to @media query in chat Sass file
+          to change the display to 'none' upon entering mobile device territory */}
+          <SidePanel imgURL={ currentPatient.img_URL } className='hidden'>
             <InfoItem icon="person" label="Name"
             content={ currentPatient.first_name + ' ' + currentPatient.last_name } />
             <InfoItem icon="fingerprint" label="Patient ID"
