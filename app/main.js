@@ -11,6 +11,7 @@ import { fetchExercises } from './reducers/exercises';
 import { fetchPatientPlan } from './reducers/plan';
 import { fetchPatients } from './reducers/patients';
 import { fetchCurrentPatient } from './reducers/currentpatient';
+import { fetchTherapist } from './reducers/therapist';
 
 // React Compontents
 import Home from './components/home/Home';
@@ -28,7 +29,7 @@ import ExerciseListContainer from './components/exercises/ExerciseListContainer'
 import { loginRedirect } from './utils'
 
 // constants
-import { THERAPIST } from './constants'
+import { THERAPIST, PATIENT } from './constants'
 
 
 // ===== OnEnters =====
@@ -77,9 +78,10 @@ const therapistPlanEnter = (nextState) => {
 
 const therapistChatEnter = (nextState) => {
   const user = store.getState().user
-  if (user.role === THERAPIST) {
+  if (user.role === THERAPIST)
     store.dispatch(fetchCurrentPatient(nextState.params.room))
-  }
+  else if (user.role === PATIENT)
+    store.dispatch(fetchTherapist(store.getState().user.therapist_id))
 }
 
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));

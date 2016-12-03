@@ -114,14 +114,6 @@ export const StepsMenuItem = props => (
   />
 );
 
-export const StepsChipRight = (props) => (
-  <Chip
-    style={{ textAlign: 'right', display: 'block', float: 'right' }}
-    { ...props }>
-    { props.children }
-  </Chip>
-)
-
 export const StepsTabs = props => (
   <Tabs
     style={{backgroundColor: background, borderRadius: tabsBorderRadius }}

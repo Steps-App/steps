@@ -1,3 +1,4 @@
+@import "colors";
 @import "screens";
 
 .chat {
@@ -13,11 +14,20 @@
   -webkit-flex-direction: row;
   -webkit-align-items: flex-start;
   -webkit-justify-content: center;
-}
 
-.chatroom {
-  max-width: 75%;
-  min-width: 65%;
+  > .chatroom {
+    max-width: 75%;
+    min-width: 65%;
+  }
+  @media (max-width: $lg) {
+    > .chatroom {
+      max-width: 100%;
+      width: 100%;
+    }
+    > .side-panel {
+      display: none;
+    }
+  }
 }
 
 .notifications {
@@ -36,51 +46,48 @@
   text-align: right;
 }
 
-.clear {
-  clear: both;
-}
-
 #messages {
   height: 500px;
   list-style-type: none;
   margin: 0;
   overflow: scroll;
   padding: 10px;
-}
-
-#messages li {
-  width: 75%;
-}
-
-#messenger input {
-  border-width: 0;
-  border-radius: 8px;
-  display: inline-block;
-  height: 2.5em;
-  margin: 5px;
-  vertical-align: bottom;
-  width: 80%;
-}
-
-#messenger input:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-#messenger form {
-  background: #011f4b;
-  margin: 0;
-  padding: 5px;
-  width: 100%;
-}
-
-
-@media (max-width: $lg) {
-  .chatroom {
-    width: 100%;
+  > .message {
+    + .message {
+      padding-top: 5px;
+    }
+    > li {
+      width: 75%;
+      &.clear {
+        clear: both;
+      }
+    }
   }
+}
 
-  .hidden {
-    display: none;
+#messenger {
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $toolbar;
+    padding: 5px;
+    width: 100%;
+    > input {
+      height: 2.5em;
+      width: 80%;
+      border-width: 0;
+      border-radius: 4px;
+      margin: 5px;
+      padding-left: 10px;
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    > div { // send button container
+      margin-left: 5px;
+      background-color: transparent !important;
+    }
   }
 }

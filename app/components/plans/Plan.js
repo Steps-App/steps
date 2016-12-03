@@ -42,7 +42,7 @@ const Plan = ({ plan, currentPatient, createPlan, route }) => {
             content={ patientName } />
           <InfoItem icon="fingerprint" label="Patient ID"
             content={ currentPatient.emr_id } />
-          <InfoItem icon="event" label="Birthday"
+          <InfoItem icon="event" label="DOB"
             content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
           <InfoItem icon="assignment_ind" label="Gender"
             content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
