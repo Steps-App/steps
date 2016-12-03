@@ -17,7 +17,7 @@ const navbarLinks = {
 const teamMembers = [
   {
     name: 'Emily Ho',
-    img: '../../../src/images/coders/emily_ho.jpeg',
+    img: require('../../../src/images/coders/emily_ho.jpeg'),
     links: {
       github: 'https://github.com/emilydev',
       linkedin: 'https://www.linkedin.com/in/emily-ho-8a035235',
@@ -26,7 +26,7 @@ const teamMembers = [
   },
   {
     name: 'Hiten Patel',
-    img: '../../../src/images/coders/hiten_patel.png',
+    img: require('../../../src/images/coders/hiten_patel.png'),
     links: {
       github: 'https://github.com/Hitenp1',
       email: 'mailto:hpduke2@gmail.com'
@@ -34,7 +34,7 @@ const teamMembers = [
   },
   {
     name: 'Jake Peyser',
-    img: '../../../src/images/coders/jake_peyser.jpeg',
+    img: require('../../../src/images/coders/jake_peyser.jpeg'),
     links: {
       github: 'https://github.com/jakepeyser',
       linkedin: 'https://www.linkedin.com/in/jakepeyser',
@@ -43,7 +43,7 @@ const teamMembers = [
   },
   {
     name: 'Mike Williams',
-    img: '../../../src/images/coders/mike_williams.jpg',
+    img: require('../../../src/images/coders/mike_williams.jpg'),
     links: {
       github: 'https://github.com/mkewls',
       linkedin: 'https://www.linkedin.com/in/mewill',
