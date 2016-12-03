@@ -5,7 +5,10 @@ import Helmet from 'react-helmet';
 import { Link, browserHistory } from 'react-router';
 
 //Material UI
-import { StepsTextField } from '../material-style';
+import { StepsTextField, StepsRaisedButton, StepsFlatButton } from '../material-style'
+import { Paper } from 'material-ui';
+import { background, primary } from '../colors';
+import moment from 'moment';
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -22,39 +25,75 @@ export class AccountInfo extends Component {
 
     return (
 
-      <div id="personal-info" className="col-xs-12" >
+      <div id="account-info" className="col-xs-12" > 
         <Helmet title="Account Info" />
+          <h1 className="page-header">Account Info</h1>
+          <Paper style={{ backgroundColor: background, disabledTextColor: primary, padding:'15px' }} zDepth={2} rounded={false} >
+            <div className="row">
+              <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
+                <StepsTextField
+                  floatingLabelText="First Name"
+                  value={user.first_name}
+                  fullWidth={ true }
+                  />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
+                <StepsTextField
+                  floatingLabelText="Last Name"
+                  value={user.last_name}
+                  fullWidth={ true }
+                   />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-12 col-lg-offset-2 col-lg-8">
+                <StepsTextField
+                  floatingLabelText="Email"
+                  value={user.email}
+                  fullWidth={ true }
+                   />
+              </div>
+            </div>
 
-          <fieldset className="form-box">
-                <legend style={{width: '145px'}}>Personal Info</legend>
+            { user.role === "patient" ?
                 <div className="row">
-                  <div className="col-xs-12 col-sm-6 col-md-4">
+                   <div className="col-xs-12 col-lg-offset-2 col-lg-8">
                     <StepsTextField
-                      floatingLabelText="First Name"
-                      value={user.first_name}
-                      fullWidth={true}
-                      disabled={true}
-                    />
+                      floatingLabelText="Date of Birth"
+                      value={ user.DOB ? moment(user.DOB).format('MMM Do, YYYY') : 'N/A' }
+                      fullWidth={ true }
+                       />
                   </div>
-                  <div className="col-xs-12 col-sm-6 col-md-4">
+                  <div className="col-xs-12 col-lg-offset-2 col-lg-8">
                     <StepsTextField
-                      floatingLabelText="Last Name"
-                      value={user.last_name}
-                      fullWidth={true}
-                      disabled={true}
-                    />
-                  </div>
-                  <div className="col-xs-12 col-md-4">
-                    <StepsTextField
-                      floatingLabelText="Email"
-                      value={user.email}
-                      fullWidth={true}
-                      disabled={true}
-                    />
+                      floatingLabelText="EMR ID"
+                      value={user.emr_id}
+                      fullWidth={ true }
+                       />
                   </div>
                 </div>
-          </fieldset>
-    </div>
+              : 
+                <div className="row">
+                   <div className="col-xs-12 col-lg-offset-2 col-lg-8">
+                    <StepsTextField
+                      floatingLabelText="License ID"
+                      value={ user.license_id }
+                      fullWidth={ true }
+                       />
+                  </div>
+                  <div className="col-xs-12 col-lg-offset-2 col-lg-8">
+                    <StepsTextField
+                      floatingLabelText="Practice Name"
+                      value={user.practice_name ? user.practice_name : 'N/A' }
+                      fullWidth={ true }
+                       />
+                  </div>
+                </div>
+            }
+
+          </Paper>
+
+      </div>
     )
   }
 }
