@@ -75,6 +75,7 @@ export const StepsActionButton = props => {
   <FloatingActionButton
     backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
     disabledColor={ props.disabledColor ? props.disabledColor : null }
+    className={ props.className ? props.className : '' }
     disabled={ props.disabled ? true: false }
     mini={ props.mini ? true: false }
     onTouchTap={ props.onTouchTap ? props.onTouchTap : null }
