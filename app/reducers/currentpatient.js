@@ -27,8 +27,9 @@ export default function reducer(currentPatient = initialPatient, action){
 
 /* ------------       DISPATCHERS     ------------------ */
 
-export const fetchCurrentPatient = patientId => dispatch => {
-  axios.get(`/api/patient/${patientId}`)
+// If allData == true, retrievs treatments and workouts as well
+export const fetchCurrentPatient = (patientId, allData) => dispatch => {
+  axios.get(`/api/patient/${patientId}${allData ? '?treatments=yes&workouts=yes' : ''}`)
     .then(res => dispatch(currentPatient(res.data)))
     .catch(err => console.error('Unable to retrieve patient', err));
 };

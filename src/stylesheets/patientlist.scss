@@ -1,7 +1,6 @@
 @import "colors";
 @import "screens";
 
-
 // remove and add patient buttons
 .ptbutton {
   margin-bottom: 10px;
@@ -30,38 +29,83 @@
 }
 
 // patient tiles
-
-.tile{
-  border: 1px solid black;
-  padding : 1vh;
-  text-align: -webkit-center;
-  width: 18em;
-
-  .col {
-    display: center;
-  }
-
-  p{
-    word-wrap: normal;
-    font-size: small;
-  }
-
-  .material-icons{
-    font-size: 30px;
-  }
-
-}
-
-// removeBadge
-.removeBadge {
-  padding:  1vh 2vh 2vh 4vh !important;
-
-  > span {
+.tile-wrapper {
+  position: relative;
+  margin:  1vh 2vh 2vh 4vh !important;
+  > .hide-remove { // patient delete badge
     display: none !important;
   }
+  > .show-remove {
+    z-index: 1;
+    position: absolute;
+    top: -15px;
+    left: 198px;
+  }
 }
 
-.showRemove {
-  padding:  1vh 2vh 2vh 4vh !important;
+.tile {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $toolbar;
+  padding: 10px;
+  min-width: 16em;
 
+  .patient-info {
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    > .patient-img {
+      align-self: center;
+      > img {
+        width: 110px;
+        height: auto;
+        display: flex;
+        border-radius: 50%;
+      }
+    }
+    > .patient-buttons {
+      display: inherit;
+      flex-direction: column;
+      justify-content: center;
+      button {
+        padding: 4px !important;
+        width: 36px !important;
+        height: 36px !important;
+        .material-icons {
+          font-size: 32px !important;
+        }
+      }
+    }
+  }
+  > .patient-data {
+    display: inherit;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 10px;
+    p {
+      margin: 0;
+      font-size: small;
+    }
+    .info-item + .info-item {
+      padding-top: 5px;
+    }
+  }
+}
+
+// notification for a patient message
+.message-notify {
+  z-index: 1;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  &.hidden {
+    display: none
+  }
 }

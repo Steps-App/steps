@@ -21,20 +21,15 @@
 .new-plan-form {
   width: 100%;
   padding-bottom: 20px;
-}
-
-@media (max-width: $lg) {
-  .new-plan-form {
+  .new-plan-options {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  @media (max-width: $lg) {
     margin-top: 20px;
     padding: 15px 10px;
   }
-}
-
-.new-plan-options {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .add-exercise {
@@ -42,7 +37,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 10px 10px 10px 0;
+  padding: 10px 10px 20px 0;
   > p {
     margin: 0;
     padding-right: 10px;

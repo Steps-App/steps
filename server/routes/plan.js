@@ -104,17 +104,20 @@ router.get('/current', (req, res, next) => {
     .catch(next)
 })
 
-// get a specific plan for a patient with associated treatments
+// get a specific plan for a patient with associated treatments/workouts
 router.get('/:planId', (req, res, next) => {
-  req.plan.getTreatments()
-    .then(treatments => {
-      let plan = {
-        plan: req.plan,         // create new object to send both plan info
-        treatments: treatments  // and plan treatments in response
-      }
+  Plan.findOne({
+    where: { id: req.params.planId },
+    include: [{
+      model: Treatment,
+      where: { status: 'active' },
+      include: [ Exercise, Workout ]
+    }]
+  })
+    .then(plan => {
       res.json(plan)
     })
-    .catch(next)
+    .catch(next);
 })
 
 // get a specific treatment from within a specific plan

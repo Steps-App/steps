@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import { TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
+import { Chip, TextField, SelectField, RaisedButton, FloatingActionButton, FlatButton, IconButton, Menu, MenuItem, Tabs, Tab } from 'material-ui';
 import { background, tabs, primary, secondary, active, placeholderText, activeInputLabels, textLight, textDark, errorText, disabled } from './colors'
 
 // Shared styles
@@ -75,6 +75,7 @@ export const StepsActionButton = props => {
   <FloatingActionButton
     backgroundColor={ props.backgroundColor ? props.backgroundColor : primary }
     disabledColor={ props.disabledColor ? props.disabledColor : null }
+    className={ props.className ? props.className : '' }
     disabled={ props.disabled ? true: false }
     mini={ props.mini ? true: false }
     onTouchTap={ props.onTouchTap ? props.onTouchTap : null }
@@ -135,5 +136,6 @@ const TabWrapper = props => (
     { props.children }
   </Tab>
 );
+
 TabWrapper.muiName = 'Tab'; // Needed for inheritance hack
 export const StepsTab = TabWrapper;

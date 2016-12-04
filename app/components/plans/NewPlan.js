@@ -211,12 +211,12 @@ export default class NewPlan extends React.Component{
               content={ fullName(currentPatient) } />
             <InfoItem icon="fingerprint" label="Patient ID"
               content={ currentPatient.emr_id } />
-            <InfoItem icon="event" label="Birthday"
+            <InfoItem icon="event" label="DOB"
               content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
             <InfoItem icon="assignment_ind" label="Gender"
               content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
           </SidePanel>
-          <form onSubmit={this.submitHandler}>
+          <form className="new-plan-form" onSubmit={this.submitHandler}>
             <PlanOptions
               duration={this.state.duration}
               therapyFocus={this.state.therapyFocus}

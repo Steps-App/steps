@@ -1,13 +1,22 @@
 @import "colors";
-
-#h {
-  width: 100%;
-  margin:0px;
-  padding: 0px;
-}
+@import "screens";
 
 #home {
-  min-height: calc(100vh - 55px);
+  background-image: url('../images/StepsBackground.gif');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  filter: saturate(100%);
+  text-align: left;
+  color: $text-light;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  margin : 0px;
+  padding :0px;
+  display: flex;
+  align-items: center;
 }
 
 .home-nav {
@@ -42,101 +51,214 @@
         font-size: 40px;
         font-weight: normal;
       }
+      @media (max-width: $sm) {
+        svg {
+          width: 32px;
+        }
+        h1 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .navbar-links {
+    margin-bottom: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    > li > a {
+      transition: all 0.25s linear;
+    }
+    > li:hover > a {
+      color: $active;
+    }
+    > li + li {
+      padding-left: 20px;
+    }
+    @media (max-width: $sm) {
+      display: none;
     }
   }
 }
 
-.navbar-links {
-  margin-bottom: 0;
-  list-style: none;
+// Intro text and sign-in/sign-up form
+.intro {
   display: flex;
-  flex-direction: row;
-  font-size: 18px;
-
-  > li + li {
-    padding-left: 20px;
+  justify-content: center;
+  width: 100%;
+  min-height: inherit;
+  > .intro-content {
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    > div {
+      width: 40%;
+    }
+    > .intro-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      > .intro-heading {
+        line-height: 40px;
+        font-size: 37px;
+        font-weight: lighter;
+      }
+      > .intro-content {
+        font-size: 18px;
+        @media (max-width: $lg) {
+          display: none;
+        }
+      }
+    }
+    > .signup-form {
+      max-width: 450px;
+    }
+    @media (max-width: $lg) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      > div {
+        width: 100%;
+      }
+      > .intro-text {
+        margin-top: 15vh;
+        @media (max-width: $md) {
+          .intro-heading {
+            font-size: 25px;
+          }
+        }
+      }
+      > .signup-form {
+        position: absolute;
+        top: 35vh;
+        @media (max-width: $md) {
+          padding: 0 10px;
+        }
+      }
+    }
   }
 }
 
-#home {
-  background-image: url('https://static.pexels.com/photos/24746/pexels-photo-24746.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  filter: saturate(100%);
-  text-align: left;
-  color: $text-light;
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  margin : 0px;
-  padding :0px;
-  display: flex;
-  align-items: center;
-}
-
-#intro > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.intro-text {
+// Generic sections below the fold
+.section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  .intro-heading {
-    font-size: 37px;
-    line-height: 40px;
+  padding: 50px;
+  background: -webkit-linear-gradient(left, $background , $placeholder-text); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $background, $placeholder-text); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $background, $placeholder-text); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $background , $placeholder-text); /* Standard syntax */
+  min-height: 500px;
+  &:nth-child(odd) > .section-content  { // odd section containers
+    flex-direction: row-reverse;
+    > .content-text {
+      padding: 0 0 0 20px;
+    }
   }
-
-  .intro-content {
-    font-size: 15px;
+  > .section-content {
+    display: inherit;
+    flex-direction: row;
+    align-items: center;
+    > div {
+      display: inherit;
+      justify-content: center;
+      width: 50%;
+    }
+    > .content-text {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-right: 20px;
+      > h3 {
+        font-weight: bold;
+      }
+      > p {
+        font-size: 18px;
+      }
+    }
+    > .img-wrapper {
+      display: block;
+      text-align: center;
+      > img {
+        width: 80%;
+        margin: auto;
+      }
+    }
+  }
+  @media (max-width: $lg) {
+    padding: 20px;
+    > .section-content {
+      flex-direction: column !important;
+      padding: 20px 0;
+      > div {
+        width: 100%;
+      }
+      > .content-text {
+        padding: 15px 10px 0 10px !important;
+      }
+    }
   }
 }
 
-
-
-//about us
-
-#about {
-  margin: 0px;
-  padding:0px;
-  width: 100%;
-  height: 100vh;
-
-  .aboutcontent {
-    background-color: white;
-    margin: 8vh;
-    padding: 3vh;
-    height : 25vh;
-    display: block;
+.team {
+  > h3 {
+    padding-left: 20px;
+    font-weight: bold;
   }
-  #work {
-    height: 40vh;
-    margin : 5vh;
+  > .coders {
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;;
+    flex-wrap: wrap;
+    >.coder-wrapper {
+      margin: 30px 20px;
+      > .coder {
+        position: relative;
+        width: 250px;
+        border-radius: 50%;
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        > img {
+          width: 100%;
+          border-radius: inherit;
+          transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        }
+        > .coder-data {
+          position: absolute;
+          top: 92px;
+          width: 100%;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          color: $text-light;
+          > h4 {
+            font-size: 28px;
+          }
+          > .coder-links > a {
+            + a { // space out social icons
+              margin-left: 10px;
+            }
+            &:hover > svg { // change social icon color on hover
+              fill: $active !important;
+            }
+          }
+        }
+        &:hover { // hover over a single coder
+          background: black;
+          > img {
+            opacity: .2; // fade coder image
+          }
+          > .coder-data {
+            display: flex;
+          }
+        }
+      }
+
     }
-
-  #us img {
-    height: 30vh
   }
-
-  h4{
-    text-align: center;
-
-  }
-
-  h2{
-    text-align: center;
-  }
-
-  p{
-    text-align: center;
-    text-wrap: normal;
-  }
-
 }
 
 // 404 not found

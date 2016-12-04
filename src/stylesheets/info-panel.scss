@@ -16,6 +16,7 @@
         padding: 10px 0;
         > img {
           width: auto;
+          max-width: 120px;
           height: auto;
           display: flex;
           border-radius: 50%;
@@ -49,11 +50,15 @@
         padding-top: 0;
       }
       > .panel-info {
+        padding-left: 10px;
         > * {
           max-width: $sm;
         }
         > .info-item + .info-item {
           padding-top: 5px;
+        }
+        @media (max-width: $md) {
+          padding-left: 0;
         }
       }
     }

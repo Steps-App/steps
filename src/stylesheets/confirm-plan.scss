@@ -1,18 +1,18 @@
 @import "screens";
 
-#confirm-plan {
+#patient-plan {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.confirm-plan-content {
+.patient-plan-content {
   display: inherit;
   flex-direction: row-reverse;
 }
 
 @media (max-width: $lg) {
-  .confirm-plan-content {
+  .patient-plan-content {
     flex-direction: column;
   }
 }

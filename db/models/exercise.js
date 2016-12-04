@@ -29,7 +29,12 @@ const Exercise = db.define('exercise', {
     validate :{
       isURL: true
     }
-  }
+  },
+  status: {
+    type: Sequelize.ENUM,
+    values: ['active', 'inactive'],
+    defaultValue: 'active'
+  },
 }, {
   underscored: true
 });

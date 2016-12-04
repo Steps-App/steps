@@ -1,4 +1,5 @@
 import React from 'react'
+import { Avatar, Chip } from 'material-ui'
 
 export default (props) => {
 
@@ -7,17 +8,18 @@ export default (props) => {
   return (
     <div>
         <ul id='messages'>
-          { messages.map((message, idx) => {
-            return (
-              <div key={idx}>
-                <li className={`chat-border ${message.align}`}>
-                  <strong>{ message.user }: </strong>
+        { messages.map((message) => (
+            <div key={ message.id } className="message">
+              <li className={ message.align }>
+                <Chip style={ message.align === 'right' ? { textAlign: 'right', display: 'block', float: 'right' } : {} }>
+                  <Avatar src={ message.user.img_URL } />
+                  <span><strong>{ `${message.user.first_name}: ` }</strong></span>
                   <span>{ message.text }</span>
-                </li>
-                <li className='clear'></li>
-              </div>
-            )
-          })}
+                </Chip>
+              </li>
+              <li className='clear'></li>
+            </div>
+        ))}
         </ul>
     </div>
   )
