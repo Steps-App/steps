@@ -216,7 +216,7 @@ export default class NewPlan extends React.Component{
             <InfoItem icon="assignment_ind" label="Gender"
               content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
           </SidePanel>
-          <form onSubmit={this.submitHandler}>
+          <form className="new-plan-form" onSubmit={this.submitHandler}>
             <PlanOptions
               duration={this.state.duration}
               therapyFocus={this.state.therapyFocus}
