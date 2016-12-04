@@ -41,7 +41,7 @@ export default ()=>{
       <p>{pageNotFound} was not available.</p>
 
 
-      <h2> Let's get back on track!</h2>
+      <h2>{"Let's get back on track!"}</h2>
     <div className="buttons">
         <Link to="/">
           <StepsFlatButton label="Home" onClick={"#"}/>
@@ -53,13 +53,13 @@ export default ()=>{
     <div className="bottom">
     {   /*  <div className='logo'>
    <svg  width="10em" height="10em" viewBox="0 0 204 137">
-      <g id="Page-1" stroke="none" strokeWidth="1" fill="none">
-      <g id="Group" transform="translate(0.000000, -0.362180)" fill="#FFFFFF">
-      <path d="M0,108.36218 L204,108.36218 L204,137.36218 L0,137.36218 L0,108.36218 Z M2,110.36218 L202,110.36218 L202,135.36218 L2,135.36218 L2,110.36218 Z" id="Shape"></path>
-      <path d="M50,54.36218 L204,54.36218 L204,83.36218 L50,83.36218 L50,54.36218 Z M52,56.36218 L202,56.36218 L202,81.36218 L52,81.36218 L52,56.36218 Z" id="Shape"></path>
-      <path d="M100,0.36218 L204,0.36218 L204,29.36218 L100,29.36218 L100,0.36218 Z M102,2.36218 L202,2.36218 L202,27.36218 L102,27.36218 L102,2.36218 Z" id="Shape"></path>
-      </g>
-      </g>
+          <g id="Page-1" stroke="none" strokeWidth="1" fill="none">
+          <g id="Group" transform="translate(0.000000, -0.362180)" fill="#FFFFFF">
+          <path d="M0,108.36218 L204,108.36218 L204,137.36218 L0,137.36218 L0,108.36218 Z M2,110.36218 L202,110.36218 L202,135.36218 L2,135.36218 L2,110.36218 Z" id="Shape"></path>
+          <path d="M50,54.36218 L204,54.36218 L204,83.36218 L50,83.36218 L50,54.36218 Z M52,56.36218 L202,56.36218 L202,81.36218 L52,81.36218 L52,56.36218 Z" id="Shape"></path>
+          <path d="M100,0.36218 L204,0.36218 L204,29.36218 L100,29.36218 L100,0.36218 Z M102,2.36218 L202,2.36218 L202,27.36218 L102,27.36218 L102,2.36218 Z" id="Shape"></path>
+          </g>
+        </g>
       </svg>
       </div>*/}
       <div className="tank" id="tank" />
@@ -67,5 +67,5 @@ export default ()=>{
     </div>
 
   </div>
-);
+  );
 };

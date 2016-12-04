@@ -21,10 +21,9 @@
 
   .bottom{
     width: 100%;
-    background-color: $toolbar;
-    .logo{
-      width: 50%
-    }
+    height: 80%;
+    background-image: url('../images/404/ocean.png');
+    background-size: cover;
     .tank{
       display: block;
       width: 100%;
