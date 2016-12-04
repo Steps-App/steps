@@ -79,7 +79,7 @@ const SocialMediaIcon = (props) => {
   }
 };
 
-const aboutImagesStyle = { width: '300px', height: '300px' }
+const aboutImagesStyle = { width: '300px' }
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -139,14 +139,15 @@ export default () => (
               style={ aboutImagesStyle }/>
           </div>
           <div className="content-text">
-          <h1>Our Vision</h1>
-          <p>We're a team that likes to solve problems. Our decision to build a digital product focused on
-          improving physical therapy outcomes is rooted in a real-world need. With nearly 10 million people
-          receiving physical therapy in the United States alone, and a lowly 30% completion rate, our goal
-          is to provide better tools to both therapists and patients. On the patient side, Steps offers
-          features to enhance engagement through video, workout logging, and progress. On the therapist
-          side, real-time chat and analytic tools promote further involvement in a successfuly treatment.
-          Working together, Steps aims to produce significantly improved outcomes.</p>
+            <h2>Our Vision</h2>
+            <p>We're a team that likes to solve problems. Our decision to build a digital product focused on
+            improving physical therapy outcomes is rooted in a real-world need. With nearly 10 million people
+            receiving physical therapy in the United States alone, and a lowly 30% completion rate, our goal
+            is to provide better tools to both therapists and patients. On the patient side, Steps offers
+            features to enhance engagement through video, workout logging, and progress. On the therapist
+            side, real-time chat and analytic tools promote further involvement in a successfuly treatment.
+            Working together, Steps aims to produce significantly improved outcomes.</p>
+          </div>
         </div>
       </div>
 
@@ -160,7 +161,7 @@ export default () => (
               style={ aboutImagesStyle }/>
           </div>
           <div className="content-text">
-            <h1>Our Methodology</h1>
+            <h2>Our Methodology</h2>
             <p>Our team arrives at problem-solving from diverse background. The common thread in our thinking is a
             user-centric design and commitment to quality code. We like to think that in designing for our
             user first, we can better execute a strong back-end codebase and intuitive front-end.
@@ -176,7 +177,7 @@ export default () => (
 
       {/* Contact section */}
       <div className="section team">
-        <h3> The Team </h3>
+        <h2>The Team</h2>
         <div className="coders">
           {
             // Display each team member bubble

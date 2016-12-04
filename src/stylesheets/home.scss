@@ -189,6 +189,7 @@
     }
   }
   @media (max-width: $lg) {
+    padding: 20px;
     > .section-content {
       flex-direction: column !important;
       padding: 20px 0;
