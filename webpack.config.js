@@ -60,10 +60,6 @@ const common = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel'
-      },
-      {
-        test: /\.gif$/,
-        loader: 'file-loader'
       }
     ]
   }

@@ -2,7 +2,7 @@
 @import "screens";
 
 #home {
-  background-image: require('/src/images/StepsBackground.gif');
+  background-image: url('../images/StepsBackground.gif');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -147,6 +147,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 50px;
   background: -webkit-linear-gradient(left, $background , $placeholder-text); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, $background, $placeholder-text); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, $background, $placeholder-text); /* For Firefox 3.6 to 15 */
