@@ -25,17 +25,11 @@ therapistRoutes.get('/data', (req, res) => {
 
 //Route is '/api/therapist'
 
-
 // -=-=-=-= READ =-=-=-=-
 
 // get patients of a therapist 
 therapistRoutes.get('/:id', (req, res, next) => {
-  therapistModel.findOne({
-    where: { id: req.params.id },
-    include: [
-      { model: patientModel, as: 'patient', required: false }
-    ]
-  })
+  therapistModel.findById(req.params.id)
     .then(patient => res.send(patient))
     .catch(next);
 });

@@ -1,6 +1,5 @@
 import React from 'react'
 import { FloatingActionButton } from 'material-ui'
-import { StepsRaisedButton } from '../material-style'
 import Send from 'material-ui/svg-icons/content/send'
 
 export default (props) => {
@@ -14,10 +13,8 @@ export default (props) => {
         <FloatingActionButton
           backgroundColor="green"
           mini={ true }
-          style={{ margin: '5px'}}
-          type="submit"
-          >
-          <Send />
+          type="submit" >
+          <Send style={{ backgroundColor: 'none' }}/>
         </FloatingActionButton>
       </form>
     </div>

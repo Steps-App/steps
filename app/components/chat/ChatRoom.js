@@ -12,7 +12,9 @@ import Messages from './Messages'
 import Messenger from './Messenger'
 import SidePanel from '../widgets/SidePanel'
 import InfoItem from '../widgets/InfoItem'
-// constant
+
+// helpers
+import { fullName } from '../../utils'
 import { PATIENT } from '../../constants'
 // material ui
 import { Paper } from 'material-ui'
@@ -109,7 +111,7 @@ export class ChatRoom extends Component {
 
   render() {
 
-    const { currentPatient } = this.props
+    const { user, currentPatient, therapist } = this.props
 
     return (
       <div className='chat'>
@@ -124,18 +126,25 @@ export class ChatRoom extends Component {
               onMessageChange={ this.onMessageChange }
               onMessageSent={ this.onMessageSent } />
           </Paper>
-          {/* using 'hidden' classname here attached to @media query in chat Sass file
-          to change the display to 'none' upon entering mobile device territory */}
-          <SidePanel imgURL={ currentPatient.img_URL } className='hidden'>
-            <InfoItem icon="person" label="Name"
-            content={ currentPatient.first_name + ' ' + currentPatient.last_name } />
-            <InfoItem icon="fingerprint" label="Patient ID"
-            content={ currentPatient.emr_id } />
-            <InfoItem icon="event" label="Birthday"
-            content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
-            <InfoItem icon="assignment_ind" label="Gender"
-            content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
-          </SidePanel>
+          {
+            user.role === PATIENT ?
+              <SidePanel imgURL={ therapist.img_URL }>
+                <InfoItem icon="person" label="Therapist"
+                content={ fullName(therapist) } />
+                <InfoItem icon="domain" label="Practice"
+                content={ therapist.practice_name } />
+              </SidePanel> :
+              <SidePanel imgURL={ currentPatient.img_URL }>
+                <InfoItem icon="person" label="Name"
+                content={ fullName(currentPatient) } />
+                <InfoItem icon="fingerprint" label="Patient ID"
+                content={ currentPatient.emr_id } />
+                <InfoItem icon="event" label="DOB"
+                content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
+                <InfoItem icon="assignment_ind" label="Gender"
+                content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
+              </SidePanel>
+          }
       </div>
     )
   }
@@ -143,6 +152,6 @@ export class ChatRoom extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapState = ({ user, currentPatient }) => ({ user, currentPatient })
+const mapState = ({ user, currentPatient, therapist }) => ({ user, currentPatient, therapist })
 
 export default connect(mapState)(ChatRoom)
