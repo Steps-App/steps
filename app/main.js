@@ -118,7 +118,7 @@ render (
       <Route path="/" component={ Home } onEnter={ appEnter } />
       <Route path="/app" component={ App } onEnter={ appEnter } >
         <Route path="/plan" component={ PatientPlan } onEnter={ patientPlanEnter } />
-        <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
+        <Route path="/plan/treatments/:treatmentId" component= { Treatment } onEnter={ patientPlanEnter }/>
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
         <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
         <Route path="/messages" component={ ChatRoom } />
