@@ -63,6 +63,7 @@
     "redux-thunk": "^2.1.0",
     "sendgrid": "^4.7.1",
     "sequelize": "^3.25.0",
+    "smoothscroll": "^0.2.2",
     "socket.io": "^1.7.0"
   },
   "devDependencies": {

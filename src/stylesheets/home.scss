@@ -51,7 +51,7 @@
         font-size: 40px;
         font-weight: normal;
       }
-      @media (max-width: $sm) {
+      @media (max-width: $md) {
         svg {
           width: 32px;
         }
@@ -63,6 +63,7 @@
   }
   .navbar-links {
     margin-bottom: 0;
+    padding-left: 20px;
     list-style: none;
     display: flex;
     flex-direction: row;
