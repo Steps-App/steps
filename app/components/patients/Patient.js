@@ -46,7 +46,7 @@ export class Patient extends Component {
       <StepsRaisedButton
       label="Chat"
       fullWidth={true}
-      onTouchTap={ () => browserHistory.push('/messages') } />,
+      onTouchTap={ () => browserHistory.push(`/messages/${currentPatient.id}`) } />,
       <StepsRaisedButton
       label="Remove"
       fullWidth={true}
