@@ -114,7 +114,7 @@ const therapistChatEnter = (nextState) => {
   const user = store.getState().user
   if (user.role === THERAPIST)
     store.dispatch(fetchCurrentPatient(nextState.params.room))
-  else if (user.role === PATIENT)
+  else if (user.role === PATIENT) 
     store.dispatch(fetchTherapist(store.getState().user.therapist_id))
 }
 

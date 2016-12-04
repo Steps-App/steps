@@ -127,7 +127,12 @@ export class PatientList extends Component {
                 <GridTile key={ patient.id }
                     style={gridTile}>
                   <div className={`message-notify ${hidden}`}>
-                   <SMS tooltip="Patient Message Waiting" color="green" style={{ height: '48px', width: '48px'}}/>
+                  <Link to={`messages/${patient.id}`}>
+                  <SMS
+                  tooltip="Patient Message Waiting"
+                  color="green"
+                  style={{ height: '48px', width: '48px'}}/>
+                  </Link>
                   </div>
                   <Badge
                       className={ this.state.showRemove ? "showRemove" : "removeBadge"}
