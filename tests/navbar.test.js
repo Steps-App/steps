@@ -16,8 +16,8 @@ describe('NavbarMenu component', () => {
     navbarMenu = shallow(<NavbarMenu user={user} logout={logout}/>);
   });
 
-  it('has 3 tabs and account popover', () => {
-    expect(navbarMenu.find(NavbarTab)).to.have.length.within(2, 3);
+  it('has 2 tabs and account popover', () => {
+    expect(navbarMenu.find(NavbarTab)).to.have.length.within(1, 2);
     expect(navbarMenu.find(Popover).length).to.be.equal(1);
   });
 

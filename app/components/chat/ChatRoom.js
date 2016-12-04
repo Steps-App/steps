@@ -1,12 +1,21 @@
+//libraries
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import moment from 'moment'
 import Helmet from 'react-helmet'
-import Notification from './Notification'
+
+// sub-components
+import Notifications from './Notifications'
 import Messages from './Messages'
 import Messenger from './Messenger'
+import SidePanel from '../widgets/SidePanel'
+import InfoItem from '../widgets/InfoItem'
 
+// helpers
+import { fullName } from '../../utils'
+import { PATIENT } from '../../constants'
 // material ui
 import { Paper } from 'material-ui'
 
@@ -23,14 +32,15 @@ export class ChatRoom extends Component {
     super(props)
     // local state of user, messages array, and 'wipe clean' message
     this.state = {
-      user: this.props.user.first_name + ' ' + this.props.user.last_name,
+      user: this.props.user,
       messages: [],
       message: '',
-      notifications: '\xa0'
+      notifications: PLACEHOLDER
     }
     // pick a unique room for the therapist-patient chat based on patient id
-    this.room = this.props.user.role === 'patient' ?
-      this.props.user.id.toString() : this.props.currentPatient.id.toString()
+    this.room = this.props.params.room
+    // counter for unique message id
+    this.counter = 0
     // bind our methods to use in render()
     this.onMessageReceived = this.onMessageReceived.bind(this)
     this.onMessageSent = this.onMessageSent.bind(this)
@@ -55,14 +65,16 @@ export class ChatRoom extends Component {
 
   onMessageReceived(data) {
     let message = {}
-    if (data.user === this.state.user) {
+    if (data.user.id === this.state.user.id) {
       message = {
-        user: data.user,
-        text: data.text,
+        id: ++this.counter,
+        user: data.user, // messages have a user with img and name
+        text: data.text, // and a regular font text that follows
         align: 'right'   // messages from you are green and on the right
       }
     } else {
       message = {
+        id: ++this.counter,
         user: data.user,
         text: data.text,
         align: 'left'   // messages from chat partner are blue and on the left
@@ -88,26 +100,51 @@ export class ChatRoom extends Component {
     this.setState({ message: evt.target.value })
     this.socket.emit('typing', { user: this.state.user })
   }
-
+ // these are all user actions, not limited to notifications to a therapist
+ // of a patient being in the chat, which alone are dispatched to the redux store
   onNotification(data) {
-    this.setState({ notifications: data })
-    setTimeout(() => this.setState({ notifications: PLACEHOLDER }), 4000)
+    if (this.state.notifications === PLACEHOLDER) {  // prevent notification "races"
+      this.setState({ notifications: data })
+      setTimeout(() => this.setState({ notifications: PLACEHOLDER }), 4000)
+    }
   }
 
   render() {
 
+    const { user, currentPatient, therapist } = this.props
+
     return (
-      <div className='container chat'>
-      <Helmet title='Therapist messaging' />
-        <Paper className='col-xs-12 col-sm-12 col-md-6 col-md-offset-3'>
-          <Notification notifications={ this.state.notifications } />
-          <Messages messages={ this.state.messages } />
-          <Messenger
-            message={ this.state.message }
-            onMessageChange={ this.onMessageChange }
-            onMessageSent={ this.onMessageSent }
-          />
-        </Paper>
+      <div className='chat'>
+        <Helmet title='Chat' />
+          <Paper
+            className='chatroom'
+            style={{ height: '90%' }}>
+            <Notifications notifications={ this.state.notifications } />
+            <Messages messages={ this.state.messages } />
+            <Messenger
+              message={ this.state.message }
+              onMessageChange={ this.onMessageChange }
+              onMessageSent={ this.onMessageSent } />
+          </Paper>
+          {
+            user.role === PATIENT ?
+              <SidePanel imgURL={ therapist.img_URL }>
+                <InfoItem icon="person" label="Therapist"
+                content={ fullName(therapist) } />
+                <InfoItem icon="domain" label="Practice"
+                content={ therapist.practice_name } />
+              </SidePanel> :
+              <SidePanel imgURL={ currentPatient.img_URL }>
+                <InfoItem icon="person" label="Name"
+                content={ fullName(currentPatient) } />
+                <InfoItem icon="fingerprint" label="Patient ID"
+                content={ currentPatient.emr_id } />
+                <InfoItem icon="event" label="DOB"
+                content={ currentPatient.DOB ? moment(currentPatient.DOB).format('MMM Do, YYYY') : 'N/A' } />
+                <InfoItem icon="assignment_ind" label="Gender"
+                content={ currentPatient.gender ? currentPatient.gender : 'N/A' } />
+              </SidePanel>
+          }
       </div>
     )
   }
@@ -115,6 +152,6 @@ export class ChatRoom extends Component {
 
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapState = ({ user, currentPatient }) => ({ user, currentPatient })
+const mapState = ({ user, currentPatient, therapist }) => ({ user, currentPatient, therapist })
 
 export default connect(mapState)(ChatRoom)

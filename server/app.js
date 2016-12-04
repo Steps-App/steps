@@ -67,22 +67,25 @@ io.on('connection', (socket) => {
   socket.on('userEnter', (data) => {
     // set room to patient_id
     room = data.room
+    io.emit('messageAlert', room)
     // sent client to that room
     socket.join(room)
-    let message = `${data.user} has entered the chat`
+    let message = `${data.user.first_name} has entered the chat`
     // alert user entry
     io.to(room).emit('notification', message)
   })
 
   socket.on('userLeave', (data) => {
-    let message = `${data.user} has left the chat`
+    let message = `${data.user.first_name} has left the chat`
     // alert user departure
     io.to(room).emit('notification', message)
+    socket.leave(room)
+    io.emit('removeAlert', room)
   })
 
   // alert typing
   socket.on('typing', (data) => {
-    let message = `${data.user} is typing`
+    let message = `${data.user.first_name} is typing`
     io.to(room).emit('notification', message)
   })
 

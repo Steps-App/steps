@@ -1,19 +1,21 @@
 import React from 'react'
-import { StepsRaisedButton } from '../material-style'
+import { FloatingActionButton } from 'material-ui'
+import Send from 'material-ui/svg-icons/content/send'
 
 export default (props) => {
 
   const { onMessageSent, onMessageChange, message } = props
 
   return (
-    <div className='row' id='messenger'>
+    <div id='messenger'>
       <form onSubmit={ onMessageSent }>
         <input value={ message } onChange={ onMessageChange }/>
-        <StepsRaisedButton
-          label='Send'
-          style={{ width: '20%' }}
-          type='submit'
-        />
+        <FloatingActionButton
+          backgroundColor="green"
+          mini={ true }
+          type="submit" >
+          <Send style={{ backgroundColor: 'none' }}/>
+        </FloatingActionButton>
       </form>
     </div>
   )

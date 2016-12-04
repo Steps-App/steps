@@ -43,7 +43,7 @@
   }
 }
 
-.tile{
+.tile {
   display: flex;
   flex-direction: column;
   border: 1px solid $toolbar;
@@ -90,5 +90,22 @@
     .info-item + .info-item {
       padding-top: 5px;
     }
+  }
+}
+
+// notification for a patient message
+.message-notify {
+  z-index: 1;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  &.hidden {
+    display: none
   }
 }

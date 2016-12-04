@@ -8,6 +8,7 @@ import { deletePatient } from '../../reducers/patients'
 //Material
 import { GridList, GridTile, IconButton, Badge, FontIcon } from 'material-ui';
 import { StepsRaisedButton, StepsActionButton } from '../material-style';
+import SMS from 'material-ui/svg-icons/communication/textsms'
 import { errorText } from '../colors';
 import moment from 'moment';
 
@@ -32,16 +33,36 @@ export class PatientList extends Component {
     super(props)
     this.state = {
       showRemove : false,
-      confirmOpen:false,
-      selectedPt :{}
+      notifications: [],
+      confirmOpen: false,
+      selectedPt: {}
     }
     this.showRemove = this.showRemove.bind(this);
     this.dialogClose = this.dialogClose.bind(this);
     this.dialogOpen = this.dialogOpen.bind(this);
+    this.addNotification = this.addNotification.bind(this)
+    this.removeNotification = this.removeNotification.bind(this)
   }
+
+  componentDidMount() {
+    this.socket = io.connect()
+    this.socket.on('messageAlert', this.addNotification)
+    this.socket.on('removeAlert', this.removeNotification)
+  }
+
 
   showRemove (){
     this.setState({showRemove:!this.state.showRemove});
+  }
+
+  addNotification(id) {
+    this.setState({ notifications: [...this.state.notifications, id] })
+  }
+
+  removeNotification(id) {
+    this.setState({ notifications: this.state.notifications.filter(notification => {
+      notification !== id
+    }) })
   }
 
   dialogClose(){
@@ -92,6 +113,7 @@ export class PatientList extends Component {
               else if (b.last_name > a.last_name) return -1;
               else return 0;
             }).map( patient => {
+              let hidden = this.state.notifications.includes(patient.id.toString()) ? '' : 'hidden'
               const patientButtons = [
                 { icon: "person", tooltip: "Patient Details", link: `/patients/${patient.id}` },
                 { icon: "assignment", tooltip: "Current Plan", link: `/patients/${patient.id}/plans/current` },
@@ -106,6 +128,14 @@ export class PatientList extends Component {
                     <FontIcon className={'material-icons'}>clear</FontIcon>
                   </StepsActionButton>
                   <GridTile key={ patient.id } className="grid-tile" style={{ overflow: 'visible' }}>
+                  <div className={`message-notify ${hidden}`}>
+                    <Link to={`messages/${patient.id}`}>
+                      <SMS
+                        tooltip="Patient Message Waiting"
+                        color="green"
+                        style={{ height: '48px', width: '48px'}}/>
+                    </Link>
+                  </div>
                     <div className="tile" >
                       <div className="patient-info" >
                         <div className="patient-img"><img src={ patient.img_URL } /></div>
@@ -156,10 +186,9 @@ export class PatientList extends Component {
   }
 }
 
-
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapStateToProps = ({ patients }) => ({ patients })
+const mapStateToProps = ({ patients, notifications }) => ({ patients, notifications })
 
 const mapDispatchToProps = (dispatch) => ({
   removePatient: (id) => dispatch(deletePatient(id))
