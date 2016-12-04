@@ -4,15 +4,17 @@ import React from 'react'
 // Material theme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { SvgIcon } from 'material-ui';
-import { textLight } from '../colors'
+import { textLight } from '../colors';
 
 // Custom components
 import Signin from './Signin'
+const smoothScroll = require('smoothscroll');
 
 // Page content
 const navbarLinks = {
-  about: 'About Us',
-  contact: 'Contact'
+  vision: 'Vision',
+  methodology: 'Methodology',
+  team: 'Team'
 }
 const teamMembers = [
   {
@@ -108,9 +110,17 @@ export default () => (
           </div>
           <ul className="navbar-links">
           {
+            // Set up linking and smooth scrolling to other sections
             Object.keys(navbarLinks).map((key, i) =>
               <li key={i}>
-                <a href={`#${key}`}>{navbarLinks[key]}</a>
+                <a href={`#${key}`}
+                  onClick={ evt => {
+                    evt.preventDefault();
+                    window.history.pushState({}, "", `#${key}`);
+                    smoothScroll(document.querySelector(`#${key}`));
+                  }}>
+                  { navbarLinks[key] }
+                </a>
               </li>
             )
           }
@@ -129,8 +139,8 @@ export default () => (
         </div>
       </div>
 
-      {/* Methodology section */}
-      <div className="section">
+      {/* Vision section */}
+      <div id="vision" className="section">
         <div className="section-content">
           <div className="img-wrapper">
             <img
@@ -151,8 +161,8 @@ export default () => (
         </div>
       </div>
 
-      {/* Process section */}
-      <div className="section">
+      {/* Methodology section */}
+      <div id="methodology" className="section">
         <div className="section-content">
           <div className="img-wrapper">
             <img
@@ -176,7 +186,7 @@ export default () => (
       </div>
 
       {/* Contact section */}
-      <div className="section team">
+      <div id="team" className="section team">
         <h2>The Team</h2>
         <div className="coders">
           {
