@@ -66,7 +66,7 @@ export default class NavbarMenu extends React.Component {
           <StepsMenu>
             <StepsMenuItem
               primaryText="Account"
-              containerElement={ <Link to="/" />} />
+              containerElement={ <Link to="/account" />} />
             <StepsMenuItem
               primaryText="Sign Out"
               onTouchTap={ logout } />

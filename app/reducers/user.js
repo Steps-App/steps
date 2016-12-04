@@ -67,7 +67,9 @@ export const signup = (credentials, displayErr) => dispatch => {
 export const retrieveLoggedInUser = (cb) => dispatch => {
   axios.get('/api/auth/me')
     .then(res => {
-      dispatch(setUser(res.data));
+      if (res.status !== 204) {
+        dispatch(setUser(res.data));
+      }
       cb(null, res.data)
     })
     .catch(cb);

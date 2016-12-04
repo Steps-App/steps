@@ -68,7 +68,8 @@ export const deletePatient = (id) => dispatch => {
   axios.delete(`/api/patient/${id}`)
     .then(ok => {
       dispatch(removeOnePatient(id))
-      browserHistory.push('/patients')
+      if (isBrowser())
+        browserHistory.push('/patients')
     })
     .catch(err => console.error(err))
 }

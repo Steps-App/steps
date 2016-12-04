@@ -6,24 +6,28 @@ import { Link, browserHistory } from 'react-router';
 import { deletePatient } from '../../reducers/patients'
 
 //Material
-import { GridList, GridTile, Badge, IconButton} from 'material-ui';
-import { StepsRaisedButton, StepsIconButton } from '../material-style';
+import { GridList, GridTile, IconButton, Badge } from 'material-ui';
+import { StepsRaisedButton } from '../material-style';
 import SMS from 'material-ui/svg-icons/communication/textsms'
 import moment from 'moment';
 
-//-=-=-=-=-=-=-= GridList -=-=-=-=-=-=
+// Custom components
+import InfoItem from '../widgets/InfoItem';
+import ConfirmDialog from '../widgets/ConfirmDialog';
+import { fullName } from '../../utils';
 
- const gridList = {
-  "width" : "fluid",
-  height: "100%",
+//-=-=-=-=-=-=-= GridList -=-=-=-=-=-=
+const gridList = {
+  width : 'fluid',
+  height: '100%',
   overflow: 'visible',
-  "justify-content" : "center"
+  justifyContent : 'center'
 }
 
- const gridTile = {
-   "overflow" : "visible",
-   "display" : "webikit-center"
- }
+const gridTile = {
+  overflow : 'visible',
+  display : 'webikit-center'
+}
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
@@ -33,9 +37,13 @@ export class PatientList extends Component {
     super(props)
     this.state = {
       showRemove : false,
-      notifications: []
+      notifications: [],
+      confirmOpen: false,
+      selectedPt: {}
     }
     this.showRemove = this.showRemove.bind(this);
+    this.dialogClose = this.dialogClose.bind(this);
+    this.dialogOpen = this.dialogOpen.bind(this);
     this.addNotification = this.addNotification.bind(this)
     this.removeNotification = this.removeNotification.bind(this)
   }
@@ -45,6 +53,7 @@ export class PatientList extends Component {
     this.socket.on('messageAlert', this.addNotification)
     this.socket.on('removeAlert', this.removeNotification)
   }
+
 
   showRemove (){
     this.setState({showRemove:!this.state.showRemove});
@@ -60,28 +69,36 @@ export class PatientList extends Component {
     }) })
   }
 
+  dialogClose(){
+    this.setState({confirmOpen: false});
+    this.setState({selectedPt :{}});
+  }
+
+  dialogOpen(patient){
+    this.setState({confirmOpen: true});
+    this.setState({selectedPt : patient});
+  }
+
   render() {
-
-    const { patients, removePatient } = this.props;
-
+    const { patients } = this.props;
     return (
       <div id="patient-list" className="col-xs-12">
         <Helmet title="Patients" />
         <h1 className="page-header">Patient List</h1>
         <div className='row'>
         <div className="ptbutton">
-          <div className="remove">
-            <StepsRaisedButton fullWidth={true} id="cancel"
-              label={this.state.showRemove ? "Done Removing" : "Remove Patient"}
-              onClick={this.showRemove}
-            />
-          </div>
           <div className="add">
             <Link to="/patients/new">
               <StepsRaisedButton fullWidth={true}
                 label="Add Patient"
               />
             </Link>
+          </div>
+          <div className={this.state.showRemove ? "finish" : "remove"}>
+            <StepsRaisedButton fullWidth={true} id="cancel"
+              label={this.state.showRemove ? "Edit Finished" : "Edit Patients"}
+              onClick={this.showRemove}
+            />
           </div>
         </div>
         </div>
@@ -94,66 +111,77 @@ export class PatientList extends Component {
             style={gridList}>
 
           {
-            patients && patients.map(patient => {
+            // Sort patients alphabetically and map them into GridTile components
+            patients && patients.sort((a,b) => {
+              if (b.last_name < a.last_name) return 1;
+              else if (b.last_name > a.last_name) return -1;
+              else return 0;
+            }).map( patient => {
               let hidden = this.state.notifications.includes(patient.id.toString()) ? '' : 'hidden'
-
+              const patientButtons = [
+                { icon: "person", tooltip: "Patient Details", link: `/patients/${patient.id}` },
+                { icon: "assignment", tooltip: "Current Plan", link: `/patients/${patient.id}/plans/current` },
+                { icon: "add_box", tooltip: "New Plan", link: `/patients/${patient.id}/plans/new` }
+              ]
               return (
                 <GridTile key={ patient.id }
-                   style={gridTile}>
-                 <div className={`message-notify ${hidden}`}>
-                  <SMS tooltip="Patient Message Waiting" color="green" style={{ height: '48px', width: '48px'}}/>
-                 </div>
-                 <Badge
-                     className={ this.state.showRemove ? "showRemove" : "removeBadge"}
-                     badgeContent={ <IconButton
-                     tooltip="Remove Patient"
-                     iconClassName="material-icons"
-                     onClick={() => removePatient(patient.id)}>
-                     highlight_off
-                     </IconButton>}>
-                  <div className="tile" >
-                    <div className="row" >
-                      <div className="col-xs-6" >
-                        <img className="img-responsive" src={patient.img_URL}/>
-                        <p> Patient Id : {patient.id} </p>
-                      </div>
-                      <div className="col-xs-6" >
-                        <p>{`Last : ${patient.last_name} ` }</p>
-                        <p>{`First : ${patient.first_name} ` }</p>
-                        <p>{`DOB : ${patient.DOB ? moment(patient.DOB).format('l') : 'None'} `}</p>
-                        <p>{ `Gender : ${patient.gender ? patient.gender : 'n/a'}`}</p>
-
-                      </div>
-                    </div>
-                    <div className='row' id='pticon'>
-
-                      <Link to={`/patients/${patient.id}/plans/current`}>
-                        <StepsIconButton tooltip="Current Plan" iconClassName="material-icons">
-                        assignment
-                        </StepsIconButton>
-                      </Link>
-                      <Link to={`/patients/${patient.id}/plans/new`}>
-                        <StepsIconButton tooltip="Add Plan" iconClassName="material-icons">
-                        add_box
-                        </StepsIconButton>
-                      </Link>
-                      <Link to={`/messages/${patient.id}`}>
-                        <StepsIconButton
-                          tooltip="Message Patient"
-                          iconClassName="material-icons">
-                        message
-                        </StepsIconButton>
-                      </Link>
-                    </div>
+                    style={gridTile}>
+                  <div className={`message-notify ${hidden}`}>
+                   <SMS tooltip="Patient Message Waiting" color="green" style={{ height: '48px', width: '48px'}}/>
                   </div>
-                  </Badge>
+                  <Badge
+                      className={ this.state.showRemove ? "showRemove" : "removeBadge"}
+                      badgeContent={ <IconButton
+                      tooltip="Remove Patient"
+                      iconClassName="material-icons"
+                      onClick={() => this.dialogOpen(patient)}>highlight_off</IconButton>}>
+                    <div className="tile" >
+                      <div className="patient-info" >
+                        <div className="patient-img"><img src={ patient.img_URL } /></div>
+                        <div className='patient-buttons'>
+                        {
+                          patientButtons.map(btn =>
+                            <Link key={`${patient.id}_${btn.tooltip}`} to={ btn.link }>
+                              <IconButton tooltip={ btn.tooltip }
+                                iconClassName="material-icons"
+                                tooltipPosition="top-right"
+                                tooltipStyles={{left: "40px", top: "22px"}}>
+                                { btn.icon }
+                              </IconButton>
+                            </Link>
+                          )
+                        }
+                        </div>
+                      </div>
+                      <div className="patient-data">
+                        <InfoItem icon="person" label="Name"
+                          content={ fullName(patient, true) } />
+                        <InfoItem icon="fingerprint" label="Patient ID"
+                          content={ patient.emr_id } />
+                        <InfoItem icon="event" label="DOB"
+                          content={ patient.DOB ? moment(patient.DOB).format('MMM Do, YYYY') : 'N/A' } />
+                        <InfoItem icon="assignment_ind" label="Gender"
+                          content={ patient.gender ? patient.gender : 'N/A' } />
+                      </div>
+                    </div>
+                    </Badge>
                 </GridTile>
               )
-            })}
-          </GridList>
-          </div>
+            }
+            )
+          }
+        </GridList>
         </div>
-      )
+        <ConfirmDialog
+          title="Confirm Patient Deletion"
+          isOpen={ this.state.confirmOpen }
+          confirm={ () => this.props.removePatient(this.state.selectedPt.id) }
+          dialogClose={ this.dialogClose }>
+          {`Would you like to permenantly delete the following patient:
+          ${this.state.selectedPt.first_name} ${this.state.selectedPt.last_name}`}
+        </ConfirmDialog>
+      </div>
+    )
   }
 }
 

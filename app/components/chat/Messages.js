@@ -4,7 +4,6 @@ import { Avatar, Chip } from 'material-ui'
 export default (props) => {
 
   const { messages } = props
-  console.log(messages)
 
   return (
     <div>
