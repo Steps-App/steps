@@ -5,13 +5,14 @@ import { StepsChipRight } from '../material-style'
 export default (props) => {
 
   const { messages } = props
+  console.log(messages)
 
   return (
     <div>
         <ul id='messages'>
-          { messages.map((message, idx) => {
+          { messages.map((message) => {
             return (
-              <div key={idx}>
+              <div key={ message.id }>
                 <li className={ message.align }>
                   { message.align === 'right' ?
                     (<StepsChipRight>

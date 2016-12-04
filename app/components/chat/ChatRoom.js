@@ -37,6 +37,8 @@ export class ChatRoom extends Component {
     }
     // pick a unique room for the therapist-patient chat based on patient id
     this.room = this.props.params.room
+    // counter for unique message id
+    this.counter = 0
     // bind our methods to use in render()
     this.onMessageReceived = this.onMessageReceived.bind(this)
     this.onMessageSent = this.onMessageSent.bind(this)
@@ -63,12 +65,14 @@ export class ChatRoom extends Component {
     let message = {}
     if (data.user.id === this.state.user.id) {
       message = {
+        id: ++this.counter,
         user: data.user, // messages have a user with img and name
         text: data.text, // and a regular font text that follows
         align: 'right'   // messages from you are green and on the right
       }
     } else {
       message = {
+        id: ++this.counter,
         user: data.user,
         text: data.text,
         align: 'left'   // messages from chat partner are blue and on the left
