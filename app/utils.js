@@ -54,5 +54,5 @@ export const formatTime = time => {
   const padLeft = (string, pad, length) =>
     (new Array(length+1).join(pad)+string).slice(-length);
 
-  return `${minutes} min ${padLeft(seconds,'0',2)} sec`;
+  return `${minutes ? `${minutes} min ` : ''}${seconds ? `${padLeft(seconds, '0', 2)} sec` : ''}`;
 }

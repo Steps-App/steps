@@ -6,9 +6,10 @@ import { Link, browserHistory } from 'react-router';
 import { deletePatient } from '../../reducers/patients'
 
 //Material
-import { GridList, GridTile, IconButton, Badge } from 'material-ui';
-import { StepsRaisedButton } from '../material-style';
+import { GridList, GridTile, IconButton, Badge, FontIcon } from 'material-ui';
+import { StepsRaisedButton, StepsActionButton } from '../material-style';
 import SMS from 'material-ui/svg-icons/communication/textsms'
+import { errorText } from '../colors';
 import moment from 'moment';
 
 // Custom components
@@ -22,11 +23,6 @@ const gridList = {
   height: '100%',
   overflow: 'visible',
   justifyContent : 'center'
-}
-
-const gridTile = {
-  overflow : 'visible',
-  display : 'webikit-center'
 }
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
@@ -124,22 +120,22 @@ export class PatientList extends Component {
                 { icon: "add_box", tooltip: "New Plan", link: `/patients/${patient.id}/plans/new` }
               ]
               return (
-                <GridTile key={ patient.id }
-                    style={gridTile}>
+                <div className="tile-wrapper">
+                  <StepsActionButton mini={ true }
+                    className={ this.state.showRemove ? "show-remove" : "hide-remove"}
+                    backgroundColor={ errorText }
+                    onTouchTap={ () => this.dialogOpen(patient) } >
+                    <FontIcon className={'material-icons'}>clear</FontIcon>
+                  </StepsActionButton>
+                  <GridTile key={ patient.id } className="grid-tile" style={{ overflow: 'visible' }}>
                   <div className={`message-notify ${hidden}`}>
-                  <Link to={`messages/${patient.id}`}>
-                  <SMS
-                  tooltip="Patient Message Waiting"
-                  color="green"
-                  style={{ height: '48px', width: '48px'}}/>
-                  </Link>
+                    <Link to={`messages/${patient.id}`}>
+                      <SMS
+                        tooltip="Patient Message Waiting"
+                        color="green"
+                        style={{ height: '48px', width: '48px'}}/>
+                    </Link>
                   </div>
-                  <Badge
-                      className={ this.state.showRemove ? "showRemove" : "removeBadge"}
-                      badgeContent={ <IconButton
-                      tooltip="Remove Patient"
-                      iconClassName="material-icons"
-                      onClick={() => this.dialogOpen(patient)}>highlight_off</IconButton>}>
                     <div className="tile" >
                       <div className="patient-info" >
                         <div className="patient-img"><img src={ patient.img_URL } /></div>
@@ -169,8 +165,8 @@ export class PatientList extends Component {
                           content={ patient.gender ? patient.gender : 'N/A' } />
                       </div>
                     </div>
-                    </Badge>
-                </GridTile>
+                  </GridTile>
+                </div>
               )
             }
             )
@@ -189,7 +185,6 @@ export class PatientList extends Component {
     )
   }
 }
-
 
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 

@@ -29,12 +29,25 @@
 }
 
 // patient tiles
+.tile-wrapper {
+  position: relative;
+  margin:  1vh 2vh 2vh 4vh !important;
+  > .hide-remove { // patient delete badge
+    display: none !important;
+  }
+  > .show-remove {
+    z-index: 1;
+    position: absolute;
+    top: -15px;
+    left: 198px;
+  }
+}
 
-.tile{
+.tile {
   display: flex;
   flex-direction: column;
   border: 1px solid $toolbar;
-  padding : 10px;
+  padding: 10px;
   min-width: 16em;
 
   .patient-info {
@@ -45,7 +58,7 @@
     > .patient-img {
       align-self: center;
       > img {
-        width: 100px;
+        width: 110px;
         height: auto;
         display: flex;
         border-radius: 50%;
@@ -60,7 +73,7 @@
         width: 36px !important;
         height: 36px !important;
         .material-icons {
-          font-size: 28px !important;
+          font-size: 32px !important;
         }
       }
     }
@@ -80,32 +93,7 @@
   }
 }
 
-// removeBadge
-.removeBadge {
-  padding:  1vh 2vh 2vh 4vh !important;
-
-  > span {
-    display: none !important;
-  }
-}
-
-.showRemove {
-  padding:  1vh 2vh 2vh 4vh !important;
-
-}
-
-// patient buttons (current plan, add plan, message)
-
-.material-icons {
-  font-size: 36px !important;
-}
-
-// chat notifications
-
-.hidden {
-  display: none
-}
-
+// notification for a patient message
 .message-notify {
   z-index: 1;
   position: absolute;
@@ -117,4 +105,7 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  &.hidden {
+    display: none
+  }
 }

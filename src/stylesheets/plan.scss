@@ -39,8 +39,9 @@
   }
   > a { // treatment link
     width: 100%;
+
     p, &:hover p {
-      color: $text-light
+      color: $text-light;
     }
   }
   &:hover, &.completed { // show notes and fade pic on hover
@@ -74,10 +75,15 @@
     position: absolute;
     padding: 25px 25px 0 25px;
     width: 100%;
+    height: calc(100% - 93px);
     font-size: 1.2em;
+    overflow-y: scroll;
     transition: all 0.25s linear;
     .info-item + .info-item { // all notes except first
       margin-top: 10px;
+    }
+    @media (max-width: $md) {
+      height: calc(100% - 68px);
     }
   }
   .workout-banner {
@@ -110,7 +116,7 @@
           font-weight: bold;
           content: '/';
         }
-        @media (max-width: $sm) {
+        @media (max-width: $md) {
           &.bonus-info {
             display: none
           }
@@ -131,11 +137,6 @@
       img {
         filter: grayscale(100%);
       }
-    }
-  }
-  @media (max-width: $sm) {
-    .workout-banner {
-      bottom: 68px
     }
   }
 }

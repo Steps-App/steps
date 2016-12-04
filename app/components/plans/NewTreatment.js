@@ -21,54 +21,67 @@ export default ({ exercise, treatment, treatmentErrors,
                 content={exercise && exercise.description} />
             </div>
           </div>
-          <div className="treatment-inputs">
-            <div className = "treatment-fields">
-              <div className="treatment-nums">
+          <div className="treatment-edit">
+            <div className="row">
+              <div className="col-xs-12 col-sm-6 col-md-3">
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Sets"
                   value={treatment.sets}
+                  fullWidth={true}
                   errorText={treatmentErrors.sets}
                   type="number"
                   onChange={(env) => treatmentHandler('sets', env.target.value)} />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-3">
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Reps" type="number"
                   value={treatment.reps}
+                  fullWidth={true}
                   errorText={treatmentErrors.reps}
                   onChange={(env) => treatmentHandler('reps', env.target.value)} />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-3">
                 <StepsSelectField
                   floatingLabelFixed={true}
                   floatingLabelText="Resistance"
                   value={treatment.resistance}
+                  fullWidth={true}
                   errorText={treatmentErrors.resistance}
                   onChange={resistanceOnChange} >
                   <StepsMenuItem value='weighted' primaryText='Weighted'/>
                   <StepsMenuItem value='none' primaryText='None' />
                 </StepsSelectField>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-3">
                 <StepsTextField
                   floatingLabelFixed={true}
                   floatingLabelText="Minutes"
                   value={treatment.time_per_exercise}
+                  fullWidth={true}
                   errorText={treatmentErrors.time_per_exercise}
                   type="number"
                   onChange={(env) => treatmentHandler('time_per_exercise', env.target.value)} />
               </div>
-              <StepsTextField
-                hintText="Write special treatment instructions here"
-                value={treatment.notes}
-                multiLine={true}
-                floatingLabelText="Notes"
-                rows={1}
-                rowsMax={2}
-                fullWidth={true}
-                onChange={(env) => treatmentHandler('notes', env.target.value)} />
+            </div>
+            <div className="row">
+              <div className="col-xs-12">
+                <StepsTextField
+                  hintText="Write special treatment instructions here"
+                  value={treatment.notes}
+                  multiLine={true}
+                  floatingLabelText="Notes"
+                  rows={1}
+                  rowsMax={2}
+                  fullWidth={true}
+                  onChange={(env) => treatmentHandler('notes', env.target.value)} />
+              </div>
             </div>
             <div className="add-button">
               <StepsRaisedButton
                 type="submit"
                 label="Add"
-                fullWidth={true}
                 onTouchTap={addTreatment} />
             </div>
           </div>
