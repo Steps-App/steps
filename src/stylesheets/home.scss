@@ -2,7 +2,7 @@
 @import "screens";
 
 #home {
-  background-image: url('https://static.pexels.com/photos/24746/pexels-photo-24746.jpg');
+  background-image: require('/src/images/StepsBackground.gif');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
