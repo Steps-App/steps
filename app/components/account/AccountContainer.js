@@ -12,96 +12,65 @@ import moment from 'moment';
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-export class AccountInfo extends Component {
+const AccountInfo = ({ user }) => (
+  <div id="account-info" className="col-xs-12" > 
+    <Helmet title="Account Info" />
+      <h1 className="page-header">Account Info</h1>
+      <Paper style={{ backgroundColor: background, disabledTextColor: primary, padding:'15px' }} zDepth={2} rounded={false} >
+        <div className="row">
+          <div className="col-xs-12 col-sm-6">
+            <StepsTextField
+              floatingLabelText="First Name"
+              value={user.first_name}
+              disabled={true}
+              fullWidth={ true } />
+          </div>
+          <div className="col-xs-12 col-sm-6">
+            <StepsTextField
+              floatingLabelText="Last Name"
+              value={user.last_name}
+              disabled={true}
+              fullWidth={ true } />
+          </div>
+        </div>
+        <StepsTextField
+          floatingLabelText="Email"
+          value={user.email}
+          disabled={true}
+          fullWidth={ true } />
 
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-
-    const {user} = this.props;
-
-    return (
-
-      <div id="account-info" className="col-xs-12" > 
-        <Helmet title="Account Info" />
-          <h1 className="page-header">Account Info</h1>
-          <Paper style={{ backgroundColor: background, disabledTextColor: primary, padding:'15px' }} zDepth={2} rounded={false} >
-            <div className="row">
-              <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
-                <StepsTextField
-                  floatingLabelText="First Name"
-                  value={user.first_name}
-                  fullWidth={ true }
-                  />
-              </div>
-              <div className="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-8">
-                <StepsTextField
-                  floatingLabelText="Last Name"
-                  value={user.last_name}
-                  fullWidth={ true }
-                   />
-              </div>
+        { user.role === "patient" ?
+          <StepsTextField
+            floatingLabelText="Date of Birth"
+            value={ user.DOB ? moment(user.DOB).format('MMM Do, YYYY') : 'N/A' }
+            disabled={true}
+            fullWidth={ true } />
+          : 
+            <div>
+              <StepsTextField
+                floatingLabelText="License ID"
+                value={ user.license_id }
+                disabled={true}
+                fullWidth={ true } />
+              <StepsTextField
+                floatingLabelText="Practice Name"
+                value={user.practice_name ? user.practice_name : 'N/A' }
+                disabled={true}
+                fullWidth={ true } />
             </div>
-            <div className="row">
-              <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-                <StepsTextField
-                  floatingLabelText="Email"
-                  value={user.email}
-                  fullWidth={ true }
-                   />
-              </div>
-            </div>
-
-            { user.role === "patient" ?
-                <div className="row">
-                   <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-                    <StepsTextField
-                      floatingLabelText="Date of Birth"
-                      value={ user.DOB ? moment(user.DOB).format('MMM Do, YYYY') : 'N/A' }
-                      fullWidth={ true }
-                       />
-                  </div>
-                  <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-                    <StepsTextField
-                      floatingLabelText="EMR ID"
-                      value={user.emr_id}
-                      fullWidth={ true }
-                       />
-                  </div>
-                </div>
-              : 
-                <div className="row">
-                   <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-                    <StepsTextField
-                      floatingLabelText="License ID"
-                      value={ user.license_id }
-                      fullWidth={ true }
-                       />
-                  </div>
-                  <div className="col-xs-12 col-lg-offset-2 col-lg-8">
-                    <StepsTextField
-                      floatingLabelText="Practice Name"
-                      value={user.practice_name ? user.practice_name : 'N/A' }
-                      fullWidth={ true }
-                       />
-                  </div>
-                </div>
-            }
-
-          </Paper>
-
-      </div>
-    )
-  }
-}
-
+        }
+        <StepsTextField
+          floatingLabelText="Profile Picture"
+          value={user.img_URL}
+          disabled={true}
+          fullWidth={ true } />
+      </Paper>
+  </div>
+)
 
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
-const mapStateToProps = ({user}) => ({user })
+const mapStateToProps = ({ user }) => ({ user })
 
 
-export default connect(mapStateToProps, null)(AccountInfo);
+export default connect(mapStateToProps)(AccountInfo);
