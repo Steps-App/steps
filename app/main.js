@@ -11,6 +11,7 @@ import { fetchExercises } from './reducers/exercises';
 import { fetchPlan } from './reducers/plan';
 import { fetchPatients } from './reducers/patients';
 import { fetchCurrentPatient } from './reducers/currentpatient';
+import { fetchTherapist } from './reducers/therapist';
 
 // React Compontents
 import Home from './components/home/Home';
@@ -31,7 +32,7 @@ import AccountContainer from './components/account/AccountContainer';
 import { loginRedirect, checkRoute } from './utils'
 
 // Constants
-import { VALID_ROUTES, THERAPIST_REGEX, PATIENT_REGEX } from './constants'
+import { THERAPIST, PATIENT, VALID_ROUTES, THERAPIST_REGEX, PATIENT_REGEX } from './constants'
 
 // ===== OnEnters =====
 const appEnter = (nextState, replace, callback) => {
@@ -109,6 +110,14 @@ const therapistCurPlanEnter = nextState => {
   }
 };
 
+const therapistChatEnter = (nextState) => {
+  const user = store.getState().user
+  if (user.role === THERAPIST)
+    store.dispatch(fetchCurrentPatient(nextState.params.room))
+  else if (user.role === PATIENT) 
+    store.dispatch(fetchTherapist(store.getState().user.therapist_id))
+}
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
@@ -128,6 +137,7 @@ render (
         <Route path="/patients/new" component={ AddPatientContainer } />
         <Route path="/patients/:patientId" component={ Patient } onEnter={ singlePatientEnter } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
+        <Route path="/messages/:room" component={ ChatRoom } onEnter={ therapistChatEnter }/>
         <Route path="/patients/:patientId/plans/:planId" component={ Plan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistCurPlanEnter} confirm={false} />
         <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />

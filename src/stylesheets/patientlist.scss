@@ -93,3 +93,28 @@
   padding:  1vh 2vh 2vh 4vh !important;
 
 }
+
+// patient buttons (current plan, add plan, message)
+
+.material-icons {
+  font-size: 36px !important;
+}
+
+// chat notifications
+
+.hidden {
+  display: none
+}
+
+.message-notify {
+  z-index: 1;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
