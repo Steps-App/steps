@@ -16,7 +16,19 @@ const AccountInfo = ({ user }) => (
   <div id="account-info" className="col-xs-12" > 
     <Helmet title="Account Info" />
       <h1 className="page-header">Account Info</h1>
-      <Paper style={{ backgroundColor: background, disabledTextColor: primary, padding:'15px' }} zDepth={2} rounded={false} >
+      <Paper style={{ backgroundColor: background, padding:'15px' }} zDepth={2} rounded={false} >
+        <div className="row" style={{ display: 'flex', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+          <div className="col-xs-12 col-sm-4 col-md-3" style={{ textAlign: 'center' }}>
+            <img className="profile-pic" src={ user.img_URL } />
+          </div>
+          <div className="col-xs-12 col-sm-8 col-md-9">
+            <StepsTextField
+              floatingLabelText="Profile Picture"
+              value={user.img_URL}
+              disabled={true}
+              fullWidth={ true } />
+          </div>
+        </div>
         <div className="row">
           <div className="col-xs-12 col-sm-6">
             <StepsTextField
@@ -59,11 +71,6 @@ const AccountInfo = ({ user }) => (
                 fullWidth={ true } />
             </div>
         }
-        <StepsTextField
-          floatingLabelText="Profile Picture"
-          value={user.img_URL}
-          disabled={true}
-          fullWidth={ true } />
       </Paper>
   </div>
 )
