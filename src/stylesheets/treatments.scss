@@ -32,6 +32,9 @@
         margin: 0;
       }
     }
+    > div:not(:first-child) {
+      padding-top: 5px;
+    }
     > .treatment-fields {
       display: inherit;
       flex-direction: row;
@@ -41,13 +44,26 @@
         font-weight: bold;
         content: '/';
       }
+      @media (max-width: $xl) {
+        flex-direction: column;
+        .info-item + .info-item {
+          padding-top: 5px;
+          &:before {
+            padding: 0;
+            content: '';
+          }
+        }
+      }
     }
-    > .treatment-fields + div, > .info-item + div { // space out treatment text
+    > .info-item + div { // space out treatment text
       padding-top: 5px;
     }
   }
   + .treatment {
     padding-top: 25px;
+  }
+  @media (max-width: $sm) {
+    flex-direction: column;
   }
 }
 

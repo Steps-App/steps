@@ -105,7 +105,7 @@ export class PatientList extends Component {
                     onTouchTap={ () => this.dialogOpen(patient) } >
                     <FontIcon className={'material-icons'}>clear</FontIcon>
                   </StepsActionButton>
-                  <GridTile key={ patient.id } className="grid-tile">
+                  <GridTile key={ patient.id } className="grid-tile" style={{ overflow: 'visible' }}>
                     <div className="tile" >
                       <div className="patient-info" >
                         <div className="patient-img"><img src={ patient.img_URL } /></div>

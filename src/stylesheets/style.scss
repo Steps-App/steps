@@ -61,4 +61,11 @@ hr {
 .page-header {
   margin-top: 10px;
   font-size: 40px;
+  @media (max-width: $lg) {
+    margin-top: 5px;
+    font-size: 30px;
+    @media (max-width: $sm) {
+      font-size: 25px;
+    }
+  }
 }

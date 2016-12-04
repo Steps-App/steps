@@ -32,10 +32,10 @@
 .tile-wrapper {
   position: relative;
   margin:  1vh 2vh 2vh 4vh !important;
-  .hide-remove { // patient delete badge
+  > .hide-remove { // patient delete badge
     display: none !important;
   }
-  .show-remove {
+  > .show-remove {
     z-index: 1;
     position: absolute;
     top: -15px;
