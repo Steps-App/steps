@@ -3,6 +3,19 @@ video {
   height: auto;
 }
 
+// .background-video {
+//   height: auto;
+//   margin: 0;
+//   min-width: 100%;
+//   min-height: 100%;
+//   padding: 0;
+//   position: fixed;
+//   top: 50%; left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: auto;
+//   z-index: -2;
+// }
+
 .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */

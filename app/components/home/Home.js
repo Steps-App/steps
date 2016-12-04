@@ -79,11 +79,16 @@ const SocialMediaIcon = (props) => {
   }
 };
 
+const aboutImagesStyle = { width: '300px', height: '300px' }
+
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 export default () => (
   <MuiThemeProvider>
     <div id="main">
+      {/* Background video
+      <video className='background-video' src={require('../../../src/vids/Yoga_Background.mp4')} type='video/mp4'>
+      </video>*/}
       {/* Main header banner */}
       <div className="container" id="home">
         <nav className="home-nav">
@@ -128,12 +133,20 @@ export default () => (
       <div className="section">
         <div className="section-content">
           <div className="img-wrapper">
-            <img src={require('../../../src/images/work.jpg')} id="work"></img>
+            <img
+              src={require('../../../src/images/sunsetjump.png')}
+              className="img-circle img-responsive"
+              style={ aboutImagesStyle }/>
           </div>
           <div className="content-text">
-            <h3>Our Methodology</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet erat at neque accumsan malesuada in et purus. Suspendisse potenti. Aenean et tellus a turpis gravida sodales id a enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent tortor velit, accumsan sit amet maximus iaculis, condimentum quis magna. Fusce ac nulla tempor, vehicula risus vel, feugiat elit. Nulla ac quam ligula. Praesent pellentesque et sapien non fringilla.</p>
-          </div>
+          <h1>Our Vision</h1>
+          <p>We're a team that likes to solve problems. Our decision to build a digital product focused on
+          improving physical therapy outcomes is rooted in a real-world need. With nearly 10 million people
+          receiving physical therapy in the United States alone, and a lowly 30% completion rate, our goal
+          is to provide better tools to both therapists and patients. On the patient side, Steps offers
+          features to enhance engagement through video, workout logging, and progress. On the therapist
+          side, real-time chat and analytic tools promote further involvement in a successfuly treatment.
+          Working together, Steps aims to produce significantly improved outcomes.</p>
         </div>
       </div>
 
@@ -141,11 +154,22 @@ export default () => (
       <div className="section">
         <div className="section-content">
           <div className="img-wrapper">
-            <img src={require('../../../src/images/work.jpg')} id="work"></img>
+            <img
+              src={require('../../../src/images/work.png')}
+              className="img-circle img-responsive"
+              style={ aboutImagesStyle }/>
           </div>
           <div className="content-text">
-            <h3>The Process</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet erat at neque accumsan malesuada in et purus. Suspendisse potenti. Aenean et tellus a turpis gravida sodales id a enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent tortor velit, accumsan sit amet maximus iaculis, condimentum quis magna. Fusce ac nulla tempor, vehicula risus vel, feugiat elit. Nulla ac quam ligula. Praesent pellentesque et sapien non fringilla.</p>
+            <h1>Our Methodology</h1>
+            <p>Our team arrives at problem-solving from diverse background. The common thread in our thinking is a
+            user-centric design and commitment to quality code. We like to think that in designing for our
+            user first, we can better execute a strong back-end codebase and intuitive front-end.
+            We enjoy using back-end tools like Postgres/Sequelize and Express to provide reliable API's, and
+            front-end tools like React and Redux to create seamless and consistent front-end interaction.
+            We also like developing with great libraries and frameworks like Socket.io for our chat
+            and notifications, and the D3-based Recharts for beautiful and useful visualizations. Utility +
+            Design = A Great Experience.
+            </p>
           </div>
         </div>
       </div>
