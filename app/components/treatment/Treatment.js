@@ -7,6 +7,7 @@ import moment from 'moment'
 // material ui
 import { Divider, Paper } from 'material-ui'
 import FontIcon from 'material-ui/FontIcon'
+import { StepsRaisedButton } from '../material-style'
 
 // sub-components
 import SidePanel from '../widgets/SidePanel'
@@ -59,20 +60,23 @@ const Treatment = ({ plan, treatment }) => {
                 content={ treatment.notes } /> : <div> { PLACEHOLDER } </div>
           }
         <Divider />
-        <span><h4> My Plan </h4></span>
-        <InfoItem icon="date_range" iconColor={ primary }
-        label="Start" content={ moment(plan.createdAt).format('MMM Do, YYYY') } />
-        <InfoItem icon="date_range" iconColor={ active }
-        label="Current" content={ moment().format('MMM Do, YYYY') } />
-        <InfoItem icon="date_range" iconColor={ errorText }
-        label="End" content={ moment(plan.endDate).format('MMM Do, YYYY') } />
-        <InfoItem icon="accessibility" label="Therapy Focus"
-        content={ plan.therapyFocus } />
-        {
-          plan.notes ?
-          <InfoItem icon="speaker_notes" label="Notes"
-          content={ plan.notes } /> : null
-        }
+          <span><h4> My Plan </h4></span>
+          <InfoItem icon="date_range" iconColor={ primary }
+          label="Start" content={ moment(plan.createdAt).format('MMM Do, YYYY') } />
+          <InfoItem icon="date_range" iconColor={ active }
+          label="Current" content={ moment().format('MMM Do, YYYY') } />
+          <InfoItem icon="date_range" iconColor={ errorText }
+          label="End" content={ moment(plan.endDate).format('MMM Do, YYYY') } />
+          <InfoItem icon="accessibility" label="Therapy Focus"
+          content={ plan.therapyFocus } />
+          {
+            plan.notes ?
+            <InfoItem icon="speaker_notes" label="Notes"
+            content={ plan.notes } /> : null
+          }
+          <Link to='/plan'>
+            <StepsRaisedButton fullWidth={true} label="Back to Full Plan"/>
+          </Link>
         </SidePanel>
 
       { media }
