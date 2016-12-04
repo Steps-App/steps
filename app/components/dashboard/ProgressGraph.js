@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import randomColor from 'randomcolor'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 import { active } from '../colors'
 
@@ -104,7 +104,7 @@ const CustomizedDot = ({ cx, cy, payload, label }) => {
 const PainLabel = (props) => (
   <g className="recharts-cartesian-axis-label">
     <text width={props.width} height={props.height} transform="rotate(-90)" x={props.x} y={props.y} className="recharts-text" fontSize="18px">
-      <tspan x={ -(props.chartHeight / 2) } dy="0em">
+      <tspan x={ -(props.chartHeight / 2) } dy="-1em">
         Pain
       </tspan>
     </text>
@@ -114,32 +114,35 @@ const PainLabel = (props) => (
 export default ({ treatments, width, height }) => {
   const chartWidth = width ? width : 800;
   const chartHeight = height ? height : 500;
+
   return (
-    <LineChart className= "progress-graph"
-      width={ chartWidth } height={ chartHeight }
-      data={fakeData(treatments)}
-      margin={{ top: 20, right: 30, left: 30, bottom: 10 }}>
-      <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
-        interval={0} tickCount={7} />
-      <YAxis label={<PainLabel chartHeight={ chartHeight } />} type="number"
-        domain={[0, 5]} interval={0} tickCount={6} tick={<CustomizedPainTick/>} />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip/>
-      <Legend verticalAlign="top" iconSize={16} height={30} />
-      {
-        treatments.map(treatment => {
-          let lineColor = randomColor({ luminosity: 'dark', hue: 'rgb' });
-          return (
-            <Line key={treatment.id}
-              type="monotone" legendType="square"
-              connectNulls={ true }
-              dataKey={ treatment.exercise.title }
-              stroke={lineColor}
-              dot={<CustomizedDot label={treatment.exercise.title} />}
-              activeDot={{ stroke: lineColor, r: 10, opacity: .4 }} />
-          )
-        })
-      }
-  </LineChart>
+    <div className= "progress-graph">
+      <ResponsiveContainer width='100%' minHeight={ chartHeight }>
+        <LineChart data={fakeData(treatments)}
+          margin={{ top: 20, right: 30, left: 30, bottom: 10 }}>
+          <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
+            interval={0} tickCount={7} />
+          <YAxis label={<PainLabel chartHeight={ chartHeight } />} type="number"
+            domain={[0, 5]} interval={0} tickCount={6} tick={<CustomizedPainTick/>} />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip/>
+          <Legend verticalAlign="top" align="center" iconSize={16} height={50} />
+          {
+            treatments.map(treatment => {
+              let lineColor = randomColor({ luminosity: 'dark', hue: 'rgb' });
+              return (
+                <Line key={treatment.id}
+                  type="monotone" legendType="square"
+                  connectNulls={ true }
+                  dataKey={ treatment.exercise.title }
+                  stroke={lineColor}
+                  dot={<CustomizedDot label={treatment.exercise.title} />}
+                  activeDot={{ stroke: lineColor, r: 10, opacity: .4 }} />
+              )
+            })
+          }
+      </LineChart>
+    </ResponsiveContainer>
+  </div>
   )
 };

@@ -40,7 +40,9 @@ const Dashboard = ({ user, plan }) => {
           iconPath="dashboard/pie-chart.svg"
           text="workouts completed" />
       </div>
-      <ProgressGraph treatments={plan.treatments} />
+      <div className="pain-graph">
+        <ProgressGraph treatments={plan.treatments} />
+      </div>
     </div>
   )
 }
