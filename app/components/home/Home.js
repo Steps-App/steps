@@ -142,13 +142,11 @@ export default () => (
           <h1>Our Vision</h1>
           <p>We're a team that likes to solve problems. Our decision to build a digital product focused on
           improving physical therapy outcomes is rooted in a real-world need. With nearly 10 million people
-          receiving physical therapy in the United States alone, and a lowly 30% completion rate, there is
-          significant room for improvement. We likewise designed for the patient, giving her useful tools,
-          like embedded video and workout logging to encourage daily engagement with her physical therapy,
-          and features such as workout analytics and therapist chat, to provide motivation and help through
-          difficult parts of the therapy. Our vision is to provide value to both patients and therapists alike,
-          and to improve health outcomes for anyone who sees a physical therapist using our product.</p>
-          </div>
+          receiving physical therapy in the United States alone, and a lowly 30% completion rate, our goal
+          is to provide better tools to both therapists and patients. On the patient side, Steps offers
+          features to enhance engagement through video, workout logging, and progress. On the therapist
+          side, real-time chat and analytic tools promote further involvement in a successfuly treatment.
+          Working together, Steps aims to produce significantly improved outcomes.</p>
         </div>
       </div>
 
@@ -163,13 +161,12 @@ export default () => (
           </div>
           <div className="content-text">
             <h1>Our Methodology</h1>
-            <p>Our team arrives at problem-solving from diverse background, with our experiences ranging
-            from computer science to law to health and more. The common thread in our thinking is a
+            <p>Our team arrives at problem-solving from diverse background. The common thread in our thinking is a
             user-centric design and commitment to quality code. We like to think that in designing for our
             user first, we can better execute a strong back-end codebase and intuitive front-end.
             We enjoy using back-end tools like Postgres/Sequelize and Express to provide reliable API's, and
             front-end tools like React and Redux to create seamless and consistent front-end interaction.
-            For this application in particular, we've also included some goodies like Socket.io for chat
+            We also like developing with great libraries and frameworks like Socket.io for our chat
             and notifications, and the D3-based Recharts for beautiful and useful visualizations. Utility +
             Design = A Great Experience.
             </p>
