@@ -17,7 +17,7 @@ export default ()=>{
 
   let onclickHandler =()=> {
 
-    if (count <15){
+    if (count < 30){
       let turtle = document.createElement("img");
       turtle.setAttribute('src', require("../../../src/images/404/turtle.png"));
       turtle.setAttribute('class','turtle');
@@ -44,9 +44,9 @@ export default ()=>{
       <h2>{"Let's get back on track!"}</h2>
     <div className="buttons">
         <Link to="/">
-          <StepsFlatButton label="Home" onClick={"#"}/>
+          <StepsFlatButton label="Home" />
         </Link>
-          <StepsFlatButton label=" A Turtle" onClick={onclickHandler}/>
+          <StepsFlatButton label=" A Turtle" onTouchTap={onclickHandler}/>
 
     </div>
 
