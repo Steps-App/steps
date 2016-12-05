@@ -81,3 +81,23 @@
   background-color: $numbers;
   color: $text-light;
 }
+
+#single-treatment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.treatment-plan {
+  display: inherit;
+  flex-direction: column;
+}
+
+.treatment-content {
+  display: inherit;
+  flex-direction: row-reverse;
+  width: 100%;
+  @media (max-width: $lg) {
+    flex-direction: column-reverse;
+  }
+}

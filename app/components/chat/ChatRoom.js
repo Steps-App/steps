@@ -19,12 +19,13 @@ import { PATIENT } from '../../constants'
 // material ui
 import { Paper } from 'material-ui'
 
+// constant
+import { PLACEHOLDER } from '../../constants'
+
 // ChatRoom is a local state component that handles messages to/from
 // patient and therapist
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
-
-const PLACEHOLDER = '\xa0'  // to hold uniform height in notifications display
 
 export class ChatRoom extends Component {
 

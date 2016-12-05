@@ -1,24 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import Helmet from 'react-helmet';
+import Helmet from 'react-helmet'
+import moment from 'moment'
 
 // material ui
-import { CircularProgress, Paper } from 'material-ui'
+import { Divider, Paper } from 'material-ui'
+import FontIcon from 'material-ui/FontIcon'
+import { StepsRaisedButton } from '../material-style'
 
 // sub-components
-import PlanPanel from './PlanPanel.js'
+import SidePanel from '../widgets/SidePanel'
+import InfoItem from '../widgets/InfoItem'
+import { formatTime } from '../../utils'  // helper function
+import { primary, active, errorText } from '../colors'  // colors
+
 
 // Treatment is a stateful component that displays information to a patient
 // and possibly a therapist (with minor mods) about a single treatment
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-const Treatment = ({ plan, treatment }) => {
+const Treatment = ({ plan, params }) => {
+  if (!Object.keys(plan).length) return null
 
-  // stylings
-  const padded = { padding: '15px' }
-  const emphasis = { fontWeight: 'bold' }
+  const treatment = plan.treatments.find(treatment => treatment.id == params.treatmentId)
+
   // handle video
   let media = ''
   if (treatment.exercise.vid_url) {  // if a video exists...
@@ -29,62 +36,53 @@ const Treatment = ({ plan, treatment }) => {
       ) :
       ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
   } else {  // if no video, then just the image...
-    media = ( <img src={ treatment.exercise.img_url } className='img-responsive' /> )
+    media = ( <img src={ treatment.exercise.img_url } style={{ width: '100%' }} /> )
   }
 
   return (
-    <div className='container'>
-      <Helmet title={treatment.exercise.title} />
-      <div className='row'>
-        <div className='col-md-12'>
-            <div className='row'>
-              <h1> { `${treatment.exercise.title}` } </h1>
-            </div>
-        </div>
-        <div className='col-md-9'>
-          <div className='row'>
-            <Paper style={ padded }>
-              <div className='row'>
-                <div className='col-md-12'>
-                  { media }
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col-md-6'>
-                  <div>
-                    <p style={ emphasis }>Description: </p>
-                    <p>{ treatment.exercise.description }</p>
-                  </div>
-                </div>
-                <div className='col-md-6'>
-                  <div>
-                    <p><span style={ emphasis }>Total Time (All Sets):  </span>
-                    { treatment.time_per_exercise }</p>
-                  </div>
-                  <div>
-                    <p><span style={ emphasis }>Sets:  </span>
-                    { treatment.sets }</p>
-                  </div>
-                  <div>
-                    <p><span style={ emphasis }>Reps:  </span>
-                    { treatment.reps }</p>
-                  </div>
-                  <div>
-                    <p><span style={ emphasis }>Resistance:  </span>
-                    { treatment.resistance }</p>
-                  </div>
-                  <div>
-                    <p style={ emphasis }>Therapist Notes: </p>
-                    <p>{ treatment.notes }</p>
-                  </div>
-                </div>
-              </div>
-            </Paper>
-          </div>
-        </div>
-        <div className='col-md-3'>
-          <PlanPanel plan={ plan } />
-        </div>
+    <div id='single-treatment'>
+      <Helmet title={ treatment.exercise.title } />
+      <h1 className='page-header'> { treatment.exercise.title } </h1>
+      <div className='treatment-content'>
+        <SidePanel>
+          <span><h4> { treatment.exercise.title } </h4></span>
+          <InfoItem icon="assignment" label="Description" iconColor={ primary }
+            content={ treatment.exercise.description } />
+          <InfoItem icon="all_inclusive" label="Sets" iconColor={ primary }
+            content={ treatment.sets } />
+          <InfoItem icon="layers" label="Reps" iconColor={ primary }
+            content={ treatment.reps } />
+          <InfoItem icon="alarm" label="Time" iconColor={ primary }
+            content={ formatTime(treatment.time_per_exercise) } />
+          <InfoItem icon="fitness_center" label="Resistance" iconColor={ primary }
+            content={ treatment.resistance } />
+          {
+            treatment.notes ?
+              ( <InfoItem icon="speaker_notes" label="Notes"
+                content={ treatment.notes } /> ) : null
+          }
+        <Divider style={{ marginTop: '10px', marginBottom: '10px' }} />
+          <span><h4> My Plan </h4></span>
+          <InfoItem icon="date_range" iconColor={ primary }
+            label="Start" content={ moment(plan.createdAt).format('MMM Do, YYYY') } />
+          <InfoItem icon="date_range" iconColor={ active }
+            label="Current" content={ moment().format('MMM Do, YYYY') } />
+          <InfoItem icon="date_range" iconColor={ errorText }
+            label="End" content={ moment(plan.endDate).format('MMM Do, YYYY') } />
+          <InfoItem icon="accessibility" label="Therapy Focus"
+            content={ plan.therapyFocus } />
+          {
+            plan.notes ?
+            ( <InfoItem icon="speaker_notes" label="Notes"
+              content={ plan.notes } /> ) : null
+          }
+          <Link to='/plan'>
+            <StepsRaisedButton fullWidth={true} label="Back to Full Plan" />
+          </Link>
+        </SidePanel>
+
+      { media }
+
       </div>
     </div>
   )
@@ -93,8 +91,7 @@ const Treatment = ({ plan, treatment }) => {
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
 const mapState = ({ plan }, { params }) => ({
-  plan,
-  treatment: plan.treatments.find(treatment => treatment.id == params.treatmentId)
+  plan
 })
 
 export default connect(mapState)(Treatment)
