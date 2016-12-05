@@ -7,7 +7,7 @@ import { isBrowser } from './utils';
 
 // Setup Redux middleware based on env
 const middleware = [ thunkMiddleware ];
-if (isBrowser())
+if (process.env.NODE_ENV !== 'production')
   middleware.push(createLogger());
 
 export default createStore(
