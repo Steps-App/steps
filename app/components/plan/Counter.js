@@ -117,15 +117,16 @@ class Counter extends Component {
           <div className="timer-buttons">
             {/* Greenish circular button */}
             <StepsActionButton
+              backgroundColor={ secondary }
               disabled={this.state.status !== 'ready'}
               onTouchTap={ () => this.onStartClick() } style={ margin }>
               <PlayCircleOutline />
             </StepsActionButton>
             {/* Reddish circular button */}
             <StepsActionButton
-              backgroundColor={ secondary }
+              backgroundColor={ errorText }
               disabled={this.state.status !== 'running'}
-              onTouchTap={ () => this.onStopClick() } secondary={ true } style={ margin }>
+              onTouchTap={ () => this.onStopClick() } style={ margin }>
               <Close />
             </StepsActionButton>
           </div>

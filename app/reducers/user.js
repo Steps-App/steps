@@ -7,6 +7,7 @@ import { removePatient } from './currentpatient'
 import { removeExercises } from './exercises'
 import { removePatients } from './patients'
 import { removePlan } from './plan'
+import { removeTherapist } from './therapist'
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -20,17 +21,14 @@ export const removeUser  = () => ({ type: REMOVE_USER })
 
 /* ------------       REDUCER     ------------------ */
 
-// const initialUser = {
-//   isTherapist: true,
-//   img_url: 'https://premium.wpmudev.org/forums/?bb_attachments=712464&bbat=47619&inline'
-// };
-
-export default function reducer(currentUser = {}, action) {
+const initialUser = {};
+export default function reducer(currentUser = initialUser, action) {
+  console.log(action)
   switch (action.type) {
     case SET_USER:
       return action.user;
     case REMOVE_USER:
-      return {};
+      return initialUser;
     default:
       return currentUser;
   }
@@ -79,10 +77,11 @@ export const logout = () => dispatch => {
   axios.delete('/api/auth/logout')
     .then(() => {
       dispatch(removeUser());
+      dispatch(removeTherapist());
+      dispatch(removePlan());
       dispatch(removeExercises());
       dispatch(removePatients());
       dispatch(removePatient());
-      dispatch(removePlan());
       if (isBrowser())
         browserHistory.push('/');
     })

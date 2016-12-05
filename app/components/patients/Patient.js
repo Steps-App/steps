@@ -72,7 +72,7 @@ export class Patient extends Component {
               // Pain progress graph of the current treatment
               sortedPlans && sortedPlans.length && sortedPlans[0].treatments ?
                 <ProgressGraph
-                  treatments={sortedPlans[0].treatments} height={375} /> : null
+                  plan={sortedPlans[0]} height={375} /> : null
             }
           </div>
           {

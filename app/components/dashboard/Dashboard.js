@@ -16,6 +16,7 @@ import { THERAPIST, PATIENT } from '../../constants';
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 const Dashboard = ({ user, plan, patients }) => {
+  if (!user || !Object.keys(user).length) return null;
 
   // Patient calculations
   let workoutsToGo, daysToGo, percentCompleted, genders;
@@ -79,7 +80,7 @@ const Dashboard = ({ user, plan, patients }) => {
         // Show role-specific charts
         user.role === PATIENT ?
           <div className="pain-graph">
-            <ProgressGraph treatments={plan.treatments} />
+            <ProgressGraph plan={plan} />
           </div> :
           <div className="therapist-graphs">
             <PieChart data={ genders } title="Gender"/>
