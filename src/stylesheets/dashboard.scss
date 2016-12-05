@@ -14,7 +14,7 @@
     display: inherit;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -23,7 +23,8 @@
 .stat-card {
   display: inherit;
   flex-direction: column;
-  border: 5px solid $borders;
+  margin: 10px;
+  border: 2px solid $borders;
   padding: 10px 20px;
   > .stat-card-data {
     display: inherit;
@@ -47,8 +48,28 @@
   p { // all card text
     margin: 0;
     color: $primary;
-    &.behind { // user is off track for target
+    &.good { // user is doing well
+      color: $secondary
+    }
+    &.bad { // user is off track for target
       color: $error-text
+    }
+  }
+  @media (max-width: $sm) {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px 20px;
+    > .stat-card-data {
+      > p { // card data point
+        font-size: 3em;
+      }
+      > img { // card icon
+        width: 60px;
+        max-height: 60px;
+      }
+    }
+    > .stat-card-text {
+      font-size: 1em;
     }
   }
 }
