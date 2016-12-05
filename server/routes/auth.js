@@ -131,7 +131,7 @@ router.get('/me', (req, res, next) => {
   else if (req.session.role === PATIENT)
     model = Patient;
   else if (req.headers.referer === 'http://localhost:8080/' ||
-    req.headers.referer === 'http://steps-app.herokuapp.com/') {
+    req.headers.referer === 'https://steps-app.herokuapp.com/') {
     return res.sendStatus(204)
   }
   else {

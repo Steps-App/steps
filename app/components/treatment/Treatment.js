@@ -21,8 +21,10 @@ import { primary, active, errorText } from '../colors'  // colors
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-const Treatment = ({ plan, treatment }) => {
+const Treatment = ({ plan, params }) => {
   if (!Object.keys(plan).length) return null
+
+  const treatment = plan.treatments.find(treatment => treatment.id == params.treatmentId)
 
   // handle video
   let media = ''
@@ -34,7 +36,7 @@ const Treatment = ({ plan, treatment }) => {
       ) :
       ( <video src={ treatment.exercise.vid_url }></video> )  // html5 native video
   } else {  // if no video, then just the image...
-    media = ( <img src={ treatment.exercise.img_url } style={{ width: '100%'}} /> )
+    media = ( <img src={ treatment.exercise.img_url } style={{ width: '100%' }} /> )
   }
 
   return (
@@ -56,10 +58,10 @@ const Treatment = ({ plan, treatment }) => {
             content={ treatment.resistance } />
           {
             treatment.notes ?
-              <InfoItem icon="speaker_notes" label="Notes"
-                content={ treatment.notes } /> : null
+              ( <InfoItem icon="speaker_notes" label="Notes"
+                content={ treatment.notes } /> ) : null
           }
-        <Divider style={{ marginTop: '10px', marginBottom: '10px' }}/>
+        <Divider style={{ marginTop: '10px', marginBottom: '10px' }} />
           <span><h4> My Plan </h4></span>
           <InfoItem icon="date_range" iconColor={ primary }
             label="Start" content={ moment(plan.createdAt).format('MMM Do, YYYY') } />
@@ -71,8 +73,8 @@ const Treatment = ({ plan, treatment }) => {
             content={ plan.therapyFocus } />
           {
             plan.notes ?
-            <InfoItem icon="speaker_notes" label="Notes"
-              content={ plan.notes } /> : null
+            ( <InfoItem icon="speaker_notes" label="Notes"
+              content={ plan.notes } /> ) : null
           }
           <Link to='/plan'>
             <StepsRaisedButton fullWidth={true} label="Back to Full Plan" />
@@ -89,8 +91,7 @@ const Treatment = ({ plan, treatment }) => {
 // -=-=-=-=-=-= CONTAINER =-=-=-=-=-=-
 
 const mapState = ({ plan }, { params }) => ({
-  plan,
-  treatment: plan.treatments.find(treatment => treatment.id == params.treatmentId)
+  plan
 })
 
 export default connect(mapState)(Treatment)
