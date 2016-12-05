@@ -1,5 +1,6 @@
 // import redux, react
-import React from 'react'
+import React from 'react';
+import Helmet from 'react-helmet';
 
 // Material theme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -88,6 +89,7 @@ const aboutImagesStyle = { width: '300px' }
 export default () => (
   <MuiThemeProvider>
     <div id="main">
+      <Helmet defaultTitle="Steps" />
       {/* Background video
       <video className='background-video' src={require('../../../src/vids/Yoga_Background.mp4')} type='video/mp4'>
       </video>*/}
@@ -175,7 +177,7 @@ export default () => (
             <p>Our team arrives at problem-solving from diverse backgrounds. The common thread in our thinking is a
             user-centric design and commitment to quality code. We like to think that in designing for our
             user first, we can better execute a strong back-end codebase and intuitive front-end.
-            We enjoy using back-end tools like Postgres/Sequelize and Express to provide reliable API's, and
+            We enjoy using back-end tools like Postgres/Sequelize and Express to provide reliable APIs, and
             front-end tools like React and Redux to create seamless and consistent front-end interaction.
             We also like developing with great libraries and frameworks like Socket.io for our chat
             and notifications, and the D3-based Recharts for beautiful and useful visualizations. Utility +
