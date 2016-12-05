@@ -110,6 +110,16 @@ const therapistCurPlanEnter = nextState => {
   }
 };
 
+// If hitting directly, reroute to the patient's current plan
+const planConfirmEnter = (nextState, replace) => {
+  const curPlan = store.getState().plan;
+  if (!Object.keys(curPlan).length) {
+    store.dispatch(fetchCurrentPatient(nextState.params.patientId, false))
+    store.dispatch(fetchPlan(nextState.params.patientId))
+    replace(`/patients/${nextState.params.patientId}/plans/current`);
+  }
+};
+
 const therapistChatEnter = (nextState) => {
   const user = store.getState().user
   if (user.role === THERAPIST)
@@ -146,9 +156,9 @@ render (
         <Route path="/patients/:patientId" component={ Patient } onEnter={ singlePatientEnter } />
         <Route path="/patients/:patientId/plans/new" component={NewPlanContainer} onEnter={newPlanEnter} />
         <Route path="/messages/:room" component={ ChatRoom } onEnter={ therapistChatEnter }/>
-        <Route path="/patients/:patientId/plans/:planId" component={ Plan } onEnter={therapistPlanEnter} />
         <Route path="/patients/:patientId/plans/current" component={ Plan } onEnter={therapistCurPlanEnter} confirm={false} />
-        <Route path="/patients/:patientId/plans/confirmation" component={Plan} confirm={true} />
+        <Route path="/patients/:patientId/plans/confirmation" component={Plan} onEnter={planConfirmEnter}  confirm={true} />
+        <Route path="/patients/:patientId/plans/:planId" component={ Plan } onEnter={therapistPlanEnter} />
         <Route path="/exercises" component={ ExerciseList } onEnter={ exerciseListEnter } />
         <Route path="/*" component={ NotFound } />
       </Route>

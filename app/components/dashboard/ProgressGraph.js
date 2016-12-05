@@ -3,19 +3,50 @@ import moment from 'moment';
 import randomColor from 'randomcolor'
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
+import { daysBetween } from '../../utils'
 import { active } from '../colors'
 
+// Returns a random number between input range 
+const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
 // Create array of fake treatment data for the past 7 days
-const fakeData = treatments => {
-  return Array(7).fill().map((val, i) => {
+const fakeData = (startDate, treatments) => {
+  // Calculate the number of days to chart
+  console.log(startDate)
+  const daysSoFar = daysBetween(new Date(startDate), new Date());
+  console.log(daysSoFar)
+  const chartDays = daysSoFar > 7 ? 7 : daysSoFar;
+  console.log(chartDays)
+
+  const graphData = Array(chartDays).fill();
+  for (let i = chartDays - 1; i >= 0; i--) {
     let dataPoint = {
       date: moment().subtract(i, 'days').format('dddd, MMM Do')
     };
-    treatments.forEach(treatment => {
-      dataPoint[treatment.exercise.title] = Math.floor(Math.random() * 5) + 1;
+    // Assign pain levels for the current day
+    treatments.forEach((treatment, ind) => {
+      // If earliest day, constrain starting pain level
+      if (i === chartDays - 1)
+        dataPoint[treatment.exercise.title] = randomNum(2, 5);
+      // Otherwise, assign appropriate subsequent pain level
+      else {
+        // Retrieve preceding pain level
+        let prevDataPoint = graphData[i + 1][treatment.exercise.title];
+        if (!prevDataPoint) prevDataPoint = graphData[chartDays - 1][treatment.exercise.title];
+
+        // Calculate the new pain level based on the preceding level
+        const upperLimit = prevDataPoint + 1 > 5 ? 5 : prevDataPoint + 1;
+        const lowerLimit = prevDataPoint - 2 < 1 ? 1 : prevDataPoint - 2;
+        dataPoint[treatment.exercise.title] = randomNum(lowerLimit, upperLimit);
+
+        // Roughly 20% of intermediate workouts should be missing
+        if (i && randomNum(1, 5) === 1)
+          dataPoint[treatment.exercise.title] = null;
+      }
     })
-    return dataPoint;
-  }).reverse();
+    graphData[i] = dataPoint;
+  }
+  return graphData.reverse();
 }
 
 const CustomizedDateTick = ({ x, y, stroke, payload }) => (
@@ -67,14 +98,14 @@ const PainLabel = (props) => (
   </g>
 );
 
-export default ({ treatments, width, height }) => {
+export default ({ treatments, planStart, width, height }) => {
   const chartWidth = width ? width : 800;
   const chartHeight = height ? height : 500;
 
   return (
     <div className= "progress-graph">
       <ResponsiveContainer width='100%' minHeight={ chartHeight }>
-        <LineChart data={fakeData(treatments)}
+        <LineChart data={fakeData(planStart, treatments)}
           margin={{ top: 20, right: 30, left: 30, bottom: 10 }}>
           <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
             interval={0} tickCount={7} />

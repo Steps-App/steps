@@ -42,6 +42,7 @@ export class Patient extends Component {
 
     const patientName = fullName(currentPatient);
     const sortedPlans = currentPatient.plans.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    console.log(sortedPlans)
     const buttons = [
       <StepsRaisedButton
       label="Chat"
@@ -72,7 +73,10 @@ export class Patient extends Component {
               // Pain progress graph of the current treatment
               sortedPlans && sortedPlans.length && sortedPlans[0].treatments ?
                 <ProgressGraph
-                  treatments={sortedPlans[0].treatments} height={375} /> : null
+                  treatments={ sortedPlans[0].treatments }
+                  planStart={ sortedPlans[0].created_at }
+                  height={375}
+                /> : null
             }
           </div>
           {

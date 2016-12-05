@@ -18,7 +18,7 @@ export const fullName = (user, reverse) =>
 // Returns the number of days between the input dates
 export const daysBetween = (start, end) => {
   const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-  return Math.round(Math.abs((start.getTime() - end.getTime())/(oneDay)));
+  return Math.ceil(Math.abs((start.getTime() - end.getTime())/(oneDay)));
 }
 
 // Retrieves today's completed workout from the input treatment

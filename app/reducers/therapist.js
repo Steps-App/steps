@@ -3,10 +3,12 @@ import axios from 'axios';
 /* -----------------    ACTIONS     ------------------ */
 
 export const RECEIVED_THERAPIST = 'RECEIVED_THERAPIST';
+export const REMOVE_THERAPIST = 'REMOVE_THERAPIST';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
 export const receivedTherapist  = therapist => ({ type: RECEIVED_THERAPIST, therapist });
+export const removeTherapist  = () => ({ type: REMOVE_THERAPIST })
 
 /* ------------       REDUCER     ------------------ */
 
@@ -15,6 +17,8 @@ export default function reducer(therapist = initialTherapist, action){
   switch (action.type) {
     case RECEIVED_THERAPIST:
       return action.therapist;
+    case REMOVE_THERAPIST:
+      return initialTherapist;
     default:
       return therapist;
   }

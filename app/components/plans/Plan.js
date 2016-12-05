@@ -25,13 +25,18 @@ const Plan = ({ plan, currentPatient, createPlan, route }) => {
     <StepsRaisedButton
     label="Confirm"
     fullWidth={true}
+    backgroundColor={ secondary }
     onClick={() => createPlan(plan)} />,
     <StepsRaisedButton
     label="Edit"
     fullWidth={true}
-    backgroundColor={ secondary }
     onClick={() => browserHistory.push(`/patients/${currentPatient.id}/plans/new`)} />
-  ] : null;
+  ] : [
+    <StepsRaisedButton
+    label="View Patient"
+    fullWidth={true}
+    onClick={() => browserHistory.push(`/patients/${currentPatient.id}`)} />
+  ];
 
   return (
     <div id="patient-plan">
