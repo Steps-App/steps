@@ -45,7 +45,7 @@ const teamMembers = [
   },
   {
     name: 'Mike Williams',
-    img: require('../../../src/images/coders/mike_williams.jpg'),
+    img: require('../../../src/images/coders/mike_williams.png'),
     links: {
       github: 'https://github.com/mkewls',
       linkedin: 'https://www.linkedin.com/in/mewill',
