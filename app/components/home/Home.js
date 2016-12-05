@@ -172,7 +172,7 @@ export default () => (
           </div>
           <div className="content-text">
             <h2>Our Methodology</h2>
-            <p>Our team arrives at problem-solving from diverse background. The common thread in our thinking is a
+            <p>Our team arrives at problem-solving from diverse backgrounds. The common thread in our thinking is a
             user-centric design and commitment to quality code. We like to think that in designing for our
             user first, we can better execute a strong back-end codebase and intuitive front-end.
             We enjoy using back-end tools like Postgres/Sequelize and Express to provide reliable API's, and
