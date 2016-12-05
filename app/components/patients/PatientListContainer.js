@@ -128,14 +128,14 @@ export class PatientList extends Component {
                     <FontIcon className={'material-icons'}>clear</FontIcon>
                   </StepsActionButton>
                   <GridTile key={ patient.id } className="grid-tile" style={{ overflow: 'visible' }}>
-                  <div className={`message-notify ${hidden}`}>
-                    <Link to={`messages/${patient.id}`}>
-                      <SMS
-                        tooltip="Patient Message Waiting"
-                        color="green"
-                        style={{ height: '48px', width: '48px'}}/>
-                    </Link>
-                  </div>
+                    <div className={`message-notify ${hidden}`}>
+                      <Link to={`messages/${patient.id}`}>
+                        <SMS
+                          tooltip="Patient Message Waiting"
+                          color="green"
+                          style={{ height: '48px', width: '48px'}}/>
+                      </Link>
+                    </div>
                     <div className="tile" >
                       <div className="patient-info" >
                         <div className="patient-img"><img src={ patient.img_URL } /></div>
