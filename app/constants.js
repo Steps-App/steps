@@ -8,6 +8,7 @@ export const PATIENT_ROUTES = [
 export const THERAPIST_ROUTES = [
   '/patients',
   '/exercises',
+  '/dashboard',
   '/messages'
 ]
 export const PATIENT_REGEX = /plan\/\S*/g

@@ -1,6 +1,8 @@
 // import redux, react
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FontIcon } from 'material-ui';
+import { secondary, errorText, primary } from '../colors';
 
 export default (props) => (
   <div className="stat-card">
@@ -9,7 +11,11 @@ export default (props) => (
         { props.number }
         <span>{ props.units }</span>
       </p>
-      <img src={require(`../../../src/images/${props.iconPath}`)} /> 
+      <FontIcon
+        color={ props.className === 'good' ? secondary : props.className === 'bad' ? errorText : primary }
+        className="material-icons">
+        { props.icon }
+      </FontIcon>
     </div>
     <p className="stat-card-text">{ props.text }</p>
   </div>

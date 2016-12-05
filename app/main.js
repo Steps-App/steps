@@ -118,6 +118,14 @@ const therapistChatEnter = (nextState) => {
     store.dispatch(fetchTherapist(store.getState().user.therapist_id))
 }
 
+const dashboardEnter = () => {
+  const { user, plan, patients } = store.getState();
+  if ( user.role === PATIENT && !Object.keys(plan).length)
+    store.dispatch(fetchPlan(store.getState().user.id));
+  else if ( user.role === THERAPIST && !patients.length)
+    store.dispatch(fetchPatients(store.getState().user.id));
+};
+
 const patientsListEnter = () => store.dispatch(fetchPatients(store.getState().user.id));
 
 const exerciseListEnter = () => store.dispatch(fetchExercises(store.getState().user.id))
@@ -130,7 +138,7 @@ render (
         <Route path="/plan" component={ PatientPlan } onEnter={ patientPlanEnter } />
         <Route path="/plan/treatments/:treatmentId" component= { Treatment } />
         <Route path="/plan/treatments/:treatmentId/workout" component={ Counter } onEnter={ workoutEnter } />
-        <Route path="/dashboard" component={ Dashboard } onEnter={ patientPlanEnter } />
+        <Route path="/dashboard" component={ Dashboard } onEnter={ dashboardEnter } />
         <Route path="/messages" component={ ChatRoom } />
         <Route path="/account" component={ AccountContainer } />
         <Route path="/patients" component={ PatientListContainer } onEnter={ patientsListEnter } />

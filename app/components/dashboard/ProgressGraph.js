@@ -18,50 +18,6 @@ const fakeData = treatments => {
   }).reverse();
 }
 
-const data = [
-  {
-    date: moment("2016-11-21T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 2,
-    'clear-thinking': 4,
-    'task-force': 4
-  },
-  {
-    date: moment("2016-11-22T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 1,
-    'clear-thinking': 3,
-    'task-force': 4
-  },
-  {
-    date: moment("2016-11-23T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 2,
-    'clear-thinking': 3,
-    'task-force': 4
-  },
-  {
-    date: moment("2016-11-24T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 1,
-    'clear-thinking': 2,
-    'task-force': 3
-  },
-  {
-    date: moment("2016-11-25T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 1,
-    'task-force': 3
-  },
-  {
-    date: moment("2016-11-26T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 2,
-    'clear-thinking': 1,
-    'task-force': 3
-  },
-  {
-    date: moment("2016-11-27T22:46:24.075Z").format('dddd, MMM Do'),
-    'zero administration': 1,
-    'clear-thinking': 1,
-    'task-force': 2
-  }
-];
-
 const CustomizedDateTick = ({ x, y, stroke, payload }) => (
   <g transform={`translate(${x},${y})`}>
     <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>

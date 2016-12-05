@@ -18,6 +18,11 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+  @media (max-width: $sm) {
+    > h2 {
+      font-size: 20px;
+    }
+  }
 }
 
 .stat-card {
@@ -37,9 +42,8 @@
         font-size: .5em;
       }
     }
-    > img { // card icon
-      width: 100px;
-      max-height: 100px;
+    > span { // card icon
+      font-size: 80px !important;
     }
   }
   > .stat-card-text {
@@ -63,9 +67,8 @@
       > p { // card data point
         font-size: 3em;
       }
-      > img { // card icon
-        width: 60px;
-        max-height: 60px;
+      > span { // card icon
+      font-size: 50px !important;
       }
     }
     > .stat-card-text {
@@ -78,13 +81,25 @@
   max-height: 600px;
 }
 
-.progress-graph {
-  width: 100%;
-  height: 100%;
-  > div { // ResponsiveContainer component
-    height: inherit !important;
-  }
-  @media (max-width: $sm) {
-    display: none;
+
+.therapist-graphs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pie-graph {
+  display: inline-flex;
+  justify-content: center;
+  .graph-title {
+    position: absolute;
+    align-self: center;
+    margin: 0;
+    font-size: 22px;
   }
 }
+
+  @media (max-width: $sm) {
+    .progress-graph, .therapist-graphs {
+      display: none;
+    }
+  }
