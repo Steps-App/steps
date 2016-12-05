@@ -81,7 +81,6 @@
   max-height: 600px;
 }
 
-
 .therapist-graphs {
   display: flex;
   justify-content: center;
@@ -96,6 +95,10 @@
     margin: 0;
     font-size: 22px;
   }
+}
+
+.progress-graph {
+  width: 100%;
 }
 
   @media (max-width: $sm) {

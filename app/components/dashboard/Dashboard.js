@@ -30,7 +30,7 @@ const Dashboard = ({ user, plan, patients }) => {
     const completedWorkouts = plan.treatments.reduce((completed, treatment) => {
       return completed + treatment.workouts.length;
     }, 0);
-    percentCompleted = 100 * completedWorkouts / (daysSoFar * plan.treatments.length);
+    percentCompleted = Math.round(100 * completedWorkouts / (daysSoFar * plan.treatments.length));
   }
   else if (user.role === THERAPIST) {
     if (!patients.length) return null;
