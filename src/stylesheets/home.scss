@@ -19,6 +19,12 @@
   align-items: center;
 }
 
+@media (max-width: $lg) {
+  #home {
+    background-image: url('../images/MobileStepsBackground.png')
+  }
+}
+
 .home-nav {
   position: absolute;
   width: 100%;
