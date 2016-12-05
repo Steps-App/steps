@@ -80,7 +80,7 @@ const Dashboard = ({ user, plan, patients }) => {
         // Show role-specific charts
         user.role === PATIENT ?
           <div className="pain-graph">
-            <ProgressGraph plan={plan} />
+            <ProgressGraph planStart={ plan.createdAt } treatments={ plan.treatments } />
           </div> :
           <div className="therapist-graphs">
             <PieChart data={ genders } title="Gender"/>

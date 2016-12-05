@@ -12,8 +12,11 @@ const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + mi
 // Create array of fake treatment data for the past 7 days
 const fakeData = (startDate, treatments) => {
   // Calculate the number of days to chart
+  console.log(startDate)
   const daysSoFar = daysBetween(new Date(startDate), new Date());
+  console.log(daysSoFar)
   const chartDays = daysSoFar > 7 ? 7 : daysSoFar;
+  console.log(chartDays)
 
   const graphData = Array(chartDays).fill();
   for (let i = chartDays - 1; i >= 0; i--) {
@@ -95,14 +98,14 @@ const PainLabel = (props) => (
   </g>
 );
 
-export default ({ plan, width, height }) => {
+export default ({ treatments, planStart, width, height }) => {
   const chartWidth = width ? width : 800;
   const chartHeight = height ? height : 500;
 
   return (
     <div className= "progress-graph">
       <ResponsiveContainer width='100%' minHeight={ chartHeight }>
-        <LineChart data={fakeData(plan.createdAt, plan.treatments)}
+        <LineChart data={fakeData(planStart, treatments)}
           margin={{ top: 20, right: 30, left: 30, bottom: 10 }}>
           <XAxis dataKey="date" height={100} tick={<CustomizedDateTick/>}
             interval={0} tickCount={7} />
@@ -112,7 +115,7 @@ export default ({ plan, width, height }) => {
           <Tooltip/>
           <Legend verticalAlign="top" align="center" iconSize={16} height={50} />
           {
-            plan.treatments.map(treatment => {
+            treatments.map(treatment => {
               let lineColor = randomColor({ luminosity: 'dark', hue: 'rgb' });
               return (
                 <Line key={treatment.id}
