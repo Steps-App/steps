@@ -36,7 +36,7 @@ const teamMembers = [
   },
   {
     name: 'Jake Peyser',
-    img: require('../../../src/images/coders/jake_peyser.jpeg'),
+    img: require('../../../src/images/coders/jake_peyser.jpg'),
     links: {
       github: 'https://github.com/jakepeyser',
       linkedin: 'https://www.linkedin.com/in/jakepeyser',
