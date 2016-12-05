@@ -23,7 +23,6 @@ export const removeUser  = () => ({ type: REMOVE_USER })
 
 const initialUser = {};
 export default function reducer(currentUser = initialUser, action) {
-  console.log(action)
   switch (action.type) {
     case SET_USER:
       return action.user;

@@ -98,7 +98,7 @@ const PainLabel = (props) => (
 export default ({ plan, width, height }) => {
   const chartWidth = width ? width : 800;
   const chartHeight = height ? height : 500;
-  console.log(plan)
+
   return (
     <div className= "progress-graph">
       <ResponsiveContainer width='100%' minHeight={ chartHeight }>
