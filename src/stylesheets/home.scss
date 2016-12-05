@@ -2,7 +2,7 @@
 @import "screens";
 
 #home {
-  background-image: url('../images/StepsBackground.gif');
+  background-image: url('../images/home/StepsBackground.gif');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -17,11 +17,10 @@
   padding :0px;
   display: flex;
   align-items: center;
-}
-
-@media (max-width: $lg) {
-  #home {
-    background-image: url('../images/MobileStepsBackground.png')
+  @media (max-width: $lg) {
+    background-image: url('../images/home/MobileStepsBackground.png');
+    color: $text-dark;
+    font-weight: medium;
   }
 }
 
@@ -43,6 +42,9 @@
   a, a:hover, a:focus {
     text-decoration: none;
     color: $text-light;
+    @media (max-width: $lg) {
+      color: $text-dark;
+    }
   }
 
   .navbar-header {
@@ -51,6 +53,12 @@
       display: inherit;
       flex-direction: row;
       align-items: center;
+      #logo-svg { // Navbar logo
+        fill: $text-light;
+        @media (max-width: $lg) {
+          fill: $text-dark;
+        }
+      }
       > h1 {
         margin: 0;
         padding-left: 5px;
@@ -112,6 +120,9 @@
         line-height: 40px;
         font-size: 37px;
         font-weight: lighter;
+        @media (max-width: $lg) {
+          font-weight: normal;
+        }
       }
       > .intro-content {
         font-size: 18px;
