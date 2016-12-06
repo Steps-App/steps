@@ -1,5 +1,6 @@
 import { PATIENT, THERAPIST, PATIENT_ROUTES,
   THERAPIST_ROUTES, THERAPIST_REGEX, PATIENT_REGEX } from './constants.js';
+import React from 'react';
 import moment from 'moment';
 
 // Check whether script is being run in browser or Node
@@ -55,4 +56,28 @@ export const formatTime = time => {
     (new Array(length+1).join(pad)+string).slice(-length);
 
   return `${minutes ? `${minutes} min ` : ''}${seconds ? `${padLeft(seconds, '0', 2)} sec` : ''}`;
+}
+
+// Return the corresponding pain element with props passed down to SVG
+import Pain1 from '../src/images/emojis/1pain.svg';
+import Pain2 from '../src/images/emojis/2pain.svg';
+import Pain3 from '../src/images/emojis/3pain.svg';
+import Pain4 from '../src/images/emojis/4pain.svg';
+import Pain5 from '../src/images/emojis/5pain.svg';
+export const painEmoji = (painLevel, props) => {
+  if (typeof painLevel === 'string') painLevel = Number(painLevel);
+  switch(painLevel) {
+    case 1:
+      return <Pain1 { ...props }/>
+    case 2:
+      return <Pain2 { ...props }/>
+    case 3:
+      return <Pain3 { ...props }/>
+    case 4:
+      return <Pain4 { ...props }/>
+    case 5:
+      return <Pain5 { ...props }/>
+    default:
+      return null;
+  }
 }

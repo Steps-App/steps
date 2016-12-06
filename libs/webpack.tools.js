@@ -50,7 +50,7 @@ exports.extractImages = function(paths) {
     module: {
       loaders: [
         {
-          test: /\.(gif|png|jpe?g|svg)$/,
+          test: /\.(gif|png|jpe?g)$/,
           loader: 'file?name=images/[name].[ext]',
           include: paths
         }
@@ -58,6 +58,20 @@ exports.extractImages = function(paths) {
     }
   };
 }
+
+// Add imsvgsages to the bundle
+exports.extractSVGs = function(paths) {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.svg$/,
+          loader: 'babel!svg-react'
+        }
+      ]
+    }
+  }
+};
 
 // Code minification -> PROD only!!!
 exports.minify = function() {

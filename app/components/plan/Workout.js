@@ -8,7 +8,7 @@ import InfoItem from '../widgets/InfoItem'
 import { textLight } from '../colors'
 
 // other libs
-import { getCompletedWorkout, formatTime } from '../../utils'
+import { getCompletedWorkout, formatTime, painEmoji } from '../../utils'
 import moment from 'moment';
 
 export default ({ treatment, workoutFn, num }) => {
@@ -54,7 +54,7 @@ export default ({ treatment, workoutFn, num }) => {
               <StepsActionButton disabled={true}>
                 {
                   completedWorkout.pain ?
-                    <img src={require(`../../../src/images/emojis/${completedWorkout.pain}pain.svg`)} /> :
+                    painEmoji(completedWorkout.pain) :
                     <FontIcon className={'material-icons'}>check</FontIcon>
                 }
               </StepsActionButton> :

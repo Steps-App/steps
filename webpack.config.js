@@ -85,6 +85,7 @@ switch (process.env.npm_lifecycle_event) {
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages(),
+      tools.extractSVGs(),
       tools.minify()
     );
     break;
@@ -94,7 +95,8 @@ switch (process.env.npm_lifecycle_event) {
       { devtool: 'eval-source-map' },
       tools.clean(PATHS.build),
       tools.extractCSS(PATHS.stylesheets),
-      tools.extractImages()
+      tools.extractImages(),
+      tools.extractSVGs()
     );
     break;
   case 'hmr':
@@ -103,6 +105,7 @@ switch (process.env.npm_lifecycle_event) {
       { devtool: 'eval-source-map' },
       tools.extractCSS(PATHS.stylesheets),
       tools.extractImages(),
+      tools.extractSVGs(),
       tools.devServer({
         port: 3000
       })
