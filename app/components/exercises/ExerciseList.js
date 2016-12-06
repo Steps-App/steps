@@ -13,10 +13,42 @@ import { Table, TableHeader, TableHeaderColumn,
 import { StepsRaisedButton, StepsActionButton } from '../material-style'
 import { textDark, errorText } from '../colors';
 
+import ConfirmDialog from '../widgets/ConfirmDialog';
+
 
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
-const ExerciseList = ({ user, exercises, deleteExercise }) => (
+
+export class ExerciseList extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      confirmOpen: false,
+      exerciseId: "",
+      userId: ""
+    }
+    this.dialogClose = this.dialogClose.bind(this);
+    this.dialogOpen = this.dialogOpen.bind(this);
+  }
+
+  dialogClose(){
+    this.setState({confirmOpen: false});
+    this.setState({exerciseId : ""});
+    this.setState({userId : ""});
+  }
+
+  dialogOpen(userId,exerciseId){
+    this.setState({confirmOpen: true});
+    this.setState({exerciseId : exerciseId});
+    this.setState({userId : userId});
+  }
+
+render() {
+    const { user, exercises, deleteExercise } = this.props;
+    
+    return (
+
   <div id="exercise-list" >
     <Helmet title="Exercises" />
     <h1 className="page-header">Exercises</h1>
@@ -24,7 +56,7 @@ const ExerciseList = ({ user, exercises, deleteExercise }) => (
     <AddExerciseContainer user={user} /> 
     <hr/>
 
-    <div className="table">
+    <div className="mobile_table">
     <Table style={{backgroundColor:'none'}} >
       <TableBody displayRowCheckbox={false}>
       {
@@ -34,7 +66,7 @@ const ExerciseList = ({ user, exercises, deleteExercise }) => (
           else return 0;
         }).map( exercise =>
           <TableRow key={ exercise.id } selectable={false} className="exercise-row">
-            <TableRowColumn style={{"paddingBottom":"1em", "paddingTop": "1em", width: "15em"}}>
+            <TableRowColumn className="img_col">
               <img src={exercise.img_url}></img>
             </TableRowColumn>
             <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
@@ -46,7 +78,7 @@ const ExerciseList = ({ user, exercises, deleteExercise }) => (
             <TableRowColumn style={{width:"10px", "paddingRight": "8em"}}>
                 <StepsActionButton mini={ true }
                   backgroundColor={ errorText }
-                  onTouchTap={ () => deleteExercise(user.id, exercise.id) } >
+                  onTouchTap={ () => this.dialogOpen(user.id, exercise.id) } >
                   <FontIcon className={'material-icons'}>clear</FontIcon>
                 </StepsActionButton>
             </TableRowColumn>
@@ -56,8 +88,17 @@ const ExerciseList = ({ user, exercises, deleteExercise }) => (
       </TableBody>
     </Table>
     </div>
+    <ConfirmDialog
+          title="Confirm Exercise Deletion"
+          isOpen={ this.state.confirmOpen }
+          confirm={ () => deleteExercise(this.state.userId, this.state.exerciseId) } 
+          dialogClose={ this.dialogClose }>
+          {`Would you like to permenantly delete this exercise?`}
+      </ConfirmDialog>
   </div>
-)
+  )
+ }
+}
 
 // -=-=-=-=-= CONTAINER =-=-=-=-=-=-
 

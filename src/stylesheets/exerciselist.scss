@@ -69,3 +69,39 @@
   text-align: center;
   color: $error-text;
 }
+
+td.img_col {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  width: 15em;
+  height: 100%
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .mobile_table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    tr {
+      height: 100%
+    }
+  }
+
+  //forces table to not act like a table/
+  .mobile_table td {
+    display: block;
+    border: 1px dotted #CCCCCC;
+    padding: 4%;
+  }
+
+}
+
+
+
+
+ 
+
