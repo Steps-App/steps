@@ -133,6 +133,7 @@
     }
     > .signup-form {
       max-width: 450px;
+      margin: 30px 0 20px 0;
     }
     @media (max-width: $lg) {
       flex-direction: column;
@@ -150,8 +151,6 @@
         }
       }
       > .signup-form {
-        position: absolute;
-        top: 35vh;
         @media (max-width: $md) {
           padding: 0 10px;
         }

@@ -91,6 +91,31 @@
       padding-top: 5px;
     }
   }
+  @media (max-width: $sm) {
+    > .patient-info {
+      flex-direction: column;
+      > .patient-buttons {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 5px 0;
+        width: 100%;
+        button  {
+          width: 48px !important;
+          height: 48px !important;
+          > div > div { // Hover label
+            top: 0 !important;
+            left: 10px !important
+          }
+          .material-icons {
+            font-size: 40px !important;
+          }
+        }
+      }
+    }
+    > .patient-data {
+      padding: 0;
+    }
+  }
 }
 
 // notification for a patient message
@@ -107,5 +132,9 @@
   border-radius: 50%;
   &.hidden {
     display: none
+  }
+  @media (max-width: $sm) {
+    margin-top: 110px;
+    margin-left: 60px;
   }
 }
