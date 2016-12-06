@@ -1,1002 +1,202 @@
 [
   {
-    "duration":2,
-    "therapy_focus":"lorem integer tincidunt",
-    "notes":"pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"molestie sed",
-    "notes":"non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"laoreet ut rhoncus",
-    "notes":"quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"cras pellentesque volutpat",
-    "notes":"penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"lectus aliquam sit",
-    "notes":"ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"nec dui luctus",
-    "notes":"justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"mauris laoreet",
-    "notes":"mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"potenti cras in",
-    "notes":"quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"cras pellentesque",
-    "notes":"ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"urna ut",
-    "notes":"aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"odio consequat varius",
-    "notes":"ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"vel augue vestibulum",
-    "notes":"vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"sapien",
-    "notes":"eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"pellentesque",
-    "notes":"dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"in purus eu",
-    "notes":"neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"proin leo odio",
-    "notes":"ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"nunc purus phasellus",
-    "notes":"tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"a",
-    "notes":"commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"sapien varius",
-    "notes":"nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"parturient",
-    "notes":"nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"curae donec pharetra",
-    "notes":"urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"vitae",
-    "notes":"mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"morbi non lectus",
-    "notes":"risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"aliquam non",
-    "notes":"nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"nullam",
-    "notes":"molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"lobortis est phasellus",
-    "notes":"aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"nec",
-    "notes":"risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"ac",
-    "notes":"malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"tempus",
-    "notes":"ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"erat tortor sollicitudin",
-    "notes":"rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"interdum",
-    "notes":"porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"neque",
-    "notes":"proin risus praesent lectus vestibulum quam sapien varius ut blandit"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"cum sociis",
-    "notes":"sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"nulla eget",
-    "notes":"quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"vivamus",
-    "notes":"venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"morbi",
-    "notes":"libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"odio curabitur",
-    "notes":"quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"amet consectetuer",
-    "notes":"mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"volutpat",
-    "notes":"aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"mauris",
-    "notes":"hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"vel pede",
-    "notes":"orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"convallis nunc",
-    "notes":"molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"ipsum primis",
-    "notes":"molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"mauris laoreet ut",
-    "notes":"turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"tempus sit amet",
-    "notes":"nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"morbi porttitor",
-    "notes":"venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"interdum venenatis turpis",
-    "notes":"libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"orci",
-    "notes":"sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"vel nisl",
-    "notes":"ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"arcu sed",
-    "notes":"ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"sed",
-    "notes":"luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"ante vivamus tortor",
-    "notes":"donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"felis",
-    "notes":"imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"a libero nam",
-    "notes":"augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"elementum",
-    "notes":"congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"et magnis",
-    "notes":"et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"vivamus in felis",
-    "notes":"posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"dapibus",
-    "notes":"ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"tincidunt",
-    "notes":"scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"in libero",
-    "notes":"posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"ullamcorper purus sit",
-    "notes":"curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"sem sed sagittis",
-    "notes":"lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"id nulla",
-    "notes":"et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"ac diam cras",
-    "notes":"sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"montes nascetur",
-    "notes":"a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"dui",
-    "notes":"semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"dapibus",
-    "notes":"enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"velit",
-    "notes":"vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"nulla",
-    "notes":"penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"euismod scelerisque",
-    "notes":"felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"facilisi cras",
-    "notes":"ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"vestibulum",
-    "notes":"est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"diam nam tristique",
-    "notes":"ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"vestibulum ante",
-    "notes":"venenatis turpis enim blandit mi in porttitor pede justo eu massa"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"orci",
-    "notes":"aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"eget massa",
-    "notes":"imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"ante vel ipsum",
-    "notes":"maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"libero",
-    "notes":"sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"aliquam",
-    "notes":"ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"ante",
-    "notes":"dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"eleifend donec",
-    "notes":"ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"dui luctus",
-    "notes":"aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"vulputate nonummy maecenas",
-    "notes":"morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"orci",
-    "notes":"nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"dapibus dolor",
-    "notes":"cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"fusce lacus purus",
-    "notes":"sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"tortor risus",
-    "notes":"venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"suspendisse potenti in",
-    "notes":"massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"elit proin",
-    "notes":"erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"id",
-    "notes":"ligula vehicula consequat morbi a ipsum integer a nibh in quis"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"at",
-    "notes":"tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"volutpat",
-    "notes":"nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"faucibus orci luctus",
-    "notes":"justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"aenean",
-    "notes":"ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"dignissim",
-    "notes":"mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"leo rhoncus",
-    "notes":"libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"lobortis",
-    "notes":"pretium quis lectus suspendisse potenti in eleifend quam a odio"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"curae",
-    "notes":"primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"tristique est et",
-    "notes":"amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"curae mauris",
-    "notes":"nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"ligula",
-    "notes":"odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"turpis a",
-    "notes":"diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"eget massa tempor",
-    "notes":"ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"habitasse",
-    "notes":"lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"cum sociis",
-    "notes":"congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"fermentum",
-    "notes":"molestie sed justo pellentesque viverra pede ac diam cras pellentesque"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"ac consequat metus",
-    "notes":"eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"lacus",
-    "notes":"lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"vel pede morbi",
-    "notes":"aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"pede",
-    "notes":"lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"id",
-    "notes":"aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"consequat",
-    "notes":"interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"rhoncus",
-    "notes":"tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"nulla ac enim",
-    "notes":"nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"est",
-    "notes":"quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"urna",
-    "notes":"varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"montes",
-    "notes":"phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"cras",
-    "notes":"tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"at dolor",
-    "notes":"eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"sem",
-    "notes":"eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"nulla mollis molestie",
-    "notes":"erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"potenti in eleifend",
-    "notes":"dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"dictumst maecenas",
-    "notes":"felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"molestie",
-    "notes":"eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"libero nullam sit",
-    "notes":"amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"nam congue risus",
-    "notes":"aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"venenatis non",
-    "notes":"pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"integer",
-    "notes":"amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"vel nisl",
-    "notes":"mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"hac habitasse platea",
-    "notes":"purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"mattis",
-    "notes":"diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"velit id",
-    "notes":"consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"at",
-    "notes":"lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"enim sit",
-    "notes":"sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"eu",
-    "notes":"felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"porta",
-    "notes":"penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"turpis sed",
-    "notes":"bibendum felis sed interdum venenatis turpis enim blandit mi in"
-  },
-  {
-    "duration":11,
-    "therapy_focus":"at",
-    "notes":"tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"in imperdiet et",
-    "notes":"ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"ac nulla",
-    "notes":"accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"primis in",
-    "notes":"aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"nec sem duis",
-    "notes":"eros viverra eget congue eget semper rutrum nulla nunc purus"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"justo",
-    "notes":"quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"curabitur at ipsum",
-    "notes":"nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"phasellus id sapien",
-    "notes":"vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"in lectus",
-    "notes":"tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"elit proin risus",
-    "notes":"ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"sit amet",
-    "notes":"eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"aenean sit",
-    "notes":"suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"volutpat dui maecenas",
-    "notes":"eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"semper sapien a",
-    "notes":"eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"nulla ultrices aliquet",
-    "notes":"eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"consectetuer",
-    "notes":"tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"id",
-    "notes":"libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"nec condimentum neque",
-    "notes":"aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"sem mauris laoreet",
-    "notes":"ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"diam erat",
-    "notes":"neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"aliquam quis",
-    "notes":"ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"sit amet diam",
-    "notes":"nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"sed vel enim",
-    "notes":"ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"viverra",
-    "notes":"maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"luctus",
-    "notes":"hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi"
-  },
-  {
-    "duration":4,
-    "therapy_focus":"in leo",
-    "notes":"mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"pede malesuada in",
-    "notes":"nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"consequat",
-    "notes":"a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"massa id nisl",
-    "notes":"sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"gravida nisi",
-    "notes":"purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"blandit",
-    "notes":"ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"non mi",
-    "notes":"eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"lobortis vel dapibus",
-    "notes":"risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"mauris eget",
-    "notes":"bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"metus",
-    "notes":"dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"libero non mattis",
-    "notes":"at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"turpis nec",
-    "notes":"cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede"
-  },
-  {
-    "duration":2,
-    "therapy_focus":"non",
-    "notes":"praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"tempor turpis",
-    "notes":"neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"ac enim in",
-    "notes":"morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"nulla facilisi",
-    "notes":"faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"interdum",
-    "notes":"neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"fusce posuere felis",
-    "notes":"volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"hac habitasse platea",
-    "notes":"semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"laoreet ut",
-    "notes":"convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci"
-  },
-  {
-    "duration":15,
-    "therapy_focus":"orci luctus",
-    "notes":"odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"non velit",
-    "notes":"magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse"
-  },
-  {
-    "duration":14,
-    "therapy_focus":"ultrices mattis odio",
-    "notes":"duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"nunc commodo placerat",
-    "notes":"at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit"
-  },
-  {
-    "duration":5,
-    "therapy_focus":"leo pellentesque",
-    "notes":"aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"platea dictumst etiam",
-    "notes":"dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"natoque penatibus et",
-    "notes":"ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"id sapien in",
-    "notes":"vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros"
-  },
-  {
-    "duration":10,
-    "therapy_focus":"interdum",
-    "notes":"pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor"
-  },
-  {
-    "duration":3,
-    "therapy_focus":"nulla",
-    "notes":"duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus"
-  },
-  {
-    "duration":6,
-    "therapy_focus":"molestie",
-    "notes":"cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales"
-  },
-  {
-    "duration":9,
-    "therapy_focus":"parturient",
-    "notes":"eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy"
-  },
-  {
-    "duration":13,
-    "therapy_focus":"sodales sed",
-    "notes":"consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel"
-  },
-  {
-    "duration":16,
-    "therapy_focus":"quisque erat",
-    "notes":"consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"curae donec",
-    "notes":"etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit"
-  },
-  {
-    "duration":12,
-    "therapy_focus":"congue eget semper",
-    "notes":"felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar"
-  },
-  {
-    "duration":8,
-    "therapy_focus":"quis turpis eget",
-    "notes":"quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue"
-  },
-  {
-    "duration":7,
-    "therapy_focus":"sit amet",
-    "notes":"neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui"
+    "id": 6,
+    "duration": 4,
+    "end_date": "2016-12-27 07:00:00-05",
+    "therapy_focus": "ACL Rehab",
+    "notes": "Phase 1",
+    "created_at": "2016-11-29 07:00:00-05",
+    "updated_at": "2016-12-04 07:00:00-05",
+    "patient_id": 6
+  },
+  {
+    "id": 7,
+    "duration": 4,
+    "end_date": "2016-12-27 07:00:00-05",
+    "therapy_focus": "ACL Rehab",
+    "notes": "Phase 1",
+    "created_at": "2016-11-29 07:00:00-05",
+    "updated_at": "2016-12-04 07:00:00-05",
+    "patient_id": 7
+  },
+  {
+    "id": 8,
+    "duration": 4,
+    "end_date": "2016-12-27 07:00:00-05",
+    "therapy_focus": "ACL Rehab",
+    "notes": "Phase 1",
+    "created_at": "2016-11-29 07:00:00-05",
+    "updated_at": "2016-12-04 07:00:00-05",
+    "patient_id": 8
+  },
+  {
+    "id": 9,
+    "duration": 4,
+    "end_date": "2016-12-27 07:00:00-05",
+    "therapy_focus": "ACL Rehab",
+    "notes": "Phase 1",
+    "created_at": "2016-11-29 07:00:00-05",
+    "updated_at": "2016-12-04 07:00:00-05",
+    "patient_id": 9
+  },
+  {
+    "id": 10,
+    "duration": 4,
+    "end_date": "2016-12-27 07:00:00-05",
+    "therapy_focus": "ACL Rehab",
+    "notes": "Phase 1",
+    "created_at": "2016-11-29 07:00:00-05",
+    "updated_at": "2016-12-04 07:00:00-05",
+    "patient_id": 10
+  },
+  {
+    "id": 1,
+    "duration": 4,
+    "end_date": "2016-12-12 00:00:00-05",
+    "therapy_focus": "Knee",
+    "notes": "Recovering from a marathon",
+    "created_at": "2016-11-21 00:00:00-05",
+    "updated_at": "2016-11-21 00:00:00-05",
+    "patient_id": 1
+  },
+  {
+    "id": 2,
+    "duration": 4,
+    "end_date": "2016-12-12 00:00:00-05",
+    "therapy_focus": "Knee",
+    "notes": "Recovering from a marathon",
+    "created_at": "2016-11-21 00:00:00-05",
+    "updated_at": "2016-11-21 00:00:00-05",
+    "patient_id": 2
+  },
+  {
+    "id": 3,
+    "duration": 4,
+    "end_date": "2016-12-12 00:00:00-05",
+    "therapy_focus": "Knee",
+    "notes": "Recovering from a marathon",
+    "created_at": "2016-11-21 00:00:00-05",
+    "updated_at": "2016-11-21 00:00:00-05",
+    "patient_id": 3
+  },
+  {
+    "id": 4,
+    "duration": 4,
+    "end_date": "2016-12-12 00:00:00-05",
+    "therapy_focus": "Knee",
+    "notes": "Recovering from a marathon",
+    "created_at": "2016-11-21 00:00:00-05",
+    "updated_at": "2016-11-21 00:00:00-05",
+    "patient_id": 4
+  },
+  {
+    "id": 5,
+    "duration": 4,
+    "end_date": "2016-12-12 00:00:00-05",
+    "therapy_focus": "Knee",
+    "notes": "Recovering from a marathon",
+    "created_at": "2016-11-21 00:00:00-05",
+    "updated_at": "2016-11-21 00:00:00-05",
+    "patient_id": 5
+  },
+  {
+    "id": 12,
+    "duration": 12,
+    "end_date": "2017-02-20 00:00:00-05",
+    "therapy_focus": "Runner's Knee",
+    "notes": "Recurring issue, so focus on rest outside of the plan's exercises.",
+    "created_at": "2016-11-28 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 12
+  },
+  {
+    "id": 11,
+    "duration": 8,
+    "end_date": "2017-01-23 00:00:00-05",
+    "therapy_focus": "Hamstring Strain",
+    "notes": "Our treatments aim at recovery to an active lifestyle.",
+    "created_at": "2016-11-28 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 11
+  },
+  {
+    "id": 16,
+    "duration": 12,
+    "end_date": "2017-02-27 00:00:00-05",
+    "therapy_focus": "Disc Prolapse",
+    "notes": "No heavy lifting!",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 16
+  },
+  {
+    "id": 19,
+    "duration": 12,
+    "end_date": "2017-02-27 00:00:00-05",
+    "therapy_focus": "Disc Prolapse",
+    "notes": "No heavy lifting!",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 19
+  },
+  {
+    "id": 13,
+    "duration": 6,
+    "end_date": "2017-01-16 00:00:00-05",
+    "therapy_focus": "Disc Prolapse",
+    "notes": "No heavy lifting!",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 13
+  },
+  {
+    "id": 14,
+    "duration": 24,
+    "end_date": "2017-05-22 00:00:00-04",
+    "therapy_focus": "Hamstring Strain",
+    "notes": "Our treatments aim at recovery to an active lifestyle.",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 14
+  },
+  {
+    "id": 20,
+    "duration": 24,
+    "end_date": "2017-05-22 00:00:00-04",
+    "therapy_focus": "Hamstring Strain",
+    "notes": "Our treatments aim at recovery to an active lifestyle.",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 20
+  },
+  {
+    "id": 15,
+    "duration": 16,
+    "end_date": "2017-03-27 00:00:00-04",
+    "therapy_focus": "Runner's Knee",
+    "notes": "Recurring issue, so focus on rest outside of the plan's exercises.",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 15
+  },
+  {
+    "id": 18,
+    "duration": 16,
+    "end_date": "2017-03-27 00:00:00-04",
+    "therapy_focus": "Disc Prolapse",
+    "notes": "No heavy lifting!",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 18
+  },
+  {
+    "id": 17,
+    "duration": 8,
+    "end_date": "2017-01-30 00:00:00-05",
+    "therapy_focus": "Runner's Knee",
+    "notes": "Recurring issue, so focus on rest outside of the plan's exercises.",
+    "created_at": "2016-12-05 00:00:00-05",
+    "updated_at": "2016-12-05 00:00:00-05",
+    "patient_id": 17
   }
 ]

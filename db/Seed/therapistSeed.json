@@ -1,47 +1,26 @@
-[  
-  {  
-    "first_name":"Johnny",
-    "last_name":"Sanders",
-    "practice_name":"Visionary",
-    "license_id":31575,
-    "image_URL":"https://randomuser.me/api/portraits/women/70.jpg",
-    "email":"jsanders0@telegraph.co.uk",
-    "password":"1234"
+[
+  {
+    "id": 1,
+    "first_name": "Meredith",
+    "last_name": "Gray",
+    "practice_name": "Gray's Anatomy",
+    "license_id": 31357,
+    "img_URL": "https://discombob.files.wordpress.com/2008/02/meredith.jpg",
+    "email": "meredith@graysanatomy.com",
+    "password": "1234",
+    "created_at": "2016-11-29 21:53:16.474-05",
+    "updated_at": "2016-11-29 21:53:16.474-05"
   },
-  {  
-    "first_name":"Keith",
-    "last_name":"Stephens",
-    "practice_name":"array",
-    "license_id":60574,
-    "image_URL":"https://randomuser.me/api/portraits/women/59.jpg",
-    "email":"kstephens1@usda.gov",
-    "password":"1234"
-  },
-  {  
-    "first_name":"Jessica",
-    "last_name":"Gray",
-    "practice_name":"tertiary",
-    "license_id":31357,
-    "image_URL":"https://randomuser.me/api/portraits/women/64.jpg",
-    "email":"jgray2@ow.ly",
-    "password":"1234"
-  },
-  {  
-    "first_name":"Arthur",
-    "last_name":"Rivera",
-    "practice_name":"maximized",
-    "license_id":55608,
-    "image_URL":"https://randomuser.me/api/portraits/women/98.jpg",
-    "email":"arivera3@engadget.com",
-    "password":"1234"
-  },
-  {  
-    "first_name":"Marilyn",
-    "last_name":"Hawkins",
-    "practice_name":"6th generation",
-    "license_id":90935,
-    "image_URL":"https://randomuser.me/api/portraits/women/86.jpg",
-    "email":"mhawkins4@technorati.com",
-    "password":"1234"
+  {
+    "id": 2,
+    "first_name": "Derek",
+    "last_name": "Shepherd",
+    "practice_name": "Gray's Anatomy",
+    "license_id": 55608,
+    "img_URL": "https://s-media-cache-ak0.pinimg.com/736x/68/1a/12/681a1221daa0124e12c94ec27f6d5d46.jpg",
+    "email": "mcdreamy@graysanatomy.com",
+    "password": "1234",
+    "created_at": "2016-11-29 21:53:16.474-05",
+    "updated_at": "2016-11-29 21:53:16.474-05"
   }
 ]

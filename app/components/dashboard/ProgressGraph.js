@@ -6,17 +6,14 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import { daysBetween } from '../../utils'
 import { active } from '../colors'
 
-// Returns a random number between input range 
+// Returns a random number between input range
 const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // Create array of fake treatment data for the past 7 days
 const fakeData = (startDate, treatments) => {
   // Calculate the number of days to chart
-  console.log(startDate)
   const daysSoFar = daysBetween(new Date(startDate), new Date());
-  console.log(daysSoFar)
   const chartDays = daysSoFar > 7 ? 7 : daysSoFar;
-  console.log(chartDays)
 
   const graphData = Array(chartDays).fill();
   for (let i = chartDays - 1; i >= 0; i--) {
