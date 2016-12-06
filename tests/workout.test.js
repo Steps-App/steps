@@ -142,16 +142,5 @@ describe('Workout', () => {
         })
     })
 
-    // need to determine how to identify the workout id for testing
-    xit('GET /api/patient/:patientId/plan/:planId/workout/:workoutId >> returns a specific workout', (done) => {
-      agent.get('/api/patient/1001/plan/1001/workout/')
-        .expect(200)
-        .end((err, res) => {
-          if (err) return done(err)
-          expect(res.body).to.include({ time: 275 })
-          done()
-        })
-    })
-
   })
 })

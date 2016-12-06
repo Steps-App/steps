@@ -10,7 +10,6 @@ const tests = [
   'patient',
   'plan',
   'workout',
-  'navbar',
   'materialstyle'
 ];
 
