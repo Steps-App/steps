@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
-    <title>account</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
+<svg width="90px" height="90px" viewBox="0 0 90 90">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="account" fill="#FFFFFF">
+        <g id="account_dark" fill="#000000">
             <ellipse id="Oval" cx="45" cy="38.583" rx="18" ry="18.357"></ellipse>
             <path d="M45,0 C20.147,0 0,20.147 0,45 C0,69.853 20.147,90 45,90 C69.853,90 90,69.853 90,45 C90,20.147 69.853,0 45,0 Z M72.619,72.507 C66.725,66.782 56.558,63 45,63 C33.442,63 23.275,66.782 17.381,72.507 C10.352,65.449 6,55.724 6,45 C6,23.495 23.495,6 45,6 C66.505,6 84,23.495 84,45 C84,55.724 79.648,65.449 72.619,72.507 Z" id="Shape"></path>
         </g>

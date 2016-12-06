@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="28px" height="14px" viewBox="0 0 28 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
-    <title>Group</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
+<svg width="28px" height="14px" viewBox="0 0 28 14">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group" fill="#000000">
             <polygon id="Shape" points="1 6 0 6 0 8 1 8 1 11 4 11 4 3 1 3"></polygon>
