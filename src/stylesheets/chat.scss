@@ -61,6 +61,15 @@
       &.clear {
         clear: both;
       }
+      > div {
+        display: flex !important;
+        flex-direction: row !important;
+        > span {
+          white-space: normal !important;
+          line-height: 22px !important;
+          text-align: start !important;
+        }
+      }
     }
   }
 }
