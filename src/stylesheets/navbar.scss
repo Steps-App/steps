@@ -55,6 +55,8 @@
 
 @media (max-width: $sm) {
   #navbar {
+    bottom: 0;
+    position: fixed;
     justify-content: center !important;
   }
   .navbar-item > a {
