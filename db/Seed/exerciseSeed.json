@@ -1,542 +1,222 @@
-[  
-  {  
-    "title":"Decentralized",
-    "description":"semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices",
-    "img_url":"http://dummyimage.com/128x115.png/dddddd/000000"
-  },
-  {  
-    "title":"analyzing",
-    "description":"hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu",
-    "vid_url":"http://dummyimage.com/210x102.png/dddddd/000000"
-  },
-  {  
-    "title":"focus group",
-    "description":"commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque",
-    "img_url":"http://dummyimage.com/199x123.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/196x117.png/dddddd/000000"
-  },
-  {  
-    "title":"moratorium",
-    "description":"odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque",
-    "img_url":"http://dummyimage.com/229x196.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/201x151.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"object-oriented",
-    "description":"dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus",
-    "img_url":"http://dummyimage.com/158x136.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/222x248.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Fully-configurable",
-    "description":"platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis",
-    "vid_url":"http://dummyimage.com/105x238.png/ff4444/ffffff"
-  },
-  {  
-    "title":"4th generation",
-    "description":"mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce"
-  },
-  {  
-    "title":"Fundamental",
-    "description":"nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris",
-    "img_url":"http://dummyimage.com/159x195.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/191x143.png/ff4444/ffffff"
-  },
-  {  
-    "title":"budgetary management",
-    "description":"elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus",
-    "img_url":"http://dummyimage.com/202x205.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/115x194.png/ff4444/ffffff"
-  },
-  {  
-    "title":"policy",
-    "description":"nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel",
-    "vid_url":"http://dummyimage.com/170x210.png/dddddd/000000"
-  },
-  {  
-    "title":"exuding",
-    "description":"quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget",
-    "img_url":"http://dummyimage.com/233x192.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/187x157.png/cc0000/ffffff"
-  },
-  {  
-    "title":"systemic",
-    "description":"elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante",
-    "img_url":"http://dummyimage.com/112x195.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/163x155.png/dddddd/000000"
-  },
-  {  
-    "title":"high-level",
-    "description":"vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a",
-    "img_url":"http://dummyimage.com/214x167.png/dddddd/000000"
-  },
-  {  
-    "title":"support",
-    "description":"est quam pharetra magna ac consequat metus sapien ut nunc",
-    "img_url":"http://dummyimage.com/107x145.png/cc0000/ffffff",
-    "vid_url":"http://dummyimage.com/242x139.png/cc0000/ffffff"
-  },
-  {  
-    "title":"Vision-oriented",
-    "description":"viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam",
-    "img_url":"http://dummyimage.com/125x226.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"software",
-    "description":"quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse"
-  },
-  {  
-    "title":"homogeneous",
-    "description":"odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet",
-    "img_url":"http://dummyimage.com/183x221.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/167x247.png/dddddd/000000"
-  },
-  {  
-    "title":"disintermediate",
-    "description":"odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim",
-    "img_url":"http://dummyimage.com/108x215.png/cc0000/ffffff"
-  },
-  {  
-    "title":"clear-thinking",
-    "description":"ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque",
-    "img_url":"http://dummyimage.com/177x139.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/244x247.png/dddddd/000000"
-  },
-  {  
-    "title":"application",
-    "description":"morbi quis tortor id nulla ultrices aliquet maecenas leo odio",
-    "vid_url":"http://dummyimage.com/117x186.png/dddddd/000000"
-  },
-  {  
-    "title":"full-range",
-    "description":"libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi",
-    "img_url":"http://dummyimage.com/153x100.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/201x239.png/ff4444/ffffff"
-  },
-  {  
-    "title":"benchmark",
-    "description":"in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede",
-    "vid_url":"http://dummyimage.com/198x239.png/dddddd/000000"
-  },
-  {  
-    "title":"moderator",
-    "description":"mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec"
-  },
-  {  
-    "title":"analyzer",
-    "description":"justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse",
-    "vid_url":"http://dummyimage.com/182x130.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Customer-focused",
-    "description":"eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo",
-    "img_url":"http://dummyimage.com/163x238.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/224x199.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"capacity",
-    "description":"vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum",
-    "img_url":"http://dummyimage.com/130x243.png/dddddd/000000"
-  },
-  {  
-    "title":"Self-enabling",
-    "description":"sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla",
-    "img_url":"http://dummyimage.com/222x190.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/154x188.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Digitized",
-    "description":"quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer",
-    "img_url":"http://dummyimage.com/237x242.png/cc0000/ffffff"
-  },
-  {  
-    "title":"Graphic Interface",
-    "description":"lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum",
-    "img_url":"http://dummyimage.com/228x247.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/101x131.png/ff4444/ffffff"
-  },
-  {  
-    "title":"4th generation",
-    "description":"aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque",
-    "img_url":"http://dummyimage.com/231x159.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/130x165.png/cc0000/ffffff"
-  },
-  {  
-    "title":"modular",
-    "description":"amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem",
-    "img_url":"http://dummyimage.com/207x238.png/cc0000/ffffff",
-    "vid_url":"http://dummyimage.com/162x189.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"archive",
-    "description":"magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa",
-    "img_url":"http://dummyimage.com/144x244.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/145x182.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Digitized",
-    "description":"sit amet diam in magna bibendum imperdiet nullam orci pede venenatis",
-    "img_url":"http://dummyimage.com/113x165.png/cc0000/ffffff",
-    "vid_url":"http://dummyimage.com/170x223.png/cc0000/ffffff"
-  },
-  {  
-    "title":"Innovative",
-    "description":"convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio",
-    "img_url":"http://dummyimage.com/156x239.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Future-proofed",
-    "description":"sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus",
-    "img_url":"http://dummyimage.com/103x147.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Public-key",
-    "description":"turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem",
-    "vid_url":"http://dummyimage.com/230x146.png/dddddd/000000"
-  },
-  {  
-    "title":"projection",
-    "description":"maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis"
-  },
-  {  
-    "title":"Polarised",
-    "description":"augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel",
-    "img_url":"http://dummyimage.com/216x115.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/133x230.png/dddddd/000000"
-  },
-  {  
-    "title":"local area network",
-    "description":"varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt",
-    "img_url":"http://dummyimage.com/230x154.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/146x134.png/ff4444/ffffff"
-  },
-  {  
-    "title":"global",
-    "description":"nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis",
-    "img_url":"http://dummyimage.com/225x195.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/153x115.png/cc0000/ffffff"
-  },
-  {  
-    "title":"matrix",
-    "description":"massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor",
-    "img_url":"http://dummyimage.com/143x114.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/222x169.png/ff4444/ffffff"
-  },
-  {  
-    "title":"asynchronous",
-    "description":"tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce",
-    "img_url":"http://dummyimage.com/194x199.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/234x107.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Graphic Interface",
-    "description":"mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum",
-    "img_url":"http://dummyimage.com/195x208.png/cc0000/ffffff",
-    "vid_url":"http://dummyimage.com/135x222.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Triple-buffered",
-    "description":"nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in",
-    "img_url":"http://dummyimage.com/207x162.png/ff4444/ffffff"
-  },
-  {  
-    "title":"secured line",
-    "description":"imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris",
-    "vid_url":"http://dummyimage.com/150x172.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"clear-thinking",
-    "description":"metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim"
-  },
-  {  
-    "title":"high-level",
-    "description":"enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat",
-    "img_url":"http://dummyimage.com/164x150.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/150x197.png/cc0000/ffffff"
-  },
-  {  
-    "title":"dedicated",
-    "description":"duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea",
-    "img_url":"http://dummyimage.com/161x134.png/ff4444/ffffff"
-  },
-  {  
-    "title":"bifurcated",
-    "description":"fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante",
-    "img_url":"http://dummyimage.com/115x115.png/ff4444/ffffff"
-  },
-  {  
-    "title":"transitional",
-    "description":"blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit",
-    "img_url":"http://dummyimage.com/188x139.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/122x146.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"encompassing",
-    "description":"magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam",
-    "img_url":"http://dummyimage.com/135x143.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/188x189.png/dddddd/000000"
-  },
-  {  
-    "title":"zero administration",
-    "description":"lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat",
-    "vid_url":"http://dummyimage.com/197x183.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"project",
-    "description":"ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem",
-    "img_url":"http://dummyimage.com/210x246.png/dddddd/000000"
-  },
-  {  
-    "title":"Universal",
-    "description":"sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam",
-    "img_url":"http://dummyimage.com/231x152.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/225x206.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"artificial intelligence",
-    "description":"vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie",
-    "img_url":"http://dummyimage.com/220x144.png/ff4444/ffffff"
-  },
-  {  
-    "title":"software",
-    "description":"morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit",
-    "img_url":"http://dummyimage.com/228x112.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Business-focused",
-    "description":"leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec",
-    "img_url":"http://dummyimage.com/246x204.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"framework",
-    "description":"aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna",
-    "vid_url":"http://dummyimage.com/116x189.png/dddddd/000000"
-  },
-  {  
-    "title":"24/7",
-    "description":"in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel",
-    "img_url":"http://dummyimage.com/121x167.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/214x141.png/cc0000/ffffff"
-  },
-  {  
-    "title":"motivating",
-    "description":"libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in",
-    "vid_url":"http://dummyimage.com/144x151.png/dddddd/000000"
-  },
-  {  
-    "title":"De-engineered",
-    "description":"dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit",
-    "img_url":"http://dummyimage.com/189x210.png/dddddd/000000"
-  },
-  {  
-    "title":"human-resource",
-    "description":"et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue",
-    "img_url":"http://dummyimage.com/245x100.png/ff4444/ffffff"
-  },
-  {  
-    "title":"systematic",
-    "description":"ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget",
-    "img_url":"http://dummyimage.com/206x210.png/dddddd/000000"
-  },
-  {  
-    "title":"workforce",
-    "description":"ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum",
-    "img_url":"http://dummyimage.com/138x215.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/131x192.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Advanced",
-    "description":"tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit",
-    "vid_url":"http://dummyimage.com/241x132.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"project",
-    "description":"parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum",
-    "img_url":"http://dummyimage.com/242x199.png/dddddd/000000"
-  },
-  {  
-    "title":"help-desk",
-    "description":"turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas",
-    "img_url":"http://dummyimage.com/221x179.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/132x108.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Seamless",
-    "description":"eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec",
-    "img_url":"http://dummyimage.com/134x141.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/232x115.png/cc0000/ffffff"
-  },
-  {  
-    "title":"secured line",
-    "description":"dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non",
-    "img_url":"http://dummyimage.com/110x171.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/206x193.png/ff4444/ffffff"
-  },
-  {  
-    "title":"migration",
-    "description":"tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
-    "img_url":"http://dummyimage.com/162x149.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/131x127.png/dddddd/000000"
-  },
-  {  
-    "title":"Robust",
-    "description":"erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
-    "img_url":"http://dummyimage.com/164x212.png/cc0000/ffffff"
-  },
-  {  
-    "title":"mobile",
-    "description":"odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer",
-    "img_url":"http://dummyimage.com/200x141.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/211x162.png/cc0000/ffffff"
-  },
-  {  
-    "title":"Digitized",
-    "description":"aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum",
-    "img_url":"http://dummyimage.com/216x225.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/164x234.png/cc0000/ffffff"
-  },
-  {  
-    "title":"adapter",
-    "description":"elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum",
-    "img_url":"http://dummyimage.com/232x168.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/212x146.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"asymmetric",
-    "description":"fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea",
-    "img_url":"http://dummyimage.com/161x187.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/122x243.png/ff4444/ffffff"
-  },
-  {  
-    "title":"Universal",
-    "description":"vivamus in felis eu sapien cursus vestibulum proin eu mi",
-    "vid_url":"http://dummyimage.com/174x107.png/dddddd/000000"
-  },
-  {  
-    "title":"tertiary",
-    "description":"id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas",
-    "img_url":"http://dummyimage.com/106x169.png/ff4444/ffffff"
-  },
-  {  
-    "title":"empowering",
-    "description":"eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi",
-    "vid_url":"http://dummyimage.com/230x198.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"software",
-    "description":"nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea",
-    "vid_url":"http://dummyimage.com/153x210.png/dddddd/000000"
-  },
-  {  
-    "title":"Business-focused",
-    "description":"nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet",
-    "img_url":"http://dummyimage.com/245x141.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/141x163.png/dddddd/000000"
-  },
-  {  
-    "title":"task-force",
-    "description":"non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst",
-    "img_url":"http://dummyimage.com/232x200.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Customizable",
-    "description":"aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique",
-    "img_url":"http://dummyimage.com/191x148.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/219x250.png/dddddd/000000"
-  },
-  {  
-    "title":"artificial intelligence",
-    "description":"leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla",
-    "img_url":"http://dummyimage.com/119x197.png/ff4444/ffffff"
-  },
-  {  
-    "title":"well-modulated",
-    "description":"et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis",
-    "vid_url":"http://dummyimage.com/149x247.png/cc0000/ffffff"
-  },
-  {  
-    "title":"Self-enabling",
-    "description":"nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus",
-    "img_url":"http://dummyimage.com/111x190.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/160x190.png/dddddd/000000"
-  },
-  {  
-    "title":"context-sensitive",
-    "description":"lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec",
-    "img_url":"http://dummyimage.com/176x150.png/dddddd/000000"
-  },
-  {  
-    "title":"Profit-focused",
-    "description":"posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet",
-    "img_url":"http://dummyimage.com/111x196.png/dddddd/000000"
-  },
-  {  
-    "title":"next generation",
-    "description":"lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium"
-  },
-  {  
-    "title":"Seamless",
-    "description":"nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere",
-    "img_url":"http://dummyimage.com/141x159.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Synergistic",
-    "description":"molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus",
-    "img_url":"http://dummyimage.com/161x205.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Extended",
-    "description":"proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere",
-    "img_url":"http://dummyimage.com/127x193.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/100x186.png/ff4444/ffffff"
-  },
-  {  
-    "title":"object-oriented",
-    "description":"nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla",
-    "img_url":"http://dummyimage.com/199x179.png/5fa2dd/ffffff",
-    "vid_url":"http://dummyimage.com/151x186.png/ff4444/ffffff"
-  },
-  {  
-    "title":"fault-tolerant",
-    "description":"tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea",
-    "img_url":"http://dummyimage.com/226x104.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"heuristic",
-    "description":"massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla",
-    "vid_url":"http://dummyimage.com/180x174.png/dddddd/000000"
-  },
-  {  
-    "title":"clear-thinking",
-    "description":"vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus",
-    "vid_url":"http://dummyimage.com/216x220.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"3rd generation",
-    "description":"aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed",
-    "img_url":"http://dummyimage.com/178x208.png/ff4444/ffffff",
-    "vid_url":"http://dummyimage.com/187x137.png/ff4444/ffffff"
-  },
-  {  
-    "title":"definition",
-    "description":"dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie",
-    "vid_url":"http://dummyimage.com/108x212.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"core",
-    "description":"nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent",
-    "img_url":"http://dummyimage.com/158x152.png/dddddd/000000",
-    "vid_url":"http://dummyimage.com/227x226.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"needs-based",
-    "description":"orci pede venenatis non sodales sed tincidunt eu felis fusce",
-    "img_url":"http://dummyimage.com/146x153.png/cc0000/ffffff",
-    "vid_url":"http://dummyimage.com/227x233.png/5fa2dd/ffffff"
-  },
-  {  
-    "title":"Managed",
-    "description":"vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem",
-    "img_url":"http://dummyimage.com/201x111.png/5fa2dd/ffffff"
+[
+  {
+    "id": 5,
+    "title": "Inner-Range Quad Sitting",
+    "description": "Inner Range Quadriceps exercise helps strengthen the muscles around the knee.",
+    "img_url": "https://i.ytimg.com/vi/ZPt0HPDgNDw/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/ZPt0HPDgNDw?rel=0&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "title": "Heel Slides",
+    "description": "The heel slide is a mobility exercise to increase the range of knee flexion at the joint.",
+    "img_url": "https://i.ytimg.com/vi/skOauZ54MLU/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/skOauZ54MLU?rel=0&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 6,
+    "title": "Quadriceps Stretch",
+    "description": "The quadriceps exercise will help strengthen the quadriceps muscles resulting in increased flexibility, improved circulation, and reduced stress.",
+    "img_url": "https://i.ytimg.com/vi/DcRxNzNq8k4/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/DcRxNzNq8k4?list=PLQd_1G3_v4QBhhFEPgKhtcAmwj8qeqNxR&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "title": "Active Hamstrings",
+    "description": "Hamstring curls strengthen the muscles in the back of the thigh.",
+    "img_url": "https://i.ytimg.com/vi/z2YP70zLpbs/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/z2YP70zLpbs?rel=0&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "title": "Sitting Knee Flexion",
+    "description": "Knee flexion help increase the range of motion available at the joint.",
+    "img_url": "https://i.ytimg.com/vi/J0JGgic7lrc/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/J0JGgic7lrc?rel=0&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 1,
+    "title": "Active Knee Extension",
+    "description": "Knee extension strengthens muscles in front of thigh and shin. Lie supine on mat and bend knee at right angle.",
+    "img_url": "https://i.ytimg.com/vi/3f1k1huhRgI/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/3f1k1huhRgI?rel=0&amp;showinfo=0",
+    "created_at": "2016-11-29 22:00:00-05",
+    "updated_at": "2016-11-29 22:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 7,
+    "title": "Calf Raise Step Up",
+    "description": "This exercise helps strengthen the cold muscles and lower leg.",
+    "img_url": "https://i.ytimg.com/vi/j-2jowM4JLA/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/j-2jowM4JLA?rel=0&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 8,
+    "title": "Passive Knee Bend",
+    "description": "This exercise helps improve mobility in a stiff knee joint.",
+    "img_url": "https://i.ytimg.com/vi/yzgdhSGhNCY/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/yzgdhSGhNCY?list=PLQd_1G3_v4QBhhFEPgKhtcAmwj8qeqNxR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 11,
+    "title": "VMO Split Squat",
+    "description": "This exercise helps strengthen the lower body and improve knee stability.",
+    "img_url": "https://i.ytimg.com/vi/LBfYKQyf-i8/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/LBfYKQyf-i8?list=PLQd_1G3_v4QBhhFEPgKhtcAmwj8qeqNxR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 12,
+    "title": "VMO Adductor Strengthening",
+    "description": "This exercise helps strengthen the muscle surrounding the kneecap and stabilize the patella.",
+    "img_url": "https://i.ytimg.com/vi/mNPabW3n-nw/maxresdefault.jpg",
+    "vid_url": "https://i.ytimg.com/vi/mNPabW3n-nw/maxresdefault.jpg",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 13,
+    "title": "Hip Flexion Lying",
+    "description": "This exercise helps mobilize the hip joint and strengthen the hip flexor muscles.",
+    "img_url": "https://i.ytimg.com/vi/a6OPHJaEfXA/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/a6OPHJaEfXA?list=PLQd_1G3_v4QAU05XME2Lnb29U6-MRxVoR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 14,
+    "title": "Leg Lift Glute Strengthen",
+    "description": "This exercise predominantly strengthens the gluteal (buttock) muscles the and lower back muscles on the side you are lifting.",
+    "img_url": "https://i.ytimg.com/vi/QsTf8NVXavA/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/QsTf8NVXavA?list=PLQd_1G3_v4QAU05XME2Lnb29U6-MRxVoR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 15,
+    "title": "Flexion Arm Lift",
+    "description": "This exercise will help mobilize elbow joint.",
+    "img_url": "https://i.ytimg.com/vi/YAsXd45FmGo/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/YAsXd45FmGo?list=PLQd_1G3_v4QANlf3oCpvv3lmHwUNdwo54&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 16,
+    "title": "Elbow Flexion Standing",
+    "description": "This exercise will help mobilize elbow joint.",
+    "img_url": "https://i.ytimg.com/vi/1lQ_CkpZnZM/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/1lQ_CkpZnZM?list=PLQd_1G3_v4QDcZJJogp68nRBKaXaTCUnW&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 17,
+    "title": "Full Flexion Sit Up",
+    "description": "This exercise will help strengthen the abdominal muscles.",
+    "img_url": "https://i.ytimg.com/vi/dRXD6HeWnAc/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/dRXD6HeWnAc?list=PLQd_1G3_v4QB6ONQ7QnXZdztSfOIek95v&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 18,
+    "title": "Upper Back Flexion",
+    "description": "This exercise will help restore flexibility to the back muscles.",
+    "img_url": "https://i.ytimg.com/vi/91pz6GCLUA0/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/91pz6GCLUA0?rel=0&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 19,
+    "title": "Double Leg Back Stretch",
+    "description": "This exercise will engage the abdominals and the muscles of the lower back.",
+    "img_url": "https://i.ytimg.com/vi/ZEz80zvkUv4/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/ZEz80zvkUv4?rel=0&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 20,
+    "title": "Back Extension",
+    "description": "This exercise will help strengthen and stretch the back muscles.",
+    "img_url": "https://i.ytimg.com/vi/9ceFn3bH5ls/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/9ceFn3bH5ls?rel=0&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 2,
+    "status": "active"
+  },
+  {
+    "id": 9,
+    "title": "Football Kick for Knee",
+    "description": "This exercise helps strengthen the cold muscles and lower leg.",
+    "img_url": "https://i.ytimg.com/vi/tjWQqQ4Vd3g/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/tjWQqQ4Vd3g?list=PLQd_1G3_v4QBhhFEPgKhtcAmwj8qeqNxR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
+  },
+  {
+    "id": 10,
+    "title": "Hamstring Curl (band)",
+    "description": "This exercise helps strengthen hamstring muscle group.",
+    "img_url": "https://i.ytimg.com/vi/Szqs9oL6QVU/maxresdefault.jpg",
+    "vid_url": "https://www.youtube.com/embed/Szqs9oL6QVU?list=PLQd_1G3_v4QBhhFEPgKhtcAmwj8qeqNxR&amp;showinfo=0",
+    "created_at": "2016-12-01 07:00:00-05",
+    "updated_at": "2016-12-01 07:00:00-05",
+    "therapist_id": 1,
+    "status": "active"
   }
 ]

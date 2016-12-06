@@ -30,14 +30,14 @@ const Treatment = require('../../db/models/treatment')
 // add new workout to a patient's plan
 router.post('/', (req, res, next) => {
   Workout.create({
-    treatment_id: req.body.treatmentId,
-    plan_id: req.plan.id,
-    patient_id: req.patientId,
-    created_at: new Date(),
-    time_per_exercise: req.body.time,
-    pain: req.body.pain,
-    comments: req.body.comments
-  })
+      treatment_id: req.body.treatmentId,
+      plan_id: req.plan.id,
+      patient_id: req.patientId,
+      created_at: new Date(),
+      time_per_exercise: req.body.time,
+      pain: req.body.pain,
+      comments: req.body.comments
+    })
     .then(createdWorkout => {
       res.status(201).json(createdWorkout)
     })

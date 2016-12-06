@@ -6,7 +6,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 import { daysBetween, painEmoji } from '../../utils'
 import { active } from '../colors'
 
-// Returns a random number between input range 
+// Returns a random number between input range
 const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // Create array of fake treatment data for the past 7 days
