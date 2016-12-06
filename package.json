@@ -88,6 +88,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.x",
     "supertest": "^2.0.1",
+    "svg-react-loader": "^0.3.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.15.x",

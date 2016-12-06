@@ -7,6 +7,7 @@ import { logWorkout } from '../../reducers/plan'
 import { Paper } from 'material-ui'
 import { StepsActionButton, StepsTextField, StepsRaisedButton, StepsIconButton } from '../material-style'
 import { secondary, errorText } from '../colors'
+import { painEmoji } from '../../utils'
 
 import Close from 'material-ui/svg-icons/navigation/close'
 import PlayCircleOutline from 'material-ui/svg-icons/av/play-circle-outline'
@@ -141,7 +142,7 @@ class Counter extends Component {
                   tooltip={`${painLevels[key]} Pain`}
                   tooltipPosition="bottom-center"
                   onTouchTap={ () => this.onPainClick(key) } >
-                  <img src={require(`../../../src/images/emojis/${key}pain.svg`)} />
+                    { painEmoji(key) }
                 </StepsIconButton>
               ))
             }
