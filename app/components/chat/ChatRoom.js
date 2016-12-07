@@ -119,7 +119,7 @@ export class ChatRoom extends Component {
         <Helmet title='Chat' />
           <Paper
             className='chatroom'
-            style={{ height: '90%' }}>
+            style={{ height: '100%' }}>
             <Notifications notifications={ this.state.notifications } />
             <Messages messages={ this.state.messages } />
             <Messenger

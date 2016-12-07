@@ -6,8 +6,8 @@ export default (props) => {
   const { messages } = props
 
   return (
-    <div>
-        <ul id='messages'>
+    <div className="messages-wrapper">
+        <ul>
         { messages.map((message) => (
             <div key={ message.id } className="message">
               <li className={ message.align }>
