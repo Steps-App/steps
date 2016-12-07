@@ -1,6 +1,10 @@
 @import "colors";
 @import "screens";
 
+#patient-list {
+  width: 100%;
+}
+
 // remove and add patient buttons
 .ptbutton {
   margin-bottom: 10px;

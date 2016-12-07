@@ -51,15 +51,16 @@ hr {
 
 #new-patient {
   width: 100%;
-
   #cancel {
     width: 30vh;
     background-color : $error-text !important;
   }
-
   #cancelAdd {
     margin-right: 6vh;
   }
+}
+#account-info {
+  width: 100%;
 }
 
 // Page Headers
