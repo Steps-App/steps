@@ -51,6 +51,7 @@
 
 .messages-wrapper {
   height: calc(100% - 85px);
+  min-height: 550px;
   > ul {
     list-style-type: none;
     margin: 0;
@@ -76,6 +77,9 @@
         }
       }
     }
+  }
+  @media (max-width: $sm) {
+    min-height: 400px;
   }
 }
 
