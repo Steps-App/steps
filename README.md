@@ -4,6 +4,17 @@ _Physical therapy for the way you live today_
 
 Steps is a web application built to enhance the physical therapy experience from all angles. For patients, it provides an informative and engaging portal to help you better understand how to perform your exercises and your recovery progress. On the therapist side, the platform eases the process of creating patients' plans and managing their recovery process.
 
+We encourage you to expore our [live demo](https://steps-app.herokuapp.com/) with the following users:  
+
+**Therapist**  
+Username: mcdreamy@steps.com  
+Password: 1234  
+
+**Patient**  
+Username: amanda@gmail.com  
+Password: 1234 
+
+
 ## Table of Contents
 - [Steps](#steps)
   * [Table of Contents](#table-of-contents)
