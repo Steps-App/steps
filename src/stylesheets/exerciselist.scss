@@ -1,30 +1,14 @@
 @import "colors";
+@import "screens";
 
 #exercise-list{
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+
   hr {
     border-top: 1px solid $toolbar;
     width: 100%
-  }
-  .exercise-row {
-    img {
-      width: 13em;
-      height: 8em;
-    }
-    .exercise-data {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      h3 {
-        margin: 0;
-      }
-      .info-item{
-          padding-top: 10px;
-      }
-    }
   }
 }
 
@@ -52,6 +36,7 @@
 .add-exercise-form {
   padding: 0 15px;
 }
+
 .add-exercise-buttons {
   display: flex;
   justify-content: center;
@@ -68,4 +53,44 @@
   padding-bottom: 10px;
   text-align: center;
   color: $error-text;
+}
+
+.exercise {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.exercise-rows {
+  #exercise-img {
+    padding: 10px;
+    width: 25%;
+  }
+  #exercise-info {
+    padding: 10px;
+    width: 35%;
+  }
+  #exercise-remove {
+    padding: 10px;
+  }
+}
+
+@media (max-width: $lg) {
+
+.exercise {
+  flex-direction: column;
+}
+
+.exercise-rows {
+  #exercise-img {
+    width: 100%;
+  }
+  #exercise-info {
+    width: 100%;
+  }
+  #exercise-remove {
+    display: none;
+  }
+}
+
 }
