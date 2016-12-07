@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 //Material UI
-import { StepsTextField, StepsRaisedButton, StepsTabs, StepsTab } from '../material-style.js'
-import { tabs, errorText } from '../colors'
+import { StepsTextField, StepsRaisedButton, StepsFlatButton, StepsTabs, StepsTab } from '../material-style.js'
+import { tabs, primary, background, secondary, errorText } from '../colors'
 const buttonStyle = { marginTop: '1em', marginBottom: '1.5em' };
 
 //Import Dispatachers
@@ -25,6 +25,7 @@ export class Signin extends Component {
   }
     
   handleChange(field, value) {
+    console.log('hereee')
     let newState = {};
     newState[field] = value
     this.setState(newState);
@@ -59,14 +60,39 @@ export class Signin extends Component {
           onActive={(el) => this.handleChange('tab', el.props.value)} >
           <div style={{ padding: '0 15px', borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: tabs }}>
             <form style={{ textAlign: 'center' }} onSubmit={ this.handleSubmit } >
+              <div className="demo-buttons">
+                <StepsFlatButton
+                  label="Demo Therapist"
+                  backgroundColor ={ background }
+                  textColor={ primary }
+                  hoverColor={ secondary }
+                  fullWidth={ true }
+                  onTouchTap={() => {
+                    console.log('sdfdsfs')
+                    this.handleChange("email", 'mcdreamy@steps.com')
+                    this.handleChange("password", '1234')
+                  }} />
+                <StepsFlatButton
+                  label="Demo Patient"
+                  backgroundColor ={ background }
+                  textColor={ primary }
+                  hoverColor={ secondary }
+                  fullWidth={ true }
+                  onTouchTap={() => {
+                    this.handleChange("email", 'amanda@gmail.com')
+                    this.handleChange("password", '1234')
+                  }} />
+              </div>
               <StepsTextField
                 floatingLabelText="Email"
                 type = 'email'
                 fullWidth={true}
+                value={ this.state.email }
                 onChange={(evt) => this.handleChange("email", evt.target.value) } />
               <StepsTextField
                 floatingLabelText="Password"
                 type = 'password'
+                value={ this.state.password }
                 fullWidth={true}
                 onChange={(evt) => this.handleChange("password", evt.target.value) } />
               <span className="error-message">{ this.login_error }</span>

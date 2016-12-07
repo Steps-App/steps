@@ -62,7 +62,7 @@ export const StepsFlatButton = props => (
   <FlatButton
     label={ props.label }
     labelStyle={{ color: props.textColor, padding: 0, transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms' }}
-    hoverColor={ props.backgroundColor }
+    hoverColor={ props.hoverColor ? props.hoverColor : props.backgroundColor }
     disableFocusRipple={ true }
     disableTouchRipple={ true }
     { ...props}

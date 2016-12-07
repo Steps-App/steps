@@ -134,6 +134,31 @@
     > .signup-form {
       max-width: 450px;
       margin: 30px 0 20px 0;
+      .demo-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 10px;
+        > button {
+          padding: 0 10px !important;
+          &:hover {
+            background-color: $secondary !important;
+            span { // button text on hover
+              color: $text-light !important;
+            }
+          }
+        }
+      }
+      @media (max-width: $md) {
+        padding: 0 10px;
+      }
+      @media (max-width: $sm) {
+        .demo-buttons {
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+
     }
     @media (max-width: $lg) {
       flex-direction: column;
@@ -148,11 +173,6 @@
           .intro-heading {
             font-size: 25px;
           }
-        }
-      }
-      > .signup-form {
-        @media (max-width: $md) {
-          padding: 0 10px;
         }
       }
     }
