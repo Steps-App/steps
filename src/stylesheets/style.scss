@@ -41,7 +41,8 @@ body,html {
   display: flex;
   justify-content: center;
   @media (max-width: $sm) {
-    padding-top: 1em;
+    padding-top: 10px;
+    padding-bottom: 66px;
   }
 }
 
