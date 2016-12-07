@@ -5,27 +5,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+
   hr {
     border-top: 1px solid $toolbar;
     width: 100%
-  }
-  .exercise-row {
-    img {
-      width: 13em;
-      height: 8em;
-    }
-    .exercise-data {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      h3 {
-        margin: 0;
-      }
-      .info-item{
-          padding-top: 10px;
-      }
-    }
   }
 }
 
@@ -53,6 +36,7 @@
 .add-exercise-form {
   padding: 0 15px;
 }
+
 .add-exercise-buttons {
   display: flex;
   justify-content: center;
@@ -71,42 +55,44 @@
   color: $error-text;
 }
 
-tr.exercise-row {
-   height: 100% !important ;
+.exercise {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.exercise-rows {
+  #exercise-img {
+    padding: 10px;
+    min-width: 25%;
+    max-width: 35%;
+  }
+  #exercise-info {
+    padding: 10px;
+    width: 35%;
+  }
+  #exercise-remove {
+    padding: 10px;
+  }
 }
 
-td.img-col {
-  padding-bottom: 1em;
-  padding-top: 1em;
-  width: 15em;
+@media (max-width: $lg) {
+
+.exercise {
+  flex-direction: column;
 }
 
-@media (max-width: $md) {
-
-  .mobile_table {
+.exercise-rows {
+  #exercise-img {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  #exercise-info {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-    border-spacing: 0;
   }
-
-
-  //forces table to not act like a table/
-  .mobile_table td {
-    display: block;
-    padding: 4%;
-  }
-
-  .mobile_table tr.exercise-row {
-    td {
-      height: 100% !important;
-    }
+  #exercise-remove {
+    display: none;
   }
 }
 
-
-
-
- 
-
+}
