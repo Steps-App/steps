@@ -33,15 +33,11 @@ export class ExerciseList extends Component {
   }
 
   dialogClose(){
-    this.setState({confirmOpen: false});
-    this.setState({exerciseId : ""});
-    this.setState({userId : ""});
+    this.setState({confirmOpen: false, exerciseId : "", userId : ""});
   }
 
   dialogOpen(userId,exerciseId){
-    this.setState({confirmOpen: true});
-    this.setState({exerciseId : exerciseId});
-    this.setState({userId : userId});
+    this.setState({confirmOpen: true, exerciseId : exerciseId, userId : userId });
   }
 
 render() {
@@ -66,7 +62,7 @@ render() {
           else return 0;
         }).map( exercise =>
           <TableRow key={ exercise.id } selectable={false} className="exercise-row">
-            <TableRowColumn className="img_col">
+            <TableRowColumn className="img-col">
               <img src={exercise.img_url}></img>
             </TableRowColumn>
             <TableRowColumn style={{wordWrap: 'break-word', whiteSpace: 'normal'}} >
