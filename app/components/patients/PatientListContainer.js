@@ -78,7 +78,7 @@ export class PatientList extends Component {
   render() {
     const { patients } = this.props;
     return (
-      <div id="patient-list" className="col-xs-12">
+      <div id="patient-list">
         <Helmet title="Patients" />
         <h1 className="page-header">Patient List</h1>
         <div className='row'>

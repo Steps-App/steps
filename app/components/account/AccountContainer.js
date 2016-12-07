@@ -13,7 +13,7 @@ import moment from 'moment';
 // -=-=-=-=-=-= COMPONENT =-=-=-=-=-=-
 
 const AccountInfo = ({ user }) => (
-  <div id="account-info" className="col-xs-12" > 
+  <div id="account-info"> 
     <Helmet title="Account Info" />
       <h1 className="page-header">Account Info</h1>
       <Paper style={{ backgroundColor: background, padding:'15px' }} zDepth={2} rounded={false} >

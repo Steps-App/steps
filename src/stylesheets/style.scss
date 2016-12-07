@@ -40,6 +40,9 @@ body,html {
   padding-top: 5em;
   display: flex;
   justify-content: center;
+  @media (max-width: $sm) {
+    padding-top: 1em;
+  }
 }
 
 hr {
