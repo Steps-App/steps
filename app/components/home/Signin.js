@@ -25,7 +25,6 @@ export class Signin extends Component {
   }
     
   handleChange(field, value) {
-    console.log('hereee')
     let newState = {};
     newState[field] = value
     this.setState(newState);
@@ -68,7 +67,6 @@ export class Signin extends Component {
                   hoverColor={ secondary }
                   fullWidth={ true }
                   onTouchTap={() => {
-                    console.log('sdfdsfs')
                     this.handleChange("email", 'mcdreamy@steps.com')
                     this.handleChange("password", '1234')
                   }} />
